@@ -1,0 +1,268 @@
+<html lang="en">
+    <head>
+
+        <!-- Meta Tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Title -->
+        <title>Mathar</title>
+
+        <!--==========================
+START CSS FILES
+==========================-->
+        <!-- this line fixes favicon error -->
+        <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+        <!-- happiness Lib -->
+        <link play='https://www.youtube.com/watch?v=0Gkhol2Q1og' style='loop: true;'>
+        <!-- Bootstrap Lib -->
+        <link rel="stylesheet" href="./resources/bootstrap.min.css">
+        <!-- Data Table Lib -->
+        <link rel="stylesheet" href="./resources/datatables.min.css">
+        <!-- Row Record -->
+        <link rel="stylesheet" href="resources/rowReorder.dataTables.min.css">
+        <!-- Our Css Main File -->
+        <link rel="stylesheet" href="./resources/style.css">
+        <!-- taoster - notifications  -->
+        <link href="./resources/toastr.min.css" rel="stylesheet"/>
+        <!--==========================
+END CSS FILES
+==========================-->
+
+    </head>
+    <body>
+        <!--==========================
+START PRELOADER
+==========================-->
+        <div class="se-pre-con"></div>
+        <!--==========================
+END PRELOADER
+==========================-->
+
+        <div class="tabs-container">
+            <ul class="tabs">
+                <li class="active">
+                    <a href=""><span class='tapText'>جدول المسائل</span></a>
+                </li>
+                <li>
+                    <a href=""><span class='tapText'>جدول المختارات</span></a>
+                </li>
+                <li>
+                    <a href=""><span class='tapText'>المعاينة</span></a>
+                </li>
+                <li>
+                    <a href=""><span class='tapText'>الإعدادات</span></a>
+                </li>
+            </ul>
+            <div class="tabs-content">
+                <div class="tabs-panel active" data-index="0">
+
+                    <table id="full_table" class="display table table-bordered" style="width:100%"></table>
+
+                </div>
+                <div class="tabs-panel" data-index="1">
+
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <button id="clear_table_2" class="btn_2 icon-remove">تفريغ</button>
+                            <button id="collect_data_t2" class="btn_2 icon-star-2">تكوين</button>
+                        </div>
+                    </div>
+                    <table id="emptyTable" class="display table table-bordered" style="width:100%"> </table>  
+
+                </div>
+                <div class="tabs-panel" data-index="2">
+
+                    <div class="not_yet">
+                        <h1>لم يتم تكوين مسائل بعد</h1>
+                    </div>
+
+                    <div id='Tap3_loader_container' style='display: none;'>
+                        <div class="Tap3_loader"></div>
+                        <h4>إنتظر...جارى التكوين</h4>
+                    </div>
+
+                    <!-- image-->
+                    <div class="zoomer"> <!--= container: made to make a backgroud-color  =-->
+                        <div id="wheelzoom.exe"></div> <!--= the image container =-->
+                    </div>
+                    <!-- Buttons -->
+                    <div class="row2">
+                        <div class="col-12 text-center">
+                            <button id="saveImage" class="btn_2 icon-file" style='display: none;'>فتح مكان الحفظ</button>
+                            <button id="ToggleImages" class="btn_2 icon-star-2" style='display: none;'>أظهر الإجابة</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="tabs-panel" data-index="3">
+                    <div class="container">
+                                <div class="grid">
+                                    <h3>عام</h3>
+                                    <div class='line'></div>
+                                    <div class="form-item" title='.نوع الخط المستخدم فى كتابة المسائل'>
+                                        <div class="form-item__control">
+                                            <select class="control control--select">
+                                                <option selected="selected">Bahij Yakout</option>
+                                                <option>Arial</option>
+                                                <option>Diwan</option>
+                                                <option>Traditional</option>
+                                            </select>
+                                        </div>
+                                        <label class="form-item__label">:نوع الخط</label>
+                                    </div>
+                                    <div class='line'></div>
+                                    <div class="form-item" title='.حجم الخط المستخدم فى كتابة المسائل'>
+                                        <div class="form-item__control">
+                                            <input class='settingsInput' type="number" min="40" max="100" value="70" required="">
+                                        </div>
+                                        <label class="form-item__label">:حجم الخط</label>
+                                    </div>
+                                    <div class='line'></div>
+                                    <div class="form-item" title='.عدد الأوراق المطلوب تكوينها من المسائل المختارة عند الضغط على زر تكوين فى نافذة المختارات'>
+                                        <div class="form-item__control">
+                                            <input class='settingsInput' type="number" min="1" max="250" value="1" required="">
+                                        </div>
+                                        <label class="form-item__label">:عدد الأوراق</label>
+                                    </div>
+                                    <div class='line'></div>  
+                                    <div class="form-item" title='.(ينصح به) ترتيب عشوائى للمسائل المختارة فى كل ورقة يتم تكوينها'>
+                                        <div class="form-item__control">
+                                            <input type="checkbox" id="switch1"><label for="switch1"></label>
+                                        </div>
+                                        <label class="form-item__label">:ترتيب عشوائى</label>
+                                    </div>
+                                    <div class='line'></div>
+                                    <div class="form-item">
+                                        <div class="form-item__control">
+                                            <input type="checkbox" id="switch2"><label for="switch2"></label>
+                                        </div>
+                                        <label class="form-item__label">:علامة مائية</label>
+                                    </div>
+                                    <div class='line'></div>
+                                    <div id='watermark_op' class="form-item" style="display:none;" title='.العلامة المائية هى نص مختار يظهر فى خلفية ورقة الاسئلة'>
+                                        <div class="form-item__control">
+                                            <input>
+                                        </div>
+                                        <label class="form-item__label">:العلامة مائية</label>
+                                    </div>
+                                    <div class='line'></div>
+                                    <h3>جدول</h3>
+                                    <div class='line'></div>
+                                    <div class="form-item" title='.تفعيل هذا الخيار يمكنك بتكبير المسائل فى نافذة جدول المسائل لرؤيتها بشكل اكبر'>
+                                        <div class="form-item__control">
+                                            <input type="checkbox" id="switch4"><label for="switch4"></label>
+                                        </div>
+                                        <label class="form-item__label">:تكبير المسائل</label>
+                                    </div>
+                                    <div class='line'></div>
+                                    <h3>الآلوان</h3>
+                                    <div class='line'></div>
+                                    <div class="form-item" title='لون العناوين الرئيسية بالخط الكبير'>
+                                        <div class="form-item__control">
+                                            <div class='parentCP'>
+                                                <input class='settingsInput' type="color" value="#000000">
+                                            </div>
+                                        </div>
+                                        <label class="form-item__label">:لون رئيسى</label>
+                                    </div>
+                                    <div class='line'></div>
+                                    <div class="form-item" title='لون المسائل'>
+                                        <div class="form-item__control">
+                                            <div class='parentCP'>
+                                                <input class='settingsInput' type="color" value="#000000">
+                                            </div>
+                                        </div>
+                                        <label class="form-item__label">:لون ثانوى</label>
+                                    </div>
+                                    <div class='line'></div>
+                                    <div class="form-item" title='لون الإجابات'>
+                                        <div class="form-item__control">
+                                            <div class='parentCP'>
+                                                <input class='settingsInput' type="color" value="#000000">
+                                            </div>
+                                        </div>
+                                        <label class="form-item__label">:لون هامشى</label>
+                                    </div>
+                                    <div class='sfooter'>
+                                        <button class="save_setting">حفظ الإعدادات</button>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <!--==========================
+START SETTING MODAL
+==========================-->
+        <div id='settings' class="setting_modal_btn">
+            <button href="#" class="icon-cog" data-toggle="modal" data-target="#basicModal"></button>
+        </div>
+
+        <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close mr-auto" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">الإعدادات</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="save_setting">soon</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--==========================
+END SETTING MODAL
+==========================-->
+
+
+
+        <!--==========================
+START JS SCRIPTS
+==========================-->
+        <!-- JS&Python ACCESS - [[RadioActive]]/[[DON'T REMOVE]] -->
+        <script type="text/javascript" src="./eel.js"></script>
+        <!-- jQuery Lib -->
+        <script src="./resources/jquery.min.js"></script> 
+        <!-- Bootstrap Lib -->
+        <script src="./resources/bootstrap.bundle.min.js"></script>
+        <!-- dataTables - Data Table lib -->
+        <script src="./resources/jquery.dataTables.js"></script>
+        <!-- dataTables - Row reorder -->
+        <script src="./resources/dataTables.rowReorder.min.js"></script>
+        <!-- Zooming Img Plugin -->
+        <script src="./resources/openseadrag/openseadragon.min.js"></script>
+        <!-- lazy load for images Plugin -->
+        <script src="./resources/lozad.min.js"></script>
+        <!-- toastr - notifications -->
+        <script src="./resources/toastr.min.js"></script>
+        <!-- serializer - collect user inputs of forms -->
+        <script src="./resources/jquery.serializejson.min.js"></script>
+        <!-- Our Main Js file -->
+        <script src="./resources/main.js"></script>
+        <!-- Backend Js file -->
+        <script src="./resources/backend.js"></script>
+        <!-- Sweet Alert -->
+        <script src="resources/sweetalert.js"></script>
+
+        <!--==========================
+END JS SCRIPTS
+==========================-->
+
+    </body>
+</html>
