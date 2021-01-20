@@ -280,10 +280,6 @@ a {
     content: "\e00f";
 }
 
-.icon-star-2:before {
-    content: "\e00c";
-}
-
 .btn_1.icon-remove:before {
     font-size: 15px;
 }
@@ -298,8 +294,7 @@ a {
 }
 
 .btn_1:before,
-.icon-plus:after,
-.btn_2:before {
+.icon-plus:after {
     font-family: 'icomoon';
     font-style: normal;
     font-weight: normal;
@@ -495,11 +490,12 @@ table.dataTable {
     position: relative;
     background: #17cc8e;
     color: #fff;
-    padding: 20px 40px 20px 100px;
+    padding: 15px 50px 15px 50px;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
-    border-radius: .3rem
+    border-radius: .3rem;
+    box-shadow: 0.1rem 0.2rem 0.3rem #0db37926;
 }
 
 .btn_2:disabled {
@@ -511,22 +507,13 @@ table.dataTable {
     top: 1px;
 }
 
-.btn_2:before {
-    position: absolute;
-    height: 100%;
-    left: 0;
-    top: 0;
-    line-height: 3.1;
-    font-size: 120%;
-    width: 60px;
-}
+
 
 .btn_2:hover {
     background: #09d991;
+    box-shadow: 0.1rem 0.2rem 0.3rem lightgrey;
 }
-.btn_2:before {
-    background: rgba(0,0,0,0.05);
-}
+
 
 
 /*-----------------------------------------------------------------------

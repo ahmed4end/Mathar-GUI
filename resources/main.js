@@ -238,7 +238,7 @@ $(document).ready(function(){
             { 
              "targets": 3,
              "data": 3,
-             "title": "<img src='./resources/reference.png'>"
+             "title": "<img src='./resources/tables/reference.png'>"
         }],
 
     });
