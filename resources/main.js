@@ -128,7 +128,7 @@ $(document).ready(function(){
         { 
              "targets": 3,
              "data": 3,
-             "title": "<img style='height:25px;width:25px;' src='./resources/reference.png'>"
+             "title": "<img style='height:25px;width:25px;' src='./resources/tables/reference.png'>"
         }], 
         "lengthChange":true,
         "paging":true,

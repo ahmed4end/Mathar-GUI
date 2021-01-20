@@ -280,6 +280,10 @@ a {
     content: "\e00f";
 }
 
+.icon-star-2:before {
+    content: "\e00c";
+}
+
 .btn_1.icon-remove:before {
     font-size: 15px;
 }
@@ -524,74 +528,37 @@ table.dataTable {
     background: rgba(0,0,0,0.05);
 }
 
-.icon-star-2:before {
-    content: "\e00c";
-}
-
-.icon-file:before {
-    content: "\e004";
-    font-family: 'icomoon';
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    -webkit-font-smoothing: antialiased;
-}
-
-.icon-cog:before {
-    content: "\e010";
-    font-family: 'icomoon';
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    -webkit-font-smoothing: antialiased;
-}
 
 /*-----------------------------------------------------------------------
 07. END ZOOMING IMG
 -----------------------------------------------------------------------*/
 
-/*-----------------------------------------------------------------------
-08. START SETTING MODAL
------------------------------------------------------------------------*/
 
-.setting_modal_btn {
+.about {
     position: fixed;
-    top: 0px;
-    right: 5px;
+    top: 20px;
+    right: 20px;
     z-index: 2111;
 }
 
-.setting_modal_btn button {
-    background: transparent;
-    color: #fff;
+.about-btn {
+    background: none;
     border: none;
-    width: 64px;
-    height: 64px;
-    font-size: 25px;
 }
 
-/* Modal Style */
-.modal {
-    z-index: 3050;
+.about-btn:hover {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
 }
 
-.modal-header h4 {
-    color: #183a56;
-    font-weight: 600;
+.about-icon {
+    height: 30px;
+    width: 30px;
+    display: block;
 }
 
-.modal-header button {
-    color: #183a56;
-    font-weight: 600;
-}
-
-.modal-header .close {
-    padding: 0;
-    margin: 0;
-    opacity: 0.9;
-}
 
 /* Settings */ 
 
@@ -665,8 +632,8 @@ table.dataTable {
 }
 
 .form-item__control input:checked + label:after {
-	right: calc(100% - 65px);
-	transform: translateX(-100%);
+	right: calc(100% - 5px);
+	transform: translateX(+100%);
 }
 
 .form-item__control label:active:after {
@@ -773,45 +740,6 @@ select {
     border-radius: .3rem;
 }
 
-.save_setting:hover {
-    background: #09d991;
-}
-/* center save button */
-.modal-footer {
-    display: flex;
-    justify-content: center;
-}
-
-/* rotate settings icon  when hover */
-
-#settings:hover {
-    animation-name: rotate; 
-    animation-duration: 3s; 
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-out;
-}
-
-@keyframes rotate {
-    from {transform: rotate(0deg);}
-    to {transform: rotate(360deg);}
-}
-/*-----------------------------------------------------------------------
-08. END SETTING MODAL
------------------------------------------------------------------------*/
-
-/*-----------------------------------------------------------------------
-09. START ALERTS
------------------------------------------------------------------------*/
-
-
-/*-----------------------------------------------------------------------
-09. END ALERTS
------------------------------------------------------------------------*/
-
-/*-----------------------------------------------------------------------
-AHMED4CSS entered
------------------------------------------------------------------------*/
-/* table options stuff */
 
 
 /* disable text selection*/
@@ -820,80 +748,6 @@ AHMED4CSS entered
 }
 
 
-/*-----------------------------------------------------------------------
-AHMED4CSS exits
------------------------------------------------------------------------*/
-/*-----------------------------------------------------------------------
-START HELPER CLASSES
------------------------------------------------------------------------*/
-
-.mb-30 {
-    margin-bottom: 30px;
-}
-
-.pl_fix {
-    padding-left: 5px;
-}
-
-.pr_fix {
-    padding-right: 5px;
-}
-
-.pl_big_fix {
-    padding-left: 310px;
-}
-
-.pl_fix_2 {
-    padding-left: 278px;
-}
-
-.pl_fix_3 {
-    padding-left: 73px;
-}
-
-.pl_fix_4 {
-    padding-left: 61px;
-}
-
-/*-----------------------------------------------------------------------
-AHMED4CSS exits
------------------------------------------------------------------------*/
-
-/*-----------------------------------------------------------------------
-START HELPER CLASSES
------------------------------------------------------------------------*/
-
-.mb-30 {
-    margin-bottom: 30px;
-}
-
-.pl_fix {
-    padding-left: 5px;
-}
-
-.pr_fix {
-    padding-right: 5px;
-}
-
-.pl_big_fix {
-    padding-left: 310px;
-}
-
-.pl_fix_2 {
-    padding-left: 278px;
-}
-
-.pl_fix_3 {
-    padding-left: 73px;
-}
-
-.pl_fix_4 {
-    padding-left: 61px;
-}
-
-/*-----------------------------------------------------------------------
-END HELPER CLASSES
------------------------------------------------------------------------*/
 
 /* Images Zoom on table 1: in */
 
@@ -966,7 +820,7 @@ END HELPER CLASSES
     content: attr(data-title);
     position: absolute;
     bottom: -1.6em;
-    left: 100%;
+    left: 0%;
     padding: 4px 4px 4px 8px;
     color: #222;
     white-space: nowrap; 
