@@ -180,6 +180,7 @@ $(document).ready(function(){
             $('.paginate_button', this.api().table().container())          
                 .on('click', function(){
                 // future slight buttom jump fix
+                window.scrollBy(10,-500)
             });       
         }
 
@@ -293,8 +294,6 @@ $(document).ready(function(){
         var userInputValues = JSON.stringify({[rowId] : $('form', row).serializeJSON()})
         //store user input values in form tag.
         $('form', row).attr('data-dict', userInputValues);
-
-        //console.log(rowId, $('form',row).html(), userInputValues);
 
         //show message.
         toastr.info(`.لجدول المختارات ${rowId} تم إضافة`, rowId, {timeOut: 1000, 

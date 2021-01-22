@@ -246,7 +246,7 @@ ul {
     padding-top: 70px;
     display: block;
     overflow-y: auto;
-    overflow-x: hidden;
+    overflow-x: auto;
     height: 100%;
 
 }
@@ -433,6 +433,7 @@ table.dataTable {
 
 /* txt before result */ 
 .not_yet {
+    text-align: center;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -544,6 +545,12 @@ table.dataTable {
     display: block;
 }
 
+/* if screens resized too small then hide about icon to aboid overlab with tabs */
+@media only screen and (max-width:555px){
+    .about {
+        display: none;
+    }
+}
 
 /* Settings */ 
 
