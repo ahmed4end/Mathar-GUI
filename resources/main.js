@@ -1,3 +1,4 @@
+"use strict";
 /*
 
 // Diable F5 Button
@@ -34,21 +35,21 @@ document.onkeydown = function(e) {
 
 //toastr -  init setttings
 toastr.options = {
-  "closeButton": false,
-  "debug": false,
-  "newestOnTop": true,
-  "progressBar": true,
-  "positionClass": "toast-bottom-right",
-  "preventDuplicates": true,
-  "onclick": null,
-  "showDuration": "5000",
-  "hideDuration": "1000",
-  "timeOut": "5000",
-  "extendedTimeOut": "1000",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
-  "hideMethod": "fadeOut",
+    "closeButton": false,
+    "debug": false,
+    "newestOnTop": true,
+    "progressBar": true,
+    "positionClass": "toast-bottom-right",
+    "preventDuplicates": true,
+    "onclick": null,
+    "showDuration": "5000",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut",
 } // to adjust visit - https://codeseven.github.io/toastr/demo.html
 
 
@@ -66,8 +67,8 @@ function colIcon(icon, title, id){
 };
 function vwrap(txt) {return `<div style="writing-mode: vertical-lr;display:inline-block;">${txt}</div>`}
 // colIcon vars
-custom_title_d = 'هذه المسئلة ديناميكة'
-custom_title_s = 'هذه المسئلة إستاتيكية'
+var custom_title_d = 'هذه المسئلة ديناميكة'
+var custom_title_s = 'هذه المسئلة إستاتيكية'
 /* -------------------------------------------------------------------------------- */
 
 
@@ -113,7 +114,7 @@ $(document).ready(function(){
             { 
                 title: "نوع",
                 render: function(data, type){return vwrap(data);}
-            
+
             },
             { title: "مفتاح" },
             { title: "إعدادات" }
@@ -125,11 +126,11 @@ $(document).ready(function(){
             "className": "dt-center", 
             "targets": "_all"
         },
-        { 
-             "targets": 3,
-             "data": 3,
-             "title": "<img style='height:25px;width:25px;' src='./resources/tables/reference.png'>"
-        }], 
+                       { 
+                           "targets": 3,
+                           "data": 3,
+                           "title": "<img style='height:25px;width:25px;' src='./resources/tables/reference.png'>"
+                       }], 
         "lengthChange":true,
         "paging":true,
         "pageLength": 25,
@@ -173,14 +174,22 @@ $(document).ready(function(){
                     select.append( '<option value="'+d+'">'+d+'</option>' );
                 } );
             } );
+        },
+
+        drawCallback: function(){
+            $('.paginate_button', this.api().table().container())          
+                .on('click', function(){
+                // future slight buttom jump fix
+            });       
         }
 
     });
-    
-    
+
+
+
     //table pages
     var fullTableNodes = fullTable.rows().nodes();
-    
+
     //lazy loader for images on table 1.
     const ftImages = $('.lozad', fullTableNodes);
     for (var i = 0; i < ftImages.length; i++) {
@@ -188,7 +197,7 @@ $(document).ready(function(){
         observer.observe();
     };
 
-    
+
     // draw temp index increament on column 0.
     fullTable.on('order.dt search.dt', function () {
         fullTable.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
@@ -201,13 +210,13 @@ $(document).ready(function(){
         audio.pause();
         audio.play();
     });
-    
+
     //button sound on click - public declare for the rest of mathar.
     $('button').on('click', function () {
         audio.pause();
         audio.play();
     });
-    
+
     //table 2
     var emptyTable = $('#emptyTable').DataTable({
         rowReorder:true,
@@ -235,11 +244,11 @@ $(document).ready(function(){
             "className": "dt-center", 
             "targets": "_all"
         },
-            { 
-             "targets": 3,
-             "data": 3,
-             "title": "<img src='./resources/tables/reference.png'>"
-        }],
+                       { 
+                           "targets": 3,
+                           "data": 3,
+                           "title": "<img src='./resources/tables/reference.png'>"
+                       }],
 
     });
 
@@ -277,20 +286,20 @@ $(document).ready(function(){
     fullTable.on('click', '.btn_1', function () {
 
         var row = $(this).closest('tr').clone();
-        
+
         //get row id.
         var rowId = row.find('#table1Id').html();
         //get user input values from form.
         var userInputValues = JSON.stringify({[rowId] : $('form', row).serializeJSON()})
         //store user input values in form tag.
         $('form', row).attr('data-dict', userInputValues);
-        
+
         //console.log(rowId, $('form',row).html(), userInputValues);
-        
+
         //show message.
         toastr.info(`.لجدول المختارات ${rowId} تم إضافة`, rowId, {timeOut: 1000, 
-                                                           preventDuplicates:false, 
-                                                           positionClass:"toast-bottom-center"});
+                                                                  preventDuplicates:false, 
+                                                                  positionClass:"toast-bottom-center"});
         //remove button of row.
         var optionsT1 = row.find('td:last-child');
         optionsT1.find('button').remove();
@@ -300,7 +309,7 @@ $(document).ready(function(){
             $(this).replaceWith('<label id="'+this.id+'">'+this.value+'</label>');
         });
         optionsT1 = optionsT1.html();
-        
+
         //remove options cell before adding the row to table 2.
         row.find('td:last-child').remove();
         row.find('td:first-child').html(ict2);
@@ -318,7 +327,7 @@ $(document).ready(function(){
 
     });
 
-    
+
     // remove row - table 2
     $('#emptyTable tbody').on( 'click', '.btn_1', function () {
         emptyTable
@@ -330,7 +339,7 @@ $(document).ready(function(){
     async function _openFileLoaction() {
         await eel.openFileLoaction();
     };
-    
+
     //saveImage Button event
     $('#saveImage').on('click', function () {
         _openFileLoaction();
@@ -346,10 +355,10 @@ $(document).ready(function(){
         useCanvas:false
     });
     //hide viewer for now.
-     viewer.setVisible(false);
-    
+    viewer.setVisible(false);
+
     var index = 0;
-    
+
     //python call to fetch data function.
     async function callPython(data) {
         //fetch images from python server.
@@ -371,13 +380,13 @@ $(document).ready(function(){
         });
         index = 1
     }
-    
+
     //switch between images inside viewer.
     $('#ToggleImages').on('click', function () {
         //twiggle show/hide answer btn text.
         if (index==1){$(this).text('إخفاء الإجابة')}
         else{$(this).text('إظهار الإجابة')}
-        
+
         var oldTiledImage = viewer.world.getItemAt(index);
         index = (index + 1) % 2;
         var nextIndex = (index + 1) % 2;
@@ -388,8 +397,8 @@ $(document).ready(function(){
         nextTiledImage.setPreload(true);
     }); 
 
-    
-    
+
+
     /* collect data when btn clicked - table 2  */
     $( "#collect_data_t2" ).click(function() {
         audio.play()
@@ -401,7 +410,7 @@ $(document).ready(function(){
         } 
 
         else {
-            
+
             //hide stuff while waiting for python.
             $("#Tap3_loader_container").fadeIn("slow");
             $('#collect_data_t2').prop('disabled', true)
@@ -410,15 +419,15 @@ $(document).ready(function(){
             $('.not_yet').fadeOut();
             viewer.setVisible(false);
 
-        
+
             // collect data from table 2             
             var rowOptions = emptyTable.column(6).nodes();
-            
+
             rowOptions = rowOptions.toArray().map(ele=>$('form', ele).data('dict'))
             //console.log(RowOptions);
-            
+
             viewer.addHandler('tile-loaded', function(){
-                
+
                 //show stuff cuz python sent data.
                 viewer.setVisible(true);
                 $('#collect_data_t2').prop('disabled', false)
@@ -430,7 +439,7 @@ $(document).ready(function(){
                 toastr.success('إذهب لنافذة المعاينة لرؤية النتيجة', 'تم التكوين');
 
             });
-            
+
             //console.log(RowOptions)
             callPython(rowOptions);
             toastr.info('إذهب لنافذة المعاينة لإنتظار النتيجة', 'جارى التكوين');
@@ -438,7 +447,7 @@ $(document).ready(function(){
 
     });
 
-    
+
     //diabled old code for maintance.
     //save user inputs to html interface - temp .
     //$(document).on('keyup', 'table input', function() {
@@ -471,7 +480,7 @@ $(document).ready(function(){
             }
         }
     });
-    
+
     //#tap1_zoom 
     $('#switch4').click(function(){
         if ( $(this).is(':checked') ){
@@ -492,7 +501,7 @@ $(document).ready(function(){
             }
         }
     });
-    
+
     //#random 
     $('#switch1').click(function(){
         if ( $(this).is(':checked') ){
@@ -532,19 +541,19 @@ const tabLinks = document.querySelectorAll(".tabs a");
 const tabPanels = document.querySelectorAll(".tabs-panel");
 
 for (let el of tabLinks) {
-  el.addEventListener("click", e => {
-    e.preventDefault();
+    el.addEventListener("click", e => {
+        e.preventDefault();
 
-    document.querySelector(".tabs li.active").classList.remove("active");
-    document.querySelector(".tabs-panel.active").classList.remove("active");
+        document.querySelector(".tabs li.active").classList.remove("active");
+        document.querySelector(".tabs-panel.active").classList.remove("active");
 
-    const parentListItem = el.parentElement;
-    parentListItem.classList.add("active");
-    const index = [...parentListItem.parentElement.children].indexOf(parentListItem);
+        const parentListItem = el.parentElement;
+        parentListItem.classList.add("active");
+        const index = [...parentListItem.parentElement.children].indexOf(parentListItem);
 
-    const panel = [...tabPanels].filter(el => el.getAttribute("data-index") == index);
-    panel[0].classList.add("active");
-  });
+        const panel = [...tabPanels].filter(el => el.getAttribute("data-index") == index);
+        panel[0].classList.add("active");
+    });
 }
 //////////////////////
 
@@ -562,7 +571,7 @@ function parseRef(unit, lesson, page, problem, node='') {
     else{problem=`س${problem}`}
     if (node==undefined){node=''}
     else{node=`م${node}`}
-    arr = [unit, lesson, page, problem, node].filter(word=> word.length>1);
+    var arr = [unit, lesson, page, problem, node].filter(word=> word.length>1);
     return arr.join('<br>')
 }
 
@@ -573,18 +582,18 @@ var dataSet = [
 
     // Title input
     ["عنوان رئيسى", "s title", image('title'),"", "", "عنوان رئيسى",  
-   `
-    <form>
-    <input name='title' value='عنوان رئيسى' type='text'>
-    <label>:العنوان</label> 
-    </form>
-    `+chooseRowBtn
-        ],
+     `
+<form>
+<input name='title' value='عنوان رئيسى' type='text'>
+<label>:العنوان</label> 
+</form>
+`+chooseRowBtn
+    ],
 
-    [text(''), 'm0_0_1', image('m0_0_1'), parseRef(unit='', lesson='', 13,1), "graphs", "حل المعادلة", chooseRowBtn],
-    [text(''), 'm0_0_2_1', image('m0_0_2_1'), parseRef(unit='', lesson='', 13,1), '', '', chooseRowBtn],
-    [text(''), 'm0_0_2_2', image('m0_0_2_2'), parseRef(unit='', lesson='', 13,1), '', '', chooseRowBtn],
-    [text(''), 'm0_0_2_3', image('m0_0_2_3'), parseRef(unit='', lesson='', 13,1), '', '', chooseRowBtn],
+    [text(''), 'm0_0_1', image('m0_0_1'), parseRef('', '', 13,1), "graphs", "حل المعادلة", chooseRowBtn],
+    [text(''), 'm0_0_2_1', image('m0_0_2_1'), parseRef('', '', 13,1), '', '', chooseRowBtn],
+    [text(''), 'm0_0_2_2', image('m0_0_2_2'), parseRef('', '', 13,1), '', '', chooseRowBtn],
+    [text(''), 'm0_0_2_3', image('m0_0_2_3'), parseRef('', '', 13,1), '', '', chooseRowBtn],
     [text(''), 'm0_0_2_4', image('m0_0_2_4'), '', '', '', chooseRowBtn],
     [text(''), 'm0_0_2_5', image('m0_0_2_5'), '', '', '', chooseRowBtn],
     [text(''), 'm0_0_3', image('m0_0_3'), '', '', '', chooseRowBtn],
