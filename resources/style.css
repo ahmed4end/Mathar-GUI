@@ -98,8 +98,13 @@
 
 * {
   box-sizing: border-box;
+    padding:0;
+    margin: 0;
 }
 
+body, html {
+    height: 100%;
+}
 /* public inputs */
 input {
     border: 1px solid lightgrey;
@@ -188,22 +193,8 @@ th {
 04. START TABS
 -----------------------------------------------------------------------*/
 ul {
-  list-style: none;
-}
-
-
-
-a {
-  height: 70px;
-  text-decoration: none;
-  color: white;
-  text-align:center;
-  
-}
-
-.tapText{ /* this is poor vertically centered [DEV] */
-    display: block;
-    margin-top:12px;
+    list-style: none;
+    text-decoration: none;
 }
 
 .tabs {
@@ -211,19 +202,26 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #ffffff;
+    color: white;
     position: fixed;
     width:100%;
-    z-index:10;
+    height: 70px;
+    z-index:100;
     top:0px;
 }
 
 .tabs li a {
-  display: block;
-  position: relative;
-  padding: 10px 25px;
-  background: #183a56;
-  transition: all 0.2s ease-in-out;
+    color: white;
+    display: block;
+    position: relative;
+    height: 100%;
+    padding: 0px 25px;
+    background: #183a56;
+    vertical-align: middle;
+    line-height: 70px;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    overflow: hidden;
 }
 
 .tabs li.active a,
@@ -234,7 +232,6 @@ a {
 }
 
 .tabs-content {
-    
   position: relative;
   z-index: 2;
   background: white;
@@ -538,6 +535,7 @@ table.dataTable {
     -moz-transform: scale(1.2);
     -o-transform: scale(1.2);
     transform: scale(1.2);
+    transition: all 0.2s ease-in-out;
 }
 
 .about-icon {
