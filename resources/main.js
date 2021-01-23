@@ -361,7 +361,7 @@ $(document).ready(function(){
     //python call to fetch data function.
     async function callPython(data) {
         //fetch images from python server.
-        tileSources = await eel.getImages(data)();
+        var tileSources = await eel.getImages(data)();
         //hide viewer for now.
         viewer.setVisible(false);
         //remove prev tiles/images and add newer ones. 
