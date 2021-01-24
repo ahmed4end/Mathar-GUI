@@ -81,9 +81,13 @@ $(document).ready(function(){
     //table 1
     var fullTable = $('#full_table').DataTable( {
         "autoWidth":false,
-        "dom": '<"top">f<"bottom"t><"#margin5px"><"clear">lp',
+        "dom": '<"top">f<t><"#margin5px"><"clear"><"footerContainer"lp>',
         rowReorder:false,
         data: dataSet,
+        fixedHeader: {
+            header: false,
+            footer: false
+        },
         columns: [
             { title: "i." },
             {   
@@ -185,9 +189,10 @@ $(document).ready(function(){
         }
 
     });
-
-
-
+    
+    //$("#full_table_length").detach().appendTo('.tableFooter')
+    //$("#full_table_paginate").detach().appendTo('.tableFooter')
+    
     //table pages
     var fullTableNodes = fullTable.rows().nodes();
 

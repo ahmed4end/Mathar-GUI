@@ -123,21 +123,6 @@ input:hover {
 02. START GENERAL STYLES
 -----------------------------------------------------------------------*/
 
-/* scrollbar */
-::-webkit-scrollbar-thumb {
-    background-color: #17cc8e;  
-}
-
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    background-color: #F5F5F5;
-}
-
 body {
     font-family: 'Cairo', sans-serif;
     background-color: #fcfefd;
@@ -159,15 +144,8 @@ th {
 }
 
 
-/* table 1 */
-#full_table img, #emptyTable img {
-    max-width: 100%;
-    max-height: 100%;
-}
 
-
-
-/*-----------------------------------------------------------------------
+/*----------------------------------------------------------------------
 02. END GENERAL STYLES
 -----------------------------------------------------------------------*/
 
@@ -245,8 +223,7 @@ ul {
 .tabs-panel.active {
     padding-top: 70px;
     display: block;
-    overflow-y: auto;
-    overflow-x: auto;
+    overflow: auto;
     height: 100%;
 
 }
@@ -264,7 +241,7 @@ ul {
 -----------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------
-05. START FULL TABLE 
+05. Buttons
 -----------------------------------------------------------------------*/
 
 /* select&remove button style */
@@ -371,8 +348,13 @@ ul {
     top: 0;
 }
 
-/* table body style */
+/*-----------------------------------------------------------------------
+ end Buttons
+-----------------------------------------------------------------------*/
 
+/*-----------------------------------------------------------------------
+05. TABLES
+-----------------------------------------------------------------------*/
 
 /* center table content verticlly centered */
 table.dataTable tbody td, table.dataTable th.dt-center {
@@ -394,7 +376,6 @@ table.dataTable {
     margin-top: 15px;
 }
 
-
 /* search box style */
 #full_table_filter {
     display: inline-block; 
@@ -402,6 +383,25 @@ table.dataTable {
     margin-bottom: 20px;   
 }
 
+#full_table img, #emptyTable img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#full_table {
+    margin-bottom: 70px;
+}
+
+.footerContainer {
+    border: 1px solid lightgrey;
+    padding: none; 
+    padding-top: 5px;
+    position: fixed;
+    height: 70px;
+    background-color: white;
+    width: 100%;
+    bottom:-10px;
+}
 
 /*-----------------------------------------------------------------------
 05. END FULL TABLE
