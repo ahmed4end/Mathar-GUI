@@ -210,6 +210,7 @@ ul {
 }
 
 .tabs-content {
+    overflow: auto;
   position: relative;
   z-index: 2;
   background: white;
@@ -223,7 +224,7 @@ ul {
 .tabs-panel.active {
     padding-top: 70px;
     display: block;
-    overflow: auto;
+    
     height: 100%;
 
 }
