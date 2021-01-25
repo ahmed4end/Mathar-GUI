@@ -232,7 +232,7 @@ ul {
     height: calc(100% - 140px);
 }
 
-.tabs-panel[data-index="0"] {
+.tabs-panel[data-index="3"] {
     height: calc(100% - 140px);
 }
 
