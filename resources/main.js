@@ -184,7 +184,7 @@ $(document).ready(function(){
             $('.paginate_button', this.api().table().container())          
                 .on('click', function(){
                 // future slight buttom jump fix
-                window.scrollBy(10,-500)
+                $('.tabs-panel').scrollTo(0);
             });       
         }
 
