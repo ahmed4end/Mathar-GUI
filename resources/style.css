@@ -237,14 +237,6 @@ ul {
     display: block;
 }
 
-.row {
-    margin-top: 15px;
-}
-
-.row2 {
-    margin-bottom: 30px;
-}
-
 /*-----------------------------------------------------------------------
 04. END TABS
 -----------------------------------------------------------------------*/
@@ -252,6 +244,51 @@ ul {
 /*-----------------------------------------------------------------------
 05. Buttons
 -----------------------------------------------------------------------*/
+
+.buttonsRow {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bttn2 {
+    width:200px;
+    height: 50px;
+    position: relative;
+    background-color: #17cc8e;
+    color: white;
+    margin: 10px;
+}
+
+.bttn2:disabled {
+    background-color: lightgrey;
+    color: white;
+}
+
+.btnIcon  {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    float: left;
+    color: red;
+}
+.clear-table {
+    background: url('./icons/trash.svg') no-repeat;
+}
+.create-paper {
+    background: url('./icons/checkAll.svg') no-repeat;
+}
+.twiggle-paper {
+    background: url('./icons/twiggleArrow.svg') no-repeat;
+}
+.open-location {
+    background: url('./icons/folder.svg') no-repeat;
+}
+.save-settings {
+    background: url('./icons/save.svg') no-repeat;
+}
+
 
 /* select&remove button style */
 .icon-plus:before,
@@ -475,55 +512,6 @@ table.dataTable thead .sorting_desc {
     animation: spinner 1s infinite linear;
 }
 
-@-webkit-keyframes spinner {
-    to {
-        -webkit-transform: rotateZ(360deg);
-        transform: rotateZ(360deg);
-    }
-}
-
-@keyframes spinner {
-    to {
-        -webkit-transform: rotateZ(360deg);
-        transform: rotateZ(360deg);
-    }
-}
-
-/* The Zooming img tab Two Buttons */
-.btn_2 {
-    border: none;
-    cursor: pointer;
-    display: inline-block;
-    margin-left: 20px;
-    font-weight: 700;
-    position: relative;
-    background: #17cc8e;
-    color: #fff;
-    padding: 15px 50px 15px 50px;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
-    border-radius: .3rem;
-    box-shadow: 0.1rem 0.2rem 0.3rem #0db37926;
-}
-
-.btn_2:disabled {
-    background: lightgrey;
-}
-
-.btn_2:active {
-    background: #0db379;
-    top: 1px;
-}
-
-
-
-.btn_2:hover {
-    background: #09d991;
-    box-shadow: 0.1rem 0.2rem 0.3rem lightgrey;
-}
-
-
 
 /*-----------------------------------------------------------------------
 07. END ZOOMING IMG
@@ -726,23 +714,6 @@ select {
     text-align: center;
     text-align-last: center;
 }
-
-.save_setting {
-    text-align: center;
-    border: none;
-    cursor: pointer;
-    display: inline-block;
-    margin-left: 20px;
-    font-weight: 700;
-    position: relative;
-    background: #17cc8e;
-    color: #fff;
-    padding-left: 30px;
-    padding-right: 30px;
-    height:40px;
-    border-radius: .3rem;
-}
-
 
 
 /* disable text selection*/

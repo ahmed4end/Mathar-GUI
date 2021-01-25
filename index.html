@@ -21,10 +21,14 @@ START CSS FILES
         <link rel="stylesheet" href="./resources/datatables.min.css">
         <!-- Row Record -->
         <link rel="stylesheet" href="resources/rowReorder.dataTables.min.css">
+        <!-- buttons - lib docs="https://bttn.surge.sh/" -->
+        <link href="./resources/bttn.min.css" rel="stylesheet"/>
         <!-- Our Css Main File -->
         <link rel="stylesheet" href="./resources/style.css">
         <!-- taoster - notifications  -->
         <link href="./resources/toastr.min.css" rel="stylesheet"/>
+        
+        
         <!--==========================
 END CSS FILES
 ==========================-->
@@ -59,12 +63,9 @@ END PRELOADER
                         <table id="full_table" class="display table table-bordered" style="width:100%"></table>
                 </div>
                 <div class="tabs-panel" data-index="1">
-
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <button id="clear_table_2" class="btn_2">تفريغ</button>
-                            <button id="collect_data_t2" class="btn_2">تكوين</button>
-                        </div>
+                    <div class="buttonsRow">
+                        <button id="clear_table_2" class="bttn-jelly bttn-md bttn2"><span class='btnIcon clear-table'></span>تفريغ</button>
+                            <button id="collect_data_t2" class="bttn-jelly bttn-md bttn2"><span class='btnIcon create-paper'></span>تكوين</button>
                     </div>
                     <table id="emptyTable" class="display table table-bordered" style="width:100%"> </table>  
 
@@ -85,11 +86,9 @@ END PRELOADER
                         <div id="wheelzoom.exe"></div> <!--= the image container =-->
                     </div>
                     <!-- Buttons -->
-                    <div class="row2">
-                        <div class="col-12 text-center">
-                            <button id="saveImage" class="btn_2" style='display: none;'>فتح مكان الحفظ</button>
-                            <button id="ToggleImages" class="btn_2" style='display: none;'>أظهر الإجابة</button>
-                        </div>
+                    <div class="buttonsRow">
+                            <button id="saveImage" class="bttn-jelly bttn-md bttn2" style='display: none;'><span class='btnIcon open-location'></span>فتح مكان الحفظ</button>
+                            <button id="ToggleImages" class="bttn-jelly bttn-md bttn2" style='display: none;'><span class='btnIcon twiggle-paper'></span>أظهر الإجابة</button>
                     </div>
 
                 </div>
@@ -182,8 +181,8 @@ END PRELOADER
                                 </div>
                                 <label class="form-item__label">:لون هامشى</label>
                             </div>
-                            <div class='sfooter'>
-                                <button class="save_setting">حفظ الإعدادات</button>
+                            <div class='buttonsRow'>
+                                <button class="bttn-jelly bttn-md bttn2"><span class='btnIcon save-settings'></span>حفظ الإعدادات</button>
                             </div>
                         </div>
                     </div>
