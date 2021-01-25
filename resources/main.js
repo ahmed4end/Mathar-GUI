@@ -59,7 +59,7 @@ $(window).load(function() {
 
 
 /* init public powerfull funcs */
-var chooseRowBtn = "<form></form><button class='btn_1 icon-plus'><span>أختر</span></button>";
+var chooseRowBtn = "<button class='btn_1 icon-plus'><span>أختر</span></button>";
 function image(image){return `<div class='imgc'><img class='img lozad' data-src='./images/${image}.png' loading='lazy' alt='${image}'></div>`};
 function text(txt){return `<div id="textCell">${txt}</div>`;};
 function colIcon(icon, title, id){
@@ -189,8 +189,8 @@ $(document).ready(function(){
         }
 
     });
-    
-    
+
+
     //table pages
     var fullTableNodes = fullTable.rows().nodes();
 
@@ -482,7 +482,18 @@ $(document).ready(function(){
             }
         }
     });
-
+    
+    
+    /* checkboxes status text - update event */
+    $('.form-item__control input').click(function(){
+        if ( $(this).is(':checked') ){
+            $('span', $(this).parent()).text('مفعل');
+        }
+        else {
+            $('span', $(this).parent()).text('غير مفعل');
+        }
+    });
+    
     //#tap1_zoom 
     $('#switch4').click(function(){
         if ( $(this).is(':checked') ){
@@ -503,7 +514,7 @@ $(document).ready(function(){
             }
         }
     });
-
+    
     //#random 
     $('#switch1').click(function(){
         if ( $(this).is(':checked') ){

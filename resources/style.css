@@ -116,7 +116,11 @@ input:hover {
     border: 1px solid #0db379;
     box-shadow: 0.1rem 0.2rem 0.3rem #0db37926;    
 }
-/*--------------------*/
+
+
+label {
+    margin: 0px;
+}
 
 
 /*-----------------------------------------------------------------------
@@ -228,9 +232,14 @@ ul {
     height: calc(100% - 140px);
 }
 
+.tabs-panel[data-index="0"] {
+    height: calc(100% - 140px);
+}
+
 .tabs-panel.active {
     display: block;
 }
+
 
 /*-----------------------------------------------------------------------
 04. END TABS
@@ -245,6 +254,14 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* settings tab save button - fixed css */
+.settings-save-bttn {
+    position: fixed;
+    bottom: 0px;
+    left:0px;
+    background-color: white;  
 }
 
 .bttn2 {
@@ -345,12 +362,12 @@ ul {
     -moz-transition: all 0.3s;
     transition: all 0.3s;
     border-radius: .3rem;
+    margin: 10px;
 }
 
 .btn_1:active {
     /*background: #17cc8e;*/
     background: linear-gradient(to bottom, rgba(26,227,158,1) 0%, rgba(23,204,142,1) 100%);
-
     top: 2px;
 }
 
@@ -667,8 +684,8 @@ table.dataTable thead .sorting_desc {
 }
 
 .form-item__control {
+    position: relative;
     width: 40%;
-    text-align: right;
 }
 
 .control, input.settingsInput {
@@ -686,15 +703,18 @@ table.dataTable thead .sorting_desc {
     /* held for future */
 }
 
-.sfooter {
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-}
-
 .form-item__control input {
     width: 100%;
     height: 40px;
+}
+
+.form-item__control span {
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    color:white;
+    pointer-events: none;
 }
 
 .form-item__control input:hover {
@@ -814,7 +834,7 @@ select {
     content: attr(data-title);
     position: absolute;
     bottom: -1.6em;
-    left: 0%;
+    right: 0%;
     padding: 4px 4px 4px 8px;
     color: #222;
     white-space: nowrap; 
