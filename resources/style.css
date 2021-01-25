@@ -512,6 +512,19 @@ table.dataTable thead .sorting_desc {
     animation: spinner 1s infinite linear;
 }
 
+@-webkit-keyframes spinner {	
+    to {	
+        -webkit-transform: rotateZ(360deg);	
+        transform: rotateZ(360deg);	
+    }	
+}	
+
+@keyframes spinner {	
+    to {	
+        -webkit-transform: rotateZ(360deg);	
+        transform: rotateZ(360deg);	
+    }	
+}
 
 /*-----------------------------------------------------------------------
 07. END ZOOMING IMG
