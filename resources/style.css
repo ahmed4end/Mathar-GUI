@@ -715,6 +715,8 @@ table.dataTable thead .sorting_desc {
     transform: translate(-50%, -50%);
     color:white;
     pointer-events: none;
+    text-align: center;
+    overflow: hidden;
 }
 
 .form-item__control input:hover {
