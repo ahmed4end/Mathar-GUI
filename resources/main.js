@@ -190,8 +190,6 @@ $(document).ready(function(){
 
     });
     
-    //$("#full_table_length").detach().appendTo('.tableFooter')
-    //$("#full_table_paginate").detach().appendTo('.tableFooter')
     
     //table pages
     var fullTableNodes = fullTable.rows().nodes();

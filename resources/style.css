@@ -97,7 +97,7 @@
 -----------------------------------------------------------------------*/
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
     padding:0;
     margin: 0;
 }
@@ -202,6 +202,12 @@ ul {
     overflow: hidden;
 }
 
+.tabs-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
 .tabs li.active a,
 .tabs li a:hover {
     color:white;
@@ -211,22 +217,24 @@ ul {
 
 .tabs-content {
     overflow: auto;
-  position: relative;
-  z-index: 2;
-  background: white;
-    
+    position: relative;
+    z-index: 2;
+    top: 70px;
+    background: white;
 }
 
 .tabs-panel {
-  display: none;
+    display: none;
+    height: calc(100% - 70px); /* this calc to make the scroll bar moves in proper way.*/
+}
+
+/* make first tab only with less height -140px the other as default */
+.tabs-panel[data-index="0"] {
+    height: calc(100% - 140px);
 }
 
 .tabs-panel.active {
-    padding-top: 70px;
     display: block;
-    
-    height: 100%;
-
 }
 
 .row {
@@ -350,7 +358,7 @@ ul {
 }
 
 /*-----------------------------------------------------------------------
- end Buttons
+end Buttons
 -----------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------
@@ -368,8 +376,8 @@ table.dataTable {
 
 /* to center the filter. */
 .dataTables_wrapper .dataTables_filter {
-  width:100%;
-  text-align:center;
+    width:100%;
+    text-align:center;
 }
 
 /* Table white Spcee */
@@ -389,10 +397,6 @@ table.dataTable {
     max-height: 100%;
 }
 
-#full_table {
-    margin-bottom: 70px;
-}
-
 .footerContainer {
     border: 1px solid lightgrey;
     padding: none; 
@@ -404,8 +408,14 @@ table.dataTable {
     bottom:-10px;
 }
 
+/* hide sorting icons*/
+table.dataTable thead .sorting, 
+table.dataTable thead .sorting_asc, 
+table.dataTable thead .sorting_desc {
+    background : none;
+}
 /*-----------------------------------------------------------------------
-05. END FULL TABLE
+05. END TABLES
 -----------------------------------------------------------------------*/
 
 
@@ -592,41 +602,41 @@ table.dataTable {
 
 /* TAP 4 */
 .form-item__control input[type=checkbox]{
-	height: 0;
-	width: 0;
-	visibility: hidden;
+    height: 0;
+    width: 0;
+    visibility: hidden;
     font-size: 200px;
 }
 
 .form-item__control label {
-	cursor: pointer;
-	text-indent: -9999px;
-	height: 40px;
-	background: lightgrey;
-	display: block;
-	border-radius: 100px;
-	position: relative;
+    cursor: pointer;
+    text-indent: -9999px;
+    height: 40px;
+    background: lightgrey;
+    display: block;
+    border-radius: 100px;
+    position: relative;
 }
 
 .form-item__control label:after {
-	content: '';
-	position: absolute;
-	top: 5px;
-	right: 5px;
-	width: 30px;
-	height: 30px;
-	background: #fff;
-	border-radius: 90px;
-	transition: 0.3s;
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
 }
 
 .form-item__control input:checked + label {
-	background: #17cc8e;
+    background: #17cc8e;
 }
 
 .form-item__control input:checked + label:after {
-	right: calc(100% - 5px);
-	transform: translateX(+100%);
+    right: calc(100% - 5px);
+    transform: translateX(+100%);
 }
 
 .form-item__control label:active:after {
@@ -745,7 +755,7 @@ select {
 /* Images Zoom on table 1: in */
 
 .zoomeffects{
-	clear:both;	
+    clear:both;	
 }
 .zoomeffects .half {
     float: left;
