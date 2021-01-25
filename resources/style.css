@@ -637,7 +637,8 @@ table.dataTable thead .sorting_desc {
 }
 
 .form-item__control input:checked + label {
-    background: #17cc8e;
+    background: linear-gradient(to right, rgba(35,215,154,1) 0%, rgba(23,204,142,1) 100%);
+    
 }
 
 .form-item__control input:checked + label:after {
