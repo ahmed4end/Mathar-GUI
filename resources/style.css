@@ -212,7 +212,8 @@ ul {
 .tabs li a:hover {
     color:white;
     text-decoration: none;
-    background: #17cc8e;
+    /*background: #17cc8e;*/
+    background: linear-gradient(to bottom, rgba(35,215,154,1) 0%, rgba(23,204,142,1) 100%);
 }
 
 .tabs-content {
@@ -256,9 +257,11 @@ ul {
     width:200px;
     height: 50px;
     position: relative;
-    background-color: #17cc8e;
+    /*background-color: #17cc8e;*/
     color: white;
     margin: 10px;
+    background: linear-gradient(to bottom, rgba(26,227,158,1) 0%, rgba(23,204,142,1) 100%);
+
 }
 
 .bttn2:disabled {
@@ -327,7 +330,6 @@ ul {
 
 .btn_1:hover {
     color: #fff;
-    background: #09d991;
 }
 
 .btn_1 {
@@ -337,7 +339,8 @@ ul {
     display: inline-block;
     font-weight: 700;
     position: relative;
-    background: #17cc8e;
+    /*background: #17cc8e;*/
+    background: linear-gradient(to bottom, rgba(26,227,158,1) 0%, rgba(23,204,142,1) 100%);
     color: #fff;
     font-size: 12px;
     overflow: hidden;
@@ -351,7 +354,9 @@ ul {
 }
 
 .btn_1:active {
-    background: #17cc8e;
+    /*background: #17cc8e;*/
+    background: linear-gradient(to bottom, rgba(26,227,158,1) 0%, rgba(23,204,142,1) 100%);
+
     top: 2px;
 }
 
