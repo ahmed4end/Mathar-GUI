@@ -79,7 +79,7 @@ $(document).ready(function(){
     var audio = new Audio("resources/btnclk.wav"); 
 
     //table 1
-    var fullTable = $('#full_table').DataTable( {
+    var fullTable = $('#fullTable').DataTable( {
         "autoWidth":false,
         "dom": '<"top">f<t><"#margin5px"><"clear"><"footerContainer"lp>',
         rowReorder:false,
@@ -255,6 +255,13 @@ $(document).ready(function(){
                        }],
 
     });
+    
+    // reorder column 1 indexes when swaping any rows.
+    emptyTable.on( 'order.dt', function () {
+        emptyTable.column(0, {order:'applied'}).nodes().each( function (cell, i) {
+            cell.innerHTML = i+1;
+        } );
+    } ).draw();
 
     // Show alert if the table is empty when clicked on the Clear Table button
     $( "#clear_table_2" ).click(function() {
@@ -482,8 +489,8 @@ $(document).ready(function(){
             }
         }
     });
-    
-    
+
+
     /* checkboxes status text - update event */
     $('.form-item__control input').click(function(){
         if ( $(this).is(':checked') ){
@@ -493,7 +500,7 @@ $(document).ready(function(){
             $('span', $(this).parent()).text('غير مفعل');
         }
     });
-    
+
     //#tap1_zoom 
     $('#switch4').click(function(){
         if ( $(this).is(':checked') ){
@@ -514,7 +521,7 @@ $(document).ready(function(){
             }
         }
     });
-    
+
     //#random 
     $('#switch1').click(function(){
         if ( $(this).is(':checked') ){

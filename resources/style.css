@@ -256,6 +256,22 @@ ul {
     justify-content: center;
 }
 
+.tab2-bttns {
+    display: inline-block;
+    width: fit-content; 
+    position: fixed;
+    z-index: 10;
+    background-color: none;
+    left:50%;
+    transform: translate(-50%);
+}
+
+.emptyTableContainer {
+    position: relative;
+    top: 70px;
+    z-index: 9;
+}
+
 /* settings tab save button - fixed css */
 .settings-save-bttn {
     position: fixed;
@@ -439,13 +455,13 @@ table.dataTable {
 }
 
 /* search box style */
-#full_table_filter {
+#fullTable_filter {
     display: inline-block; 
     float: none; /* disabled this shit to center the filter.*/
     margin-bottom: 20px;   
 }
 
-#full_table img, #emptyTable img {
+#fullTable img, #emptyTable img {
     max-width: 100%;
     max-height: 100%;
 }
