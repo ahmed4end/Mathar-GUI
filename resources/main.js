@@ -60,7 +60,7 @@ $(window).load(function() {
 
 /* init public powerfull funcs */
 var chooseRowBtn = "<form></form><button class='btn_1 icon-plus'><span>أختر</span></button>";
-function image(image){return `<div class='imgc'><img class='img lozad' data-src='./images/${image}.png' loading='lazy' alt='${image}'></div>`};
+function image(image){return `<img class='img lozad' data-src='./images/${image}.png' loading='lazy' alt='${image}'>`};
 function text(txt){return `<div id="textCell">${txt}</div>`;};
 function colIcon(icon, title, id){
     return `<div style="writing-mode: tb-rl;display:inline-block;"><div style="text-align: center;margin-bottom:5px;" class="${icon}" data-title="${title}"></div><div style="display: inline-block;" id="table1Id">${id}</div>`
