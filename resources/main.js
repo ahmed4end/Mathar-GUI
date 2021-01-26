@@ -59,7 +59,7 @@ $(window).load(function() {
 
 
 /* init public powerfull funcs */
-var chooseRowBtn = "<button class='btn_1 icon-plus'><span>أختر</span></button>";
+var chooseRowBtn = "<form></form><button class='btn_1 icon-plus'><span>أختر</span></button>";
 function image(image){return `<div class='imgc'><img class='img lozad' data-src='./images/${image}.png' loading='lazy' alt='${image}'></div>`};
 function text(txt){return `<div id="textCell">${txt}</div>`;};
 function colIcon(icon, title, id){
@@ -264,7 +264,7 @@ $(document).ready(function(){
     } ).draw();
 
     // Show alert if the table is empty when clicked on the Clear Table button
-    $( "#clear_table_2" ).click(function() {
+    $( "#clearTable" ).click(function() {
         if (emptyTable.data().count() == 0) {
             swal({
                 text: "الجدول فارغ بالفعل",
@@ -285,7 +285,7 @@ $(document).ready(function(){
                     swal("! تم تفريغ الجدول بنجاح", {
                         icon: "success",
                         button: "حسناً",
-                        timer:1500
+                        timer:1000
                     });
                 }
 
@@ -409,7 +409,7 @@ $(document).ready(function(){
 
 
     /* collect data when btn clicked - table 2  */
-    $( "#collect_data_t2" ).click(function() {
+    $( "#collectData" ).click(function() {
         audio.play()
 
         if (emptyTable.data().count() == 0) {
@@ -422,7 +422,7 @@ $(document).ready(function(){
 
             //hide stuff while waiting for python.
             $("#Tap3_loader_container").fadeIn("slow");
-            $('#collect_data_t2').prop('disabled', true)
+            $('#collectData').prop('disabled', true)
             $('#ToggleImages').fadeOut();
             $('#saveImage').fadeOut();
             $('.not_yet').fadeOut();
@@ -432,14 +432,13 @@ $(document).ready(function(){
             // collect data from table 2             
             var rowOptions = emptyTable.column(6).nodes();
 
-            rowOptions = rowOptions.toArray().map(ele=>$('form', ele).data('dict'))
-            //console.log(RowOptions);
+            rowOptions = rowOptions.toArray().map(ele=>$('form', ele).first().data('dict'))
 
             viewer.addHandler('tile-loaded', function(){
 
                 //show stuff cuz python sent data.
                 viewer.setVisible(true);
-                $('#collect_data_t2').prop('disabled', false)
+                $('#collectData').prop('disabled', false)
                 $('#ToggleImages').fadeIn();
                 $('#saveImage').fadeIn();
                 $("#Tap3_loader_container").fadeOut("slow");
