@@ -122,6 +122,9 @@ label {
     margin: 0px;
 }
 
+p {
+    margin: 0px;
+}
 
 /*-----------------------------------------------------------------------
 02. START GENERAL STYLES
@@ -157,14 +160,97 @@ th {
 03. START PRELOADER
 -----------------------------------------------------------------------*/
 
-.se-pre-con {
+.preloader {
+    position: fixed;
+    z-index: 9000;
+    background-color: white;
     width: 100%;
     height: 100%;
-    position: fixed;
-    left: 0;
-    top: 0;
+}
+
+.preloader-icon {
+    width:128px;
+    height:128px;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
     z-index: 9000;
-    background: url(preloader.png) center no-repeat #fff;
+    background: url(preloader.png) no-repeat;
+}
+
+.preloader-title {
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, 80px);
+    z-index: 9000;
+
+}
+
+.preloader-spinner {
+    position: absolute;
+    top:40%;
+    left:50%;
+    transform: translate(-50%, 150px);
+    width: 80px;
+    height: 80px;
+}
+.preloader-spinner div {
+    position: absolute;
+    top: 33px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: lightgrey;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.preloader-spinner div:nth-child(1) {
+    left: 8px;
+    animation: preloader-spinner1 0.6s infinite;
+}
+.preloader-spinner div:nth-child(2) {
+    left: 8px;
+    animation: preloader-spinner2 0.6s infinite;
+}
+.preloader-spinner div:nth-child(3) {
+    left: 32px;
+    animation: preloader-spinner2 0.6s infinite;
+}
+.preloader-spinner div:nth-child(4) {
+    left: 56px;
+    animation: preloader-spinner3 0.6s infinite;
+}
+@keyframes preloader-spinner1 {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes preloader-spinner3 {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+@keyframes preloader-spinner2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(24px, 0);
+    }
+}
+.preloader-footer {
+    position: absolute;
+    bottom: 10;
+    right: 10;
+    margin:0;
 }
 
 /*-----------------------------------------------------------------------
@@ -533,38 +619,51 @@ table.dataTable thead .sorting_desc {
 }
 
 /* Result lodaer */
-#Tap3_loader_container {
-    position: fixed;
+#resultLoaderContainer {
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
 }
 
-.Tap3_loader {
-    height: 70px;
-    width: 70px;
-    margin: 0 auto 30px auto;
+.resultLoader {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    left:50%;
+    margin:0px;
+    margin-bottom: 50px;
+    transform: translate(-50%);
+}
+.resultLoader div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border: 8px solid #0db379;
     border-radius: 50%;
-    border: 5px solid #183a563f;
-    border-top: 5px solid #0db379;
-    -webkit-animation: spinner 1s infinite linear;
-    animation: spinner 1s infinite linear;
+    animation: resultLoader 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #0db379 transparent transparent transparent;
 }
-
-@-webkit-keyframes spinner {	
-    to {	
-        -webkit-transform: rotateZ(360deg);	
-        transform: rotateZ(360deg);	
-    }	
-}	
-
-@keyframes spinner {	
-    to {	
-        -webkit-transform: rotateZ(360deg);	
-        transform: rotateZ(360deg);	
-    }	
+.resultLoader div:nth-child(1) {
+    animation-delay: -0.45s;
 }
-
+.resultLoader div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+.resultLoader div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+@keyframes resultLoader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 /*-----------------------------------------------------------------------
 07. END ZOOMING IMG
 -----------------------------------------------------------------------*/
@@ -656,12 +755,13 @@ table.dataTable thead .sorting_desc {
     display: block;
     border-radius: 100px;
     position: relative;
+    border: 1px solid darkgrey;
 }
 
 .form-item__control label:after {
     content: '';
     position: absolute;
-    top: 5px;
+    top: 4px;
     right: 5px;
     width: 30px;
     height: 30px;
@@ -672,7 +772,7 @@ table.dataTable thead .sorting_desc {
 
 .form-item__control input:checked + label {
     background: linear-gradient(to right, rgba(35,215,154,1) 0%, rgba(23,204,142,1) 100%);
-    
+
 }
 
 .form-item__control input:checked + label:after {

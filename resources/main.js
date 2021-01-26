@@ -54,7 +54,7 @@ toastr.options = {
 
 
 $(window).load(function() {
-    $(".se-pre-con").delay(10).fadeOut("slow");
+    $(".preloader").delay(10).fadeOut("smooth");
 });
 
 
@@ -421,7 +421,7 @@ $(document).ready(function(){
         else {
 
             //hide stuff while waiting for python.
-            $("#Tap3_loader_container").fadeIn("slow");
+            $("#resultLoaderContainer").fadeIn("slow");
             $('#collectData').prop('disabled', true)
             $('#ToggleImages').fadeOut();
             $('#saveImage').fadeOut();
@@ -441,7 +441,7 @@ $(document).ready(function(){
                 $('#collectData').prop('disabled', false)
                 $('#ToggleImages').fadeIn();
                 $('#saveImage').fadeIn();
-                $("#Tap3_loader_container").fadeOut("slow");
+                $("#resultLoaderContainer").fadeOut("slow");
 
                 //show taoster message.
                 toastr.success('إذهب لنافذة المعاينة لرؤية النتيجة', 'تم التكوين');
@@ -525,11 +525,9 @@ $(document).ready(function(){
     $('#switch1').click(function(){
         if ( $(this).is(':checked') ){
             console.log('on');
-            $('#watermark_op').fadeIn();
         }
         else {
             console.log('off');
-            $('#watermark_op').fadeOut();
         }
     });
 
