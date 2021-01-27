@@ -618,6 +618,21 @@ table.dataTable thead .sorting_desc {
     font-size: 30px;
 }
 
+.not_yet button {
+    background: none;
+    border: none;
+    color:#183a56;
+    text-decoration: underline;
+}
+.not_yet button:hover {
+    color: #17cc8e;
+}
+.tap3Steps {
+    text-align: right;
+    list-style-type: circle;
+    display: none;
+}
+
 /* Result lodaer */
 #resultLoaderContainer {
     position: absolute;
@@ -976,3 +991,5 @@ select {
     position: relative;
 }
 /* data-title styling - out */
+
+

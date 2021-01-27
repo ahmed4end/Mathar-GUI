@@ -255,7 +255,7 @@ $(document).ready(function(){
                        }],
 
     });
-    
+
     // reorder column 1 indexes when swaping any rows.
     emptyTable.on( 'order.dt', function () {
         emptyTable.column(0, {order:'applied'}).nodes().each( function (cell, i) {
@@ -547,6 +547,16 @@ $(document).ready(function(){
     //settings - checkbox & color picker - handler
     $(document).on('change', 'input.settingsInput[type=color]', function() {
         this.parentNode.style.backgroundColor = this.value;
+    });
+
+    //tab3 - toggle steps event
+    $('.toggleT3Steps').on('click', function(){
+        if ($('.tap3Steps').css('display')=='none'){
+            $('.tap3Steps').fadeIn();
+        } else {
+            $('.tap3Steps').fadeOut();
+        }
+
     });
 
 
