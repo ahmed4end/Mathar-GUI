@@ -176,7 +176,7 @@ th {
     top: 40%;
     transform: translate(-50%, -50%);
     z-index: 9000;
-    background: url(preloader.png) no-repeat;
+    background: url(../icons/preloader.png) no-repeat;
 }
 
 .preloader-title {
@@ -390,19 +390,19 @@ ul {
     color: red;
 }
 .clear-table {
-    background: url('./icons/trash.svg') no-repeat;
+    background: url('../icons/trash.svg') no-repeat;
 }
 .create-paper {
-    background: url('./icons/checkAll.svg') no-repeat;
+    background: url('../icons/checkAll.svg') no-repeat;
 }
 .twiggle-paper {
-    background: url('./icons/twiggleArrow.svg') no-repeat;
+    background: url('../icons/twiggleArrow.svg') no-repeat;
 }
 .open-location {
-    background: url('./icons/folder.svg') no-repeat;
+    background: url('../icons/folder.svg') no-repeat;
 }
 .save-settings {
-    background: url('./icons/save.svg') no-repeat;
+    background: url('../icons/save.svg') no-repeat;
 }
 
 
@@ -586,7 +586,7 @@ table.dataTable thead .sorting_desc {
 -----------------------------------------------------------------------*/
 
 .zoomer {
-    background: url("back.svg");
+    background: url("../icons/back.svg");
     border: 1px solid #dee2e6;
     height: 95%;
     overflow: hidden;

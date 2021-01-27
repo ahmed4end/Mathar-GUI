@@ -76,7 +76,7 @@ $(document).ready(function(){
 
     // INIT vars 
     var ict2 = 1
-    var audio = new Audio("resources/btnclk.wav"); 
+    var audio = new Audio("assets/btnclk.wav"); 
 
     //table 1
     var fullTable = $('#fullTable').DataTable( {
@@ -133,7 +133,7 @@ $(document).ready(function(){
                        { 
                            "targets": 3,
                            "data": 3,
-                           "title": "<img style='height:25px;width:25px;' src='./resources/tables/reference.png'>"
+                           "title": "<img style='height:25px;width:25px;' src='./assets/icons/reference.png'>"
                        }], 
         "lengthChange":true,
         "paging":true,
@@ -251,7 +251,7 @@ $(document).ready(function(){
                        { 
                            "targets": 3,
                            "data": 3,
-                           "title": "<img src='./resources/tables/reference.png'>"
+                           "title": "<img src='./assets/icons/reference.png'>"
                        }],
 
     });
@@ -359,7 +359,7 @@ $(document).ready(function(){
     var viewer = OpenSeadragon({
         id: "wheelzoom.exe",
         immediateRender: true,
-        prefixUrl: './resources/openseadrag/images/', /* icons path */
+        prefixUrl: './assets/icons/openseadrag-icons/', /* icons path */
         buildPyramid: true, 
         useCanvas:false
     });
