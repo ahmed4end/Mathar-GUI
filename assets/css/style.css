@@ -1,3 +1,10 @@
+
+/* imports */
+
+/* perloader icon css styles */
+@import url("mathar-icon.css");
+
+
 /*-----------------------------------------------------------------------
 01. START APP FONTS
 -----------------------------------------------------------------------*/
@@ -176,7 +183,6 @@ th {
     top: 40%;
     transform: translate(-50%, -50%);
     z-index: 9000;
-    background: url(../icons/preloader.png) no-repeat;
 }
 
 .preloader-title {
@@ -624,13 +630,21 @@ table.dataTable thead .sorting_desc {
     color:#183a56;
     text-decoration: underline;
 }
+
 .not_yet button:hover {
     color: #17cc8e;
 }
+
 .tap3Steps {
+    position: absolute;
     text-align: right;
     list-style-type: circle;
     display: none;
+    margin:10px 0 0 0;
+}
+
+.tap3Steps li {
+    padding: 3px;
 }
 
 /* Result lodaer */
@@ -639,7 +653,6 @@ table.dataTable thead .sorting_desc {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
 }
 
 .resultLoader {
