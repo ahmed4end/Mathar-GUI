@@ -508,14 +508,13 @@ ul {
     width: fit-content; 
     position: fixed;
     z-index: 10;
-    background-color: none;
     left:50%;
     transform: translate(-50%);
 }
 
 .emptyTableContainer {
     position: relative;
-    top: 70px;
+    top: 60px;
     z-index: 9;
 }
 

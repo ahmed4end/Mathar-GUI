@@ -133,7 +133,7 @@ $(document).ready(function(){
                        { 
                            "targets": 3,
                            "data": 3,
-                           "title": "<img style='height:25px;width:25px;' src='./assets/icons/reference.png'>"
+                           "title": "<img style='height:25px;width:25px;' src='./assets/icons/book.svg'>"
                        }], 
         "lengthChange":true,
         "paging":true,
@@ -251,7 +251,7 @@ $(document).ready(function(){
                        { 
                            "targets": 3,
                            "data": 3,
-                           "title": "<img src='./assets/icons/reference.png'>"
+                           "title": "<img style='height:25px;width:25px;' src='./assets/icons/book.svg'>"
                        }],
 
     });
