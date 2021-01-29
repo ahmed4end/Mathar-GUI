@@ -693,6 +693,7 @@ table.dataTable {
 .dataTables_wrapper .dataTables_filter {
     width:100%;
     text-align:center;
+    padding: 2px;
 }
 
 /* Table white Spcee */
