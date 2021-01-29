@@ -792,6 +792,7 @@ table.dataTable thead .sorting_desc {
 .tap3Steps {
     position: absolute;
     text-align: right;
+    display: none;
     list-style-type: circle;
     margin:10px 0 0 0;
 }
