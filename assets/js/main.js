@@ -54,7 +54,7 @@ toastr.options = {
 
 
 $(window).load(function() {
-    $(".preloader").delay(10).fadeOut("smooth");
+    $(".preloader").delay(1000).fadeOut("smooth");
 });
 
 
