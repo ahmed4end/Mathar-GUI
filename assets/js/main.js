@@ -38,7 +38,7 @@ toastr.options = {
     "closeButton": false,
     "debug": false,
     "newestOnTop": true,
-    "progressBar": true,
+    //"progressBar": true,
     "positionClass": "toast-bottom-right",
     "preventDuplicates": true,
     "onclick": null,
@@ -306,9 +306,9 @@ $(document).ready(function(){
         $('form', row).attr('data-dict', userInputValues);
 
         //show message.
-        toastr.info(`.لجدول المختارات ${rowId} تم إضافة`, rowId, {timeOut: 1000, 
+        toastr.info(`لجدول المختارات ${rowId} تم إضافة`, rowId, {timeOut: 1000, 
                                                                   preventDuplicates:false, 
-                                                                  positionClass:"toast-bottom-center"});
+                                                                  positionClass:"toast-bottom-left"});
         //remove button of row.
         var optionsT1 = row.find('td:last-child');
         optionsT1.find('button').remove();
@@ -504,10 +504,7 @@ $(document).ready(function(){
     $('#switch4').click(function(){
         if ( $(this).is(':checked') ){
             console.log('on');
-            swal("الأن يمكنك تكبير المسائل فى الجدول بتحريك الماوس فوقها.", {
-                button: "حسناً",
-                timer:3000
-            });
+            toastr.info("الأن يمكنك تكبير المسائل فى الجدول بتحريك الماوس فوقها", {timeOut: 1000,positionClass:"toast-bottom-right"});
             for (var i = 0; images.length > i; i++) {
                 images[i].classList.toggle('zoomEffect');
             }

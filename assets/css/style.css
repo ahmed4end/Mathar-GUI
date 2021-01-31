@@ -427,7 +427,7 @@ ul {
 }
 
 .tabs {
-    background-color: #183a56;
+    background: linear-gradient(to bottom, rgba(29,76,116,1) 0%, rgba(24,58,86,1) 100%);;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -445,7 +445,7 @@ ul {
     position: relative;
     height: 100%;
     padding: 0px 25px;
-    background: #183a56;
+    background: linear-gradient(to bottom, rgba(29,76,116,1) 0%, rgba(24,58,86,1) 100%);;
     vertical-align: middle;
     line-height: 70px;
     text-align: center;
@@ -524,6 +524,7 @@ ul {
     bottom: 0px;
     left:0px;
     background-color: white;  
+    border-top: 1px solid lightgrey;
 }
 
 .bttn2 {
@@ -1158,5 +1159,3 @@ select {
     position: relative;
 }
 /* data-title styling - out */
-
-
