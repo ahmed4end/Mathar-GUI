@@ -42,8 +42,8 @@ toastr.options = {
     "positionClass": "toast-bottom-right",
     "preventDuplicates": true,
     "onclick": null,
-    "showDuration": "5000",
-    "hideDuration": "1000",
+    "showDuration": "3000",
+    "hideDuration": "500",
     "timeOut": "5000",
     "extendedTimeOut": "1000",
     "showEasing": "swing",
@@ -211,13 +211,11 @@ $(document).ready(function(){
 
     //button sound on click - table 1.
     fullTable.on('click', 'button', function () {
-        audio.pause();
         audio.play();
     });
 
     //button sound on click - public declare for the rest of mathar.
     $('button').on('click', function () {
-        audio.pause();
         audio.play();
     });
 
@@ -306,9 +304,7 @@ $(document).ready(function(){
         $('form', row).attr('data-dict', userInputValues);
 
         //show message.
-        toastr.info(`لجدول المختارات ${rowId} تم إضافة`, rowId, {timeOut: 1000, 
-                                                                  preventDuplicates:false, 
-                                                                  positionClass:"toast-bottom-left"});
+        toastr.info(`لجدول المختارات ${rowId} تم إضافة`, rowId, {timeOut: 1000,positionClass:"toast-bottom-center"});
         //remove button of row.
         var optionsT1 = row.find('td:last-child');
         optionsT1.find('button').remove();
@@ -450,6 +446,7 @@ $(document).ready(function(){
 
             //console.log(RowOptions)
             callPython(rowOptions);
+            
             toastr.info('إذهب لنافذة المعاينة لإنتظار النتيجة', 'جارى التكوين');
         }
 
@@ -502,6 +499,7 @@ $(document).ready(function(){
 
     //#tap1_zoom 
     $('#switch4').click(function(){
+        toastr.remove();
         if ( $(this).is(':checked') ){
             console.log('on');
             toastr.info("الأن يمكنك تكبير المسائل فى الجدول بتحريك الماوس فوقها", {timeOut: 1000,positionClass:"toast-bottom-right"});
@@ -511,7 +509,7 @@ $(document).ready(function(){
         }
         else {
             console.log('off');
-            $(this).parent().find('#chkbxt').text('غير مفعل');
+            toastr.info("تم إلغاء تكبير المسائل فى الجدول بتحريك الماوس فوقها", {timeOut: 1000,positionClass:"toast-bottom-right"});
             for (var i = 0; images.length > i; i++) {
                 images[i].classList.toggle('zoomEffect');
             }
