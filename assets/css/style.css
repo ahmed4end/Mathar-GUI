@@ -117,13 +117,13 @@ input {
     border: 1px solid lightgrey;
     border-radius: 3px;
     padding: 2px;
-    text-align: center
+    text-align: center;
 }
-input:hover {
+
+input:hover, #fullTable_filter input:hover {
     border: 1px solid #0db379;
     box-shadow: 0.1rem 0.2rem 0.3rem #0db37926;    
 }
-
 
 label {
     margin: 0px;
