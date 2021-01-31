@@ -427,7 +427,7 @@ ul {
 }
 
 .tabs {
-    background: linear-gradient(to bottom, rgba(29,76,116,1) 0%, rgba(24,58,86,1) 100%);;
+    background: linear-gradient(to bottom, rgba(28,68,101,1) 0%, rgba(24,58,86,1) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -445,7 +445,7 @@ ul {
     position: relative;
     height: 100%;
     padding: 0px 25px;
-    background: linear-gradient(to bottom, rgba(29,76,116,1) 0%, rgba(24,58,86,1) 100%);;
+    background: linear-gradient(to bottom, rgba(28,68,101,1) 0%, rgba(24,58,86,1) 100%);
     vertical-align: middle;
     line-height: 70px;
     text-align: center;
