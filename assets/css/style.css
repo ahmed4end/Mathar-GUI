@@ -109,9 +109,15 @@
     margin: 0;
 }
 
+/* disable text selection*/
+* {
+    /*user-select: none; [Disabled] */ 
+}
+
 body, html {
     height: 100%;
 }
+
 /* public inputs */
 input {
     border: 1px solid lightgrey;
@@ -1055,14 +1061,6 @@ select {
     text-align: center;
     text-align-last: center;
 }
-
-
-/* disable text selection*/
-* {
-    /*user-select: none; [Disabled] */ 
-}
-
-
 
 /* Images Zoom on table 1: in */
 

@@ -40,7 +40,7 @@ toastr.options = {
     "newestOnTop": true,
     //"progressBar": true,
     "positionClass": "toast-bottom-right",
-    "preventDuplicates": true,
+    "preventDuplicates": false,
     "onclick": null,
     "showDuration": "3000",
     "hideDuration": "500",
@@ -264,12 +264,12 @@ $(document).ready(function(){
     // Show alert if the table is empty when clicked on the Clear Table button
     $( "#clearTable" ).click(function() {
         if (emptyTable.data().count() == 0) {
-            swal({
+            Swal.fire({
                 text: "الجدول فارغ بالفعل",
                 button: "حسناً",
             });              
         } else {
-            swal({
+            Swal.fire({
                 title: "هل متأكد من هذه الخطوة ؟",
                 text: "بمجرد تفريغ الجدول لن تتمكن من إستعادة المسائل مرة اخرى",
                 icon: "warning",
@@ -280,7 +280,8 @@ $(document).ready(function(){
                 .then((willDelete) => {
                 if (willDelete) {
                     emptyTable.clear().draw();
-                    swal("! تم تفريغ الجدول بنجاح", {
+                    Swal.fire({
+                        text:"! تم تفريغ الجدول بنجاح", 
                         icon: "success",
                         button: "حسناً",
                         timer:1000
@@ -304,6 +305,7 @@ $(document).ready(function(){
         $('form', row).attr('data-dict', userInputValues);
 
         //show message.
+        toastr.remove();
         toastr.info(`لجدول المختارات ${rowId} تم إضافة`, rowId, {timeOut: 1000,positionClass:"toast-bottom-center"});
         //remove button of row.
         var optionsT1 = row.find('td:last-child');
@@ -409,7 +411,8 @@ $(document).ready(function(){
         audio.play()
 
         if (emptyTable.data().count() == 0) {
-            swal("يرجي اختيار مسائل اولاً", {
+            Swal.fire({
+                text:"يرجى اختيار مسائل اولاً", 
                 button: "حسناً",
             });
         } 
@@ -440,13 +443,14 @@ $(document).ready(function(){
                 $("#resultLoaderContainer").fadeOut("slow");
 
                 //show taoster message.
+                toastr.remove();
                 toastr.success('إذهب لنافذة المعاينة لرؤية النتيجة', 'تم التكوين');
 
             });
 
             //console.log(RowOptions)
             callPython(rowOptions);
-            
+
             toastr.info('إذهب لنافذة المعاينة لإنتظار النتيجة', 'جارى التكوين');
         }
 
@@ -475,7 +479,7 @@ $(document).ready(function(){
         }
         else {
             console.log('on');
-            swal("الأن يمكنك تكبير المسائل فى الجدول بتحريك الماوس فوقها.", {
+            Swal.fire("الأن يمكنك تكبير المسائل فى الجدول بتحريك الماوس فوقها.", {
                 button: "حسناً",
                 timer:3000
             });
@@ -551,6 +555,17 @@ $(document).ready(function(){
         } else {
             $('.tap3Steps').fadeOut();
         }
+
+    });
+
+    $('.about-btn').on('click', function(){
+        Swal.fire({
+            title: '<h1>About Mathar</h1>',
+            icon: 'info',
+            html: 'soon mathar will speak.',
+            showConfirmButton: false,
+            showCloseButton: true
+        })
 
     });
 
