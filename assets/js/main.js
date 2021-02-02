@@ -268,7 +268,8 @@ $(document).ready(function(){
         if (emptyTable.data().count() == 0) {
             Swal.fire({
                 text: "الجدول فارغ بالفعل",
-                button: "حسناً",
+                showConfirmButton:false,
+                timer: 1000
             });              
         } else {
             Swal.fire({
