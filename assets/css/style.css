@@ -486,7 +486,7 @@ ul {
 }
 
 .tabs-panel[data-index="3"] {
-    height: calc(100% - 140px);
+    height: calc(100% - 70px);
 }
 
 .tabs-panel.active {
@@ -528,9 +528,14 @@ ul {
 .settings-save-bttn {
     position: fixed;
     bottom: 0px;
-    left:0px;
-    background-color: white;  
-    border-top: 1px solid lightgrey;
+    left:50%;
+    transform: translate(-50%);
+    background: none;  
+}
+
+.buttonsRow-placeholder {
+    height: 70px;
+    width: 100%;
 }
 
 .bttn2 {
