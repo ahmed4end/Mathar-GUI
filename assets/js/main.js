@@ -536,16 +536,16 @@ $(document).ready(function(){
         }
 
     });
-    
+
     //save settings button - event
     $('.saveSettings').on('click', function(){
         Swal.fire({
-                text:"saving settings process", 
-                showConfirmButton: false,
-                timer: 1000
-            });    
+            text:"saving settings process", 
+            showConfirmButton: false,
+            timer: 1000
+        });    
     });
-    
+
     //about mathar - modal
     $('.about-btn').on('click', function(){
         Swal.fire({
@@ -558,17 +558,29 @@ $(document).ready(function(){
 
     });
 
-
 }); 
 
 
 // tabs js engine code.
+$('.tabs a').on('click', function(tab){
+    const currentTab = $(this).closest('li');
+    currentTab.siblings().removeClass('active');
+    currentTab.addClass('active');
+    const index = $(currentTab).parent().children().toArray().indexOf(...currentTab);
+
+    $(".tabs-panel").removeClass("active");
+    $(`.tabs-panel[data-index="${index}"]`).addClass("active");
+});
+
+/*
+old tabs code.
 const tabLinks = document.querySelectorAll(".tabs a");
 const tabPanels = document.querySelectorAll(".tabs-panel");
 
 for (let el of tabLinks) {
     el.addEventListener("click", e => {
         e.preventDefault();
+
 
         document.querySelector(".tabs li.active").classList.remove("active");
         document.querySelector(".tabs-panel.active").classList.remove("active");
@@ -581,7 +593,8 @@ for (let el of tabLinks) {
         panel[0].classList.add("active");
     });
 }
-//////////////////////
+*/
+/////////////////////
 
 
 //init funcs

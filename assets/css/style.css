@@ -441,11 +441,11 @@ ul {
     position: fixed;
     width:100%;
     height: 70px;
-    z-index:100;
     top:0px;
 }
 
 .tabs li a {
+    cursor: pointer;
     color: white;
     display: block;
     position: relative;
@@ -492,7 +492,6 @@ ul {
 .tabs-panel.active {
     display: block;
 }
-
 
 /*-----------------------------------------------------------------------
 04. END TABS
