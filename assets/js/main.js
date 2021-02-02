@@ -54,7 +54,7 @@ toastr.options = {
 
 
 $(window).load(function() {
-    $(".preloader").delay(1000).fadeOut("smooth");
+    $(".preloader").delay(10).fadeOut("smooth");
 });
 
 
@@ -67,8 +67,8 @@ function colIcon(icon, title, id){
 };
 function vwrap(txt) {return `<div style="writing-mode: vertical-lr;display:inline-block;">${txt}</div>`}
 // colIcon vars
-var custom_title_d = 'هذه المسئلة ديناميكة'
-var custom_title_s = 'هذه المسئلة إستاتيكية'
+var dynamicT = 'هذه المسئلة ديناميكة'
+var staticT = 'هذه المسئلة إستاتيكية'
 /* -------------------------------------------------------------------------------- */
 
 
@@ -101,11 +101,11 @@ $(document).ready(function(){
                         switch(data[0]){
                             case 'd':
                                 icon='dynamic_lamp';
-                                title = custom_title_d;
+                                title = dynamicT;
                                 break;
                             case 's':
                                 icon='static_lamp';
-                                title= custom_title_s;
+                                title= staticT;
                                 break;
                         }
                         return colIcon(icon, title, data[1]);
@@ -221,7 +221,9 @@ $(document).ready(function(){
 
     //table 2
     var emptyTable = $('#emptyTable').DataTable({
-        rowReorder:true,
+        rowReorder: {
+            selector: 'td:not(last)' //reorder row by all cols except last one.
+        },
         data: [],
         columns: [
             { title: "i." },
@@ -271,14 +273,14 @@ $(document).ready(function(){
         } else {
             Swal.fire({
                 title: "هل متأكد من هذه الخطوة ؟",
-                text: "بمجرد تفريغ الجدول لن تتمكن من إستعادة المسائل مرة اخرى",
+                text: "أنت الأن على وشك القيام بتفريغ الجدول",
                 icon: "warning",
-                buttons: true,
-                buttons: ["الغاء", "موافق"],
-                dangerMode: true,
+                confirmButtonText: 'موافق',
+                showCancelButton: true,
+                cancelButtonText: 'إلغاء'
             })
-                .then((willDelete) => {
-                if (willDelete) {
+                .then((result) => {
+                if (result.isConfirmed) {
                     emptyTable.clear().draw();
                     Swal.fire({
                         text:"! تم تفريغ الجدول بنجاح", 
@@ -413,7 +415,8 @@ $(document).ready(function(){
         if (emptyTable.data().count() == 0) {
             Swal.fire({
                 text:"يرجى اختيار مسائل اولاً", 
-                button: "حسناً",
+                showConfirmButton: false,
+                timer: 1000
             });
         } 
 
@@ -464,32 +467,7 @@ $(document).ready(function(){
 
     //[SETTINGS]
 
-    const images = $('.imgc', fullTableNodes)
-
-    //#tap1_zoom
-    $('#tap1_zoom').on('click', function(){
-        className = $(this).attr('class');
-        if (className.slice(-2,)=='on'){
-            console.log('off')
-            $(this).parent().find('#chkbxt').text('مفعل');
-
-            for (var i = 0; images.length > i; i++) {
-                images[i].classList.toggle('zoomEffect');
-            }
-        }
-        else {
-            console.log('on');
-            Swal.fire("الأن يمكنك تكبير المسائل فى الجدول بتحريك الماوس فوقها.", {
-                button: "حسناً",
-                timer:3000
-            });
-            $(this).parent().find('#chkbxt').text('غير مفعل');
-            for (var i = 0; images.length > i; i++) {
-                images[i].classList.toggle('zoomEffect');
-            }
-        }
-    });
-
+    const fullTableImages = $('.imgc', fullTableNodes)
 
     /* checkboxes status text - update event */
     $('.form-item__control input').click(function(){
@@ -507,15 +485,15 @@ $(document).ready(function(){
         if ( $(this).is(':checked') ){
             console.log('on');
             toastr.info("الأن يمكنك تكبير المسائل فى الجدول بتحريك الماوس فوقها", {timeOut: 1000,positionClass:"toast-bottom-right"});
-            for (var i = 0; images.length > i; i++) {
-                images[i].classList.toggle('zoomEffect');
+            for (var i = 0; fullTableImages.length > i; i++) {
+                fullTableImages[i].classList.toggle('zoomEffect');
             }
         }
         else {
             console.log('off');
             toastr.info("تم إلغاء تكبير المسائل فى الجدول بتحريك الماوس فوقها", {timeOut: 1000,positionClass:"toast-bottom-right"});
-            for (var i = 0; images.length > i; i++) {
-                images[i].classList.toggle('zoomEffect');
+            for (var i = 0; fullTableImages.length > i; i++) {
+                fullTableImages[i].classList.toggle('zoomEffect');
             }
         }
     });
@@ -548,7 +526,7 @@ $(document).ready(function(){
         this.parentNode.style.backgroundColor = this.value;
     });
 
-    //tab3 - toggle steps event
+    //toggle steps - event - tab3
     $('.toggleT3Steps').on('click', function(){
         if ($('.tap3Steps').css('display')=='none'){
             $('.tap3Steps').fadeIn();
@@ -557,7 +535,17 @@ $(document).ready(function(){
         }
 
     });
-
+    
+    //save settings button - event
+    $('.saveSettings').on('click', function(){
+        Swal.fire({
+                text:"saving settings process", 
+                showConfirmButton: false,
+                timer: 1000
+            });    
+    });
+    
+    //about mathar - modal
     $('.about-btn').on('click', function(){
         Swal.fire({
             title: '<h1>About Mathar</h1>',
