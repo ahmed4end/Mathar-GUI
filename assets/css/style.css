@@ -875,6 +875,7 @@ table.dataTable thead .sorting_desc {
 .about-btn {
     background: none;
     border: none;
+    transition-duration: 0.2s;
 }
 
 .about-btn:hover {
@@ -882,7 +883,7 @@ table.dataTable thead .sorting_desc {
     -moz-transform: scale(1.2);
     -o-transform: scale(1.2);
     transform: scale(1.2);
-    transition: all 0.2s ease-in-out;
+    transition-duration: 0.2s;
 }
 
 .about-icon {
