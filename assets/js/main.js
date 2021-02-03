@@ -277,7 +277,9 @@ $(document).ready(function(){
                     Swal.fire({
                         text:"! تم تفريغ الجدول بنجاح", 
                         icon: "success",
+                        showConfirmButton:false,
                         timer:2000
+                        
                     });
                 }
 
