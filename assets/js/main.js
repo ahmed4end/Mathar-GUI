@@ -269,7 +269,7 @@ $(document).ready(function(){
             Swal.fire({
                 text: "الجدول فارغ بالفعل",
                 showConfirmButton:false,
-                timer: 1000
+                timer: 2000
             });              
         } else {
             Swal.fire({
@@ -286,8 +286,7 @@ $(document).ready(function(){
                     Swal.fire({
                         text:"! تم تفريغ الجدول بنجاح", 
                         icon: "success",
-                        button: "حسناً",
-                        timer:1000
+                        timer:2000
                     });
                 }
 
@@ -417,7 +416,7 @@ $(document).ready(function(){
             Swal.fire({
                 text:"يرجى اختيار مسائل اولاً", 
                 showConfirmButton: false,
-                timer: 1000
+                timer: 2000
             });
         } 
 
@@ -542,7 +541,7 @@ $(document).ready(function(){
         Swal.fire({
             text:"saving settings process", 
             showConfirmButton: false,
-            timer: 1000
+            timer: 2000
         });    
     });
 
