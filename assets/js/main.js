@@ -179,15 +179,6 @@ $(document).ready(function(){
                 } );
             } );
         },
-
-        drawCallback: function(){
-            $('.paginate_button', this.api().table().container())          
-                .on('click', function(){
-                // future slight buttom jump fix
-                $('.tabs-panel').scrollTo(0);
-            });       
-        }
-
     });
 
 

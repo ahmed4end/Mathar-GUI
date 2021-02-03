@@ -552,8 +552,7 @@ ul {
 
 
 .bttn2:disabled {
-    background-color: lightgrey;
-    color: white;
+    background: lightgrey;
 }
 
 .btnIcon  {
