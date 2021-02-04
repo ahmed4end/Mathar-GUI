@@ -473,11 +473,19 @@ ul {
     position: absolute;
     width: 100%;
     height:3px;
-    left:0;
+    left:50%;
     bottom: 0;
+    transform: translate(-50%);
     background-color: royalblue;
     border-radius: 25%;
-    opacity: 0.8;
+    opacity: 0.5;
+    animation-name: growUp;
+    animation-duration: .4s;
+}
+
+@keyframes growUp {
+    from {width: 0px}
+to {width: 100%;} 
 }
 
 .tabs-content {
