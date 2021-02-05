@@ -79,7 +79,7 @@ END PRELOADER
 ==========================-->
 
         <div class="tabs-container">
-            
+
             <ul class="tabs">
                 <li class="active">
                     <a>جدول المسائل</a>
@@ -95,6 +95,7 @@ END PRELOADER
                 </li>
             </ul>
             <div class="tabs-content">
+
                 <div class="tabs-panel active" data-index="0">
                     <table id="fullTable" class="display table table-bordered" style="width:100%"></table>
                 </div>
@@ -107,8 +108,8 @@ END PRELOADER
                         <table id="emptyTable" class="display table table-bordered" style="width:100%"> </table>  
                     </div>
                 </div>
-                <div class="tabs-panel" data-index="2">
 
+                <div class="tabs-panel" data-index="2">
                     <div class="not_yet">
                         <h1>لم يتم تكوين مسائل بعد</h1>
                         <button class='toggleT3Steps'>كيفية تكوين مسائل؟</button>
@@ -133,13 +134,12 @@ END PRELOADER
                         <button id="saveImage" class="bttn-jelly bttn-md bttn2" style='display: none;'><span class='btnIcon open-location'></span>فتح مكان الحفظ</button>
                         <button id="ToggleImages" class="bttn-jelly bttn-md bttn2" style='display: none;'><span class='btnIcon twiggle-paper'></span>أظهر الإجابة</button>
                     </div>
-
                 </div>
+
                 <div class="tabs-panel" data-index="3">
-                    <div class="container">
-                        <div class="grid">
-                            <h3>عام</h3>
-                            <div class='line'></div>
+                    <div class="grid">
+                        <fieldset>
+                            <legend><h3>عام</h3></legend>
                             <div class="form-item">
                                 <div class="form-item__control">
                                     <select class="control control--select">
@@ -173,19 +173,10 @@ END PRELOADER
                                 </div>
                                 <label class="form-item__label" data-title='.(ينصح به) ترتيب عشوائى للمسائل المختارة فى كل ورقة يتم تكوينها'>:ترتيب عشوائى</label>
                             </div>
-                            <div class='line'></div>
-                            <h3>جدول</h3>
-                            <div class='line'></div>
-                            <div class="form-item">
-                                <div class="form-item__control">
-                                    <input type="checkbox" id="switch4"><label for="switch4"></label>
-                                    <span>غير مفعل</span>
-                                </div>
-                                <label class="form-item__label" data-title='.تفعيل هذا الخيار يمكنك بتكبير المسائل فى نافذة جدول المسائل لرؤيتها بشكل اكبر'>:تكبير المسائل</label>
-                            </div>
-                            <div class='line'></div>
-                            <h3>الآلوان</h3>
-                            <div class='line'></div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend><h3>الآلوان</h3></legend>
                             <div class="form-item">
                                 <div class="form-item__control">
                                     <div class='parentCP'>
@@ -212,11 +203,24 @@ END PRELOADER
                                 </div>
                                 <label class="form-item__label" data-title='لون الإجابات'>:لون هامشى</label>
                             </div>
-                            <div class='buttonsRow-placeholder'></div>
-                            <div class='settings-save-bttn'>
-                                <button class="saveSettings bttn-jelly bttn-md bttn2"><span class='btnIcon save-settings'></span>حفظ الإعدادات</button>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend><h3>جدول</h3></legend>
+                            <div class="form-item">
+                                <div class="form-item__control">
+                                    <input type="checkbox" id="switch4"><label for="switch4"></label>
+                                    <span>غير مفعل</span>
+                                </div>
+                                <label class="form-item__label" data-title='.تفعيل هذا الخيار يمكنك بتكبير المسائل فى نافذة جدول المسائل لرؤيتها بشكل اكبر'>:تكبير المسائل</label>
                             </div>
+                        </fieldset>
+
+                        <div class='buttonsRow-placeholder'></div>
+                        <div class='settings-save-bttn'>
+                            <button class="saveSettings bttn-jelly bttn-md bttn2"><span class='btnIcon save-settings'></span>حفظ الإعدادات</button>
                         </div>
+
                     </div>
                 </div>
             </div>

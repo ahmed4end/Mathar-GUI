@@ -175,7 +175,7 @@ th {
 
 
 /*
-    start: preloader icon  - styling.
+start: preloader icon  - styling.
 */
 
 
@@ -325,7 +325,7 @@ th {
 
 
 /*
-    end: preloader icon - syling.
+end: preloader icon - syling.
 */
 
 .preloader {
@@ -485,7 +485,7 @@ ul {
 
 @keyframes growUp {
     from {width: 0px}
-to {width: 100%;} 
+    to {width: 100%;} 
 }
 
 .tabs-content {
@@ -524,7 +524,7 @@ to {width: 100%;}
 
 .buttonsRow {
     position: relative
-    width: 100%;
+        width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -930,32 +930,24 @@ table.dataTable thead .sorting_desc {
 
 /* div:: herzontial line logged out */
 
-/* container logged in */
-
-.container {
-    display: -webkit-box;
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    flex-direction: row;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-}
+/* TAP 4 */
 
 .grid {
-    -webkit-box-flex: 1;
-    flex: 1;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    width: 100%;
+    margin:0;
+    align-items: center;
+    justify-content: center;
 }
 
 
-/* container logged out */
+.form-item__label {
+    margin-left: 30px;
+}
 
-/* TAP 4 */
+
 .form-item__control input[type=checkbox]{
     height: 0;
     width: 0;
@@ -1010,13 +1002,15 @@ table.dataTable thead .sorting_desc {
     flex-wrap: wrap;
 }
 
+
 .form-item:hover {
     background: #dee2e6;
+    border-radius: 5px;
 }
 
 .form-item__control {
     position: relative;
-    width: 40%;
+    width: 200px;
 }
 
 .control, input.settingsInput {
@@ -1190,4 +1184,18 @@ select {
 */
 .swal2-close:focus {
     box-shadow: none !important;
+}
+
+/* fieldset */
+FIELDSET {
+    margin: 8px;
+    border: 1px solid silver;
+    padding: 8px;    
+    border-radius: 5px;
+}
+
+LEGEND{
+    text-align: right;
+    width: fit-content;
+    padding: 2px;    
 }
