@@ -1109,13 +1109,13 @@ select {
 .zoomEffect:hover{
     z-index: 2;
     -webkit-transition: all 200ms ease-in;
-    -webkit-transform: scale(1.5);
+    -webkit-transform: scale(1.4);
     -ms-transition: all 200ms ease-in;
-    -ms-transform: scale(1.5);   
+    -ms-transform: scale(1.4);   
     -moz-transition: all 200ms ease-in;
-    -moz-transform: scale(1.5);
+    -moz-transform: scale(1.4);
     transition: all 200ms ease-in;
-    transform: scale(1.5);
+    transform: scale(1.4);
     background-color: rgba(35, 35, 25, 0.2);
 }
 

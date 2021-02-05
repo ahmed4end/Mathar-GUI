@@ -60,7 +60,7 @@ $(window).load(function() {
 
 /* init public powerfull funcs */
 var chooseRowBtn = "<form></form><button class='btn_1 icon-plus'><span>أختر</span></button>";
-function image(image){return `<img class='img lozad' data-src='./images/${image}.png' loading='lazy' alt='${image}'>`};
+function image(image){return `<img class='imgc lozad' data-src='./images/${image}.png' loading='lazy' alt='${image}'>`};
 function text(txt){return `<div id="textCell">${txt}</div>`;};
 function colIcon(icon, title, id){
     return `<div style="writing-mode: tb-rl;display:inline-block;"><div style="text-align: center;margin-bottom:5px;" class="${icon}" data-title="${title}"></div><div style="display: inline-block;" id="table1Id">${id}</div>`
@@ -471,7 +471,7 @@ $(document).ready(function(){
             $('span', $(this).parent()).text('غير مفعل');
         }
     });
-
+    
     //#tap1_zoom 
     $('#switch4').click(function(){
         toastr.remove();
