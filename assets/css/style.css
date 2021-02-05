@@ -967,17 +967,16 @@ table.dataTable thead .sorting_desc {
     cursor: pointer;
     text-indent: -9999px;
     height: 40px;
-    background: lightgrey;
+    background: linear-gradient(to bottom, rgba(211,211,211,1) 0%, rgba(187,185,185,1) 100%);
     display: block;
     border-radius: 100px;
     position: relative;
-    border: 1px solid darkgrey;
 }
 
 .form-item__control label:after {
     content: '';
     position: absolute;
-    top: 4px;
+    top: 5px;
     right: 5px;
     width: 30px;
     height: 30px;
@@ -987,7 +986,7 @@ table.dataTable thead .sorting_desc {
 }
 
 .form-item__control input:checked + label {
-    background: linear-gradient(to right, rgba(35,215,154,1) 0%, rgba(23,204,142,1) 100%);
+    background: linear-gradient(to bottom, rgba(35,215,154,1) 0%, rgba(23,204,142,1) 100%);
 
 }
 
@@ -1184,3 +1183,11 @@ select {
     position: relative;
 }
 /* data-title styling - out */
+
+
+/* sweatalert2 - 
+-patched close button ouline border on focus.
+*/
+.swal2-close:focus {
+    box-shadow: none !important;
+}
