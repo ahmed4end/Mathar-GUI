@@ -823,15 +823,25 @@ table.dataTable thead .sorting_desc {
 }
 
 .tap3Steps {
+    
     position: absolute;
     text-align: right;
     display: none;
-    list-style-type: circle;
+    list-style-type: decimal;
     margin:10px 0 0 0;
 }
 
 .tap3Steps li {
-    padding: 3px;
+    background-color: rgba(255,255,255,0.56);
+    border: 1px solid lightgrey;
+    box-shadow: 0.1rem 0.1rem 0.3rem lightgrey;   
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px 0 0 0;
+}
+
+.tap3Steps li:hover {
+    border: 1px solid #17cc8e;
 }
 
 /* Result lodaer */
@@ -1197,6 +1207,7 @@ FIELDSET {
 FIELDSET:hover {
     border: 1px solid #17cc8e;
     box-shadow: 0.1rem 0.1rem 0.3rem lightgrey;   
+    transition-duration: .3s;
 }
 
 LEGEND{
