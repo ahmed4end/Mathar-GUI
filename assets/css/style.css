@@ -1194,6 +1194,11 @@ FIELDSET {
     border-radius: 5px;
 }
 
+FIELDSET:hover {
+    border: 1px solid #17cc8e;
+    box-shadow: 0.1rem 0.1rem 0.3rem lightgrey;   
+}
+
 LEGEND{
     text-align: right;
     width: fit-content;
