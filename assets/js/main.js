@@ -52,7 +52,6 @@ toastr.options = {
     "hideMethod": "fadeOut",
 } // to adjust visit - https://codeseven.github.io/toastr/demo.html
 
-
 $(window).load(function() {
     $(".preloader").delay(10).fadeOut("smooth");
 });
@@ -73,6 +72,26 @@ var staticT = 'هذه المسئلة إستاتيكية'
 
 
 $(document).ready(function(){
+
+    //welcome message
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function welcome() {
+        await sleep(1000);
+        Swal.fire({
+            title: '<h1>Welcome at Mathar.</h1>',
+            icon: 'info',
+            html: 'soon mathar will speak.',
+            showConfirmButton: false,
+            showCloseButton: true
+        });
+    }
+
+    welcome();
+
+
 
     // INIT vars 
     var ict2 = 1
@@ -279,7 +298,7 @@ $(document).ready(function(){
                         icon: "success",
                         showConfirmButton:false,
                         timer:2000
-                        
+
                     });
                 }
 
@@ -302,6 +321,8 @@ $(document).ready(function(){
         //show message.
         toastr.remove();
         toastr.info(`لجدول المختارات ${rowId} تم إضافة`, rowId, {timeOut: 1000,positionClass:"toast-bottom-center"});
+
+        
         //remove button of row.
         var optionsT1 = row.find('td:last-child');
         optionsT1.find('button').remove();
@@ -471,7 +492,7 @@ $(document).ready(function(){
             $('span', $(this).parent()).text('غير مفعل');
         }
     });
-    
+
     //#tap1_zoom 
     $('#switch4').click(function(){
         toastr.remove();

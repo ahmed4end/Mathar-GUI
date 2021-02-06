@@ -444,6 +444,8 @@ ul {
     top:0px;
     padding:0;
     margin:0;
+    box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.3);
+    z-index: 10;
 }
 
 .tabs li a {
@@ -458,6 +460,11 @@ ul {
     line-height: 70px;
     text-align: center;
     overflow: hidden;
+    border-right: 1px solid #111;
+}
+
+.tabs li:first-child a {
+    border-left: 1px solid #111;
 }
 
 .tabs li.active a,
@@ -1214,4 +1221,8 @@ LEGEND{
     text-align: right;
     width: fit-content;
     padding: 2px;    
+}
+
+.swal2-popup.swal2-toast {
+    border: 1px solid lightgrey;    
 }
