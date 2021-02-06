@@ -81,7 +81,7 @@ $(document).ready(function(){
     async function welcome() {
         await sleep(1000);
         Swal.fire({
-            title: '<h1>Welcome at Mathar.</h1>',
+            title: '<h1>Welcome at Mathar</h1>',
             icon: 'info',
             html: 'soon mathar will speak.',
             showConfirmButton: false,
