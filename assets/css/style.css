@@ -460,11 +460,11 @@ ul {
     line-height: 70px;
     text-align: center;
     overflow: hidden;
-    border-right: 1px solid #111;
+    border-right: 1px solid rgba(28, 38, 101, 1);
 }
 
 .tabs li:first-child a {
-    border-left: 1px solid #111;
+    border-left: 1px solid rgba(28, 38, 101, 1);
 }
 
 .tabs li.active a,
