@@ -806,32 +806,32 @@ table.dataTable thead .sorting_desc {
 }
 
 /* txt before result */ 
-.not_yet {
+.notYet {
     text-align: center;
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    
 }
 
-.not_yet h1 {
+.notYet h1 {
     font-size: 35px;
 }
 
-.not_yet button {
+.notYet button {
     background: none;
     border: none;
     color:#183a56;
     text-decoration: underline;
 }
 
-.not_yet button:hover {
+.notYet button:hover {
     color: #17cc8e;
 }
 
 .tap3Steps {
-    
-    position: absolute;
+    position: ab;
     text-align: right;
     display: none;
     list-style-type: decimal;

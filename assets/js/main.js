@@ -441,7 +441,7 @@ $(document).ready(function(){
             $('#collectData').prop('disabled', true)
             $('#ToggleImages').fadeOut();
             $('#saveImage').fadeOut();
-            $('.not_yet').fadeOut();
+            $('.notYet').fadeOut();
             viewer.setVisible(false);
 
 
@@ -543,9 +543,9 @@ $(document).ready(function(){
     //toggle steps - event - tab3
     $('.toggleT3Steps').on('click', function(){
         if ($('.tap3Steps').css('display')=='none'){
-            $('.tap3Steps').fadeIn();
+            $('.tap3Steps').animate({height:'toggle'});
         } else {
-            $('.tap3Steps').fadeOut();
+            $('.tap3Steps').animate({height:'toggle'});
         }
 
     });
@@ -607,8 +607,6 @@ for (let el of tabLinks) {
     });
 }
 */
-/////////////////////
-
 
 //init funcs
 
