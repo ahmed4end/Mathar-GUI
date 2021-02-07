@@ -95,7 +95,7 @@ $(document).ready(function(){
 
     // INIT vars 
     var emptyTableJunkVar = 1
-    var audio = new Audio("assets/btnclk.wav"); 
+    var audio = new Audio("assets/btn2.wav"); 
 
     //table 1
     var fullTable = $('#fullTable').DataTable( {
