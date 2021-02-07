@@ -33,25 +33,6 @@ document.onkeydown = function(e) {
 */
 
 
-//toastr -  init setttings
-toastr.options = {
-    "closeButton": false,
-    "debug": false,
-    "newestOnTop": true,
-    //"progressBar": true,
-    "positionClass": "toast-bottom-right",
-    "preventDuplicates": false,
-    "onclick": null,
-    "showDuration": "3000",
-    "hideDuration": "500",
-    "timeOut": "5000",
-    "extendedTimeOut": "1000",
-    "showEasing": "swing",
-    "hideEasing": "linear",
-    "showMethod": "fadeIn",
-    "hideMethod": "fadeOut",
-} // to adjust visit - https://codeseven.github.io/toastr/demo.html
-
 $(window).load(function() {
     $(".preloader").delay(10).fadeOut("smooth");
 });
@@ -68,10 +49,24 @@ function vwrap(txt) {return `<div style="writing-mode: vertical-lr;display:inlin
 // colIcon vars
 var dynamicT = 'هذه المسئلة ديناميكة'
 var staticT = 'هذه المسئلة إستاتيكية'
-/* -------------------------------------------------------------------------------- */
+//
 
 
 $(document).ready(function(){
+
+    //swal toastr.
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'bottom-start',
+        showConfirmButton: false,
+        timer: 4000,
+        timerProgressBar: false,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+            toast.addEventListener('click', Swal.close)
+        }
+    })
 
     //welcome message
     function sleep(ms) {
@@ -89,7 +84,7 @@ $(document).ready(function(){
         });
     }
 
-    welcome();
+    //welcome(); //deprecated for now.
 
 
 
@@ -318,11 +313,12 @@ $(document).ready(function(){
         //store user input values in form tag.
         $('form', row).attr('data-dict', userInputValues);
 
-        //show message.
-        toastr.remove();
-        toastr.info(`لجدول المختارات ${rowId} تم إضافة`, rowId, {timeOut: 1000,positionClass:"toast-bottom-center"});
+        //fire toast.
+        Toast.fire({
+            icon: 'info',
+            title: `لجدول المختارات ${rowId} تم إضافة`
+        });
 
-        
         //remove button of row.
         var optionsT1 = row.find('td:last-child');
         optionsT1.find('button').remove();
@@ -459,16 +455,21 @@ $(document).ready(function(){
                 $('#saveImage').fadeIn();
                 $("#resultLoaderContainer").fadeOut("slow");
 
-                //show taoster message.
-                toastr.remove();
-                toastr.success('إذهب لنافذة المعاينة لرؤية النتيجة', 'تم التكوين');
+                //fire toast.
+                Toast.fire({
+                    icon: 'success',
+                    title: 'تم التكوين - إذهب لنافذة المعاينة لرؤية النتيجة'
+                });
 
             });
 
             //console.log(RowOptions)
             callPython(rowOptions);
 
-            toastr.info('إذهب لنافذة المعاينة لإنتظار النتيجة', 'جارى التكوين');
+            Toast.fire({
+                    icon: 'info',
+                    title: 'جارى التكوين - إذهب لنافذة المعاينة لإنتظار النتيجة'
+                });
         }
 
     });
@@ -495,17 +496,26 @@ $(document).ready(function(){
 
     //#tap1_zoom 
     $('#switch4').click(function(){
-        toastr.remove();
         if ( $(this).is(':checked') ){
             console.log('on');
-            toastr.info("الأن يمكنك تكبير المسائل فى الجدول بتحريك الماوس فوقها", {timeOut: 1000,positionClass:"toast-bottom-right"});
+            
+            Toast.fire({
+                    icon: 'info',
+                    title: 'الأن يمكنك تكبير المسائل فى الجدول بتحريك الماوس فوقها',
+                });
+            
             for (var i = 0; fullTableImages.length > i; i++) {
                 fullTableImages[i].classList.toggle('zoomEffect');
             }
         }
         else {
             console.log('off');
-            toastr.info("تم إلغاء تكبير المسائل فى الجدول بتحريك الماوس فوقها", {timeOut: 1000,positionClass:"toast-bottom-right"});
+
+            Toast.fire({
+                    icon: 'info',
+                    title: 'تم إلغاء تكبير المسائل فى الجدول بتحريك الماوس فوقها',
+                });
+            
             for (var i = 0; fullTableImages.length > i; i++) {
                 fullTableImages[i].classList.toggle('zoomEffect');
             }

@@ -1194,14 +1194,6 @@ select {
 }
 /* data-title styling - out */
 
-
-/* sweatalert2 - 
--patched close button ouline border on focus.
-*/
-.swal2-close:focus {
-    box-shadow: none !important;
-}
-
 /* fieldset */
 FIELDSET {
     margin: 8px;
@@ -1222,6 +1214,20 @@ LEGEND{
     padding: 0 5px 0 5px;    
 }
 
+/* sweatalert2 - 
+-patched close button ouline border on focus.
+*/
+.swal2-close:focus {
+    box-shadow: none !important;
+}
+
+
+/* swal taoster styling */
+.swal2-bottom-start {
+    height: 100px;
+}
+
 .swal2-popup.swal2-toast {
-    border: 1px solid lightgrey;    
+    border: 1px solid lightgrey;  
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75)!important;
 }
