@@ -144,7 +144,7 @@ p {
 -----------------------------------------------------------------------*/
 
 body {
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Cairo';
     background-color: #fcfefd;
     color: #183a56;
     overflow: hidden;

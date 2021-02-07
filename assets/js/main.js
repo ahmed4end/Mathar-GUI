@@ -94,7 +94,7 @@ $(document).ready(function(){
 
 
     // INIT vars 
-    var ict2 = 1
+    var emptyTableJunkVar = 1
     var audio = new Audio("assets/btnclk.wav"); 
 
     //table 1
@@ -255,7 +255,7 @@ $(document).ready(function(){
             "searchable": true,
             "orderable": false,
             "targets": 0,
-            "className": "dt-center", 
+            "className": "dt-center reorder", //row reorder - class 'reorder' changes cursor icon on hover.
             "targets": "_all"
         },
                        { 
@@ -335,8 +335,8 @@ $(document).ready(function(){
 
         //remove options cell before adding the row to table 2.
         row.find('td:last-child').remove();
-        row.find('td:first-child').html(ict2);
-        ict2 = ict2 + 1
+        row.find('td:first-child').html(emptyTableJunkVar);
+        emptyTableJunkVar = emptyTableJunkVar + 1
 
         //processing the row then adding it to table 2 .
         row = row.append('<th>'+optionsT1+'<button class="r_b_s btn_1 icon-remove"><span>إزالة</span></button></th>');
