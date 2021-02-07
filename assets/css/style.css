@@ -812,7 +812,6 @@ table.dataTable thead .sorting_desc {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
 }
 
 .notYet h1 {
@@ -942,7 +941,7 @@ table.dataTable thead .sorting_desc {
 .line {
     width: 100%;
     height: 1px;
-    background: lightgrey;
+    background: rgba(0,0,0,0.1);
 }
 
 /* div:: herzontial line logged out */
@@ -995,7 +994,7 @@ table.dataTable thead .sorting_desc {
 }
 
 .form-item__control input:checked + label {
-    background: linear-gradient(to bottom, rgba(35,215,154,1) 0%, rgba(23,204,142,1) 100%);
+    background: linear-gradient(to bottom, rgba(23,204,142,0.6) 0%, rgba(23,204,142,1) 100%);
 
 }
 
@@ -1220,7 +1219,7 @@ FIELDSET:hover {
 LEGEND{
     text-align: right;
     width: fit-content;
-    padding: 2px;    
+    padding: 0 5px 0 5px;    
 }
 
 .swal2-popup.swal2-toast {
