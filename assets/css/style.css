@@ -12,6 +12,7 @@
 /* cairo-200 - arabic */
 @font-face {
     font-family: 'Cairo';
+    font-display: block;
     font-style: normal;
     font-weight: 200;
     src: url('fonts/cairo-v9-arabic-200.eot'); /* IE9 Compat Modes */
@@ -139,6 +140,10 @@ p {
     margin: 0px;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    line-height: 1.5;
+}
 /*-----------------------------------------------------------------------
 02. START GENERAL STYLES
 -----------------------------------------------------------------------*/
@@ -460,11 +465,11 @@ ul {
     line-height: 70px;
     text-align: center;
     overflow: hidden;
-    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .tabs li:first-child a {
-    border-left: 1px solid rgba(0, 0, 0, 0.2);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .tabs li.active a,
@@ -530,8 +535,8 @@ ul {
 -----------------------------------------------------------------------*/
 
 .buttonsRow {
-    position: relative
-        width: 100%;
+    position: relative;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -574,37 +579,15 @@ ul {
     color: white;
     margin: 10px;
     background: linear-gradient(to bottom, rgba(26,227,158,1) 0%, rgba(23,204,142,1) 100%);
-
 }
 
+.bttn2 svg {
+    float:left;
+}
 
 .bttn2:disabled {
     background: lightgrey;
 }
-
-.btnIcon  {
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-    float: left;
-    color: red;
-}
-.clear-table {
-    background: url('../icons/trash.svg') no-repeat;
-}
-.create-paper {
-    background: url('../icons/checkAll.svg') no-repeat;
-}
-.twiggle-paper {
-    background: url('../icons/twiggleArrow.svg') no-repeat;
-}
-.open-location {
-    background: url('../icons/folder.svg') no-repeat;
-}
-.save-settings {
-    background: url('../icons/save.svg') no-repeat;
-}
-
 
 /* select&remove button style */
 .icon-plus:before,
@@ -928,7 +911,7 @@ table.dataTable thead .sorting_desc {
 }
 
 /* if screens resized too small then hide about icon to aboid overlab with tabs */
-@media only screen and (max-width:555px){
+@media only screen and (max-width:600px){
     .about {
         display: none;
     }
@@ -1220,7 +1203,6 @@ LEGEND{
 .swal2-close:focus {
     box-shadow: none !important;
 }
-
 
 /* swal taoster styling */
 .swal2-bottom-start {
