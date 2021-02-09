@@ -127,7 +127,10 @@ input {
     text-align: center;
 }
 
-input:hover, #fullTable_filter input:hover {
+
+input:hover, 
+#fullTable_filter label:hover /* table */
+{
     border: 1px solid #0db379;
     box-shadow: 0.1rem 0.2rem 0.3rem #0db37926;    
 }
@@ -465,11 +468,11 @@ ul {
     line-height: 70px;
     text-align: center;
     overflow: hidden;
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .tabs li:first-child a {
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-left: 1px solid rgba(0, 0, 0, 0.s);
 }
 
 .tabs li.active a,
@@ -547,13 +550,15 @@ ul {
     width: fit-content; 
     position: fixed;
     z-index: 10;
+    top: 80px;
     left:50%;
     transform: translate(-50%);
 }
 
+/* table */
 .emptyTableContainer {
     position: relative;
-    top: 60px;
+    top: 66px;
     z-index: 9;
 }
 
@@ -721,14 +726,61 @@ table.dataTable {
 
 /* Table white Spcee */
 .dataTables_wrapper {
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 /* search box style */
 #fullTable_filter {
-    display: inline-block; 
+    padding: 0;
+}
+
+#fullTable_filter label {
+    position: relative;
+    border-radius: 92px;
+    width: 361px;
+    height: 46px;
+    background: rgba(22,24,35,0.06);
+    display: flex;
+    left: 50%;
+    transform: translate(-50%);
     float: none; /* disabled this shit to center the filter.*/
-    margin-bottom: 20px;   
+    margin-bottom: 20px;  
+    vertical-align: middle;
+}
+
+#fullTable_filter input {
+    font-size: 20px; 
+    position: relative;
+    border: none;
+    top:50%;
+    transform: translate(0, -50%);
+    width: 292px;
+    line-height: 47px;
+    direction: rtl;
+}
+
+#fullTable_filter input:hover {
+    border: none;
+    box-shadow: none;
+}
+
+.search-icon:before {
+    content: '';
+    width: 1px;
+    height: 28px;
+    background-color: rgba(22,24,35,0.12);
+    display: inline-block;
+    position: absolute;
+    margin: 0 -15px;
+}
+.search-icon {
+    width:24px;
+    height:24px;
+    display: inline-block;
+    position: absolute;
+    right:20px;
+    top:50%;
+    transform: translate(0,-50%);
 }
 
 #fullTable img, #emptyTable img {

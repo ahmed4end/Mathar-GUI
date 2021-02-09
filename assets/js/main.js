@@ -55,6 +55,7 @@ const bookSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
   <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
 </svg>`
 
+const searchSVG = `<svg width="24" height="24" viewBox="0 0 48 48" fill="rgba(22, 24, 35, 0.34)" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M22 10C15.3726 10 10 15.3726 10 22C10 28.6274 15.3726 34 22 34C28.6274 34 34 28.6274 34 22C34 15.3726 28.6274 10 22 10ZM6 22C6 13.1634 13.1634 6 22 6C30.8366 6 38 13.1634 38 22C38 25.6974 36.7458 29.1019 34.6397 31.8113L43.3809 40.5565C43.7712 40.947 43.7712 41.5801 43.3807 41.9705L41.9665 43.3847C41.5759 43.7753 40.9426 43.7752 40.5521 43.3846L31.8113 34.6397C29.1019 36.7458 25.6974 38 22 38C13.1634 38 6 30.8366 6 22Z"></path></svg>`
 
 $(document).ready(function(){
 
@@ -99,7 +100,7 @@ $(document).ready(function(){
     //table 1
     var fullTable = $('#fullTable').DataTable( {
         "autoWidth":false,
-        "dom": '<"top">f<t><"#margin5px"><"clear"><"footerContainer"lp>',
+        "dom": '<"top"><"fullTableFilter"f><t><"#margin5px"><"clear"><"footerContainer"lp>',
         rowReorder:false,
         data: dataSet,
         fixedHeader: {
@@ -168,7 +169,7 @@ $(document).ready(function(){
             "sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
             "sInfoPostFix": "",
             "sSearch": "ابحث:",
-            "search": "_INPUT_ : أبحث",
+            "search": "_INPUT_"+`<div class='search-icon'>${searchSVG}</div>`,
             "sUrl": "",
             "oPaginate": {
                 "sFirst": "الأول",
@@ -210,7 +211,9 @@ $(document).ready(function(){
         observer.observe();
     };
 
-
+    //add placeholder to filter.
+    $('#fullTable_filter input').attr('placeholder', 'أبحث عن ...');
+    
     // draw temp index increament on column 0.
     fullTable.on('order.dt search.dt', function () {
         fullTable.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
