@@ -493,11 +493,10 @@ ul {
     left:50%;
     bottom: 0;
     transform: translate(-50%);
-    background-color: royalblue;
-    border-radius: 25%;
-    opacity: 0.5;
+    background-color: #3f6af4;
     animation-name: growUp;
     animation-duration: .4s;
+    animation-timing-function:ease;
 }
 
 @keyframes growUp {
