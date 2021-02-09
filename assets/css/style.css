@@ -4,7 +4,10 @@
 
 /* variables */
 :root {
-    --base: #17cc8e;
+    --color1: 23, 204, 142; /* sort of lightgreen main color */
+    --color2: 24, 58, 86;   /* sort of navy main color */
+    --gradient1: linear-gradient(to bottom, rgba(35, 236, 167, 1) 0%, rgba(var(--color1), 1) 100%); /* gradient of color1 */
+    --gradient2: linear-gradient(to bottom, rgba(34, 77, 112, 1) 0%, rgba(var(--color2), 1) 100%); /* gradient of color2 */
 }
 
 /*-----------------------------------------------------------------------
@@ -201,8 +204,7 @@ start: preloader icon  - styling.
 .slice.top-left {
     left:0px;
     border-top-left-radius: 10px;
-    background-color: aqua;
-    background: linear-gradient(90deg, rgba(29,76,116,1) 0%, rgba(24,58,86,1) 100%);
+    background: var(--gradient2);
 }
 .plus-sign {
     position: absolute;
@@ -242,7 +244,7 @@ start: preloader icon  - styling.
 .slice.top-right {
     right:0px;
     border-top-right-radius: 10px;
-    background: linear-gradient(to bottom, rgba(35,215,154,1) 0%, rgba(23,204,142,1) 100%);
+    background: var(--gradient1);
 }
 
 .minus-sign {
@@ -267,7 +269,7 @@ start: preloader icon  - styling.
     left:0px;
     bottom: 0px;
     border-bottom-left-radius: 10px;
-    background: linear-gradient(to bottom, rgba(35,215,154,1) 0%, rgba(23,204,142,1) 100%);
+    background: var(--gradient1);
 }
 
 .mul-sign {
@@ -304,7 +306,7 @@ start: preloader icon  - styling.
     right:0px;
     bottom: 0px;
     border-bottom-right-radius: 10px;
-    background: linear-gradient(90deg, rgba(29,76,116,1) 0%, rgba(24,58,86,1) 100%);
+    background: var(--gradient2);
 }
 
 .equal-sign {
@@ -443,7 +445,7 @@ ul {
 }
 
 .tabs {
-    background: linear-gradient(to bottom, rgba(28,68,101,1) 0%, rgba(24,58,86,1) 100%);
+    background: var(--gradient2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -465,7 +467,7 @@ ul {
     position: relative;
     height: 100%;
     padding: 0px 25px;
-    background: linear-gradient(to bottom, rgba(28,68,101,1) 0%, rgba(24,58,86,1) 100%);
+    background: var(--gradient2);
     vertical-align: middle;
     line-height: 70px;
     text-align: center;
@@ -481,8 +483,7 @@ ul {
 .tabs li a:hover {
     color:white;
     text-decoration: none;
-    /*background: #17cc8e;*/
-    background: linear-gradient(to bottom, rgba(35,215,154,1) 0%, rgba(23,204,142,1) 100%);
+    background: var(--gradient1);
 }
 
 .tabs li.active a:after {
@@ -583,7 +584,7 @@ ul {
     position: relative;
     color: white;
     margin: 10px;
-    background: linear-gradient(to bottom, rgba(26,227,158,1) 0%, rgba(23,204,142,1) 100%);
+    background: var(--gradient1);
 }
 
 .bttn2 svg {
@@ -629,9 +630,7 @@ ul {
     -webkit-font-smoothing: antialiased;
 }
 
-.btn_1:hover {
-    color: #fff;
-}
+
 
 .btn_1 {
     border: none;
@@ -640,8 +639,7 @@ ul {
     display: inline-block;
     font-weight: 700;
     position: relative;
-    /*background: #17cc8e;*/
-    background: linear-gradient(to bottom, rgba(26,227,158,1) 0%, rgba(23,204,142,1) 100%);
+    background: var(--gradient1);
     color: #fff;
     font-size: 12px;
     overflow: hidden;
@@ -655,9 +653,7 @@ ul {
     margin: 10px;
 }
 
-.btn_1:active {
-    /*background: #17cc8e;*/
-    background: linear-gradient(to bottom, rgba(26,227,158,1) 0%, rgba(23,204,142,1) 100%);
+.btn_1:active{
     top: 2px;
 }
 
@@ -1029,7 +1025,7 @@ table.dataTable thead .sorting_desc {
 }
 
 .form-item__control input:checked + label {
-    background: linear-gradient(to bottom, rgba(23,204,142,0.6) 0%, rgba(23,204,142,1) 100%);
+    background: var(--gradient1);
 
 }
 
