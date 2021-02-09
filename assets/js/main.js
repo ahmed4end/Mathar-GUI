@@ -575,13 +575,41 @@ $(document).ready(function(){
             timer: 2000
         });    
     });
-
+    
+    const fd = `<div class="book">
+  <div class="inner">
+    <div class="left"></div>
+    <div class="middle"></div>
+    <div class="right"></div>
+  </div>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>`
+    
     //about mathar - modal
     $('.about-btn').on('click', function(){
         Swal.fire({
             title: '<h1>About Mathar</h1>',
             icon: 'info',
-            html: 'soon mathar will speak.',
+            html: 'soon mathar will speak.<br>'+fd,
             showConfirmButton: false,
             showCloseButton: true
         })
@@ -591,7 +619,7 @@ $(document).ready(function(){
 }); 
 
 
-// tabs js engine code.
+// tabs - swap active class.
 $('.tabs a').on('click', function(tab){
     const currentTab = $(this).closest('li');
     currentTab.siblings().removeClass('active');

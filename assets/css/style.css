@@ -1,9 +1,11 @@
 
 /* imports */
+@import 'bookAnimation.css'; /* about book animation */
 
-/* perloader icon css styles */
-/*@import url("mathar-icon.css");*/
-
+/* variables */
+:root {
+    --base: #17cc8e;
+}
 
 /*-----------------------------------------------------------------------
 01. START APP FONTS
@@ -580,7 +582,6 @@ ul {
     width:200px;
     height: 50px;
     position: relative;
-    /*background-color: #17cc8e;*/
     color: white;
     margin: 10px;
     background: linear-gradient(to bottom, rgba(26,227,158,1) 0%, rgba(23,204,142,1) 100%);
@@ -740,12 +741,11 @@ table.dataTable {
     width: 361px;
     height: 46px;
     background: rgba(22,24,35,0.06);
+    border: 1px solid rgba(0,0,0,0.1);
     display: flex;
     left: 50%;
     transform: translate(-50%);
-    float: none; /* disabled this shit to center the filter.*/
     margin-bottom: 20px;  
-    vertical-align: middle;
 }
 
 #fullTable_filter input {
@@ -895,6 +895,7 @@ table.dataTable thead .sorting_desc {
 
 .resultLoader {
     position: relative;
+    text-align: center;
     width: 80px;
     height: 80px;
     left:50%;
@@ -1265,3 +1266,5 @@ LEGEND{
     border: 1px solid lightgrey;  
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75)!important;
 }
+
+
