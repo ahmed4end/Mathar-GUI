@@ -17,7 +17,6 @@
 /* cairo-200 - arabic */
 @font-face {
     font-family: 'Cairo';
-    font-display: block;
     font-style: normal;
     font-weight: 200;
     src: url('fonts/cairo-v9-arabic-200.eot'); /* IE9 Compat Modes */
@@ -151,6 +150,7 @@ p {
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
     line-height: 1.5;
+    text-align: center;
 }
 /*-----------------------------------------------------------------------
 02. START GENERAL STYLES
@@ -158,11 +158,11 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
     font-family: 'Cairo';
+    font-display: block;
     background-color: #fcfefd;
     color: #183a56;
     overflow: hidden;
 }
-
 
 *:focus {
     outline: none
@@ -445,14 +445,25 @@ ul {
 }
 
 .tabs {
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    background: var(--gradient2);
+    box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.3);
+
+}
+
+.tabs ul {
     background: var(--gradient2);
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    position: fixed;
-    width:100%;
-    height: 70px;
+    position: relative;
+    width: fit-content;
+    height: 100%;
     top:0px;
     padding:0;
     margin:0;
@@ -460,7 +471,7 @@ ul {
     z-index: 10;
 }
 
-.tabs li a {
+.tabs li {
     cursor: pointer;
     color: white;
     display: block;
@@ -468,41 +479,53 @@ ul {
     height: 100%;
     padding: 0px 25px;
     background: var(--gradient2);
-    vertical-align: middle;
-    line-height: 70px;
     text-align: center;
-    overflow: hidden;
-    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    
 }
 
-.tabs li:first-child a {
-    border-left: 1px solid rgba(0, 0, 0, 0.s);
+.tabs li:first-child {
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.tabs li.active a,
-.tabs li a:hover {
+.tabs li:before {
+    content: '';
+    position: absolute;
+    left:0;
+    width:100%;
+    height:100%;
     color:white;
-    text-decoration: none;
     background: var(--gradient1);
+    opacity: 0;
+    transition: opacity 0.4s;
 }
 
-.tabs li.active a:after {
+.tabs li.active:before {
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+.tabs li h5 {
+    position: relative;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+
+.tabs li:after {
     content:'';
     position: absolute;
-    width: 100%;
+    width: 0;
     height:3px;
     left:50%;
     bottom: 0;
-    transform: translate(-50%);
     background-color: #3f6af4;
-    animation-name: growUp;
-    animation-duration: .4s;
-    animation-timing-function:ease;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
 }
 
-@keyframes growUp {
-    from {width: 0px}
-    to {width: 100%;} 
+.tabs li:hover:after,
+.tabs li.active:after {
+    width: 100%;
+    left:0;
 }
 
 .tabs-content {

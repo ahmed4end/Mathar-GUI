@@ -620,7 +620,7 @@ $(document).ready(function(){
 
 
 // tabs - swap active class.
-$('.tabs a').on('click', function(tab){
+$('.tabs li').on('click', function(tab){
     const currentTab = $(this).closest('li');
     currentTab.siblings().removeClass('active');
     currentTab.addClass('active');
