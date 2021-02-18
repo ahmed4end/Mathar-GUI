@@ -841,7 +841,7 @@ table.dataTable thead .sorting_desc {
 -----------------------------------------------------------------------*/
 
 .zoomer {
-    background: url("../icons/back.svg");
+    background: url("../icons/back.png");
     border: 1px solid #dee2e6;
     height: 95%;
     overflow: hidden;
@@ -917,6 +917,7 @@ table.dataTable thead .sorting_desc {
     display: inline-block;
     width: 80px;
     height: 80px;
+    margin-bottom: 20px;
 }
 .lds-dual-ring:after {
     content: " ";
@@ -1130,16 +1131,14 @@ input.settingsInput[type="color"]::-webkit-color-swatch {
 }
 /* input:: color picker logged out */
 
-h3 {
-    margin: 10px 0 10px;
-    text-align:right;
-
-}
 
 select {
     text-align: center;
     text-align-last: center;
+    background-color: rgba(0,0,0,0.1);
 }
+
+
 
 /* Images Zoom on table 1: in */
 
