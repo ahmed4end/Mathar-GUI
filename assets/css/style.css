@@ -8,6 +8,7 @@
     --color2: 24, 58, 86;   /* sort of navy main color */
     --gradient1: linear-gradient(to bottom, rgba(35, 236, 167, 1) 0%, rgba(var(--color1), 1) 100%); /* gradient of color1 */
     --gradient2: linear-gradient(to bottom, rgba(34, 77, 112, 1) 0%, rgba(var(--color2), 1) 100%); /* gradient of color2 */
+    --tabs-hover-color-and-underline: #3f6af4;
 }
 
 /*-----------------------------------------------------------------------
@@ -131,12 +132,14 @@ input {
     text-align: center;
 }
 
-
+/* border's transition color and drop shadow */
 input:hover, 
-#fullTable_filter label:hover /* table */
+#fullTable_filter label:hover, /* table */
+select:hover
 {
-    border: 1px solid #0db379;
-    box-shadow: 0.1rem 0.2rem 0.3rem #0db37926;    
+    border: 1px solid rgba(var(--color1));
+    box-shadow: 0.1rem 0.2rem 0.3rem lightgrey;  
+    transition:border .2s ease-in-out;
 }
 
 label {
@@ -512,6 +515,11 @@ ul {
     transform: translate(0,-50%);
 }
 
+.tabs li:hover {
+    transition: all .2s ease-in-out; 
+    color: var(--tabs-hover-color-and-underline);
+}
+
 .tabs li:after {
     content:'';
     position: absolute;
@@ -519,7 +527,7 @@ ul {
     height:3px;
     left:50%;
     bottom: 0;
-    background-color: #3f6af4;
+    background-color: var(--tabs-hover-color-and-underline);
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
 }
 
@@ -875,12 +883,13 @@ table.dataTable thead .sorting_desc {
 .notYet button {
     background: none;
     border: none;
-    color:#183a56;
+    color: rgba(var(--color2));
     text-decoration: underline;
 }
 
 .notYet button:hover {
-    color: #17cc8e;
+    color: rgba(var(--color1));
+    transition:color .2s ease-in-out;
 }
 
 .tap3Steps {
@@ -901,7 +910,8 @@ table.dataTable thead .sorting_desc {
 }
 
 .tap3Steps li:hover {
-    border: 1px solid #17cc8e;
+    border: 1px solid rgba(var(--color1));
+    transition: border .2s ease-in-out;
 }
 
 /* Result lodaer */
@@ -1002,11 +1012,9 @@ table.dataTable thead .sorting_desc {
     justify-content: center;
 }
 
-
 .form-item__label {
     margin-left: 30px;
 }
-
 
 .form-item__control input[type=checkbox]{
     height: 0;
@@ -1017,7 +1025,6 @@ table.dataTable thead .sorting_desc {
 
 .form-item__control label {
     cursor: pointer;
-    text-indent: -9999px;
     height: 40px;
     background: linear-gradient(to bottom, rgba(211,211,211,1) 0%, rgba(187,185,185,1) 100%);
     display: block;
@@ -1032,9 +1039,9 @@ table.dataTable thead .sorting_desc {
     right: 5px;
     width: 30px;
     height: 30px;
-    background: #fff;
+    background: white;
     border-radius: 90px;
-    transition: 0.3s;
+    transition:all 0.3s ease-in-out;
 }
 
 .form-item__control input:checked + label {
@@ -1044,7 +1051,7 @@ table.dataTable thead .sorting_desc {
 
 .form-item__control input:checked + label:after {
     right: calc(100% - 5px);
-    transform: translateX(+100%);
+    transform: translateX(100%);
 }
 
 .form-item__control label:active:after {
@@ -1053,11 +1060,8 @@ table.dataTable thead .sorting_desc {
 
 .form-item {
     padding: 10px;
-    display: -webkit-box;
     display: flex;
-    -webkit-box-pack: justify;
     justify-content: space-between;
-    -webkit-box-align: center;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -1105,8 +1109,9 @@ table.dataTable thead .sorting_desc {
 }
 
 .form-item__control input:hover {
-    border: 1px solid #0db379;
-    box-shadow: 0.1rem 0.2rem 0.3rem #0db37926;
+    border: 1px solid rgba(var(--color1));
+    box-shadow: 0.1rem 0.2rem 0.3rem lightgrey;
+    transition: border .1s ease-in-out;
 }
 
 input.settingsInput[type="color"] {
@@ -1272,5 +1277,3 @@ LEGEND{
     border: 1px solid lightgrey;  
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75)!important;
 }
-
-
