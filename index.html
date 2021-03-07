@@ -7,11 +7,8 @@
 
         <!-- Title -->
         <title>Mathar</title>
+        <!-- icon -->
         <link rel="icon" href="./assets/icons/mathar.png">
-
-        <!--==========================
-START CSS FILES
-==========================-->
         <!-- this line fixes favicon error -->
         <link rel="icon" href="data:;base64,iVBORw0KGgo=">
         <!-- Bootstrap Lib -->
@@ -22,13 +19,11 @@ START CSS FILES
         <link rel="stylesheet" href="assets/css/rowReorder.dataTables.min.css">
         <!-- buttons - lib docs="https://bttn.surge.sh/" -->
         <link href="./assets/css/bttn.min.css" rel="stylesheet"/>
-        <!-- Our Css Main File -->
-        <link rel="stylesheet" href="./assets/css/style.css">
+        <!-- Font File -->
+        <link rel="stylesheet" href="./assets/css/fonts.css", type='text/css'>
+        <!-- Main Css File -->
+        <link rel="stylesheet" href="./assets/css/style.css", type='text/css'>
 
-
-        <!--==========================
-END CSS FILES
-==========================-->
 
     </head>
     <body>
@@ -177,7 +172,7 @@ END PRELOADER
                             <legend><h3>عام</h3></legend>
                             <div class="form-item">
                                 <div class="form-item__control">
-                                    <select class="control control--select">
+                                    <select>
                                         <option selected="selected">Bahij Yakout</option>
                                         <option>Arial</option>
                                         <option>Diwan</option>
@@ -189,14 +184,14 @@ END PRELOADER
                             <div class='line'></div>
                             <div class="form-item">
                                 <div class="form-item__control">
-                                    <input class='settingsInput' type="number" min="40" max="100" value="70" required="">
+                                    <input type="number" min="40" max="100" value="70" required="">
                                 </div>
                                 <label class="form-item__label" data-title='.حجم الخط المستخدم فى كتابة المسائل'>:حجم الخط</label>
                             </div>
                             <div class='line'></div>
                             <div class="form-item">
                                 <div class="form-item__control">
-                                    <input class='settingsInput' type="number" min="1" max="250" value="1" required="">
+                                    <input type="number" min="1" max="250" value="1" required="">
                                 </div>
                                 <label class="form-item__label" data-title='.عدد الأوراق المطلوب تكوينها من المسائل المختارة عند الضغط على زر تكوين فى نافذة المختارات'>:عدد الأوراق</label>
                             </div>
@@ -214,8 +209,8 @@ END PRELOADER
                             <legend><h3>الآلوان</h3></legend>
                             <div class="form-item">
                                 <div class="form-item__control">
-                                    <div class='parentCP'>
-                                        <input class='settingsInput' type="color" value="#000000">
+                                    <div class='inputColorContainer'>
+                                        <input type="color" value="#000000">
                                     </div>
                                 </div>
                                 <label class="form-item__label"  data-title='لون العناوين الرئيسية بالخط الكبير'>:لون رئيسى</label>
@@ -223,8 +218,8 @@ END PRELOADER
                             <div class='line'></div>
                             <div class="form-item">
                                 <div class="form-item__control">
-                                    <div class='parentCP'>
-                                        <input class='settingsInput' type="color" value="#000000">
+                                    <div class='inputColorContainer'>
+                                        <input type="color" value="#000000">
                                     </div>
                                 </div>
                                 <label class="form-item__label" data-title='لون المسائل'>:لون ثانوى</label>
@@ -232,8 +227,8 @@ END PRELOADER
                             <div class='line'></div>
                             <div class="form-item">
                                 <div class="form-item__control">
-                                    <div class='parentCP'>
-                                        <input class='settingsInput' type="color" value="#000000">
+                                    <div class='inputColorContainer'>
+                                        <input type="color" value="#000000">
                                     </div>
                                 </div>
                                 <label class="form-item__label" data-title='لون الإجابات'>:لون هامشى</label>

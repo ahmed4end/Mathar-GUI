@@ -1,0 +1,142 @@
+.mathar-icon {
+    width: 128px;
+    height: 128px;
+    position: absolute;
+    top:0px;
+    opacity: ;
+    border-radius: 10px;
+}
+
+.slice.top-left {
+    left:0px;
+    border-top-left-radius: 10px;
+    background: var(--gradient2);
+}
+.plus-sign {
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    left: 15px;
+    top: 15px;
+}
+
+.plus-sign .first-part {
+    width: 38px;
+    height: 7px;
+    background-color: white;
+    border-radius: 15px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.plus-sign .second-part {
+    position: absolute;
+    width: 7px;
+    height: 38px;
+    background-color: white;
+    border-radius: 15px;
+    left: 50%;
+    top:0px;
+    transform: translate(-50%, 0);
+}
+
+.slice {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+}
+
+.slice.top-right {
+    right:0px;
+    border-top-right-radius: 10px;
+    background: var(--gradient1);
+}
+
+.minus-sign {
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    right: 15px;
+    top: 15px;
+}
+
+.minus-sign .first-part {
+    position: absolute;
+    width: 38px;
+    height: 7px;
+    background-color: white;
+    border-radius: 15px;
+    top:50%;
+    transform: translate(0,-50%);
+}
+
+.slice.bottom-left{
+    left:0px;
+    bottom: 0px;
+    border-bottom-left-radius: 10px;
+    background: var(--gradient1);
+}
+
+.mul-sign {
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    left: 15px;
+    bottom: 15px;
+}
+
+.mul-sign .first-part {
+    width: 50px;
+    height: 7px;
+    background-color: white;
+    border-radius: 15px;
+    position: absolute;
+    top: 15px;
+    left: -6px;
+    transform: rotate(45deg);
+}
+
+.mul-sign .second-part {
+    width: 50px;
+    height: 7px;
+    background-color: white;
+    border-radius: 15px;
+    position: absolute;
+    top: 15px;
+    left: -6px;
+    transform: rotate(-45deg);
+}
+
+.slice.bottom-right {
+    right:0px;
+    bottom: 0px;
+    border-bottom-right-radius: 10px;
+    background: var(--gradient2);
+}
+
+.equal-sign {
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    right: 15px;
+    bottom: 15px;
+}
+
+.equal-sign .first-part{
+    position: absolute;
+    width:38px;
+    height: 7px;
+    border-radius: 15px;
+    background-color: white;
+    top: 8px;
+}
+
+.equal-sign .second-part{
+    position: absolute;
+    width:38px;
+    height: 7px;
+    border-radius: 15px;
+    background-color: white;
+    bottom: 8px;
+}

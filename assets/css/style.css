@@ -1,6 +1,7 @@
 
 /* imports */
 @import 'bookAnimation.css'; /* about book animation */
+@import 'icon.css';
 
 /* variables */
 :root {
@@ -9,105 +10,11 @@
     --gradient1: linear-gradient(to bottom, rgba(35, 236, 167, 1) 0%, rgba(var(--color1), 1) 100%); /* gradient of color1 */
     --gradient2: linear-gradient(to bottom, rgba(34, 77, 112, 1) 0%, rgba(var(--color2), 1) 100%); /* gradient of color2 */
     --tabs-hover-color-and-underline: #3f6af4;
+    --border-radius: .6rem;
+    --light-shadow: 0.1rem 0.1rem 0.3rem lightgrey;
+    --dark-shadow: 0.1rem 0.1rem 0.9rem lightgrey;
 }
 
-/*-----------------------------------------------------------------------
-01. START APP FONTS
------------------------------------------------------------------------*/
-
-/* cairo-200 - arabic */
-@font-face {
-    font-family: 'Cairo';
-    font-style: normal;
-    font-weight: 200;
-    src: url('fonts/cairo-v9-arabic-200.eot'); /* IE9 Compat Modes */
-    src: local('Cairo ExtraLight'), local('Cairo-ExtraLight'),
-        url('fonts/cairo-v9-arabic-200.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-        url('fonts/cairo-v9-arabic-200.woff2') format('woff2'), /* Super Modern Browsers */
-        url('fonts/cairo-v9-arabic-200.woff') format('woff'), /* Modern Browsers */
-        url('fonts/cairo-v9-arabic-200.ttf') format('truetype'), /* Safari, Android, iOS */
-        url('fonts/cairo-v9-arabic-200.svg#Cairo') format('svg'); /* Legacy iOS */
-}
-/* cairo-300 - arabic */
-@font-face {
-    font-family: 'Cairo';
-    font-style: normal;
-    font-weight: 300;
-    src: url('fonts/cairo-v9-arabic-300.eot'); /* IE9 Compat Modes */
-    src: local('Cairo Light'), local('Cairo-Light'),
-        url('fonts/cairo-v9-arabic-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-        url('fonts/cairo-v9-arabic-300.woff2') format('woff2'), /* Super Modern Browsers */
-        url('fonts/cairo-v9-arabic-300.woff') format('woff'), /* Modern Browsers */
-        url('fonts/cairo-v9-arabic-300.ttf') format('truetype'), /* Safari, Android, iOS */
-        url('fonts/cairo-v9-arabic-300.svg#Cairo') format('svg'); /* Legacy iOS */
-}
-/* cairo-regular - arabic */
-@font-face {
-    font-family: 'Cairo';
-    font-style: normal;
-    font-weight: 400;
-    src: url('fonts/cairo-v9-arabic-regular.eot'); /* IE9 Compat Modes */
-    src: local('Cairo Regular'), local('Cairo-Regular'),
-        url('fonts/cairo-v9-arabic-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-        url('fonts/cairo-v9-arabic-regular.woff2') format('woff2'), /* Super Modern Browsers */
-        url('fonts/cairo-v9-arabic-regular.woff') format('woff'), /* Modern Browsers */
-        url('fonts/cairo-v9-arabic-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-        url('fonts/cairo-v9-arabic-regular.svg#Cairo') format('svg'); /* Legacy iOS */
-}
-/* cairo-600 - arabic */
-@font-face {
-    font-family: 'Cairo';
-    font-style: normal;
-    font-weight: 600;
-    src: url('fonts/cairo-v9-arabic-600.eot'); /* IE9 Compat Modes */
-    src: local('Cairo SemiBold'), local('Cairo-SemiBold'),
-        url('fonts/cairo-v9-arabic-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-        url('fonts/cairo-v9-arabic-600.woff2') format('woff2'), /* Super Modern Browsers */
-        url('fonts/cairo-v9-arabic-600.woff') format('woff'), /* Modern Browsers */
-        url('fonts/cairo-v9-arabic-600.ttf') format('truetype'), /* Safari, Android, iOS */
-        url('fonts/cairo-v9-arabic-600.svg#Cairo') format('svg'); /* Legacy iOS */
-}
-/* cairo-700 - arabic */
-@font-face {
-    font-family: 'Cairo';
-    font-style: normal;
-    font-weight: 700;
-    src: url('fonts/cairo-v9-arabic-700.eot'); /* IE9 Compat Modes */
-    src: local('Cairo Bold'), local('Cairo-Bold'),
-        url('fonts/cairo-v9-arabic-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-        url('fonts/cairo-v9-arabic-700.woff2') format('woff2'), /* Super Modern Browsers */
-        url('fonts/cairo-v9-arabic-700.woff') format('woff'), /* Modern Browsers */
-        url('fonts/cairo-v9-arabic-700.ttf') format('truetype'), /* Safari, Android, iOS */
-        url('fonts/cairo-v9-arabic-700.svg#Cairo') format('svg'); /* Legacy iOS */
-}
-/* cairo-900 - arabic */
-@font-face {
-    font-family: 'Cairo';
-    font-style: normal;
-    font-weight: 900;
-    src: url('fonts/cairo-v9-arabic-900.eot'); /* IE9 Compat Modes */
-    src: local('Cairo Black'), local('Cairo-Black'),
-        url('fonts/cairo-v9-arabic-900.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-        url('fonts/cairo-v9-arabic-900.woff2') format('woff2'), /* Super Modern Browsers */
-        url('fonts/cairo-v9-arabic-900.woff') format('woff'), /* Modern Browsers */
-        url('fonts/cairo-v9-arabic-900.ttf') format('truetype'), /* Safari, Android, iOS */
-        url('fonts/cairo-v9-arabic-900.svg#Cairo') format('svg'); /* Legacy iOS */
-}
-
-@font-face {
-    font-family: 'icomoon';
-    src:url('fonts/icomoon/icomoon.eot');
-    src:url('fonts/icomoon/icomoon.eot?#iefix') format('embedded-opentype'),
-        url('fonts/icomoon/icomoon.woff') format('woff'),
-        url('fonts/icomoon/icomoon.ttf') format('truetype'),
-        url('fonts/icomoon/icomoon.svg#icomoon') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/*-----------------------------------------------------------------------
-01. END APP FONTS
------------------------------------------------------------------------*/
 
 * {
     box-sizing: border-box;
@@ -115,7 +22,6 @@
     margin: 0;
 }
 
-/* disable text selection*/
 * {
     /*user-select: none; [Disabled] */ 
 }
@@ -127,7 +33,7 @@ body, html {
 /* public inputs */
 input {
     border: 1px solid lightgrey;
-    border-radius: 3px;
+    border-radius: var(--border-radius);
     padding: 2px;
     text-align: center;
 }
@@ -138,7 +44,7 @@ input:hover,
 select:hover
 {
     border: 1px solid rgba(var(--color1));
-    box-shadow: 0.1rem 0.2rem 0.3rem lightgrey;  
+    box-shadow: var(--light-shadow);  
     transition:border .2s ease-in-out;
 }
 
@@ -188,160 +94,6 @@ th {
 /*-----------------------------------------------------------------------
 03. START PRELOADER
 -----------------------------------------------------------------------*/
-
-
-/*
-start: preloader icon  - styling.
-*/
-
-
-.mathar-icon {
-    width: 128px;
-    height: 128px;
-    position: absolute;
-    top:0px;
-    opacity: ;
-    border-radius: 10px;
-}
-
-.slice.top-left {
-    left:0px;
-    border-top-left-radius: 10px;
-    background: var(--gradient2);
-}
-.plus-sign {
-    position: absolute;
-    width: 38px;
-    height: 38px;
-    left: 15px;
-    top: 15px;
-}
-
-.plus-sign .first-part {
-    width: 38px;
-    height: 7px;
-    background-color: white;
-    border-radius: 15px;
-    position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
-}
-
-.plus-sign .second-part {
-    position: absolute;
-    width: 7px;
-    height: 38px;
-    background-color: white;
-    border-radius: 15px;
-    left: 50%;
-    top:0px;
-    transform: translate(-50%, 0);
-}
-
-.slice {
-    position: absolute;
-    width: 50%;
-    height: 50%;
-}
-
-.slice.top-right {
-    right:0px;
-    border-top-right-radius: 10px;
-    background: var(--gradient1);
-}
-
-.minus-sign {
-    position: absolute;
-    width: 38px;
-    height: 38px;
-    right: 15px;
-    top: 15px;
-}
-
-.minus-sign .first-part {
-    position: absolute;
-    width: 38px;
-    height: 7px;
-    background-color: white;
-    border-radius: 15px;
-    top:50%;
-    transform: translate(0,-50%);
-}
-
-.slice.bottom-left{
-    left:0px;
-    bottom: 0px;
-    border-bottom-left-radius: 10px;
-    background: var(--gradient1);
-}
-
-.mul-sign {
-    position: absolute;
-    width: 38px;
-    height: 38px;
-    left: 15px;
-    bottom: 15px;
-}
-
-.mul-sign .first-part {
-    width: 50px;
-    height: 7px;
-    background-color: white;
-    border-radius: 15px;
-    position: absolute;
-    top: 15px;
-    left: -6px;
-    transform: rotate(45deg);
-}
-
-.mul-sign .second-part {
-    width: 50px;
-    height: 7px;
-    background-color: white;
-    border-radius: 15px;
-    position: absolute;
-    top: 15px;
-    left: -6px;
-    transform: rotate(-45deg);
-}
-
-.slice.bottom-right {
-    right:0px;
-    bottom: 0px;
-    border-bottom-right-radius: 10px;
-    background: var(--gradient2);
-}
-
-.equal-sign {
-    position: absolute;
-    width: 38px;
-    height: 38px;
-    right: 15px;
-    bottom: 15px;
-}
-
-.equal-sign .first-part{
-    position: absolute;
-    width:38px;
-    height: 7px;
-    border-radius: 15px;
-    background-color: white;
-    top: 8px;
-}
-
-.equal-sign .second-part{
-    position: absolute;
-    width:38px;
-    height: 7px;
-    border-radius: 15px;
-    background-color: white;
-    bottom: 8px;
-}
-
-
-/*
-end: preloader icon - syling.
-*/
 
 .preloader {
     position: fixed;
@@ -904,7 +656,7 @@ table.dataTable thead .sorting_desc {
     background-color: rgba(255,255,255,0.56);
     border: 1px solid lightgrey;
     box-shadow: 0.1rem 0.1rem 0.3rem lightgrey;   
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     padding: 5px;
     margin: 5px 0 0 0;
 }
@@ -1069,27 +821,12 @@ table.dataTable thead .sorting_desc {
 
 .form-item:hover {
     background: #dee2e6;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
 }
 
 .form-item__control {
     position: relative;
     width: 200px;
-}
-
-.control, input.settingsInput {
-    height: 40px;
-    text-align: center;
-    background: white;
-    color: inherit;
-    display: block;
-    width: 100%;
-    padding: 0px;
-    border-radius: .3rem;
-    border: 1px solid darkgrey;
-}
-.control:hover, .control:focus {
-    /* held for future */
 }
 
 .form-item__control input {
@@ -1114,36 +851,27 @@ table.dataTable thead .sorting_desc {
     transition: border .1s ease-in-out;
 }
 
-input.settingsInput[type="color"] {
+input[type="color"] {
     -webkit-appearance: none;
     width: 100%;
     height: 40px;
     border: 0;
-    border-radius: .3rem;
+    border-radius: var(--border-radius);
     padding: 0;
     overflow: hidden;
     box-shadow: 2px 2px 5px rgba(0,0,0,.1);
 }
-input.settingsInput[type="color"]::-webkit-color-swatch-wrapper {
+input[type="color"]::-webkit-color-swatch-wrapper {
     padding: 0;
 }
-input.settingsInput[type="color"]::-webkit-color-swatch {
+input[type="color"]::-webkit-color-swatch {
     border: 1px solid darkgrey;
 }
 
-.parentCP {
-    border-radius: .3rem;
+.inputColorContainer {
+    border-radius: var(--border-radius);
 }
 /* input:: color picker logged out */
-
-
-select {
-    text-align: center;
-    text-align-last: center;
-    background-color: rgba(0,0,0,0.1);
-}
-
-
 
 /* Images Zoom on table 1: in */
 
@@ -1193,7 +921,7 @@ select {
     height: 20px;
     width: 20px;
     display: inline-block;
-    border-radius: 5px;
+    border-radius: 40%;
     opacity: 0.8;
 }
 .static_lamp{        
@@ -1201,7 +929,7 @@ select {
     height: 20px;
     width: 20px;
     display: inline-block;
-    border-radius: 5px;
+    border-radius: 40%;
     opacity: 0.5;
 }
 /*-----------------------------------*/
@@ -1241,17 +969,32 @@ select {
 }
 /* data-title styling - out */
 
+select {
+    height: 40px;
+    text-align: center;
+    text-align-last: center;
+    background-color: white;
+    color: inherit;
+    display: block;
+    width: 100%;
+    padding: 0px;
+    border-radius: var(--border-radius);
+    border: 1px solid darkgrey;
+}
+
+
 /* fieldset */
 FIELDSET {
     margin: 8px;
     border: 1px solid silver;
     padding: 8px;    
-    border-radius: 5px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--light-shadow);
 }
 
 FIELDSET:hover {
     border: 1px solid #17cc8e;
-    box-shadow: 0.1rem 0.1rem 0.3rem lightgrey;   
+    box-shadow: var(--dark-shadow);
     transition-duration: .3s;
 }
 
