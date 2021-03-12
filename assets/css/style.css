@@ -527,6 +527,17 @@ table.dataTable {
     margin-bottom: 20px;  
 }
 
+#fullTable_length label {
+    margin-left: 10px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+}
+
+#fullTable_length label select {
+    margin: 5px;
+}
+
 #fullTable_filter input {
     font-size: 20px; 
     position: relative;
@@ -870,6 +881,18 @@ input[type="color"]::-webkit-color-swatch {
 
 .inputColorContainer {
     border-radius: var(--border-radius);
+}
+
+.inputColorContainer:after { /* gradient layer aboove input color (pallete style).*/
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    width:100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(0,0,0,0) 100%);
+    border-radius: var(--border-radius);
+    left:0;
+    top:0;
 }
 /* input:: color picker logged out */
 
