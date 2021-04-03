@@ -542,10 +542,6 @@ table.dataTable thead .sorting_desc {
     transform: translate(-50%, -50%);
 }
 
-.notYet h1 {
-    font-size: 35px;
-}
-
 .notYet button {
     background: none;
     border: none;
