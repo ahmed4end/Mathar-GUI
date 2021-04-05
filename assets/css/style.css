@@ -1,8 +1,8 @@
 
 /* imports */
-@import 'style-preloader.css';
-@import 'style-book.css';
-@import 'style-icon.css';
+@import 'preloader.css';
+@import 'book.css';
+@import 'mathar.icon.css';
 
 /* variables */
 :root {
@@ -85,8 +85,6 @@ button:focus{
 th {
     font-weight: normal;
 }
-
-
 
 /*----------------------------------------------------------------------
 02. END GENERAL STYLES
