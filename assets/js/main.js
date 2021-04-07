@@ -559,10 +559,10 @@ $(document).ready(function(){
 
     //toggle steps - event - tab3
     $('.toggleT3Steps').on('click', function(){
-        if ($('.tap3Steps').css('display')=='none'){
-            $('.tap3Steps').animate({height:'toggle'});
+        if ($('.tap3_instructions').css('display')=='none'){
+            $('.tap3_instructions').animate({height:'toggle'});
         } else {
-            $('.tap3Steps').animate({height:'toggle'});
+            $('.tap3_instructions').animate({height:'toggle'});
         }
 
     });
