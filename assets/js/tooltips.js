@@ -1,7 +1,7 @@
 
 
 $(document).ready(function(){
-    tippy.setDefaultProps({delay: 50});
+    tippy.setDefaultProps({delay: 100});
     tippy(`#ACXZCSEG`, {
         content: 'نوع الخط المستخدم فى كتابة المسائل',
     });

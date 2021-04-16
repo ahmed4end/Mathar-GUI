@@ -598,11 +598,24 @@ $(document).ready(function(){
             <li></li>
         </ul>
     </div>
-    <div class='about-footer'>
-        <a href=''>Facebook</a>
-        <a style='color:red;' href=''>Youtube</a>
-        <p class='text-muted d-inline-block'>:للتوصل</p>
-    </div>
+    <fieldset>
+        <legend><h3>توصل معنا</h3></legend>
+        <div class="form-item">
+            <img src='./assets/icons/facebook.png'>
+            <div class="form-item__control">     
+                <a href='https://www.facebook.com/ahmed4end/'>Facebook</a>
+            </div>
+            <label id='HFCGDFGD' class="form-item__label">:فيسبوك</label>
+        </div>
+        <div class='line'></div>
+        <div class="form-item">
+            <img src='./assets/icons/youtube.png'>
+            <div class="form-item__control">
+                <a style='color:red;' href='' style='margin-right:auto;'>Youtube</a>
+            </div>
+            <label id='HFCGDFGD' class="form-item__label">:يوتيوب</label>
+        </div>
+    </fieldset>
     `
                
     // about mathar - modal

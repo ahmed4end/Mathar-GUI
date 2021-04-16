@@ -655,7 +655,7 @@ table.dataTable thead .sorting_desc {
 .line {
     border-bottom: 1px dashed lightgrey;
     height: 1px;
-    margin:0 20px 0 20px;
+    margin:0 10px;
 }
 
 /* div:: herzontial line logged out */
