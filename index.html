@@ -158,11 +158,21 @@
                             <legend><h3>عام</h3></legend>
                             <div class="form-item">
                                 <div class="form-item__control">
-                                    <select>
-                                        <option selected="selected">Bahij Yakout</option>
-                                        <option>Arial</option>
+                                    <select id='font_name'>
+                                        <option selected="selected">Yakout</option>
+                                        <option>YakoutB</option>
                                         <option>Diwan</option>
+                                        <option>Arial</option>
+                                        <option>Akhbar</option>
+                                        <option>Aktiv</option>
+                                        <option>Droid</option>
+                                        <option>Dubai</option>
+                                        <option>HacenB</option>
+                                        <option>Neo</option>
+                                        <option>Noto</option>
+                                        <option>Taha</option>
                                         <option>Traditional</option>
+                                        <option>Zarid</option>
                                     </select>
                                 </div>
                                 <label id='ACXZCSEG' class="form-item__label">:نوع الخط</label>
@@ -170,21 +180,21 @@
                             <div class='line'></div>
                             <div class="form-item">
                                 <div class="form-item__control">
-                                    <input type="number" min="40" max="100" value="70" required="">
+                                    <input id='font_size' type="number" min="40" max="120" value="70" required="">
                                 </div>
                                 <label id='HFCGDFGD' class="form-item__label">:حجم الخط</label>
                             </div>
                             <div class='line'></div>
                             <div class="form-item">
                                 <div class="form-item__control">
-                                    <input type="number" min="1" max="250" value="1" required="">
+                                    <input id='paper_count' type="number" min="1" max="250" value="1" required="">
                                 </div>
                                 <label id='RGRTHFGHF' class="form-item__label">:عدد الأوراق</label>
                             </div>
                             <div class='line'></div>  
                             <div class="form-item">
                                 <div class="form-item__control">
-                                    <input type="checkbox" id="switch_random"><label for="switch_random"></label>
+                                    <input type="checkbox" id="is_random"><label for="is_random"></label>
                                     <span>غير مفعل</span>
                                 </div>
                                 <label id='HJGJGHJNG' class="form-item__label">:ترتيب عشوائى</label>
@@ -196,7 +206,7 @@
                             <div class="form-item">
                                 <div class="form-item__control">
                                     <div class='inputColorContainer'>
-                                        <input type="color" value="#000000">
+                                        <input id='color_title' type="color" value="#000000">
                                     </div>
                                 </div>
                                 <label id='ERTERGD' class="form-item__label">:لون العناوين</label>
@@ -205,7 +215,7 @@
                             <div class="form-item">
                                 <div class="form-item__control">
                                     <div class='inputColorContainer'>
-                                        <input type="color" value="#000000">
+                                        <input id='color_probs' type="color" value="#000000">
                                     </div>
                                 </div>
                                 <label id='FTUFHGFB' class="form-item__label">:لون الأسئلة</label>
@@ -214,7 +224,7 @@
                             <div class="form-item">
                                 <div class="form-item__control">
                                     <div class='inputColorContainer'>
-                                        <input type="color" value="#000000">
+                                        <input id='color_answer' type="color" value="#00FF00">
                                     </div>
                                 </div>
                                 <label id='RTYRTFJHG' class="form-item__label">:لون الإجابات</label>
@@ -235,7 +245,7 @@
                         <!-- tab 4 - row options - save button -->
                         <div class='buttonsRow-placeholder'></div>
                         <div class='settings-save-bttn'>
-                            <button class="saveSettings bttn-jelly bttn-md bttn2">
+                            <button class="save_settings bttn-jelly bttn-md bttn2">
                                 <svg width="30" height="30" fill="white" class="bi bi-save" viewBox="0 0 16 16">
                                     <path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z"/>
                                 </svg>
@@ -271,5 +281,6 @@
         <script src="assets/js/popper.min.js"></script> <!-- popper -->
         <script src="assets/js/tippy-bundle.umd.min.js"></script> <!-- tippy -->
         <script src="assets/js/tooltips.js"></script> <!-- tooltips -->
+        
     </body>
 </html>

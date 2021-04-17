@@ -254,6 +254,7 @@ $(document).ready(function(){
 
     //table 2
     var table2 = $('#table2').DataTable({
+        rowReorder:true,
         "lengthChange":false,
         "bFilter": false,
         "bLengthChange": false,
@@ -518,118 +519,101 @@ $(document).ready(function(){
             Toast.fire({
                     icon: 'info',
                     title: 'تم إلغاء تكبير المسائل فى الجدول بتحريك الماوس فوقها',
-                });
+            });
             for (var i = 0; table1_images.length > i; i++) {
                 table1_images[i].classList.toggle('zoomEffect');
             }
         }
     });
 
-    // switch - random.
-    $('#switch_random').click(function(){
-        if ( $(this).is(':checked') ){
-            console.log('on');
-        }
-        else {
-            console.log('off');
-        }
-    });
 
-    // switch - watermark - remvoed. [DEV]
-    $('#switch2').click(function(){
-        if ( $(this).is(':checked') ){
-            console.log('on');
-            $('#watermark_op').fadeIn();
-        }
-        else {
-            console.log('off');
-            $('#watermark_op').fadeOut();
-        }
-    });
+    // settings vars 
+    var font_name = 'Yakout';
+    var font_size = 70;
+    var paper_count = 1;
+    var is_random = 0;
+    var color_title = 'black';
+    var color_probs = 'black';
+    var color_answer = 'green';
 
-    // settings - checkbox & color picker - handler
-    $(document).on('change', 'input.settingsInput[type=color]', function() {
-        this.parentNode.style.backgroundColor = this.value;
-    });
-
-    //toggle steps - event - tab3
-    $('.toggleT3Steps').on('click', function(){
-        if ($('.tap3_instructions').css('display')=='none'){
-            $('.tap3_instructions').animate({height:'toggle'});
-        } else {
-            $('.tap3_instructions').animate({height:'toggle'});
-        }
-    });
-
-    //save settings button - event
-    $('.saveSettings').on('click', function(){
-        Swal.fire({
-            text:"saving settings process", 
-            showConfirmButton: false,
-            timer: 2000
-        });    
+    
+    $('#font_name').on('change', function(){
+        font_name = this.value
     });
     
-    const fd = `
-    <div class="book">
-        <div class="inner">
-            <div class="left"></div>
-            <div class="middle"></div>
-            <div class="right"></div>
-        </div>
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-    </div>
-    <fieldset>
-        <legend><h3>توصل معنا</h3></legend>
-        <div class="form-item">
-            <img src='./assets/icons/facebook.png'>
-            <div class="form-item__control">     
-                <a href='https://www.facebook.com/ahmed4end/'>Facebook</a>
-            </div>
-            <label id='HFCGDFGD' class="form-item__label">:فيسبوك</label>
-        </div>
-        <div class='line'></div>
-        <div class="form-item">
-            <img src='./assets/icons/youtube.png'>
-            <div class="form-item__control">
-                <a style='color:red;' href='' style='margin-right:auto;'>Youtube</a>
-            </div>
-            <label id='HFCGDFGD' class="form-item__label">:يوتيوب</label>
-        </div>
-    </fieldset>
-    `
-               
-    // about mathar - modal
-    $('.about-btn').on('click', function(){
-        Swal.fire({
-            title: "<h1>Mathar 1.0</h1>",
-            icon: 'info',
-            html: "The teacher's tool to innovate.<br>"+fd,
-            showConfirmButton: false,
-            showCloseButton: true
-        })
+    $('#font_size').on('change', function(){
+        font_size = this.value
     });
+
+    $('#paper_count').on('change', function(){
+        paper_count = this.value
+    });
+
+    $('#is_random').click(function(){
+        if ( $(this).is(':checked') ){
+            console.log('is_random: on');
+            is_random = 1;
+        }
+        else {
+            console.log('is_random: off');
+            is_random = 0;
+        }
+    });
+
+    $('#color_title').on('change', function(){
+        color_title = this.value
+    });
+
+    $('#color_probs').on('change', function(){
+        color_probs = this.value
+    });
+
+    $('#color_answer').on('change', function(){
+        color_answer = this.value
+    });
+    
+    async function _update_config(config){
+        await eel.update_config(config)
+    };
+
+    //save settings button - event
+    $('.save_settings').on('click', function(){
+        var settings_config = {
+            'font_name': font_name,
+            'font_size': font_size,
+            'paper_count': paper_count,
+            'is_random': is_random,
+            'color_title': color_title,
+            'color_probs': color_probs,
+            'color_answer': color_answer
+        };
+        //eel.update_config(settings_config)();
+        Swal.fire({
+            title: "جارى حفظ الإعدادات", 
+            timer: 500,
+            didOpen: () => {
+                Swal.showLoading();
+                _update_config(settings_config);
+            }
+        });
+    });
+    
+   
+
 }); 
 
+
+// tab4 - settings - checkbox & color picker - handler
+
+
+//toggle steps - event - tab3
+$('.toggleT3Steps').on('click', function(){
+    if ($('.tap3_instructions').css('display')=='none'){
+        $('.tap3_instructions').animate({height:'toggle'});
+    } else {
+        $('.tap3_instructions').animate({height:'toggle'});
+    }
+});
 
 // tabs - swap active class.
 $('.tabs li').on('click', function(tab){
@@ -642,3 +626,61 @@ $('.tabs li').on('click', function(tab){
     $(`.tabs-panel[data-index="${index}"]`).addClass("active");
 });
 
+const fd = `
+<div class="book">
+    <div class="inner">
+        <div class="left"></div>
+        <div class="middle"></div>
+        <div class="right"></div>
+    </div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<fieldset>
+    <legend><h3>توصل معنا</h3></legend>
+    <div class="form-item">
+        <img src='./assets/icons/facebook.png'>
+        <div class="form-item__control">     
+            <a href='https://www.facebook.com/ahmed4end/'>Facebook</a>
+        </div>
+        <label id='HFCGDFGD' class="form-item__label">:فيسبوك</label>
+    </div>
+    <div class='line'></div>
+    <div class="form-item">
+        <img src='./assets/icons/youtube.png'>
+        <div class="form-item__control">
+            <a style='color:red;' href='' style='margin-right:auto;'>Youtube</a>
+        </div>
+        <label id='HFCGDFGD' class="form-item__label">:يوتيوب</label>
+    </div>
+</fieldset>
+`
+               
+// about mathar - modal
+$('.about-btn').on('click', function(){
+    Swal.fire({
+        title: "<h1>Mathar 1.0</h1>",
+        icon: 'info',
+        html: "The teacher's tool to innovate.<br>"+fd,
+        showConfirmButton: false,
+        showCloseButton: true
+    })
+});
