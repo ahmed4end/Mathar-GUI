@@ -601,7 +601,7 @@ $(document).ready(function(){
 
 
     // expose func ro python for failed queue.
-    eel.expose(failed_queue_js)
+    //eel.expose(failed_queue_js)
     function failed_queue_js(queue){
         var con = `
         <p>قد قمت بإختيار عدد كبير من الأسئلة والورقة المكونة مساحتها لا تكفى فتم تجاهل</p>
@@ -621,6 +621,13 @@ $(document).ready(function(){
             swal_modals.push({title: 'تحذير', html: con, timer:15000})
         }
     }
+
+    // tooltips config.
+    tippy.setDefaultProps({
+        delay: [100, 50],
+        theme: 'light center-align'
+    });
+    tippy('[data-tippy-content]');
 
 }); 
 

@@ -175,21 +175,21 @@
                                         <option>Zarid</option>
                                     </select>
                                 </div>
-                                <label id='ACXZCSEG' class="form-item__label">:نوع الخط</label>
+                                <label class="form-item__label" data-tippy-content='نوع الخط المستخدم فى كتابة المسائل'>:نوع الخط</label>
                             </div>
                             <div class='line'></div>
                             <div class="form-item">
                                 <div class="form-item__control">
-                                    <input id='font_size' type="number" min="40" max="120" value="70" required="">
+                                    <input id='font_size' type="number" min="40" max="120" value="70" data-tippy-content="متاح إختيار حجم ما بين 40 إلى 120" required="">
                                 </div>
-                                <label id='HFCGDFGD' class="form-item__label">:حجم الخط</label>
+                                <label class="form-item__label" data-tippy-content='حجم الخط المستخدم فى كتابة المسائل'>:حجم الخط</label>
                             </div>
                             <div class='line'></div>
                             <div class="form-item">
                                 <div class="form-item__control">
                                     <input id='paper_count' type="number" min="1" max="250" value="1" required="">
                                 </div>
-                                <label id='RGRTHFGHF' class="form-item__label">:عدد الأوراق</label>
+                                <label class="form-item__label" data-tippy-content='عدد الأوراق المطلوب تكوينها من المسائل المختارة عند الضغط على زر تكوين فى نافذة المختارات'>:عدد الأوراق</label>
                             </div>
                             <div class='line'></div>  
                             <div class="form-item">
@@ -197,7 +197,7 @@
                                     <input type="checkbox" id="is_random"><label for="is_random"></label>
                                     <span>غير مفعل</span>
                                 </div>
-                                <label id='HJGJGHJNG' class="form-item__label">:ترتيب عشوائى</label>
+                                <label class="form-item__label" data-tippy-content='(ينصح به) ترتيب عشوائى للمسائل المختارة فى كل ورقة يتم تكوينها'>:ترتيب عشوائى</label>
                             </div>
                         </fieldset>
 
@@ -209,7 +209,7 @@
                                         <input id='color_title' type="color" value="#000000">
                                     </div>
                                 </div>
-                                <label id='ERTERGD' class="form-item__label">:لون العناوين</label>
+                                <label class="form-item__label" data-tippy-content='لون العناوين الرئيسية بالخط الكبير'>:لون العناوين</label>
                             </div>
                             <div class='line'></div>
                             <div class="form-item">
@@ -218,7 +218,7 @@
                                         <input id='color_probs' type="color" value="#000000">
                                     </div>
                                 </div>
-                                <label id='FTUFHGFB' class="form-item__label">:لون الأسئلة</label>
+                                <label class="form-item__label" data-tippy-content='لون المسائل'>:لون الأسئلة</label>
                             </div>
                             <div class='line'></div>
                             <div class="form-item">
@@ -227,7 +227,7 @@
                                         <input id='color_answer' type="color" value="#00FF00">
                                     </div>
                                 </div>
-                                <label id='RTYRTFJHG' class="form-item__label">:لون الإجابات</label>
+                                <label class="form-item__label" data-tippy-content='لون الإجابات'>:لون الإجابات</label>
                             </div>
                         </fieldset>
 
@@ -238,7 +238,7 @@
                                     <input type="checkbox" id="switch_zoom"><label for="switch_zoom"></label>
                                     <span>غير مفعل</span>
                                 </div>
-                                <label id='ERYDFGD' class="form-item__label">:تكبير المسائل</label>
+                                <label class="form-item__label" data-tippy-content='تفعيل هذا الخيار يمكنك بتكبير المسائل فى نافذة جدول المسائل لرؤيتها بشكل اكبر'>:تكبير المسائل</label>
                             </div>
                         </fieldset>
 
@@ -280,7 +280,5 @@
         <script src="assets/js/sweetalert2.js"></script> <!-- Sweet Alert -->
         <script src="assets/js/popper.min.js"></script> <!-- popper -->
         <script src="assets/js/tippy-bundle.umd.min.js"></script> <!-- tippy -->
-        <script src="assets/js/tooltips.js"></script> <!-- tooltips -->
-        
     </body>
 </html>
