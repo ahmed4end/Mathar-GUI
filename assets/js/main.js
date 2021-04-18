@@ -117,8 +117,9 @@ function table_parse_refernce(unit, lesson, page, problem, node='') {
 }
 
 $(document).ready(function(){
-
-    //swal toastr.
+    // swal var.
+    var swal_modals = []
+    // swal toastr.
     const Toast = Swal.mixin({
         toast: true,
         position: 'bottom-start',
@@ -470,19 +471,19 @@ $(document).ready(function(){
                 $('#saveImage').fadeIn();
                 $("#resultLoaderContainer").fadeOut("slow");
                 //fire toast.
-                Toast.fire({
-                    icon: 'success',
-                    title: 'تم التكوين - إذهب لنافذة المعاينة لرؤية النتيجة'
-                });
+                Toast.fire({icon: 'success', title: 'تم التكوين - إذهب لنافذة المعاينة لرؤية النتيجة'});
+                // run swal queue modals
+                Swal.queue(Array.from(swal_modals));
             });
 
             //console.log(RowOptions)
             callPython(rowOptions);
 
             Toast.fire({
-                    icon: 'info',
-                    title: 'جارى التكوين - إذهب لنافذة المعاينة لإنتظار النتيجة'
-                });
+                icon: 'info',
+                title: 'جارى التكوين - إذهب لنافذة المعاينة لإنتظار النتيجة'
+            });
+            
         }
 
     });
@@ -597,8 +598,29 @@ $(document).ready(function(){
             }
         });
     });
-    
-   
+
+
+    // expose func ro python for failed queue.
+    eel.expose(failed_queue_js)
+    function failed_queue_js(queue){
+        var con = `
+        <p>قد قمت بإختيار عدد كبير من الأسئلة والورقة المكونة مساحتها لا تكفى فتم تجاهل</p>
+        <ol>
+        `
+        for (i = 0; i < queue.length; i++) {
+            con = con + `<li>${queue[i]}</li>`
+        }
+        con = con + `
+        </ol>
+        <small class='text-danger'>يرجى حذف بعض المسائل من جدول المختارات ليتناسب عدد الأسئلة مع حجم الورقة أو قم بتصغير حجم الخط من الإعدادات لتسع الورقة مسائل أكثر</small>
+        `
+
+         swal_modals = []; // clear swal modals
+        // push swal modal
+        if (queue.length>0){
+            swal_modals.push({title: 'تحذير', html: con, timer:15000})
+        }
+    }
 
 }); 
 
@@ -659,7 +681,7 @@ const fd = `
     <div class="form-item">
         <img src='./assets/icons/facebook.png'>
         <div class="form-item__control">     
-            <a href='https://www.facebook.com/ahmed4end/'>Facebook</a>
+            <a onclick="eel.open_social('youtube')();" href="#">Facebook</a>
         </div>
         <label id='HFCGDFGD' class="form-item__label">:فيسبوك</label>
     </div>
@@ -667,7 +689,7 @@ const fd = `
     <div class="form-item">
         <img src='./assets/icons/youtube.png'>
         <div class="form-item__control">
-            <a style='color:red;' href='' style='margin-right:auto;'>Youtube</a>
+            <a onclick="eel.open_social('facebook')()" href="#" style='color:red;' style='margin-right:auto;'>Youtube</a>
         </div>
         <label id='HFCGDFGD' class="form-item__label">:يوتيوب</label>
     </div>
@@ -684,3 +706,5 @@ $('.about-btn').on('click', function(){
         showCloseButton: true
     })
 });
+
+
