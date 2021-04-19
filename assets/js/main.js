@@ -101,20 +101,19 @@ function table_col_last(data, type){
     return data+btn_select_row
 }
 
-function table_parse_refernce(unit, lesson, page, problem, node='') {
-    if (unit==undefined){unit=''}
-    else{unit=`و${unit}`}
-    if (lesson==undefined){lesson=''}
-    else{lesson=`د${lesson}`}
-    if (page==undefined){page=''}
-    else{page=`ص${page}`}
-    if (problem==undefined){problem=''}
-    else{problem=`س${problem}`}
-    if (node==undefined){node=''}
-    else{node=`م${node}`}
-    var arr = [unit, lesson, page, problem, node].filter(word=> word.length>1);
-    return arr.join('<br>')
+function table_col3(arr) {
+
+    // arr = [unit, lesson, page, prob, node]
+    var res = []
+    if (arr[0]) {res.push(`و${arr[0]}`)};
+    if (arr[1]) {res.push(`د${arr[1]}`)};
+    if (arr[2]) {res.push(`ص${arr[2]}`)};
+    if (arr[3]) {res.push(`س${arr[3]}`)};
+    if (arr[4]) {res.push(`م${arr[4]}`)};
+    return res.join('<br>')
 }
+
+
 
 $(document).ready(function(){
     // swal var.
@@ -162,13 +161,13 @@ $(document).ready(function(){
                 render: table_id_parser,
             },
             { title: "المسئلة", width:'50%', render: table_image_wrapper},
-            { title: icon_book},
+            { title: icon_book, render: table_col3},
             { 
                 title: "نوع",
                 render: function(data, type){return vertical_wrapper(data);}
 
             },
-            { title: "مفتاح" },
+            { title: "مفتاح"},
             { title: "إعدادات", render: table_col_last}
         ],
         "columnDefs": [{
@@ -570,10 +569,10 @@ $(document).ready(function(){
     });
 
     $('#color_answer').on('change', function(){
-        color_answer = this.value
+        color_answer = this.value;
     });
     
-    async function _update_config(config){
+    async function update_config_js(config){
         await eel.update_config(config)
     };
 
@@ -594,14 +593,14 @@ $(document).ready(function(){
             timer: 500,
             didOpen: () => {
                 Swal.showLoading();
-                _update_config(settings_config);
+                update_config_js(settings_config);
             }
         });
     });
 
 
     // expose func ro python for failed queue.
-    //eel.expose(failed_queue_js)
+    eel.expose(failed_queue_js)
     function failed_queue_js(queue){
         var con = `
         <p>قد قمت بإختيار عدد كبير من الأسئلة والورقة المكونة مساحتها لا تكفى فتم تجاهل</p>
@@ -656,35 +655,13 @@ $('.tabs li').on('click', function(tab){
 });
 
 const fd = `
-<div class="book">
-    <div class="inner">
-        <div class="left"></div>
-        <div class="middle"></div>
-        <div class="right"></div>
-    </div>
-    <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
-</div>
+<p>
+هذه الإصدار من البرنامج يشمل فقط كتاب المعاصر الصف الأول الثانوى الترم الأول
+</p>
 <fieldset>
-    <legend><h3>توصل معنا</h3></legend>
+    <legend>
+    <h3>تواصل معنا</h3>
+    </legend>
     <div class="form-item">
         <img src='./assets/icons/facebook.png'>
         <div class="form-item__control">     
