@@ -652,7 +652,7 @@ table.dataTable thead .sorting_desc {
 /* div:: herzontial line logged in */
 
 .line {
-    border-bottom: 1px dashed lightgrey;
+    border-bottom: 1px solid lightgrey;
     height: 1px;
     margin:0 10px;
 }
