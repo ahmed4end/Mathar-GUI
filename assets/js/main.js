@@ -541,8 +541,14 @@ $(document).ready(function(){
         font_name = this.value
     });
     
-    $('#font_size').on('change', function(){
-        font_size = this.value
+    $('#font_size').on('change paste', function(){
+        if (this.value>120){ // validate max value
+            $('#font_size').prop('value', '120');
+        };
+        if (this.value<40){ // validate min value
+            $('#font_size').prop('value', '40');
+        };
+        font_size = this.value;
     });
 
     $('#paper_count').on('change', function(){
