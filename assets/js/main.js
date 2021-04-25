@@ -66,7 +66,7 @@ function sleep(ms) {
 //table funcs.
 
 function table_image_wrapper(image){
-    return `<img class='imgc lozad' data-src='./images/${image}.png' loading='lazy' alt='${image}'>`
+    return `<img class='lozad' data-src='./images/${image}.png' loading='lazy' alt='${image}'>`
 };
 
 function vertical_wrapper(txt){
