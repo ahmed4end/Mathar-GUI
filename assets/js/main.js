@@ -160,19 +160,15 @@ $(document).ready(function(){
         },
         columns: [
             { title: "i."},
-            {   
-                title: "id",
-                render: table_id_parser,
-            },
-            { title: "المسئلة", width:'50%', render: table_image_wrapper},
+            { title: "id", render: table_id_parser},
+            { title: "المسئلة", width:'55%', render: table_image_wrapper},
             { title: icon_book, render: table_col3},
             { 
                 title: "نوع",
                 render: function(data, type){return vertical_wrapper(data);}
-
             },
-            { title: "مفتاح"},
-            { title: "إعدادات", render: table_col_last}
+            { title: "وصف"},
+            { title: "إعدادات", render: table_col_last, width:'20%'}
         ],
         "columnDefs": [{
             "searchable": true,
@@ -265,15 +261,14 @@ $(document).ready(function(){
         "bAutoWidth": false,
         "bPaginate": false,
         "bInfo":false,
-        data: [],
         columns: [
             { title: "i." },
             { title: "id" },
-            { title: "المسئلة", width:'50%'},
+            { title: "المسئلة", width:'55%'},
             { title: icon_book},
             { title: "نوع" },
-            { title: "مفتاح" },
-            { title: "إعدادات" }
+            { title: "وصف" },
+            { title: "إعدادات", width:'20%' }
         ],
         "columnDefs": [{
             "searchable": true,

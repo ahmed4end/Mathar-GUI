@@ -33,12 +33,18 @@ body, html {
     height: 100%;
 }
 
-/* public inputs */
+/* inputs */
 input {
     border: 1px solid lightgrey;
     border-radius: var(--border-radius);
     padding: 2px;
     text-align: center;
+    width: 12vw;
+    min-width: 100px;
+}
+
+form label {
+    padding-left: 5px;
 }
 
 /* border's transition color and drop shadow */
@@ -564,9 +570,9 @@ table.dataTable thead .sorting_desc {
 }
 
 .tap3_instructions li {
-    background-color: rgba(255,255,255,0.56);
+    background-color: white;
     border: 1px solid lightgrey;
-    box-shadow: 0.1rem 0.1rem 0.3rem lightgrey;   
+    box-shadow: var(--light-shadow); 
     border-radius: var(--border-radius);
     padding: 5px;
     margin: 5px 0 0 0;
@@ -645,7 +651,7 @@ table.dataTable thead .sorting_desc {
 }
 
 /* if screens resized too small then hide about icon to aboid overlab with tabs */
-@media only screen and (max-width:600px){
+@media only screen and (max-width:650px){
     .about {
         display: none;
     }
