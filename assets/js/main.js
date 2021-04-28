@@ -117,9 +117,6 @@ function table_col3(arr) {
 
 $(document).ready(function(){
 
-    // tooltips config.
-    tippy.setDefaultProps({delay: [100, 50]});
-    tippy('[data-tippy-content]');
     // swal var.
     var swal_modals = []
     // swal toastr.
@@ -625,6 +622,11 @@ $(document).ready(function(){
             swal_modals.push({title: 'تحذير', html: con, timer:15000})
         }
     }
+
+    // tooltips config.
+    tippy.setDefaultProps({delay: [100, 50]});
+    tippy('[data-tippy-content]');
+
 }); 
 
 
