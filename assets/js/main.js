@@ -170,7 +170,7 @@ $(document).ready(function(){
 
     //add placeholder to filter.
     $('#table1_filter input').attr('placeholder', 'البحث');
-
+    $('#table1_filter input').attr('placeholder', 'البحث');
     //table pages
     var table1_nodes = table1.rows().nodes();
 
@@ -319,7 +319,7 @@ $(document).ready(function(){
 
     // image viewer - tap 3
     var viewer = OpenSeadragon({
-        id: "wheelzoom.exe",
+        id: "openseadragon.exe",
         immediateRender: true,
         prefixUrl: './assets/icons/openseadrag-icons/', /* icons path */
         buildPyramid: true, 
@@ -384,11 +384,11 @@ $(document).ready(function(){
         } 
         else {
             //hide stuff while waiting for python.
-            $("#resultLoaderContainer").fadeIn("slow");
+            $("#tap3_loader_con").fadeIn("slow");
             $('#collectData').prop('disabled', true)
             $('#toggleImages').fadeOut();
             $('#saveImage').fadeOut();
-            $('.notYet').fadeOut();
+            $('.tap3_not_yet').fadeOut();
             viewer.setVisible(false);
 
             // collect data from table 2             
@@ -402,7 +402,7 @@ $(document).ready(function(){
                 $('#collectData').prop('disabled', false)
                 $('#toggleImages').fadeIn();
                 $('#saveImage').fadeIn();
-                $("#resultLoaderContainer").fadeOut("slow");
+                $("#tap3_loader_con").fadeOut("slow");
                 //fire toast.
                 Toast.fire({icon: 'success', title: 'تم التكوين - إذهب لنافذة المعاينة لرؤية النتيجة'});
                 // run swal queue modals
@@ -567,7 +567,7 @@ $(document).ready(function(){
 
 
 //toggle steps - event - tab3
-$('.toggleT3Steps').on('click', function(){
+$('.tap3_toggle_steps').on('click', function(){
     if ($('.tap3_instructions').css('display')=='none'){
         $('.tap3_instructions').animate({height:'toggle'});
     } else {
@@ -587,24 +587,31 @@ $('.tabs li').on('click', function(tab){
 });
 
 const about_modal = `
-<small>
+<p>
 هذه الإصدار من البرنامج يحتوى على<br>كتاب المعاصر الصف الأول الثانوى الترم الأول
-</small>
+</p>
 <fieldset>
     <legend>
     <h3>تواصل معنا</h3>
     </legend>
     <div class="form-item">
-        <img src='./assets/icons/facebook.png'>
-        <div class="form-item__control">     
+        <div>     
+            <img src='./assets/icons/facebook.png'>
             <a onclick="eel.open_social('youtube')();" href="#">Facebook</a>
         </div>
         <label id='HFCGDFGD' class="form-item__label">:فيسبوك</label>
     </div>
     <div class='line'></div>
     <div class="form-item">
-        <img src='./assets/icons/youtube.png'>
-        <div class="form-item__control">
+        <div>
+            <img src='./assets/icons/whatsapp.png'>
+            <a onclick="eel.open_social('facebook')()" href="#" style='color:red;' style='margin-right:auto;'>Whatsapp</a>
+        </div>
+        <label id='HFCGDFGD' class="form-item__label">:واتساب</label>
+    </div>
+    <div class="form-item">
+        <div>
+            <img src='./assets/icons/youtube.png'>
             <a onclick="eel.open_social('facebook')()" href="#" style='color:red;' style='margin-right:auto;'>Youtube</a>
         </div>
         <label id='HFCGDFGD' class="form-item__label">:يوتيوب</label>
@@ -615,9 +622,9 @@ const about_modal = `
 // about mathar - modal
 $('.about-btn').on('click', function(){
     Swal.fire({
-        title: "<h1>Mathar 1.0</h1>",
+        title: "<h1>Mathar</h1>",
         icon: 'info',
-        html: "The teacher's tool to innovate.<br>"+about_modal,
+        html: "<small><q>The teacher's tool to innovate</q></small><br>"+about_modal,
         showConfirmButton: false,
         showCloseButton: true
     })

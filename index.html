@@ -13,6 +13,10 @@
         <link rel="stylesheet" href="./assets/css/bttn.min.css">                <!-- Buttons docs="https://bttn.surge.sh/" -->
         <link rel="stylesheet" href="./assets/css/fonts.css", type='text/css'>  <!-- Fonts -->
         <link rel="stylesheet" href="./assets/css/style.css", type='text/css'>  <!-- Main Css -->
+        <!-- Preload images -->
+        <link rel="prefetch" href="./assets/icons/bg1.png">
+        <link rel="prefetch" href="./assets/icons/bg2.png">
+
     </head>
     <body>
         <!-- preloader -->
@@ -111,9 +115,9 @@
                 <div class="tabs-panel" data-index="2">
 
                     <!-- tab 3 - placeholder message -->
-                    <div class="notYet">
+                    <div class="tap3_not_yet">
                         <h1>لم يتم تكوين مسائل بعد</h1>
-                        <button class='toggleT3Steps'>كيفية تكوين مسائل؟</button>
+                        <button class='tap3_toggle_steps'>كيفية تكوين مسائل؟</button>
                         <ul class='tap3_instructions' dir="rtl">
                             <li>إذهب لنافذة <b>جدول المسائل</b> وقم بإختيار مسائل منه.</li>
                             <li>إذهب لنافذة <b>جدول المختارات</b> لمعاينة ما قمت بإختياره.</li>
@@ -122,14 +126,14 @@
                     </div>
 
                     <!-- tab 3 - loader animation -->
-                    <div id='resultLoaderContainer' style='display: none;'>
+                    <div id='tap3_loader_con' style='display: none;'>
                         <div class="lds-dual-ring"></div>
                         <h3>إنتظر...جارى التكوين</h3>
                     </div>
 
                     <!-- tab 3 - openseadragon (generaged images viewer) -->
-                    <div class="zoomer">
-                        <div id="wheelzoom.exe"></div> <!--= the image container =-->
+                    <div class="tap3_viewer">
+                        <div id="openseadragon.exe"></div> <!--= the image container =-->
                     </div>
 
                     <!-- tab 3 - row options -->
@@ -165,7 +169,6 @@
                                         <option>Arial</option>
                                         <option>Akhbar</option>
                                         <option>Aktiv</option>
-                                        <option>Droid</option>
                                         <option>Dubai</option>
                                         <option>HacenB</option>
                                         <option>Neo</option>
@@ -243,7 +246,7 @@
                         </fieldset>
 
                         <!-- tab 4 - row options - save button -->
-                        <div class='buttonsRow-placeholder'></div>
+                        <div class='btn_row-placeholder'></div>
                         <div class='settings-save-bttn'>
                             <button class="save_settings bttn-jelly bttn-md bttn2">
                                 <svg width="30" height="30" fill="white" class="bi bi-save" viewBox="0 0 16 16">
@@ -268,19 +271,19 @@
             </button>
         </div>
 
-    <!-- Javascript bullshit -->
-    <script  type="text/javascript" src="./eel.js"></script>           <!-- Eel -->
-    <script  src="./assets/js/jquery.min.js"></script>                 <!-- jQuery -->
-    <script  src="./assets/js/jquery.dataTables.min.js"></script>      <!-- DataTables -->
-    <script  src="./assets/js/dataTables.rowReorder.min.js"></script>  <!-- DataTables.rowReorder -->
-    <script  src="./assets/js/openseadragon.min.js"></script>          <!-- Openseadragon -->
-    <script  src="./assets/js/lozad.min.js"></script>                  <!-- Lozad -->
-    <script  src="./assets/js/jquery.serializejson.min.js"></script>   <!-- Serializer -->
-    <script  src="assets/js/popper.min.js"></script>                   <!-- Popper -->
-    <script  src="assets/js/tippy-bundle.umd.min.js"></script>         <!-- Tippy -->
-    <script  src="assets/js/sweetalert2.js"></script>                  <!-- Sweet alert -->
-    <script  src="./assets/js/dataset.js"></script>                    <!-- Dataset -->
-    <script src="./assets/js/vars.js"></script>                       <!-- Main Js -->
-    <script defer src="./assets/js/main.js"></script>                       <!-- Main Js -->
+        <!-- Javascript bullshit -->
+        <script  type="text/javascript" src="./eel.js"></script>           <!-- Eel -->
+        <script  src="./assets/js/jquery.min.js"></script>                 <!-- jQuery -->
+        <script  src="./assets/js/jquery.dataTables.min.js"></script>      <!-- DataTables -->
+        <script  src="./assets/js/dataTables.rowReorder.min.js"></script>  <!-- DataTables.rowReorder -->
+        <script  src="./assets/js/openseadragon.min.js"></script>          <!-- Openseadragon -->
+        <script  src="./assets/js/lozad.min.js"></script>                  <!-- Lozad -->
+        <script  src="./assets/js/jquery.serializejson.min.js"></script>   <!-- Serializer -->
+        <script  src="assets/js/popper.min.js"></script>                   <!-- Popper -->
+        <script  src="assets/js/tippy-bundle.umd.min.js"></script>         <!-- Tippy -->
+        <script  src="assets/js/sweetalert2.js"></script>                  <!-- Sweet alert -->
+        <script  src="./assets/js/dataset.js"></script>                    <!-- Dataset -->
+        <script src="./assets/js/vars.js"></script>                       <!-- Main Js -->
+        <script defer src="./assets/js/main.js"></script>                       <!-- Main Js -->
     </body>
 </html>

@@ -1,4 +1,3 @@
-
 /* imports */
 @import 'preloader.css';
 @import 'mathar.icon.css';
@@ -14,10 +13,6 @@
     --light-shadow: 1px 1px 10px 0.1px rgba(0,0,0,0.2);
     --dark-shadow: 5px 5px 20px 0.5px rgba(0,0,0,0.3);
 }
-
-/*-----------------------------------------------------------------------
-02. START GENERAL STYLES
------------------------------------------------------------------------*/
 
 * {
     box-sizing: border-box;
@@ -41,6 +36,11 @@ input {
     text-align: center;
     width: 12vw;
     min-width: 100px;
+}
+
+input:focus::placeholder {
+    color: transparent;
+    transition: color 0.3s ease;
 }
 
 form label {
@@ -89,11 +89,6 @@ button:focus{
 th {
     font-weight: normal;
 }
-
-/*----------------------------------------------------------------------
-02. END GENERAL STYLES
------------------------------------------------------------------------*/
-
 
 /*-----------------------------------------------------------------------
 04. START TABS
@@ -211,6 +206,10 @@ ul {
     height: calc(100% - 140px);
 }
 
+.tabs-panel[data-index="1"] {
+    overflow-y: scroll;
+}
+
 .tabs-panel[data-index="3"] {
     height: calc(100% - 70px);
     background: url("../icons/bg2.png");
@@ -228,7 +227,7 @@ ul {
 05. Buttons
 -----------------------------------------------------------------------*/
 
-.buttonsRow {
+.btn_row {
     position: relative;
     width: 100%;
     display: flex;
@@ -262,7 +261,7 @@ ul {
     background: none;  
 }
 
-.buttonsRow-placeholder {
+.btn_row-placeholder {
     height: 70px;
     width: 100%;
 }
@@ -520,7 +519,7 @@ table.dataTable thead .sorting_desc {
 07. START ZOOMING IMG
 -----------------------------------------------------------------------*/
 
-.zoomer {
+.tap3_viewer {
     background: url("../icons/bg1.png");
     border: 1px solid #dee2e6;
     height: 95%;
@@ -541,7 +540,7 @@ table.dataTable thead .sorting_desc {
 }
 
 /* txt before result */ 
-.notYet {
+.tap3_not_yet {
     text-align: center;
     position: absolute;
     top: 50%;
@@ -549,14 +548,14 @@ table.dataTable thead .sorting_desc {
     transform: translate(-50%, -50%);
 }
 
-.notYet button {
+.tap3_not_yet button {
     background: none;
     border: none;
     color: rgba(var(--color2));
     text-decoration: underline;
 }
 
-.notYet button:hover {
+.tap3_not_yet button:hover {
     color: rgba(var(--color1));
     transition:color .2s ease-in-out;
 }
@@ -584,7 +583,7 @@ table.dataTable thead .sorting_desc {
 }
 
 /* Result lodaer */
-#resultLoaderContainer {
+#tap3_loader_con {
     position: absolute;
     top: 50%;
     left: 50%;
