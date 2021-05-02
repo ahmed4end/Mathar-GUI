@@ -609,6 +609,7 @@ const about_modal = `
         </div>
         <label id='HFCGDFGD' class="form-item__label">:واتساب</label>
     </div>
+    <div class='line'></div>
     <div class="form-item">
         <div>
             <img src='./assets/icons/youtube.png'>

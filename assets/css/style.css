@@ -235,14 +235,21 @@ ul {
     justify-content: center;
 }
 
-.tab2-bttns {
-    display: inline-block;
-    width: fit-content; 
-    position: fixed;
-    z-index: 10;
-    top: 80px;
+.row-bttns {
+    display: flex;
+    flex-direction: row;
+    position: fixed; 
     left:50%;
     transform: translate(-50%);
+    z-index: 10;
+}
+
+.row-bottom {
+    bottom: 0.3rem;
+}
+
+.row-top {
+    margin-top: 0.3rem;
 }
 
 /* table */
@@ -250,15 +257,6 @@ ul {
     position: relative;
     top: 66px;
     z-index: 9;
-}
-
-/* settings tab save button - fixed css */
-.settings-save-bttn {
-    position: fixed;
-    bottom: 0px;
-    left:50%;
-    transform: translate(-50%);
-    background: none;  
 }
 
 .btn_row-placeholder {
