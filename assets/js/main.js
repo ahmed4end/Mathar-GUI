@@ -126,7 +126,6 @@ $(document).ready(function(){
     var increament_var = 1
     const audio = new Audio("assets/btn2.wav"); 
 
-
     //table 1
     var table1 = $('#table1').DataTable( {
         
@@ -167,19 +166,15 @@ $(document).ready(function(){
         },
 
     });
+    
+    // pagination change event - force load all images in the page.
+    //table1.on( 'page.dt', function () {  });
 
     //add placeholder to filter.
     $('#table1_filter input').attr('placeholder', 'البحث');
-    $('#table1_filter input').attr('placeholder', 'البحث');
+
     //table pages
     var table1_nodes = table1.rows().nodes();
-
-    //lazy loader - table 1.
-    const table1_images = $('.lozad', table1_nodes);
-    for (var i = 0; i < table1_images.length; i++) {
-        const observer = lozad(table1_images[i]); 
-        observer.observe();
-    };
     
     // column 0 - table 1  - draw index increament.
     table1.on('order.dt search.dt', function () {

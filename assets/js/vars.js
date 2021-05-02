@@ -65,6 +65,11 @@ const table1_args = {
                 content: tooltip_static,
             });
         });
+
+        // image lazy loader - table 1.
+        const row_html = row.querySelector('.lozad')
+        window.observer = lozad(row_html); 
+        observer.observe();
     },
 }
 
