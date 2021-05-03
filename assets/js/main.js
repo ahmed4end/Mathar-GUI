@@ -522,7 +522,7 @@ $(document).ready(function(){
             'color_probs': color_probs,
             'color_answer': color_answer
         };
-        //eel.update_config(settings_config)();
+
         Swal.fire({
             title: "جارى حفظ الإعدادات", 
             timer: 500,
@@ -535,30 +535,18 @@ $(document).ready(function(){
 
 
     // expose func ro python for failed queue.
-    eel.expose(failed_queue_js)
+    eel.expose(failed_queue_js);
     function failed_queue_js(queue){
         var con = `
-        <p>قد قمت بإختيار عدد كبير من الأسئلة والورقة المكونة مساحتها لا تكفى فتم تجاهل</p>
-        <ol>
-        `
-        for (i = 0; i < queue.length; i++) {
-            con = con + `<li>${queue[i]}</li>`
-        }
-        con = con + `
-        </ol>
-        <small class='text-danger'>يرجى حذف بعض المسائل من جدول المختارات ليتناسب عدد الأسئلة مع حجم الورقة أو قم بتصغير حجم الخط من الإعدادات لتسع الورقة مسائل أكثر</small>
-        `
-
-         swal_modals = []; // clear swal modals
+        <p class='text-danger'>قد قمت بإختيار عدد كبير من الأسئلة والورقة المكونة مساحتها لا تكفى فتم تجاهل</p>
+        <ul style='overflow-y:scroll;height:30vh;' class='bg-light'>`;
+        con = con + queue.map((x) => `<li>${x}</li>`).join('');        
+        con = con + "</ul><small class='text-danger'>يرجى حذف بعض المسائل من جدول المختارات ليتناسب عدد الأسئلة مع حجم الورقة أو قم بتصغير حجم الخط من الإعدادات لتسع الورقة مسائل أكثر</small>";
+        swal_modals = []; // clear swal modals
         // push swal modal
-        if (queue.length>0){
-            swal_modals.push({title: 'تحذير', html: con, timer:15000})
-        }
+        if (queue.length>0){swal_modals.push({title: 'تحذير', html: con, timer:40000})};
     }
 }); 
-
-
-// tab4 - settings - checkbox & color picker - handler
 
 
 //toggle steps - event - tab3
