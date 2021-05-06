@@ -175,6 +175,7 @@ $(document).ready(function(){
 
     //table pages
     var table1_nodes = table1.rows().nodes();
+    const table1_images = $('.lozad', table1_nodes);
     
     // column 0 - table 1  - draw index increament.
     table1.on('order.dt search.dt', function () {
@@ -451,6 +452,7 @@ $(document).ready(function(){
             });
             for (var i = 0; table1_images.length > i; i++) {
                 table1_images[i].classList.toggle('zoomEffect');
+                console.log(table1_images)
             }
         }
     });
