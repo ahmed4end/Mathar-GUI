@@ -57,7 +57,7 @@ function sleep(ms) {
 //table funcs.
 
 function table_image_wrapper(image){
-    return `<img class='lozad' data-src='./images/${image}.png' loading='lazy' alt='${image}'>`
+    return `<img class="lazyload lzyld" data-sizes="auto" data-srcset='./images/${image}.png' alt='${image}'>`
 };
 
 function vertical_wrapper(txt){
@@ -175,7 +175,7 @@ $(document).ready(function(){
 
     //table pages
     var table1_nodes = table1.rows().nodes();
-    const table1_images = $('.lozad', table1_nodes);
+    const table1_images = $('.lazyload', table1_nodes);
     
     // column 0 - table 1  - draw index increament.
     table1.on('order.dt search.dt', function () {
@@ -430,29 +430,38 @@ $(document).ready(function(){
         }
     });
 
+    const zoom = mediumZoom()
+    //table pages
+    const table2_images = $('.lazyload', table2.rows().nodes());
+
     // tap 1 start zooming event.
     $('#switch_zoom').click(function(){
         if ( $(this).is(':checked') ){
-            console.log('on');
+            console.log('zoom: on');
             // toast
             Toast.fire({
                     icon: 'info',
-                    title: 'الأن يمكنك تكبير المسائل فى الجدول بتحريك الماوس فوقها',
+                    title: 'الأن يمكنك تكبير المسائل فى الجدول بالضغط على صورة المسئلة',
             });
+            // enable zoom on table 1
             for (var i = 0; table1_images.length > i; i++) {
-                table1_images[i].classList.toggle('zoomEffect');
+                zoom.attach(table1_images[i])
             }
         }
         else {
-            console.log('off');
+            console.log('zoom: off');
             // toast
             Toast.fire({
                     icon: 'info',
-                    title: 'تم إلغاء تكبير المسائل فى الجدول بتحريك الماوس فوقها',
+                    title: 'تم إلغاء تكبير المسائل فى الجدول',
             });
+            // diable zoom on table 1
             for (var i = 0; table1_images.length > i; i++) {
-                table1_images[i].classList.toggle('zoomEffect');
-                console.log(table1_images)
+                zoom.detach(table1_images[i]) 
+            }
+            // diable zoom on table 2
+            for (var i = 0; table2_images.length > i; i++) {
+                zoom.detach(table2_images[i]) 
             }
         }
     });
@@ -534,7 +543,6 @@ $(document).ready(function(){
             }
         });
     });
-
 
     // expose func ro python for failed queue.
     eel.expose(failed_queue_js);
