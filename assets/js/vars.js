@@ -42,9 +42,7 @@ const table1_args = {
     "bInfo":true,
     "dom": '<"top"><f><t><"#margin5px"><"clear"><"footerContainer"lp>',
     "rowReorder":false,
-    
     ...tables_tanslation,
-
     "columnDefs": [{
         "searchable": true,
         "orderable": false,
@@ -77,9 +75,7 @@ const table2_args = {
     "bAutoWidth": false,
     "bPaginate": false,
     "bInfo":false,
-
     ...tables_tanslation,
-
     "columnDefs": [{
         "searchable": true,
         "orderable": false,

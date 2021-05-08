@@ -555,7 +555,8 @@ $(document).ready(function(){
         swal_modals = []; // clear swal modals
         // push swal modal
         if (queue.length>0){swal_modals.push({title: 'تحذير', html: con, timer:40000})};
-    }
+    };
+
 }); 
 
 
