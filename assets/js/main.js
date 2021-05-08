@@ -402,17 +402,21 @@ $(document).ready(function(){
                 //fire toast.
                 Toast.fire({icon: 'success', title: 'تم التكوين - إذهب لنافذة المعاينة لرؤية النتيجة'});
                 // run swal queue modals
+                console.log(swal_modals)
                 Swal.queue(Array.from(swal_modals));
             });
 
             //console.log(RowOptions)
             callPython(rowOptions);
+            // clear modals queue.
+            swal_modals = [];
 
             Toast.fire({
                 icon: 'info',
                 title: 'جارى التكوين - إذهب لنافذة المعاينة لإنتظار النتيجة'
             });
             
+
         }
 
     });
