@@ -432,17 +432,6 @@ table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
     margin-bottom: 20px;  
 }
 
-#table1_length label {
-    margin-left: 10px;
-    width: 200px;
-    display: flex;
-    align-items: center;
-}
-
-#table1_length label select {
-    margin: 5px;
-}
-
 #table1_filter input {
     font-size: 20px; 
     position: relative;
@@ -452,11 +441,23 @@ table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
     width: 292px;
     line-height: 47px;
     direction: rtl;
+    margin-left: 15px;
 }
 
 #table1_filter input:hover {
     border: none;
     box-shadow: none;
+}
+
+#table1_length label {
+    margin-left: 10px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+}
+
+#table1_length label select {
+    margin: 5px;
 }
 
 .search-icon:before {
