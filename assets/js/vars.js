@@ -12,7 +12,7 @@ const icon_book = `<svg width="25" height="25" fill="currentColor" class="bi bi-
 
 tables_tanslation = {
     "language": {
-        "sLengthMenu": "أظهر _MENU_ مدخلات",
+        "sLengthMenu": "مدخلات _MENU_ أظهر",
         "sInfo": "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
         "sInfoEmpty": "يعرض 0 إلى 0 من أصل 0 سجل",
         "sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
