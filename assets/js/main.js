@@ -303,13 +303,13 @@ $(document).ready(function(){
     });
 
     // python spawn func .
-    async function _openFileLoaction() {
-        await eel.openFileLoaction();
+    async function _python_openFileLoaction() {
+        await eel.python_openFileLoaction();
     };
 
     // saveImage Button event
     $('#saveImage').on('click', function () {
-        _openFileLoaction();
+        _python_openFileLoaction();
     });
 
 
@@ -329,7 +329,7 @@ $(document).ready(function(){
     // python - call to fetch data function.
     async function callPython(data) {
         // fetch images from python server.
-        var tileSources = await eel.getImages(data)();
+        var tileSources = await eel.python_getImages(data)();
         // hide viewer for now.
         viewer.setVisible(false);
         // remove prev tiles/images and add newer ones. 
@@ -379,14 +379,18 @@ $(document).ready(function(){
             });
         } 
         else {
-            //hide stuff while waiting for python.
+            
+            // hide stuff while waiting for python.
             $("#tap3_loader_con").fadeIn("slow");
             $('#collectData').prop('disabled', true)
             $('#toggleImages').fadeOut();
             $('#saveImage').fadeOut();
             $('.tap3_not_yet').fadeOut();
             viewer.setVisible(false);
-
+            // show and refresh papar counter.
+            refresh_paper_count()
+            if (paper_count>1){$('#paper_counter').fadeIn('slow')};
+            
             // collect data from table 2             
             var rowOptions = table2.column(6).nodes();
 
@@ -419,19 +423,6 @@ $(document).ready(function(){
 
         }
 
-    });
-
-
-    // tap 4 - settings.
-
-    /* checkboxes status text - update event */
-    $('.form-item__control input').click(function(){
-        if ( $(this).is(':checked') ){
-            $('span', $(this).parent()).text('مفعل');
-        }
-        else {
-            $('span', $(this).parent()).text('غير مفعل');
-        }
     });
 
     const zoom = mediumZoom()
@@ -470,60 +461,9 @@ $(document).ready(function(){
         }
     });
 
-
-    // settings vars 
-    var font_name = 'Yakout';
-    var font_size = 70;
-    var paper_count = 1;
-    var is_random = 0;
-    var color_title = 'black';
-    var color_probs = 'black';
-    var color_answer = 'green';
-
     
-    $('#font_name').on('change', function(){
-        font_name = this.value
-    });
-    
-    $('#font_size').on('change paste', function(){
-        if (this.value>120){ // validate max value
-            $('#font_size').prop('value', '120');
-        };
-        if (this.value<40){ // validate min value
-            $('#font_size').prop('value', '40');
-        };
-        font_size = this.value;
-    });
-
-    $('#paper_count').on('change', function(){
-        paper_count = this.value
-    });
-
-    $('#is_random').click(function(){
-        if ( $(this).is(':checked') ){
-            console.log('is_random: on');
-            is_random = 1;
-        }
-        else {
-            console.log('is_random: off');
-            is_random = 0;
-        }
-    });
-
-    $('#color_title').on('change', function(){
-        color_title = this.value
-    });
-
-    $('#color_probs').on('change', function(){
-        color_probs = this.value
-    });
-
-    $('#color_answer').on('change', function(){
-        color_answer = this.value;
-    });
-    
-    async function update_config_js(config){
-        await eel.update_config(config)
+    async function python_update_config_js(config){
+        await eel.python_update_config(config)
     };
 
     //save settings button - event
@@ -543,14 +483,14 @@ $(document).ready(function(){
             timer: 500,
             didOpen: () => {
                 Swal.showLoading();
-                update_config_js(settings_config);
+                python_update_config_js(settings_config);
             }
         });
     });
 
     // expose func ro python for failed queue.
-    eel.expose(failed_queue_js);
-    function failed_queue_js(queue){
+    eel.expose(js_failed_queue_js);
+    function js_failed_queue_js(queue){
         var con = `
         <p class='text-danger'>قد قمت بإختيار عدد كبير من الأسئلة والورقة المكونة مساحتها لا تكفى فتم تجاهل</p>
         <ul style='overflow-y:scroll;height:30vh;' class='bg-light'>`;
@@ -561,10 +501,35 @@ $(document).ready(function(){
         if (queue.length>0){swal_modals.push({title: 'تحذير', html: con, timer:40000})};
     };
 
+    // expose func ro python for failed queue.
+    eel.expose(js_increment_paper_counter);
+    function js_increment_paper_counter(){
+        increment_paper_counter()
+    };
+
+    // ptyohn - toast - paper count is more than 1.
+    eel.expose(js_alert_paper_count);
+    function js_alert_paper_count(){
+        setTimeout(() => { 
+            Toast.fire({
+                icon: 'info',
+                title: 'تم عرض تكوين واحد، اضغط على فتح مكان الحفظ لرؤية البقية.'
+            });
+        }, 1000);
+    };
 }); 
 
+/* checkboxes status text - update event */
+$('.form-item__control input').click(function(){
+    if ( $(this).is(':checked') ){
+        $('span', $(this).parent()).text('مفعل');
+    }
+    else {
+        $('span', $(this).parent()).text('غير مفعل');
+    }
+});
 
-//toggle steps - event - tab3
+// toggle steps - event - tab3
 $('.tap3_toggle_steps').on('click', function(){
     if ($('.tap3_instructions').css('display')=='none'){
         $('.tap3_instructions').animate({height:'toggle'});
@@ -595,7 +560,7 @@ const about_modal = `
     <div class="form-item">
         <div>     
             <img src='./assets/icons/facebook.png'>
-            <a onclick="eel.open_social('youtube')();" href="#">Facebook</a>
+            <a onclick="eel.python_open_social('youtube')();" href="#">Facebook</a>
         </div>
         <label id='HFCGDFGD' class="form-item__label">:فيسبوك</label>
     </div>
@@ -603,7 +568,7 @@ const about_modal = `
     <div class="form-item">
         <div>
             <img src='./assets/icons/whatsapp.png'>
-            <a onclick="eel.open_social('facebook')()" href="#" style='color:red;' style='margin-right:auto;'>Whatsapp</a>
+            <a onclick="eel.python_open_social('facebook')()" href="#" style='color:red;' style='margin-right:auto;'>Whatsapp</a>
         </div>
         <label id='HFCGDFGD' class="form-item__label">:واتساب</label>
     </div>
@@ -611,7 +576,7 @@ const about_modal = `
     <div class="form-item">
         <div>
             <img src='./assets/icons/youtube.png'>
-            <a onclick="eel.open_social('facebook')()" href="#" style='color:red;' style='margin-right:auto;'>Youtube</a>
+            <a onclick="eel.python_open_social('facebook')()" href="#" style='color:red;' style='margin-right:auto;'>Youtube</a>
         </div>
         <label id='HFCGDFGD' class="form-item__label">:يوتيوب</label>
     </div>

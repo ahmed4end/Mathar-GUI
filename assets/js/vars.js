@@ -86,4 +86,77 @@ const table2_args = {
     
 }
 
+////////////////////////
+/// python settings ///
+//////////////////////
 
+
+
+
+// settings vars 
+var font_name = 'Yakout';
+var font_size = 70;
+var paper_count = 1;
+var is_random = 0;
+var color_title = 'black';
+var color_probs = 'black';
+var color_answer = 'green';
+
+// settings events
+
+$('#font_name').on('change', function(){
+    font_name = this.value
+});
+$('#font_size').on('change paste', function(){
+    if (this.value>120){ // validate max value
+        $('#font_size').prop('value', '120');
+    };
+    if (this.value<40){ // validate min value
+        $('#font_size').prop('value', '40');
+    };
+    font_size = this.value;
+});
+$('#paper_count').on('change', function(){
+    paper_count = this.value
+});
+$('#is_random').click(function(){
+    if ( $(this).is(':checked') ){
+        console.log('is_random: on');
+        is_random = 1;
+    }
+    else {
+        console.log('is_random: off');
+        is_random = 0;
+    }
+});
+$('#color_title').on('change', function(){
+    color_title = this.value
+});
+$('#color_probs').on('change', function(){
+    color_probs = this.value
+});
+$('#color_answer').on('change', function(){
+    color_answer = this.value;
+});
+
+// paper_count init.
+function read_paper_count(){
+    return $('#paper_count').val()
+}
+function read_paper_counter(){
+    return $('#paper_counter').text().split('/')
+};
+
+function update_paper_counter(count, total){
+    const new_val = count+'/'+total
+    $('#paper_counter').text(new_val);
+};
+
+function refresh_paper_count(){
+    update_paper_counter(0, paper_count);
+}
+
+function increment_paper_counter(){
+    const curr_read = read_paper_counter();
+    update_paper_counter(parseInt(curr_read[0])+1, curr_read[1])
+};

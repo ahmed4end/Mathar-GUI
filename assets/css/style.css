@@ -135,6 +135,7 @@ ul {
     background: var(--gradient2);
     text-align: center;
     border-right: 1px solid rgba(0, 0, 0, 0.1);
+    z-index: 2;
 
 }
 
@@ -152,6 +153,7 @@ ul {
     background: var(--gradient1);
     opacity: 0;
     transition: opacity 0.4s;
+    z-index: -1;
 }
 
 .tabs li.active:before {
@@ -164,6 +166,7 @@ ul {
     top: 50%;
     transform: translate(0,-50%);
 }
+
 
 .tabs li:hover {
     transition: all .2s ease-in-out; 
@@ -179,6 +182,14 @@ ul {
     bottom: 0;
     background-color: var(--tabs-hover-color-and-underline);
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    z-index: 1;
+}
+
+#paper_counter {
+    position: absolute;
+    bottom: 0;
+    left:50%;
+    transform: translate(-50%);
 }
 
 .tabs li:hover:after,
