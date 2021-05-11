@@ -568,7 +568,7 @@ const about_modal = `
     <div class="form-item">
         <div>
             <img src='./assets/icons/whatsapp.png'>
-            <a onclick="eel.python_open_social('facebook')()" href="#" style='color:red;' style='margin-right:auto;'>Whatsapp</a>
+            <a onclick="eel.python_open_social('whatsapp')()" href="#" style='color:red;' style='margin-right:auto;'>Whatsapp</a>
         </div>
         <label id='HFCGDFGD' class="form-item__label">:واتساب</label>
     </div>
