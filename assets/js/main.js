@@ -461,9 +461,6 @@ $(document).ready(function(){
         }
     });
 
-    
-   
-
     // expose func ro python for failed queue.
     eel.expose(js_failed_queue_js);
     function js_failed_queue_js(queue){
