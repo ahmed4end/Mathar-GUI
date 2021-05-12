@@ -462,31 +462,7 @@ $(document).ready(function(){
     });
 
     
-    async function python_update_config_js(config){
-        await eel.python_update_config(config)
-    };
-
-    //save settings button - event
-    $('.save_settings').on('click', function(){
-        var settings_config = {
-            'font_name': font_name,
-            'font_size': font_size,
-            'paper_count': paper_count,
-            'is_random': is_random,
-            'color_title': color_title,
-            'color_probs': color_probs,
-            'color_answer': color_answer
-        };
-
-        Swal.fire({
-            title: "جارى حفظ الإعدادات", 
-            timer: 500,
-            didOpen: () => {
-                Swal.showLoading();
-                python_update_config_js(settings_config);
-            }
-        });
-    });
+   
 
     // expose func ro python for failed queue.
     eel.expose(js_failed_queue_js);

@@ -254,9 +254,11 @@ ul {
     z-index: 4;
 }
 
+/*
 .row-bottom {
     bottom: 0.3rem;
 }
+*/
 
 .row-top {
     margin-top: 0.3rem;
@@ -269,10 +271,12 @@ ul {
     z-index: 3;
 }
 
+/*
 .btn_row-placeholder {
     height: 70px;
     width: 100%;
 }
+*/
 
 .bttn2 {
     width:200px;
@@ -687,6 +691,7 @@ table.dataTable thead .sorting_desc {
     margin:0;
     align-items: center;
     justify-content: center;
+    margin-bottom: 1rem;
 }
 
 .form-item__label {

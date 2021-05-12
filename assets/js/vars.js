@@ -10,6 +10,7 @@ const icon_book = `<svg width="25" height="25" fill="currentColor" class="bi bi-
 <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
 </svg>`
 
+// tables vars
 tables_tanslation = {
     "language": {
         "sLengthMenu": "مدخلات _MENU_ أظهر",
@@ -85,13 +86,12 @@ const table2_args = {
     }],
     
 }
+// table vars - end
+
 
 ////////////////////////
 /// python settings ///
 //////////////////////
-
-
-
 
 // settings vars 
 var font_name = 'Yakout';
@@ -102,10 +102,32 @@ var color_title = 'black';
 var color_probs = 'black';
 var color_answer = 'green';
 
+
+async function python_update_config_js(config){ // call python to update config
+    await eel.python_update_config(config)
+};
+
+// collect data and update config
+function save_settings(){
+    var settings_config = {
+        'font_name': font_name,
+        'font_size': font_size,
+        'paper_count': paper_count,
+        'is_random': is_random,
+        'color_title': color_title,
+        'color_probs': color_probs,
+        'color_answer': color_answer
+    };
+    
+    // update python config.
+    python_update_config_js(settings_config);
+}
+
 // settings events
 
 $('#font_name').on('change', function(){
     font_name = this.value
+    save_settings()
 });
 $('#font_size').on('change paste', function(){
     if (this.value>120){ // validate max value
@@ -115,9 +137,13 @@ $('#font_size').on('change paste', function(){
         $('#font_size').prop('value', '40');
     };
     font_size = this.value;
+    
+    save_settings()
 });
 $('#paper_count').on('change', function(){
     paper_count = this.value
+    
+    save_settings()
 });
 $('#is_random').click(function(){
     if ( $(this).is(':checked') ){
@@ -128,15 +154,24 @@ $('#is_random').click(function(){
         console.log('is_random: off');
         is_random = 0;
     }
+    
+    save_settings()
 });
+
 $('#color_title').on('change', function(){
     color_title = this.value
+    
+    save_settings()
 });
 $('#color_probs').on('change', function(){
     color_probs = this.value
+    
+    save_settings()
 });
 $('#color_answer').on('change', function(){
     color_answer = this.value;
+    
+    save_settings()
 });
 
 // paper_count init.
@@ -160,3 +195,4 @@ function increment_paper_counter(){
     const curr_read = read_paper_counter();
     update_paper_counter(parseInt(curr_read[0])+1, curr_read[1])
 };
+// paper_count - end
