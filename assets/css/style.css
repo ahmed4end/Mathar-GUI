@@ -4,10 +4,10 @@
 
 /* variables */
 :root {
-    --color1: 23, 204, 142; /* sort of lightgreen main color */
-    --color2: 24, 58, 86;   /* sort of navy main color */
-    --gradient1: linear-gradient(to bottom, rgba(35, 236, 167, 1) 0%, rgba(var(--color1), 1) 100%); /* gradient of color1 */
-    --gradient2: linear-gradient(to bottom, rgba(34, 77, 112, 1) 0%, rgba(var(--color2), 1) 100%); /* gradient of color2 */
+    --primary-color: 23, 204, 142; /* sort of lightgreen main color */
+    --secondary-color: 24, 58, 86;   /* sort of navy main color */
+    --primary-gradient: linear-gradient(to bottom, rgba(35, 236, 167, 1) 0%, rgba(var(--primary-color), 1) 100%); 
+    --secondary-gradient: linear-gradient(to bottom, rgba(34, 77, 112, 1) 0%, rgba(var(--secondary-color), 1) 100%); 
     --tabs-hover-color-and-underline: #3f6af4;
     --border-radius: .6rem;
     --light-shadow: 1px 1px 10px 0.1px rgba(0,0,0,0.2);
@@ -52,7 +52,7 @@ input:hover,
 #table1_filter label:hover, /* table */
 select:hover
 {
-    border: 1px solid rgba(var(--color1));
+    border: 1px solid rgba(var(--primary-color));
     box-shadow: var(--light-shadow);  
     transition:all .2s ease-in-out;
 }
@@ -104,14 +104,14 @@ ul {
     position: fixed;
     display: flex;
     justify-content: center;
-    background: var(--gradient2);
+    background: var(--secondary-gradient);
     box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.3);
     z-index: 1;
 
 }
 
 .tabs ul {
-    background: var(--gradient2);
+    background: var(--secondary-gradient);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -132,7 +132,7 @@ ul {
     position: relative;
     height: 100%;
     padding: 0px 25px;
-    background: var(--gradient2);
+    background: var(--secondary-gradient);
     text-align: center;
     border-right: 1px solid rgba(0, 0, 0, 0.1);
     z-index: 2;
@@ -150,7 +150,7 @@ ul {
     width:100%;
     height:100%;
     color:white;
-    background: var(--gradient1);
+    background: var(--primary-gradient);
     opacity: 0;
     transition: opacity 0.4s;
     z-index: -1;
@@ -284,7 +284,7 @@ ul {
     position: relative;
     color: white;
     margin: 10px;
-    background: var(--gradient1);
+    background: var(--primary-gradient);
 }
 
 .bttn2 svg {
@@ -339,7 +339,7 @@ ul {
     display: inline-block;
     font-weight: 700;
     position: relative;
-    background: var(--gradient1);
+    background: var(--primary-gradient);
     color: #fff;
     font-size: 12px;
     overflow: hidden;
@@ -564,12 +564,12 @@ table.dataTable thead .sorting_desc {
 .tap3_not_yet button {
     background: none;
     border: none;
-    color: rgba(var(--color2));
+    color: rgba(var(--secondary-color));
     text-decoration: underline;
 }
 
 .tap3_not_yet button:hover {
-    color: rgba(var(--color1));
+    color: rgba(var(--primary-color));
     transition:color .2s ease-in-out;
 }
 
@@ -591,7 +591,7 @@ table.dataTable thead .sorting_desc {
 }
 
 .tap3_instructions li:hover {
-    border: 1px solid rgba(var(--color1));
+    border: 1px solid rgba(var(--primary-color));
     transition: border .2s ease-in-out;
 }
 
@@ -618,7 +618,7 @@ table.dataTable thead .sorting_desc {
     margin: 0px;
     border-radius: 50%;
     border: 7px solid #fff;
-    border-color: rgba(var(--color1)) transparent rgba(var(--color1)) transparent;
+    border-color: rgba(var(--primary-color)) transparent rgba(var(--primary-color)) transparent;
     animation: lds-dual-ring 1.2s linear infinite;
 }
 @keyframes lds-dual-ring {
@@ -727,7 +727,7 @@ table.dataTable thead .sorting_desc {
 }
 
 .form-item__control input:checked + label {
-    background: var(--gradient1);
+    background: var(--primary-gradient);
 
 }
 
@@ -776,7 +776,7 @@ table.dataTable thead .sorting_desc {
 }
 
 .form-item__control input:hover {
-    border: 1px solid rgba(var(--color1));
+    border: 1px solid rgba(var(--primary-color));
     box-shadow: 0.1rem 0.2rem 0.3rem lightgrey;
     transition: border .1s ease-in-out;
 }
@@ -896,4 +896,35 @@ LEGEND{
 /* tippy - center text */
 .tippy-content {
     text-align: center;
+}
+
+
+/* ribbon */
+.cr {
+    width: 200px;
+    height: 2em;
+    position: absolute;
+    text-align: center;
+    color: #f0f0f0;
+    background: var(--primary-gradient);
+    box-shadow: var(--dark-shadow);
+    font-size: 1em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.cr:hover {
+    font-size: 1.5em;
+}
+.cr-sticky {
+    position: fixed;
+}
+
+.cr-bottom { bottom: 20px; }
+
+.cr-left   { left: -50px; }
+
+.cr-bottom.cr-left {
+    transform: rotate(45deg);
 }

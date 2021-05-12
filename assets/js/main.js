@@ -1,5 +1,5 @@
-"use strict";
-"use luck";
+'use strict';
+'use luck';
 
 /*
 
