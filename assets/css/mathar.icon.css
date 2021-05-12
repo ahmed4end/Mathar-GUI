@@ -10,7 +10,7 @@
 .slice.top-left {
     left:0px;
     border-top-left-radius: 10px;
-    background: var(--gradient2);
+    background: var(--secondary-gradient);
 }
 .plus-sign {
     position: absolute;
@@ -50,7 +50,7 @@
 .slice.top-right {
     right:0px;
     border-top-right-radius: 10px;
-    background: var(--gradient1);
+    background: var(--primary-gradient);
 }
 
 .minus-sign {
@@ -75,7 +75,7 @@
     left:0px;
     bottom: 0px;
     border-bottom-left-radius: 10px;
-    background: var(--gradient1);
+    background: var(--primary-gradient);
 }
 
 .mul-sign {
@@ -112,7 +112,7 @@
     right:0px;
     bottom: 0px;
     border-bottom-right-radius: 10px;
-    background: var(--gradient2);
+    background: var(--secondary-gradient);
 }
 
 .equal-sign {

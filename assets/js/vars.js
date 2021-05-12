@@ -196,3 +196,24 @@ function increment_paper_counter(){
     update_paper_counter(parseInt(curr_read[0])+1, curr_read[1])
 };
 // paper_count - end
+
+// tab 4 ribbon event.
+const news_link = 'https://raw.githubusercontent.com/ahmed4end/Mathar-GUI/master/news.html';
+
+$('#news').on('click', function(){
+    fetch(news_link)
+      .then(response => response.text())
+      .then(data => {
+        Swal.queue([{
+            html: data,
+            showConfirmButton: false,
+        }]);
+    }).catch(()=> {
+        Swal.queue([{
+            icon: 'error',
+            title: 'حدث خطأ ما',
+            text: 'يرجى التأكد من الإتصال بالإنترنت لجلب آخر تحديث',
+            showConfirmButton: false,
+        }]);        
+    });
+});

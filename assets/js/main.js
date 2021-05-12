@@ -490,6 +490,7 @@ $(document).ready(function(){
             });
         }, 1000);
     };
+    
 }); 
 
 /* checkboxes status text - update event */
