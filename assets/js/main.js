@@ -349,13 +349,13 @@ $(document).ready(function(){
     }
 
     // toggle between images inside viewer.
-    $('#toggleImages').on('click', function () {
-        //twiggle show/hide answer btn text.
+    $('#toggle_images').on('click', function () {
+        // twiggle show/hide answer btn text.
         if (index==1){
-            $(this).text('إخفاء الإجابة')
+            $(this).find('h5').text('إخفاء الإجابة')
         }
         else{
-            $(this).text('إظهار الإجابة')
+            $(this).find('h5').text('إظهار الإجابة')
         }
 
         var oldTiledImage = viewer.world.getItemAt(index);
@@ -369,7 +369,7 @@ $(document).ready(function(){
     }); 
 
     // collect data - table 2 - when button is clicked.
-    $( "#collectData" ).click(function() {
+    $( "#create" ).click(function() {
         audio.play()
         if (table2.data().count() == 0) {
             Swal.fire({
@@ -382,8 +382,8 @@ $(document).ready(function(){
             
             // hide stuff while waiting for python.
             $("#tap3_loader_con").fadeIn("slow");
-            $('#collectData').prop('disabled', true)
-            $('#toggleImages').fadeOut();
+            $('#create').prop('disabled', true)
+            $('#toggle_images').fadeOut();
             $('#saveImage').fadeOut();
             $('.tap3_not_yet').fadeOut();
             viewer.setVisible(false);
@@ -397,12 +397,13 @@ $(document).ready(function(){
             rowOptions = rowOptions.toArray().map(ele=>$('form', ele).first().data('dict'))
 
             viewer.addHandler('tile-loaded', function(){
-                //show stuff cuz python sent data.
+                // show stuff cuz python sent data.
                 viewer.setVisible(true);
-                $('#collectData').prop('disabled', false)
-                $('#toggleImages').fadeIn();
+                $('#create').prop('disabled', false)
+                $('#toggle_images').fadeIn();
                 $('#saveImage').fadeIn();
                 $("#tap3_loader_con").fadeOut("slow");
+                $('#toggle_images').find('h5').text('إظهار الإجابة')
                 //fire toast.
                 Toast.fire({icon: 'success', title: 'تم التكوين - إذهب لنافذة المعاينة لرؤية النتيجة'});
                 // run swal queue modals

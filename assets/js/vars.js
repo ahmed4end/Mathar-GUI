@@ -140,9 +140,13 @@ $('#font_size').on('change paste', function(){
     
     save_settings()
 });
+
 $('#paper_count').on('change', function(){
     paper_count = this.value
-    
+    if (this.value<1){ // validate min value
+        $('#paper_count').prop('value', '1');
+    };
+    paper_count = this.value
     save_settings()
 });
 $('#is_random').click(function(){
