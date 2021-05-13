@@ -535,7 +535,7 @@ const about_modal = `
     <div class="form-item">
         <div>     
             <img src='./assets/icons/facebook.png'>
-            <a onclick="eel.python_open_social('youtube')();" href="#">Facebook</a>
+            <a onclick="eel.python_open_social('facebook')();" href="#">Facebook</a>
         </div>
         <label id='HFCGDFGD' class="form-item__label">:فيسبوك</label>
     </div>
@@ -551,7 +551,7 @@ const about_modal = `
     <div class="form-item">
         <div>
             <img src='./assets/icons/youtube.png'>
-            <a onclick="eel.python_open_social('facebook')()" href="#" style='color:red;' style='margin-right:auto;'>Youtube</a>
+            <a onclick="eel.python_open_social('youtube')()" href="#" style='color:red;' style='margin-right:auto;'>Youtube</a>
         </div>
         <label id='HFCGDFGD' class="form-item__label">:يوتيوب</label>
     </div>
