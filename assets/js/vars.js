@@ -69,7 +69,7 @@ const table1_args = {
 }
 
 const table2_args = {
-    "rowReorder":true,
+    "rowReorder": {"selector": 'td:not(:last-child)'},
     "lengthChange":false,
     "bFilter": false,
     "bLengthChange": false,
@@ -205,8 +205,7 @@ function increment_paper_counter(){
 const news_link = 'https://raw.githubusercontent.com/ahmed4end/Mathar-GUI/master/news.html';
 
 $('#news').on('click', function(){
-    const ms = Date.now();
-    fetch(news_link+"?dummy="+ms)
+    fetch(news_link)
       .then(response => response.text())
       .then(data => {
         Swal.queue([{
