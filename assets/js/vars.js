@@ -205,7 +205,8 @@ function increment_paper_counter(){
 const news_link = 'https://raw.githubusercontent.com/ahmed4end/Mathar-GUI/master/news.html';
 
 $('#news').on('click', function(){
-    fetch(news_link)
+    const ms = Date.now();
+    fetch(news_link+"?dummy="+ms)
       .then(response => response.text())
       .then(data => {
         Swal.queue([{
