@@ -373,9 +373,9 @@ $(document).ready(function(){
         audio.play()
         if (table2.data().count() == 0) {
             Swal.fire({
-                text:"يرجى اختيار مسائل اولاً", 
+                text:"يرجى إختيار مسائل أولاً من جدول المسائل", 
                 showConfirmButton: false,
-                timer: 2000
+                timer: 3000
             });
         } 
         else {
@@ -526,11 +526,10 @@ $('.tabs li').on('click', function(tab){
 
 const about_modal = `
 <p>
-هذه الإصدار من البرنامج يحتوى على<br>كتاب المعاصر الصف الأول الثانوى الترم الأول
-</p>
+هذه الإصدار من البرنامج يحتوى على<br>كتاب المعاصر الصف الأول الثانوى الترم الأول 2020 </p>
 <fieldset>
     <legend>
-    <h3>تواصل معنا</h3>
+    <h4>تواصل معنا</h4>
     </legend>
     <div class="form-item">
         <div>     
