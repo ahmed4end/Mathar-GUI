@@ -90,14 +90,10 @@ th {
     font-weight: normal;
 }
 
+
 /*-----------------------------------------------------------------------
 04. START TABS
 -----------------------------------------------------------------------*/
-ul {
-    list-style: none;
-    text-decoration: none;
-}
-
 .tabs {
     width: 100%;
     height: 70px;
@@ -111,6 +107,8 @@ ul {
 }
 
 .tabs ul {
+    list-style-type: decimal;
+    text-decoration: none;
     background: var(--secondary-gradient);
     display: flex;
     align-items: center;
@@ -125,7 +123,7 @@ ul {
     box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.3);
 }
 
-.tabs li {
+.tabs ul li {
     cursor: pointer;
     color: white;
     display: block;
@@ -929,3 +927,14 @@ LEGEND{
     transform: rotate(45deg);
 }
 
+/* list style tempalate */
+
+.instructions {
+    padding-right: 1em;
+}
+
+.instructions li {
+    text-align: right;
+    direction: rtl;
+    list-style-type: decimal;
+}
