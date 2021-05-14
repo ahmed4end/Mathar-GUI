@@ -1,6 +1,6 @@
 
 // static vars
-const graph = 'رسم بيانى'
+const graph = 'رسم'
 const solve_eq = "حل المعادلة"
 const mcq = "MCQ" // multiple choice question.
 const ftq = "FTQ" // free text question.
@@ -20,7 +20,7 @@ var dataSet = [
         'title',
         "", 
         "", 
-        "عنوان رئيسى",  
+        "عنوان",  
         "<form><input name='title' value='عنوان رئيسى' type='text'><label>:العنوان</label></form>"
     ],
     ["يبين كل من الاشكال التالية الرسم البيانى لدالة من الدرجة الثانية. اوجد مجموعة الحل فى ح للمعادلة د(س)=0 فى كل شكل.", 
