@@ -21,7 +21,7 @@
 }
 
 * {
-    /*user-select: none; [Disabled] */ 
+    user-select: none;
 }
 
 body, html {

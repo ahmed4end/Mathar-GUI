@@ -1,14 +1,13 @@
 'use strict';
 'use luck';
 
-/*
+
 
 // Diable F5 Button
 function disableButtonsDown(e) { 
     if ((e.which || e.keyCode) == 116) e.preventDefault(); 
 };
 $(document).on("keydown", disableButtonsDown);
-
 
 // Disable Right click
 document.addEventListener('contextmenu', event => event.preventDefault());
@@ -32,7 +31,6 @@ document.onkeydown = function(e) {
   }
 }
 
-*/
 
 //preloader config
 $(window).load(function() {
