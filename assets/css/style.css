@@ -252,11 +252,11 @@ th {
     z-index: 4;
 }
 
-/*
+
 .row-bottom {
     bottom: 0.3rem;
 }
-*/
+
 
 .row-top {
     margin-top: 0.3rem;
@@ -533,9 +533,7 @@ table.dataTable thead .sorting_desc {
 .tap3_viewer {
     background: url("../icons/bg1.png");
     border: 1px solid #dee2e6;
-    height: 95%;
     overflow: hidden;
-    margin: 10px 10px -50px 10px;
     transform: all .3s ease-in-out;
 }
 
