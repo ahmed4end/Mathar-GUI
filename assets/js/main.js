@@ -1,7 +1,6 @@
 'use strict';
 'use luck';
 
-/*
 
 // Diable F5 Button
 function disableButtonsDown(e) { 
@@ -31,7 +30,6 @@ document.onkeydown = function(e) {
   }
 }
 
-*/
 
 //preloader config
 $(window).load(function() {
