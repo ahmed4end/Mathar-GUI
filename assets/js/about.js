@@ -32,7 +32,7 @@ const about_html = `
 // about mathar - modal
 $('.about-btn').on('click', function(){
     Swal.fire({
-        title: "<h1>Mathar</h1>",
+        title: "<h1>Mathar 1.0.0</h1>",
         html: "<small><q>The teacher's tool to innovate</q></small><br>"+about_html,
         showConfirmButton: false,
     })

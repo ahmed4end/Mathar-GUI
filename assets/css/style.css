@@ -218,9 +218,14 @@ th {
     overflow-y: scroll;
 }
 
+.tabs-panel[data-index="2"] {
+    overflow-y: hidden;
+}
+
 .tabs-panel[data-index="3"] {
     height: calc(100% - 70px);
     background: url("../icons/bg2.png");
+    overflow: hidden;
 }
 
 .tabs-panel.active {
@@ -505,7 +510,7 @@ table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
     height: 70px;
     background-color: white;
     width: 100%;
-    bottom:-10px;
+    bottom: 0;
 }
 
 /* hide sorting icons*/

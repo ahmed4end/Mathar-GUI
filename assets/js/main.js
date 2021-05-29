@@ -1,7 +1,7 @@
 'use strict';
 'use luck';
 
-
+/*
 // Diable F5 Button
 function disableButtonsDown(e) { 
     if ((e.which || e.keyCode) == 116) e.preventDefault(); 
@@ -30,6 +30,7 @@ document.onkeydown = function(e) {
   }
 }
 
+*/
 
 //preloader config
 $(window).load(function() {
