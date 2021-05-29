@@ -2,8 +2,8 @@
 // static vars
 const graph = 'رسم'
 const solve_eq = "حل المعادلة"
-const mcq = "MCQ" // multiple choice question.
-const ftq = "FTQ" // free text question.
+const mcq = "<div data-tippy-content='اختيار من متعدد'>MCQ</div>" // multiple choice question.
+const ftq = "<div data-tippy-content='سؤال مقالى'>FTQ</div>" // free text question.
 const imag_nums = 'الأعداد المركبة'
 const eq_factors = 'جذرى المعادلة'
 const inequalities  = 'المتباينات'

@@ -1,7 +1,7 @@
 'use strict';
 'use luck';
 
-
+/*
 
 // Diable F5 Button
 function disableButtonsDown(e) { 
@@ -31,6 +31,7 @@ document.onkeydown = function(e) {
   }
 }
 
+*/
 
 //preloader config
 $(window).load(function() {
@@ -101,9 +102,7 @@ function table_col3(arr) {
 
 
 $(document).ready(function(){
-    // tooltips config.
-    tippy.setDefaultProps({delay: [100, 50]});
-    tippy('[data-tippy-content]');
+    
     // swal var.
     var swal_modals = []
     // swal toastr.
@@ -164,6 +163,11 @@ $(document).ready(function(){
         },
 
     });
+    
+    // tooltips config.
+    tippy.setDefaultProps({delay: [100, 50]});
+    tippy('[data-tippy-content]'); // table 1 pages other than 1 does not work with tippy [BUG].
+    //////////////////
     
     // pagination change event - force load all images in the page.
     //table1.on( 'page.dt', function () {  });
