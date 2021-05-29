@@ -225,7 +225,6 @@ th {
 .tabs-panel[data-index="3"] {
     height: calc(100% - 70px);
     background: url("../icons/bg2.png");
-    overflow: hidden;
 }
 
 .tabs-panel.active {
