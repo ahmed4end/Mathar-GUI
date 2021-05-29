@@ -122,7 +122,7 @@ $(document).ready(function(){
 
     // INIT vars 
     var increament_var = 1
-    const audio = new Audio("assets/btn2.wav"); 
+    const audio = new Audio("assets/btn.wav"); 
 
     //table 1
     var table1 = $('#table1').DataTable( {
