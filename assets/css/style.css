@@ -4,14 +4,16 @@
 
 /* variables */
 :root {
-    --primary-color: 23, 204, 142; /* sort of lightgreen main color */
-    --secondary-color: 24, 58, 86;   /* sort of navy main color */
+    --primary-color: 23, 204, 142;
+    --secondary-color: 24, 58, 86;  
     --primary-gradient: linear-gradient(to bottom, rgba(35, 236, 167, 1) 0%, rgba(var(--primary-color), 1) 100%); 
     --secondary-gradient: linear-gradient(to bottom, rgba(34, 77, 112, 1) 0%, rgba(var(--secondary-color), 1) 100%); 
     --tabs-hover-color-and-underline: #3f6af4;
     --border-radius: .6rem;
     --light-shadow: 1px 1px 10px 0.1px rgba(0,0,0,0.2);
     --dark-shadow: 5px 5px 20px 0.5px rgba(0,0,0,0.3);
+    --border: 1px solid silver;
+    --border-hover: 1px solid #17CC8E;
 }
 
 * {
@@ -30,7 +32,7 @@ body, html {
 
 /* inputs */
 input {
-    border: 1px solid lightgrey;
+    border: var(--border);
     border-radius: var(--border-radius);
     padding: 2px;
     text-align: center;
@@ -52,7 +54,7 @@ input:hover,
 #table1_filter label:hover, /* table */
 select:hover
 {
-    border: 1px solid rgba(var(--primary-color));
+    border: var(--border-hover);
     box-shadow: var(--light-shadow);  
     transition:all .2s ease-in-out;
 }
@@ -275,8 +277,8 @@ th {
 
 /*
 .btn_row-placeholder {
-    height: 70px;
-    width: 100%;
+height: 70px;
+width: 100%;
 }
 */
 
@@ -442,7 +444,7 @@ table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
     width: 361px;
     height: 46px;
     background: rgba(22,24,35,0.06);
-    border: 1px solid rgba(0,0,0,0.1);
+    border: var(--border);
     display: flex;
     left: 50%;
     transform: translate(-50%);
@@ -502,7 +504,7 @@ table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
 }
 
 .footerContainer {
-    border: 1px solid lightgrey;
+    border: var(--border);
     padding: none; 
     padding-top: 5px;
     position: fixed;
@@ -536,7 +538,7 @@ table.dataTable thead .sorting_desc {
 
 .tap3_viewer {
     background: url("../icons/bg1.png");
-    border: 1px solid #dee2e6;
+    border: var(--border);
     overflow: hidden;
     transform: all .3s ease-in-out;
 }
@@ -583,7 +585,7 @@ table.dataTable thead .sorting_desc {
 
 .tap3_instructions li {
     background-color: white;
-    border: 1px solid lightgrey;
+    border: var(--border);
     box-shadow: var(--light-shadow); 
     border-radius: var(--border-radius);
     padding: 5px;
@@ -591,7 +593,7 @@ table.dataTable thead .sorting_desc {
 }
 
 .tap3_instructions li:hover {
-    border: 1px solid rgba(var(--primary-color));
+    border: var(--border-hover);
     transition: border .2s ease-in-out;
 }
 
@@ -776,33 +778,34 @@ table.dataTable thead .sorting_desc {
 }
 
 .form-item__control input:hover {
-    border: 1px solid rgba(var(--primary-color));
+    cursor: pointer;
     box-shadow: 0.1rem 0.2rem 0.3rem lightgrey;
     transition: border .1s ease-in-out;
+}
+
+.form-item__control select {
+    cursor: pointer;
 }
 
 input[type="color"] {
     -webkit-appearance: none;
     width: 100%;
     height: 40px;
-    border: 0;
+    border: none;
     border-radius: var(--border-radius);
     padding: 0;
     overflow: hidden;
     box-shadow: 2px 2px 5px rgba(0,0,0,.1);
 }
 input[type="color"]::-webkit-color-swatch-wrapper {
+    border: none;
     padding: 0;
 }
 input[type="color"]::-webkit-color-swatch {
-    border: 1px solid darkgrey;
+    border: none;
 }
 
-.inputColorContainer {
-    border-radius: var(--border-radius);
-}
-
-.inputColorContainer:after { /* gradient layer aboove input color (pallete style).*/
+.input_overlay:after { /* gradient layer aboove input color (pallete style).*/
     content: '';
     position: absolute;
     pointer-events: none;
@@ -850,14 +853,14 @@ select {
     width: 100%;
     padding: 0px;
     border-radius: var(--border-radius);
-    border: 1px solid darkgrey;
+    border: var(--border);
 }
 
 
 /* fieldset */
 FIELDSET {
     margin: 8px;
-    border: 1px solid silver;
+    border: var(--border);
     padding: 8px;    
     border-radius: var(--border-radius);
     box-shadow: var(--light-shadow);
@@ -865,7 +868,7 @@ FIELDSET {
 }
 
 FIELDSET:hover {
-    border: 1px solid #17cc8e;
+    border: var(--border-hover);
     box-shadow: var(--dark-shadow);
     transition-duration: .3s;
 }
@@ -889,7 +892,7 @@ LEGEND{
 }
 
 .swal2-popup.swal2-toast {
-    border: 1px solid lightgrey;  
+    border: var(--border); 
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75)!important;
 }
 

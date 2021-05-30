@@ -64,7 +64,7 @@ const table1_args = {
                 content: tooltip_static,
             });
         });
-   
+
     },
 }
 
@@ -84,7 +84,7 @@ const table2_args = {
         "className": "dt-center reorder", //row reorder - class 'reorder' changes cursor icon on hover.
         "targets": "_all"
     }],
-    
+
 }
 // table vars - end
 
@@ -118,7 +118,7 @@ function save_settings(){
         'color_probs': color_probs,
         'color_answer': color_answer
     };
-    
+
     // update python config.
     python_update_config_js(settings_config);
 }
@@ -137,7 +137,7 @@ $('#font_size').on('change paste', function(){
         $('#font_size').prop('value', '40');
     };
     font_size = this.value;
-    
+
     save_settings()
 });
 
@@ -158,23 +158,23 @@ $('#is_random').click(function(){
         console.log('is_random: off');
         is_random = 0;
     }
-    
+
     save_settings()
 });
 
 $('#color_title').on('change', function(){
     color_title = this.value
-    
+
     save_settings()
 });
 $('#color_probs').on('change', function(){
     color_probs = this.value
-    
+
     save_settings()
 });
 $('#color_answer').on('change', function(){
     color_answer = this.value;
-    
+
     save_settings()
 });
 
@@ -206,8 +206,8 @@ const news_link = 'https://raw.githubusercontent.com/ahmed4end/Mathar-GUI/master
 
 $('#news').on('click', function(){
     fetch(news_link)
-      .then(response => response.text())
-      .then(data => {
+        .then(response => response.text())
+        .then(data => {
         Swal.queue([{
             html: data,
             showConfirmButton: false,
@@ -221,3 +221,34 @@ $('#news').on('click', function(){
         }]);        
     });
 });
+
+// disable dev buttons
+function disable_dev_buttons(){
+    // Diable F5 Button
+    function disableButtonsDown(e) { 
+        if ((e.which || e.keyCode) == 116) e.preventDefault(); 
+    };
+    $(document).on("keydown", disableButtonsDown);
+
+    // Disable Right click
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    // Disable some short keys
+    document.onkeydown = function(e) {
+        if(event.keyCode == 123) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+            return false;
+        }
+    }
+}

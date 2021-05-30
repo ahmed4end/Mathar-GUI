@@ -4,18 +4,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Mathar</title>
         <!-- Css -->
-        <link rel="icon" href="./assets/icons/mathar.ico">                      <!-- Icon -->
-        <link rel="icon" href="data:;base64,iVBORw0KGgo=">                      <!-- Favicon -->
-        <link rel="stylesheet" href="./assets/css/bootstrap.min.css">           <!-- Bootstrap -->
-        <link rel="stylesheet" href="./assets/css/datatables.min.css">          <!-- DataTables -->
-        <link rel="stylesheet" href="assets/css/rowReorder.dataTables.min.css"> <!-- DataTables.rowReorder -->
-        <link rel="stylesheet" href="./assets/css/bttn.min.css">                <!-- Buttons docs="https://bttn.surge.sh/" -->
-        <link rel="stylesheet" href="./assets/css/fonts.css", type='text/css'>  <!-- Fonts -->
-        <link rel="stylesheet" href="./assets/css/style.css", type='text/css'>  <!-- Main Css -->
+        <link rel="icon" href="./assets/icons/mathar.ico">                        <!-- Icon -->
+        <link rel="icon" href="data:;base64,iVBORw0KGgo=">                        <!-- Favicon -->
+        <link rel="stylesheet" href="./assets/css/bootstrap.min.css">             <!-- Bootstrap -->
+        <link rel="stylesheet" href="./assets/css/datatables.min.css">            <!-- DataTables -->
+        <link rel="stylesheet" href="./assets/css/rowReorder.dataTables.min.css"> <!-- DataTables.rowReorder -->
+        <link rel="stylesheet" href="./assets/css/bttn.min.css">                  <!-- Buttons docs="https://bttn.surge.sh/" -->
+        <link rel="stylesheet" href="./assets/css/fonts.css", type='text/css'>    <!-- Fonts -->
+        <link rel="stylesheet" href="./assets/css/style.css", type='text/css'>    <!-- Main -->
         <!-- Preload images -->
-        <link rel="prefetch" href="./assets/icons/bg1.png">
-        <link rel="prefetch" href="./assets/icons/bg2.png">
-
+        <link rel="preload" href="./assets/icons/bg1.png" as="image">
+        <link rel="preload" href="./assets/icons/bg2.png" as="image">
     </head>
     <body>
         <!-- preloader -->
@@ -59,7 +58,7 @@
             </div>
         </div>
         <!-- preloader <end> -->
-        
+
         <div class="tabs-container">
 
             <div class='tabs'>
@@ -208,27 +207,21 @@
                             <legend><h3>الآلوان</h3></legend>
                             <div class="form-item">
                                 <div class="form-item__control">
-                                    <div class='inputColorContainer'>
-                                        <input id='color_title' type="color" value="#000000">
-                                    </div>
+                                    <input id='color_title' class='input_overlay' type="color" value="#000000">
                                 </div>
                                 <label class="form-item__label" data-tippy-content='لون العناوين الرئيسية بالخط الكبير'>:لون العناوين</label>
                             </div>
                             <div class='line'></div>
                             <div class="form-item">
                                 <div class="form-item__control">
-                                    <div class='inputColorContainer'>
-                                        <input id='color_probs' type="color" value="#000000">
-                                    </div>
+                                    <input id='color_probs' class='input_overlay' type="color" value="#000000">
                                 </div>
                                 <label class="form-item__label" data-tippy-content='لون المسائل'>:لون الأسئلة</label>
                             </div>
                             <div class='line'></div>
                             <div class="form-item">
                                 <div class="form-item__control">
-                                    <div class='inputColorContainer'>
-                                        <input id='color_answer' type="color" value="#00FF00">
-                                    </div>
+                                    <input id='color_answer' class='input_overlay' type="color" value="#00FF00">
                                 </div>
                                 <label class="form-item__label" data-tippy-content='لون الإجابات'>:لون الإجابات</label>
                             </div>
