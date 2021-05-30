@@ -2,7 +2,7 @@
 'use luck';
 
 // disable dev buttons
-//disable_dev_buttons()
+disable_dev_buttons()
 
 //preloader config
 $(window).load(function() {
