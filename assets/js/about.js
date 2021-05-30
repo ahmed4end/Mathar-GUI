@@ -26,14 +26,14 @@ const about_html = `
     </div>
 </fieldset>
 <p>هذه الإصدار خاص بالإستاذ/<b>صلاح سرور</b></p>
-<p>© Ahmed Shokry</p>
+<small>© Ahmed Shokry</small>
 `
                
 // about mathar - modal
 $('.about-btn').on('click', function(){
     Swal.fire({
         title: "<h1>Mathar 1.0.0</h1>",
-        html: "<small><q>The teacher's tool to innovate</q></small><br>"+about_html,
+        html: about_html,
         showConfirmButton: false,
     })
 });

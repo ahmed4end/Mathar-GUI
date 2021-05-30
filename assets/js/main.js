@@ -1,14 +1,13 @@
 'use strict';
-'use luck';
+'use luck';4
 
 // disable dev buttons
 disable_dev_buttons()
 
 //preloader config
 $(window).load(function() {
-    $(".preloader").delay(1000).fadeOut("smooth");
+    $(".preloader").delay(1500).fadeOut("smooth");
 });
-
 
 /* init public powerfull funcs */
 var btn_select_row = "<form></form><button class='btn_1 icon-plus'><span>أختر</span></button>";
@@ -17,7 +16,6 @@ var btn_select_row = "<form></form><button class='btn_1 icon-plus'><span>أخت�
 function text(txt){ // [DEV] remove it - no need for it.
     return `<div id="textCell">${txt}</div>`;
 };
-
 
 //swal - welcome message
 function sleep(ms) {
@@ -137,7 +135,7 @@ $(document).ready(function(){
 
     // tooltips config.
     tippy.setDefaultProps({delay: [100, 50]});
-    tippy('[data-tippy-content]'); // table 1 pages other than 1 does not work with tippy [BUG].
+    tippy('[data-tippy-content]'); // [BUG]table 1 pages other than 1 does not work with tippy
     //////////////////
 
     // pagination change event - force load all images in the page.

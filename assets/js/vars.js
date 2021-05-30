@@ -225,10 +225,7 @@ $('#news').on('click', function(){
 // disable dev buttons
 function disable_dev_buttons(){
     // Diable F5 Button
-    function disableButtonsDown(e) { 
-        if ((e.which || e.keyCode) == 116) e.preventDefault(); 
-    };
-    $(document).on("keydown", disableButtonsDown);
+    $(document).on("keydown", function(e){if ((e.which || e.keyCode) == 116) e.preventDefault()});
 
     // Disable Right click
     document.addEventListener('contextmenu', event => event.preventDefault());
