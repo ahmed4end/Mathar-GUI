@@ -15,6 +15,9 @@
         <!-- Preload images -->
         <link rel="preload" href="./assets/icons/bg1.png" as="image">
         <link rel="preload" href="./assets/icons/bg2.png" as="image">
+        <link rel="preload" href="./assets/icons/fb.png" as="image">
+        <link rel="preload" href="./assets/icons/yt.png" as="image">
+        <link rel="preload" href="./assets/icons/wt.png" as="image">
     </head>
     <body>
         <!-- preloader -->
@@ -160,7 +163,7 @@
                         <fieldset>
                             <legend><h3>عام</h3></legend>
                             <div class="form-item">
-                                <div class="form-item__control">
+                                <div class="form-item-left" data-tippy-content="متاح لك إختيار خط من بين 13 خط">
                                     <select id='font_name'>
                                         <option selected="selected">Yakout</option>
                                         <option>YakoutB</option>
@@ -177,64 +180,72 @@
                                         <option>Zarid</option>
                                     </select>
                                 </div>
-                                <label class="form-item__label" data-tippy-content='نوع الخط المستخدم فى كتابة المسائل'>:نوع الخط</label>
+                                <div class="form-item-middle">:</div>
+                                <label class="form-item-right" data-tippy-content='نوع الخط المستخدم فى كتابة المسائل'>نوع الخط</label>
                             </div>
                             <div class='line'></div>
                             <div class="form-item">
-                                <div class="form-item__control">
+                                <div class="form-item-left">
                                     <input id='font_size' type="number" value="70" data-tippy-content="متاح إختيار حجم ما بين 40 إلى 120" required="">
                                 </div>
-                                <label class="form-item__label" data-tippy-content='حجم الخط المستخدم فى كتابة المسائل'>:حجم الخط</label>
+                                <div class="form-item-middle">:</div>
+                                <label class="form-item-right" data-tippy-content='حجم الخط المستخدم فى كتابة المسائل'>حجم الخط</label>
                             </div>
                             <div class='line'></div>
                             <div class="form-item">
-                                <div class="form-item__control">
+                                <div class="form-item-left">
                                     <input id='paper_count' type="number" min="1" max="250" value="1" required="">
                                 </div>
-                                <label class="form-item__label" data-tippy-content='عدد الأوراق المطلوب تكوينها من المسائل المختارة عند الضغط على زر تكوين فى نافذة المختارات'>:عدد الأوراق</label>
+                                <div class="form-item-middle">:</div>
+                                <label class="form-item-right" data-tippy-content='عدد الأوراق المطلوب تكوينها من المسائل المختارة عند الضغط على زر تكوين فى نافذة المختارات'>عدد الأوراق</label>
                             </div>
                             <div class='line'></div>  
                             <div class="form-item">
-                                <div class="form-item__control">
+                                <div class="form-item-left">
                                     <input type="checkbox" id="is_random"><label for="is_random"></label>
                                     <span>غير مفعل</span>
                                 </div>
-                                <label class="form-item__label" data-tippy-content=' ترتيب عشوائى للمسائل المختارة فى كل ورقة يتم تكوينها'>:ترتيب عشوائى</label>
+                                <div class="form-item-middle">:</div>
+                                <label class="form-item-right" data-tippy-content=' ترتيب عشوائى للمسائل المختارة فى كل ورقة يتم تكوينها'>ترتيب عشوائى</label>
                             </div>
                         </fieldset>
 
                         <fieldset>
                             <legend><h3>الآلوان</h3></legend>
                             <div class="form-item">
-                                <div class="form-item__control">
+                                <div class="form-item-left">
                                     <input id='color_title' class='input_overlay' type="color" value="#000000">
                                 </div>
-                                <label class="form-item__label" data-tippy-content='لون العناوين الرئيسية بالخط الكبير'>:لون العناوين</label>
+                                <div class="form-item-middle">:</div>
+                                <label class="form-item-right" data-tippy-content='لون العناوين الرئيسية بالخط الكبير'>لون العناوين</label>
                             </div>
                             <div class='line'></div>
                             <div class="form-item">
-                                <div class="form-item__control">
+                                <div class="form-item-left">
                                     <input id='color_probs' class='input_overlay' type="color" value="#000000">
                                 </div>
-                                <label class="form-item__label" data-tippy-content='لون المسائل'>:لون الأسئلة</label>
+                                <div class="form-item-middle">:</div>
+                                <label class="form-item-right" data-tippy-content='لون المسائل'>لون الأسئلة</label>
                             </div>
                             <div class='line'></div>
                             <div class="form-item">
-                                <div class="form-item__control">
+                                <div class="form-item-left">
                                     <input id='color_answer' class='input_overlay' type="color" value="#00FF00">
                                 </div>
-                                <label class="form-item__label" data-tippy-content='لون الإجابات'>:لون الإجابات</label>
+                                <div class="form-item-middle">:</div>
+                                <label class="form-item-right" data-tippy-content='لون الإجابات'>لون الإجابات</label>
                             </div>
                         </fieldset>
 
                         <fieldset>
                             <legend><h3>جدول</h3></legend>
                             <div class="form-item">
-                                <div class="form-item__control">
+                                <div class="form-item-left">
                                     <input type="checkbox" id="switch_zoom"><label for="switch_zoom"></label>
                                     <span>غير مفعل</span>
                                 </div>
-                                <label class="form-item__label" data-tippy-content='تفعيل هذا الخيار يمكنك بتكبير المسائل فى نافذة جدول المسائل لرؤيتها بشكل اكبر'>:تكبير المسائل</label>
+                                <div class="form-item-middle">:</div>
+                                <label class="form-item-right" data-tippy-content='تفعيل هذا الخيار يمكنك بتكبير المسائل فى نافذة جدول المسائل لرؤيتها بشكل اكبر'>تكبير المسائل</label>
                             </div>
                         </fieldset>
                         <button id='news' class="cr cr-bottom cr-left cr-sticky">تـحـد يـثـا ت</button>

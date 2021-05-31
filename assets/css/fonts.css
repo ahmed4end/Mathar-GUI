@@ -24,10 +24,10 @@
         url('./fonts/cairo-v10-arabic-700.ttf') format('truetype'), /* Safari, Android, iOS */
         url('./fonts/cairo-v10-arabic-700.svg#Cairo') format('svg'); /* Legacy iOS */
 }
-
+/* icomoon */
 @font-face {
     font-family: 'icomoon';
-    src:url('fonts/icomoon/icomoon.woff') format('woff');
+    src:url('fonts/icomoon.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }

@@ -14,6 +14,7 @@
     --dark-shadow: 5px 5px 20px 0.5px rgba(0,0,0,0.3);
     --border: 1px solid silver;
     --border-hover: 1px solid #17CC8E;
+    --orange-color: #fa0;
 }
 
 * {
@@ -696,18 +697,31 @@ table.dataTable thead .sorting_desc {
     margin-bottom: 1rem;
 }
 
-.form-item__label {
-    margin-left: 30px;
+.form-item {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-.form-item__control input[type=checkbox]{
+.form-item-right {
+    margin-left: auto;
+}
+
+.form-item-middle {
+    width: 2rem;
+    text-align: center;
+}
+
+.form-item-left input[type=checkbox]{
     height: 0;
     width: 0;
     visibility: hidden;
     font-size: 200px;
 }
 
-.form-item__control label {
+.form-item-left label {
     cursor: pointer;
     height: 40px;
     background: linear-gradient(to bottom, rgba(211,211,211,1) 0%, rgba(187,185,185,1) 100%);
@@ -716,7 +730,7 @@ table.dataTable thead .sorting_desc {
     position: relative;
 }
 
-.form-item__control label:after {
+.form-item-left label:after {
     content: '';
     position: absolute;
     top: 5px;
@@ -728,45 +742,36 @@ table.dataTable thead .sorting_desc {
     transition:all 0.3s ease-in-out;
 }
 
-.form-item__control input:checked + label {
+.form-item-left input:checked + label {
     background: var(--primary-gradient);
 
 }
 
-.form-item__control input:checked + label:after {
+.form-item-left input:checked + label:after {
     right: calc(100% - 5px);
     transform: translateX(100%);
 }
 
-.form-item__control label:active:after {
+.form-item-left label:active:after {
     width: 150px;
 }
-
-.form-item {
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
 
 .form-item:hover {
     background: #dee2e6;
     border-radius: var(--border-radius);
 }
 
-.form-item__control {
+.form-item-left {
     position: relative;
     width: 200px;
 }
 
-.form-item__control input {
+.form-item-left input {
     width: 100%;
     height: 40px;
 }
 
-.form-item__control span {
+.form-item-left span {
     position: absolute;
     left: 50%;
     top:50%;
@@ -777,12 +782,12 @@ table.dataTable thead .sorting_desc {
     overflow: hidden;
 }
 
-.form-item__control input:hover {
+.form-item-left input:hover {
     box-shadow: 0.1rem 0.2rem 0.3rem lightgrey;
     transition: border .1s ease-in-out;
 }
 
-.form-item__control select {
+.form-item-left select {
     cursor: pointer;
 }
 
