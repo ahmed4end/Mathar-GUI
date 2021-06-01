@@ -2,7 +2,7 @@
 'use luck';4
 
 // disable dev buttons
-//disable_dev_buttons()
+disable_dev_buttons()
 
 //preloader config
 $(window).load(function() {
@@ -476,7 +476,7 @@ $('.form-item-left input').click(function(){
 });
 
 // toggle steps - event - tab3
-$('.tap3_toggle_steps').on('click', function(){
+$('#tap3_toggle_steps').on('click', function(){
     if ($('.tap3_instructions').css('display')=='none'){
         $('.tap3_instructions').animate({height:'toggle'});
     } else {
