@@ -5,24 +5,27 @@ const about_html = `
     <h4>تواصل معنا</h4>
     </legend>
     <div class="form-item">
-        <div>     
+        <div class='form-item-left2'>     
             <a onclick="eel.python_open_social('facebook')();" href="#"><img src='./assets/icons/fb.png'> Facebook</a>
         </div>
-        <label id='HFCGDFGD' class="form-item__label"><small>(تواصل مع المطور)</small> فيسبوك</label>
+        <div class="form-item-middle">:</div>
+        <label id='HFCGDFGD' class="form-item-right"><small>(تواصل مع المطور)</small> فيسبوك</label>
     </div>
     <div class='line'></div>
     <div class="form-item">
-        <div>
+        <div class="form-item-left2">
             <a onclick="eel.python_open_social('whatsapp')()" href="#" style='color:green;' style='margin-right:auto;'><img src='./assets/icons/wt.png'> Whatsapp</a>
         </div>
-        <label id='HFCGDFGD' class="form-item__label"><small>(تواصل مع المطور)</small> واتساب</label>
+        <div class="form-item-middle">:</div>
+        <label id='HFCGDFGD' class="form-item-right"><small>(تواصل مع المطور)</small> واتساب</label>
     </div>
     <div class='line'></div>
     <div class="form-item">
-        <div>
+        <div class="form-item-left2">
             <a onclick="eel.python_open_social('youtube')()" href="#" style='color:red;' style='margin-right:auto;'><img src='./assets/icons/yt.png'> Youtube</a>
         </div>
-        <label id='HFCGDFGD' class="form-item__label">يوتيوب <small>(فديوهات شرح للبرنامج)</small></label>
+        <div class="form-item-middle">:</div>
+        <label id='HFCGDFGD' class="form-item-right">يوتيوب <small>(فديوهات شرح للبرنامج)</small></label>
     </div>
 </fieldset>
 <p>هذه الإصدار خاص بالإستاذ/<b>صلاح سرور</b></p>

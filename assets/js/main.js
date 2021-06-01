@@ -2,7 +2,7 @@
 'use luck';4
 
 // disable dev buttons
-disable_dev_buttons()
+//disable_dev_buttons()
 
 //preloader config
 $(window).load(function() {
@@ -422,7 +422,7 @@ $('#switch_zoom').click(function(){
             icon: 'info',
             title: 'تم إلغاء تكبير المسائل فى الجدول',
         });
-        // diable zoom on table 1
+        // disable zoom on table 1
         for (var i = 0; table1_images.length > i; i++) {
             zoom.detach(table1_images[i]) 
         }
@@ -466,7 +466,7 @@ function js_alert_paper_count(){
 }); 
 
 /* checkboxes status text - update event */
-$('.form-item__control input').click(function(){
+$('.form-item-left input').click(function(){
     if ( $(this).is(':checked') ){
         $('span', $(this).parent()).text('مفعل');
     }

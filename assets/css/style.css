@@ -705,6 +705,11 @@ table.dataTable thead .sorting_desc {
     flex-wrap: wrap;
 }
 
+.form-item:hover {
+    background: #dee2e6;
+    border-radius: var(--border-radius);
+}
+
 .form-item-right {
     margin-left: auto;
 }
@@ -756,14 +761,15 @@ table.dataTable thead .sorting_desc {
     width: 150px;
 }
 
-.form-item:hover {
-    background: #dee2e6;
-    border-radius: var(--border-radius);
-}
-
 .form-item-left {
     position: relative;
     width: 200px;
+}
+
+.form-item-left2 { /* another custom width */
+    position: relative;
+    width: 120px;
+    text-align: left;
 }
 
 .form-item-left input {
