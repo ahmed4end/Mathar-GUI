@@ -28,7 +28,7 @@ const about_html = `
         <label id='HFCGDFGD' class="form-item-right">يوتيوب <small>(فديوهات شرح للبرنامج)</small></label>
     </div>
 </fieldset>
-<p>هذه الإصدار خاص بالإستاذ/<b>صلاح سرور</b></p>
+<p>هذه الإصدار خاص بالأستاذ/<b>صلاح سرور</b></p>
 <small>© Ahmed Shokry</small>
 `
                
