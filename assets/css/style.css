@@ -207,7 +207,8 @@ th {
 }
 
 .tabs-panel {
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     display: none;
     height: calc(100% - 70px); /* this calc to make the scroll bar moves in proper way.*/
 }
