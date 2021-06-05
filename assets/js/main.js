@@ -4,6 +4,14 @@
 // disable dev buttons
 disable_dev_buttons()
 
+// stop input fro submitting on enter.
+$(window).keydown(function(event){
+    if(event.keyCode == 13) {
+        event.preventDefault();
+        return false;
+    }
+});
+
 //preloader config
 $(window).load(function() {
     $(".preloader").delay(1500).fadeOut("smooth");
@@ -71,6 +79,8 @@ function table_col3(arr) {
 
 
 $(document).ready(function(){
+
+
 
     // swal var.
     var swal_modals = []
@@ -493,5 +503,12 @@ $('.tabs li').on('click', function(tab){
 
     $(".tabs-panel").removeClass("active");
     $(`.tabs-panel[data-index="${index}"]`).addClass("active");
+});
+
+
+$('input').submit(function(e) {
+    if(e.keyCode == 13) {
+        alert($(this).val());
+    }
 });
 
