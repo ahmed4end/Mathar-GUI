@@ -94,31 +94,45 @@ const table2_args = {
 //////////////////////
 
 // settings vars 
-var font_name = 'Yakout';
-var font_size = 70;
-var paper_count = 1;
-var is_random = 0;
-var color_title = 'black';
-var color_probs = 'black';
+var font_name    = 'Yakout';
+var font_size    = 70;
+var paper_count  = 1;
+var is_random    = 0;
+var color_title  = 'black';
+var color_probs  = 'black';
 var color_answer = 'green';
-
+var sep_line     = 1; //boolean
+var border_style = 1;
 
 async function python_update_config_js(config){ // call python to update config
     await eel.python_update_config(config)
 };
 
+// show update text on tab 4 settings when settings are changed by user.
+function show_update_statuts(){
+    $('#settings_status').fadeIn("slow");
+    setTimeout(function () {
+        $('#settings_status').fadeOut("slow");
+    }, 4000);
+};
+
 // collect data and update config
 function save_settings(){
     var settings_config = {
-        'font_name': font_name,
-        'font_size': font_size,
-        'paper_count': paper_count,
-        'is_random': is_random,
-        'color_title': color_title,
-        'color_probs': color_probs,
-        'color_answer': color_answer
+        'font_name'    : font_name,
+        'font_size'    : font_size,
+        'paper_count'  : paper_count,
+        'is_random'    : is_random,
+        'color_title'  : color_title,
+        'color_probs'  : color_probs,
+        'color_answer' : color_answer,
+        'sep_line'     : sep_line,
+        'border_style' : border_style
     };
 
+    // fire status bar for specific time.
+    show_update_statuts()
+    
     // update python config.
     python_update_config_js(settings_config);
 }
@@ -129,6 +143,12 @@ $('#font_name').on('change', function(){
     font_name = this.value
     save_settings()
 });
+
+$('#border_style').on('change', function(){
+    border_style = this.value
+    save_settings()
+});
+
 $('#font_size').on('change paste', function(){
     if (this.value>120){ // validate max value
         $('#font_size').prop('value', '120');
@@ -149,6 +169,20 @@ $('#paper_count').on('change', function(){
     paper_count = this.value
     save_settings()
 });
+
+$('#sep_line').click(function(){
+    if ( $(this).is(':checked') ){
+        console.log('sep_line: on');
+        sep_line = 1;
+    }
+    else {
+        console.log('sep_line: off');
+        sep_line = 0;
+    }
+
+    save_settings()
+});
+
 $('#is_random').click(function(){
     if ( $(this).is(':checked') ){
         console.log('is_random: on');

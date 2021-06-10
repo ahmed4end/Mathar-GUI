@@ -158,6 +158,8 @@
 
                 <div class="tabs-panel" data-index="3">
 
+                    <div id='settings_status' style='display:none;'><h5>تم تعديل الإعدادات - سيتم تطبيقها فى التكوين القادم</h5></div>
+
                     <!-- tab 4 - settings flex grid -->
                     <div class="grid">
                         <fieldset>
@@ -165,19 +167,19 @@
                             <div class="form-item">
                                 <div class="form-item-left" data-tippy-content="متاح لك إختيار خط من بين 13 خط">
                                     <select id='font_name'>
-                                        <option selected="selected">Yakout</option>
-                                        <option>YakoutB</option>
-                                        <option>Diwan</option>
-                                        <option>Arial</option>
-                                        <option>Akhbar</option>
-                                        <option>Aktiv</option>
-                                        <option>Dubai</option>
-                                        <option>HacenB</option>
-                                        <option>Neo</option>
-                                        <option>Noto</option>
-                                        <option>Taha</option>
-                                        <option>Traditional</option>
-                                        <option>Zarid</option>
+                                        <option selected="selected" value="Yakout">Yakout</option>
+                                        <option value="YakoutB">Yakout Bold</option>
+                                        <option value="Diwan">Diwan Muna</option>
+                                        <option value="Arial">Arial</option>
+                                        <option value="Akhbar">Akhbar</option>
+                                        <option value="Aktiv">Aktiv Grotesk</option> 
+                                        <option value="Dubai">Dubai</option>
+                                        <option value="HacenB">Hacen Bold</option>
+                                        <option value="Neo">Neo Sans</option>
+                                        <option value="Noto">Noto Naskh</option>
+                                        <option value="Taha">Uthman Taha</option>
+                                        <option value="Traditional">Traditional</option>
+                                        <option value="Zarid">29LT Zarid</option> 
                                     </select>
                                 </div>
                                 <div class="form-item-middle">:</div>
@@ -202,16 +204,28 @@
                             <div class='line'></div>  
                             <div class="form-item">
                                 <div class="form-item-left">
+                                    <input type="checkbox" id="sep_line" checked><label for="sep_line"></label>
+                                    <span>مفعل</span>
+                                </div>
+                                <div class="form-item-middle">:</div>
+                                <label class="form-item-right" data-tippy-content='رسم خط أفقى فاصل بين كل مسئلة والتى قبلها ولاحظ أنه يوفر قليل من المساحة الرأسية'
+                                       >خط فاصل</label>
+                            </div>
+                            <div class='line'></div>  
+                            <div class="form-item">
+                                <div class="form-item-left">
                                     <input type="checkbox" id="is_random"><label for="is_random"></label>
                                     <span>غير مفعل</span>
                                 </div>
                                 <div class="form-item-middle">:</div>
-                                <label class="form-item-right" data-tippy-content=' ترتيب عشوائى للمسائل المختارة فى كل ورقة يتم تكوينها'>ترتيب عشوائى</label>
+                                <label class="form-item-right" data-tippy-content=' ترتيب عشوائى للمسائل المختارة فى كل ورقة يتم تكوينها'
+                                       >ترتيب عشوائى</label>
                             </div>
+
                         </fieldset>
 
                         <fieldset>
-                            <legend><h3>الآلوان</h3></legend>
+                            <legend><h3>ألوان</h3></legend>
                             <div class="form-item">
                                 <div class="form-item-left">
                                     <input id='color_title' class='input_overlay' type="color" value="#000000">
@@ -237,17 +251,38 @@
                             </div>
                         </fieldset>
 
-                        <fieldset>
-                            <legend><h3>جدول</h3></legend>
-                            <div class="form-item">
-                                <div class="form-item-left">
-                                    <input type="checkbox" id="switch_zoom"><label for="switch_zoom"></label>
-                                    <span>غير مفعل</span>
+                        <div class='sub-grid'>
+                            <fieldset>
+                                <legend><h3>إطار</h3></legend>
+                                <div class="form-item">
+                                    <div class="form-item-left">
+                                        <select id='border_style'>
+                                            <option value=0>إطار 1</option>
+                                            <option  selected="selected" value=1>إطار 2</option>
+                                            <option value=2>إطار 3</option>
+                                            <option value=3>إطار 4</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-item-middle">:</div>
+                                    <label class="form-item-right" data-tippy-content='الشكل المستطيلى المرسوم حول حدود الورقة المكونة (border)'
+                                           >شكل الإطار</label>
                                 </div>
-                                <div class="form-item-middle">:</div>
-                                <label class="form-item-right" data-tippy-content='تفعيل هذا الخيار يمكنك بتكبير المسائل فى نافذة جدول المسائل لرؤيتها بشكل اكبر'>تكبير المسائل</label>
-                            </div>
-                        </fieldset>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend><h3>جدول</h3></legend>
+                                <div class="form-item">
+                                    <div class="form-item-left">
+                                        <input type="checkbox" id="switch_zoom"><label for="switch_zoom"></label>
+                                        <span>غير مفعل</span>
+                                    </div>
+                                    <div class="form-item-middle">:</div>
+                                    <label class="form-item-right" data-tippy-content='تفعيل هذا الخيار يمكنك بتكبير المسائل فى نافذة جدول المسائل لرؤيتها بشكل اكبر'
+                                           >تكبير المسائل</label>
+                                </div>
+                            </fieldset>
+                        </div>
+
                         <button id='news' class="cr cr-bottom cr-left cr-sticky">تـحـد يـثـا ت</button>
                     </div>
                 </div>
