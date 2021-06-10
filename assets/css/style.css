@@ -694,7 +694,7 @@ table.dataTable thead .sorting_desc {
     width: 100%;
     margin:0;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     margin-bottom: 1rem;
 }
 
@@ -703,6 +703,28 @@ table.dataTable thead .sorting_desc {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+/* fieldset */
+FIELDSET {
+    margin: 2rem;
+    border: var(--border);
+    padding: 8px;    
+    border-radius: var(--border-radius);
+    box-shadow: var(--light-shadow);
+    background-color: white;
+}
+
+FIELDSET:hover {
+    border: var(--border-hover);
+    box-shadow: var(--dark-shadow);
+    transition-duration: .3s;
+}
+
+LEGEND{
+    text-align: right;
+    width: fit-content;
+    padding: 0 5px 0 5px;    
 }
 
 .form-item {
@@ -878,29 +900,6 @@ select {
     padding: 0px;
     border-radius: var(--border-radius);
     border: var(--border);
-}
-
-
-/* fieldset */
-FIELDSET {
-    margin: 8px;
-    border: var(--border);
-    padding: 8px;    
-    border-radius: var(--border-radius);
-    box-shadow: var(--light-shadow);
-    background-color: white;
-}
-
-FIELDSET:hover {
-    border: var(--border-hover);
-    box-shadow: var(--dark-shadow);
-    transition-duration: .3s;
-}
-
-LEGEND{
-    text-align: right;
-    width: fit-content;
-    padding: 0 5px 0 5px;    
 }
 
 /* sweatalert2 - 
