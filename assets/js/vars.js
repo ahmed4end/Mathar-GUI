@@ -103,6 +103,7 @@ var color_probs  = 'black';
 var color_answer = 'green';
 var sep_line     = 1; //boolean
 var border_style = 1;
+var n_style      = "circle";
 
 async function python_update_config_js(config){ // call python to update config
     await eel.python_update_config(config)
@@ -127,7 +128,8 @@ function save_settings(){
         'color_probs'  : color_probs,
         'color_answer' : color_answer,
         'sep_line'     : sep_line,
-        'border_style' : border_style
+        'border_style' : border_style,
+        'n_style'      : n_style
     };
 
     // fire status bar for specific time.
@@ -146,6 +148,11 @@ $('#font_name').on('change', function(){
 
 $('#border_style').on('change', function(){
     border_style = this.value
+    save_settings()
+});
+
+$('#n_style').on('change', function(){
+    n_style = this.value
     save_settings()
 });
 
@@ -250,7 +257,7 @@ $('#news').on('click', function(){
         Swal.queue([{
             icon: 'error',
             title: 'حدث خطأ ما',
-            text: 'يرجى التأكد من الإتصال بالإنترنت لجلب آخر تحديث',
+            text: 'يرجى التأكد من الإتصال بالإنترنت لجلب آخر تحديث للأخبار',
             showConfirmButton: false,
         }]);        
     });

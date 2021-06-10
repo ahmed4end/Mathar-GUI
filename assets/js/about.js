@@ -35,7 +35,7 @@ const about_html = `
 // about mathar - modal
 $('.about-btn').on('click', function(){
     Swal.fire({
-        title: "<h1>Mathar 1.0.0</h1>",
+        title: "<h1>Mathar 1.0.1</h1>",
         html: about_html,
         showConfirmButton: false,
     })

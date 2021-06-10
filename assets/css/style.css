@@ -694,12 +694,15 @@ table.dataTable thead .sorting_desc {
     width: 100%;
     margin:0;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     margin-bottom: 1rem;
 }
 
 .sub-grid {
-    /* pass */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .form-item {

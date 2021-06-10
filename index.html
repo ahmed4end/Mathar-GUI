@@ -204,6 +204,16 @@
                             <div class='line'></div>  
                             <div class="form-item">
                                 <div class="form-item-left">
+                                    <input type="checkbox" id="is_random"><label for="is_random"></label>
+                                    <span>غير مفعل</span>
+                                </div>
+                                <div class="form-item-middle">:</div>
+                                <label class="form-item-right" data-tippy-content=' ترتيب عشوائى للمسائل المختارة فى كل ورقة يتم تكوينها'
+                                       >ترتيب عشوائى</label>
+                            </div>
+                            <div class='line'></div>
+                            <div class="form-item">
+                                <div class="form-item-left">
                                     <input type="checkbox" id="sep_line" checked><label for="sep_line"></label>
                                     <span>مفعل</span>
                                 </div>
@@ -214,58 +224,68 @@
                             <div class='line'></div>  
                             <div class="form-item">
                                 <div class="form-item-left">
-                                    <input type="checkbox" id="is_random"><label for="is_random"></label>
-                                    <span>غير مفعل</span>
+                                    <select id='n_style'>
+                                        <option selected="selected" value="circle">دائرة</option>
+                                        <option value="squircle">طوق</option>
+                                        <option value="leaf">ورقة</option>
+                                    </select>
                                 </div>
                                 <div class="form-item-middle">:</div>
-                                <label class="form-item-right" data-tippy-content=' ترتيب عشوائى للمسائل المختارة فى كل ورقة يتم تكوينها'
-                                       >ترتيب عشوائى</label>
+                                <label class="form-item-right" data-tippy-content='شكل الترقيم قبل كل سؤال'
+                                       >شكل الترقيم</label>
                             </div>
-
-                        </fieldset>
-
-                        <fieldset>
-                            <legend><h3>ألوان</h3></legend>
+                            <div class='line'></div>  
                             <div class="form-item">
                                 <div class="form-item-left">
-                                    <input id='color_title' class='input_overlay' type="color" value="#000000">
+                                    <select id='border_style'>
+                                        <option value=0>إطار مستطيل</option>
+                                        <option selected="selected" value=1>إطار طوقى</option>
+                                        <option value=2>إطار طوقى منقط</option>
+                                        <option value=3>إطار طوقى منقط 2</option>
+                                    </select>
                                 </div>
                                 <div class="form-item-middle">:</div>
-                                <label class="form-item-right" data-tippy-content='لون العناوين الرئيسية بالخط الكبير'>لون العناوين</label>
+                                <label class="form-item-right" data-tippy-content='الشكل المستطيلى المرسوم حول حدود الورقة المكونة (border)'
+                                       >شكل الإطار</label>
                             </div>
+                            <!--
                             <div class='line'></div>
                             <div class="form-item">
-                                <div class="form-item-left">
-                                    <input id='color_probs' class='input_overlay' type="color" value="#000000">
+                                <div class="form-item-left" data-tippy-content='هذه النص قابل للتعديل فى النسخ المدفوعة من هذا البرنامج فقط'>
+                                    <input type='text' value="© Mathar 2021" disabled>
                                 </div>
                                 <div class="form-item-middle">:</div>
-                                <label class="form-item-right" data-tippy-content='لون المسائل'>لون الأسئلة</label>
+                                <label class="form-item-right" data-tippy-content='هذا النص يتم كتابته فى نهاية الورق المكون'
+                                       >التوقيع</label>
                             </div>
-                            <div class='line'></div>
-                            <div class="form-item">
-                                <div class="form-item-left">
-                                    <input id='color_answer' class='input_overlay' type="color" value="#00FF00">
-                                </div>
-                                <div class="form-item-middle">:</div>
-                                <label class="form-item-right" data-tippy-content='لون الإجابات'>لون الإجابات</label>
-                            </div>
+                            -->
                         </fieldset>
 
                         <div class='sub-grid'>
                             <fieldset>
-                                <legend><h3>إطار</h3></legend>
+                                <legend><h3>ألوان</h3></legend>
                                 <div class="form-item">
                                     <div class="form-item-left">
-                                        <select id='border_style'>
-                                            <option value=0>إطار 1</option>
-                                            <option  selected="selected" value=1>إطار 2</option>
-                                            <option value=2>إطار 3</option>
-                                            <option value=3>إطار 4</option>
-                                        </select>
+                                        <input id='color_title' class='input_overlay' type="color" value="#000000">
                                     </div>
                                     <div class="form-item-middle">:</div>
-                                    <label class="form-item-right" data-tippy-content='الشكل المستطيلى المرسوم حول حدود الورقة المكونة (border)'
-                                           >شكل الإطار</label>
+                                    <label class="form-item-right" data-tippy-content='لون العناوين الرئيسية بالخط الكبير'>لون العناوين</label>
+                                </div>
+                                <div class='line'></div>
+                                <div class="form-item">
+                                    <div class="form-item-left">
+                                        <input id='color_probs' class='input_overlay' type="color" value="#000000">
+                                    </div>
+                                    <div class="form-item-middle">:</div>
+                                    <label class="form-item-right" data-tippy-content='لون المسائل'>لون الأسئلة</label>
+                                </div>
+                                <div class='line'></div>
+                                <div class="form-item">
+                                    <div class="form-item-left">
+                                        <input id='color_answer' class='input_overlay' type="color" value="#00FF00">
+                                    </div>
+                                    <div class="form-item-middle">:</div>
+                                    <label class="form-item-right" data-tippy-content='لون الإجابات'>لون الإجابات</label>
                                 </div>
                             </fieldset>
 
@@ -280,7 +300,7 @@
                                     <label class="form-item-right" data-tippy-content='تفعيل هذا الخيار يمكنك بتكبير المسائل فى نافذة جدول المسائل لرؤيتها بشكل اكبر'
                                            >تكبير المسائل</label>
                                 </div>
-                            </fieldset>
+                            </fieldset>           
                         </div>
 
                         <button id='news' class="cr cr-bottom cr-left cr-sticky">تـحـد يـثـا ت</button>
@@ -299,7 +319,7 @@
             </button>
         </div>
 
-        <!-- Javascript bullshit -->
+        <!-- Javascript -->
         <script type="text/javascript" src="./eel.js"></script>           <!-- Eel -->
         <script src="./assets/js/jquery.min.js"></script>                 <!-- jQuery -->
         <script src="./assets/js/jquery.dataTables.min.js"></script>      <!-- DataTables -->
