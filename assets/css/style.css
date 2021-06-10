@@ -707,7 +707,7 @@ table.dataTable thead .sorting_desc {
 
 /* fieldset */
 FIELDSET {
-    margin: 2rem;
+    margin: 0;
     border: var(--border);
     padding: 8px;    
     border-radius: var(--border-radius);
@@ -719,6 +719,10 @@ FIELDSET:hover {
     border: var(--border-hover);
     box-shadow: var(--dark-shadow);
     transition-duration: .3s;
+}
+
+.grid FIELDSET {
+    margin: 0 2rem;
 }
 
 LEGEND{
