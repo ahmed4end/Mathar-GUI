@@ -252,12 +252,14 @@ $('#news').on('click', function(){
         Swal.queue([{
             html: data,
             showConfirmButton: false,
+            footer : "<span class='azure'>© Ahmed Shokry<span>",
         }]);
     }).catch(()=> {
         Swal.queue([{
             icon: 'error',
             title: 'حدث خطأ ما',
             text: 'يرجى التأكد من الإتصال بالإنترنت لجلب آخر تحديث للأخبار',
+            footer : "<span class='azure'>© Ahmed Shokry<span>",
             showConfirmButton: false,
         }]);        
     });
