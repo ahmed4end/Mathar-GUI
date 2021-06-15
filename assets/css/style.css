@@ -42,9 +42,12 @@ input {
     min-width: 100px;
 }
 
-input:focus::placeholder {
-    color: transparent;
-    transition: color 0.3s ease;
+input::-webkit-input-placeholder  {
+    -webkit-transition: opacity 0.3s linear; 
+}
+
+input:focus::-webkit-input-placeholder  {
+    opacity: 0;
 }
 
 form label {
@@ -724,6 +727,11 @@ FIELDSET:hover {
 
 .grid FIELDSET {
     margin: 0 2rem;
+}
+
+FIELDSET:hover legend h3 {
+    color: rgba(var(--royal-blue));
+    transition: all .3s ease-in-out;
 }
 
 LEGEND{
