@@ -101,6 +101,7 @@ var is_random    = 0;
 var color_title  = 'black';
 var color_probs  = 'black';
 var color_answer = 'green';
+var color_numing = '#4b5d67';
 var sep_line     = 1; //boolean
 var border_style = 1;
 var n_style      = "circle";
@@ -127,6 +128,7 @@ function save_settings(){
         'color_title'  : color_title,
         'color_probs'  : color_probs,
         'color_answer' : color_answer,
+        'color_numing' : color_numing,   
         'sep_line'     : sep_line,
         'border_style' : border_style,
         'n_style'      : n_style
@@ -205,17 +207,19 @@ $('#is_random').click(function(){
 
 $('#color_title').on('change', function(){
     color_title = this.value
-
     save_settings()
 });
 $('#color_probs').on('change', function(){
     color_probs = this.value
-
     save_settings()
 });
 $('#color_answer').on('change', function(){
     color_answer = this.value;
+    save_settings()
+});
 
+$('#color_numing').on('change', function(){
+    color_numing = this.value;
     save_settings()
 });
 
