@@ -20,7 +20,7 @@ const about_html = `
 `
                
 // about mathar - modal
-$('.about-btn').on('click', function(){
+$('#about').on('click', function(){
     Swal.fire({
         title  : "<h1 class='azure'>Mathar 1.1.0</h1>",
         html   : about_html,
