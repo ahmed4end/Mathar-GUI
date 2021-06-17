@@ -5,7 +5,7 @@ const about_html = `
     <legend>
         <h5>تواصل معنا</h5>
     </legend>
-    <div class='grid' style='justify-content:space-evenly;'>
+    <div style='display:flex;padding:0.3em 0;justify-content:space-evenly;'>
         <a onclick="eel.python_open_social('facebook')();" href="#">
             <img src='./assets/icons/fb.png'><span style='color:#3b5998'> Facebook</span>
         </a>

@@ -2,7 +2,7 @@
 'use luck';4
 
 // disable dev buttons
-disable_dev_buttons()
+//disable_dev_buttons()
 
 // stop input fro submitting on enter.
 $(window).keydown(function(event){
@@ -14,7 +14,7 @@ $(window).keydown(function(event){
 
 //preloader config
 $(window).load(function() {
-    $(".preloader").delay(1500).fadeOut("smooth");
+    $(".preloader").delay(0).fadeOut("smooth");
 });
 
 /* init public powerfull funcs */
@@ -305,6 +305,28 @@ var viewer = OpenSeadragon({
 // hide viewer for now.
 viewer.setVisible(false);
 
+var queue_break = true
+
+viewer.addHandler('tile-loaded', function(){
+    // show stuff cuz python sent data.
+    viewer.setVisible(true);
+    $('#create').prop('disabled', false)
+    $('#toggle_images').fadeIn();
+    $('#saveImage').fadeIn();
+    $("#tap3_loader_con").fadeOut("slow");
+    $('#toggle_images').find('h5').text('إظهار الإجابة')
+
+    if(queue_break && swal_modals.length>0){
+        // fire queue swals
+        Swal.queue(Array.from(swal_modals));
+    } 
+    if(swal_modals.length==0) {
+        // fire toast.
+        Toast.fire({icon: 'success', title: 'تم التكوين - إذهب لنافذة المعاينة لرؤية النتيجة'});
+    }
+    queue_break = !queue_break
+});
+
 var index = 0;
 
 // python - call to fetch data function.
@@ -327,6 +349,8 @@ async function callPython(data) {
         preload: true,
     });
     index = 1
+
+    queue_break = true
 }
 
 // toggle between images inside viewer.
@@ -376,21 +400,6 @@ $( "#create" ).click(function() {
         var rowOptions = table2.column(6).nodes();
 
         rowOptions = rowOptions.toArray().map(ele=>$('form', ele).first().data('dict'))
-
-        viewer.addHandler('tile-loaded', function(){
-            // show stuff cuz python sent data.
-            viewer.setVisible(true);
-            $('#create').prop('disabled', false)
-            $('#toggle_images').fadeIn();
-            $('#saveImage').fadeIn();
-            $("#tap3_loader_con").fadeOut("slow");
-            $('#toggle_images').find('h5').text('إظهار الإجابة')
-            //fire toast.
-            Toast.fire({icon: 'success', title: 'تم التكوين - إذهب لنافذة المعاينة لرؤية النتيجة'});
-            // run swal queue modals
-            console.log(swal_modals)
-            Swal.queue(Array.from(swal_modals));
-        });
 
         //console.log(RowOptions)
         callPython(rowOptions);

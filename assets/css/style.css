@@ -699,24 +699,18 @@ table.dataTable thead .sorting_desc {
     margin:0;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1rem;
-}
-
-.sub-grid {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    margin-bottom: 4em;
+    margin-top: 1em;
 }
 
 /* fieldset */
 FIELDSET {
     margin: 0;
     border: var(--border);
-    padding: 8px;    
     border-radius: var(--border-radius);
     box-shadow: var(--light-shadow);
     background-color: white;
+    padding: 0.5em;
 }
 
 FIELDSET:hover {
@@ -726,10 +720,10 @@ FIELDSET:hover {
 }
 
 .grid FIELDSET {
-    margin: 0 2rem;
+    margin: 0 1.5rem;
 }
 
-FIELDSET:hover legend h3 {
+FIELDSET:hover legend {
     color: rgba(var(--royal-blue));
     transition: all .3s ease-in-out;
 }
@@ -760,6 +754,8 @@ LEGEND{
 
 .form-item-right {
     margin-left: auto;
+    width: 100px;
+    text-align: right;
 }
 
 .form-item-middle {
@@ -937,37 +933,6 @@ select {
     text-align: center;
 }
 
-
-/* ribbon */
-.cr {
-    width: 200px;
-    height: 2em;
-    position: absolute;
-    text-align: center;
-    color: #f0f0f0;
-    background: var(--primary-gradient);
-    box-shadow: var(--dark-shadow);
-    font-size: 1em;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: none;
-}
-
-.cr:hover {
-    font-size: 1.5em;
-}
-.cr-sticky {
-    position: fixed;
-}
-
-.cr-bottom { bottom: 20px; }
-
-.cr-left   { left: -50px; }
-
-.cr-bottom.cr-left {
-    transform: rotate(45deg);
-}
-
 /* list style tempalate */
 
 .instructions {
@@ -999,5 +964,16 @@ select {
 }
 
 .azure {
+    color: rgba(var(--azure));
+}
+
+.forum {
+    position: fixed;
+    bottom: 1em;
+    left: 2em;
+    font-weight: 700;
+}
+
+.forum:hover {
     color: rgba(var(--azure));
 }

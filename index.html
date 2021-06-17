@@ -163,7 +163,7 @@
                     <!-- tab 4 - settings flex grid -->
                     <div class="grid">
                         <fieldset>
-                            <legend><h3>عام</h3></legend>
+                            <legend>عام</legend>
                             <div class="form-item">
                                 <div class="form-item-left" data-tippy-content="متاح لك إختيار خط من بين 14 خط">
                                     <select id='font_name'>
@@ -212,106 +212,113 @@
                                 <label class="form-item-right" data-tippy-content=' ترتيب عشوائى للمسائل المختارة فى كل ورقة يتم تكوينها'
                                        >ترتيب عشوائى</label>
                             </div>
-                            <div class='line'></div>
-                            <div class="form-item">
-                                <div class="form-item-left">
-                                    <input type="checkbox" id="sep_line" checked><label for="sep_line"></label>
-                                    <span>مفعل</span>
-                                </div>
-                                <div class="form-item-middle">:</div>
-                                <label class="form-item-right" data-tippy-content='رسم خط أفقى فاصل بين كل مسئلة والتى قبلها ولاحظ أنه يوفر قليل من المساحة الرأسية'
-                                       >خط فاصل</label>
-                            </div>
-                            <div class='line'></div>  
-                            <div class="form-item">
-                                <div class="form-item-left">
-                                    <select id='n_style'>
-                                        <option selected="selected" value="circle">دائرة</option>
-                                        <option value="squircle">طوق</option>
-                                        <option value="leaf">ورقة</option>
-                                    </select>
-                                </div>
-                                <div class="form-item-middle">:</div>
-                                <label class="form-item-right" data-tippy-content='شكل الترقيم قبل كل سؤال'
-                                       >شكل الترقيم</label>
-                            </div>
-                            <div class='line'></div>  
-                            <div class="form-item">
-                                <div class="form-item-left">
-                                    <select id='border_style'>
-                                        <option value=0>إطار مستطيل</option>
-                                        <option selected="selected" value=1>إطار طوقى</option>
-                                        <option value=2>إطار طوقى منقط</option>
-                                        <option value=3>إطار طوقى منقط 2</option>
-                                    </select>
-                                </div>
-                                <div class="form-item-middle">:</div>
-                                <label class="form-item-right" data-tippy-content='الشكل المستطيلى المرسوم حول حدود الورقة المكونة (border)'
-                                       >شكل الإطار</label>
-                            </div>
-                            <!--
-<div class='line'></div>
-<div class="form-item">
-<div class="form-item-left" data-tippy-content='هذه النص قابل للتعديل فى النسخ المدفوعة من هذا البرنامج فقط'>
-<input type='text' value="© Mathar 2021" disabled>
-</div>
-<div class="form-item-middle">:</div>
-<label class="form-item-right" data-tippy-content='هذا النص يتم كتابته فى نهاية الورق المكون'
->التوقيع</label>
-</div>
--->
+
+
                         </fieldset>
-                        <div class='sub-grid'>
+
+                        <div>
                             <fieldset>
-                                <legend><h3>ألوان</h3></legend>
+                                <legend>تحكمات أكثر</legend>
                                 <div class="form-item">
                                     <div class="form-item-left">
-                                        <input id='color_title' class='input_overlay' type="color" value="#000000">
+                                        <select id='n_style'>
+                                            <option selected="selected" value="circle">دائرة</option>
+                                            <option value="squircle">طوق</option>
+                                            <option value="leaf">ورقة</option>
+                                        </select>
                                     </div>
                                     <div class="form-item-middle">:</div>
-                                    <label class="form-item-right" data-tippy-content='لون العناوين الرئيسية بالخط الكبير'>لون العناوين</label>
+                                    <label class="form-item-right" data-tippy-content='شكل الترقيم قبل كل سؤال'
+                                           >شكل الترقيم</label>
                                 </div>
+                                <div class='line'></div>  
+                                <div class="form-item">
+                                    <div class="form-item-left">
+                                        <select id='border_style'>
+                                            <option value=0>إطار مستطيل</option>
+                                            <option selected="selected" value=1>إطار طوقى</option>
+                                            <option value=2>إطار طوقى منقط</option>
+                                            <option value=3>إطار طوقى منقط 2</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-item-middle">:</div>
+                                    <label class="form-item-right" data-tippy-content='الشكل المستطيلى المرسوم حول حدود الورقة المكونة (border)'
+                                           >شكل الإطار</label>
+                                </div>
+
                                 <div class='line'></div>
                                 <div class="form-item">
-                                    <div class="form-item-left">
-                                        <input id='color_probs' class='input_overlay' type="color" value="#000000">
+                                    <div class="form-item-left" data-tippy-content='هذه النص قابل للتعديل فى النسخ المدفوعة من هذا البرنامج فقط'>
+                                        <input type='text' value="© Mathar 2021" disabled>
                                     </div>
                                     <div class="form-item-middle">:</div>
-                                    <label class="form-item-right" data-tippy-content='لون المسائل'>لون الأسئلة</label>
+                                    <label class="form-item-right" data-tippy-content='هذا النص يتم كتابته فى نهاية الورق المكون'
+                                           >التوقيع</label>
                                 </div>
-                                <div class='line'></div>
+                                <div class='line'></div>  
                                 <div class="form-item">
                                     <div class="form-item-left">
-                                        <input id='color_answer' class='input_overlay' type="color" value="#00FF00">
+                                        <input type="checkbox" id="sep_line" checked><label for="sep_line"></label>
+                                        <span>مفعل</span>
                                     </div>
                                     <div class="form-item-middle">:</div>
-                                    <label class="form-item-right" data-tippy-content='لون الإجابات'>لون الإجابات</label>
-                                </div>
-                                <div class='line'></div>
-                                <div class="form-item">
-                                    <div class="form-item-left">
-                                        <input id='color_numing' class='input_overlay' type="color" value="#4b5d67">
-                                    </div>
-                                    <div class="form-item-middle">:</div>
-                                    <label class="form-item-right" data-tippy-content='لون الترقيم'>لون الترقيم</label>
+                                    <label class="form-item-right" data-tippy-content='رسم خط أفقى فاصل بين كل مسئلة والتى قبلها ولاحظ أنه يوفر قليل من المساحة الرأسية'
+                                           >خط فاصل</label>
                                 </div>
                             </fieldset>
 
-                            <fieldset>
-                                <legend><h3>جدول</h3></legend>
-                                <div class="form-item">
-                                    <div class="form-item-left">
-                                        <input type="checkbox" id="switch_zoom"><label for="switch_zoom"></label>
-                                        <span>غير مفعل</span>
-                                    </div>
-                                    <div class="form-item-middle">:</div>
-                                    <label class="form-item-right" data-tippy-content='تفعيل هذا الخيار يمكنك بتكبير المسائل فى نافذة جدول المسائل لرؤيتها بشكل اكبر'
-                                           >تكبير المسائل</label>
-                                </div>
-                            </fieldset>           
                         </div>
+                        <fieldset>
+                            <legend>ألوان</legend>
+                            <div class="form-item">
+                                <div class="form-item-left">
+                                    <input id='color_title' class='input_overlay' type="color" value="#000000">
+                                </div>
+                                <div class="form-item-middle">:</div>
+                                <label class="form-item-right" data-tippy-content='لون العناوين الرئيسية بالخط الكبير'>لون العناوين</label>
+                            </div>
+                            <div class='line'></div>
+                            <div class="form-item">
+                                <div class="form-item-left">
+                                    <input id='color_probs' class='input_overlay' type="color" value="#000000">
+                                </div>
+                                <div class="form-item-middle">:</div>
+                                <label class="form-item-right" data-tippy-content='لون المسائل'>لون الأسئلة</label>
+                            </div>
+                            <div class='line'></div>
+                            <div class="form-item">
+                                <div class="form-item-left">
+                                    <input id='color_answer' class='input_overlay' type="color" value="#00FF00">
+                                </div>
+                                <div class="form-item-middle">:</div>
+                                <label class="form-item-right" data-tippy-content='لون الإجابات'>لون الإجابات</label>
+                            </div>
+                            <div class='line'></div>
+                            <div class="form-item">
+                                <div class="form-item-left">
+                                    <input id='color_numing' class='input_overlay' type="color" value="#4b5d67">
+                                </div>
+                                <div class="form-item-middle">:</div>
+                                <label class="form-item-right" data-tippy-content='لون الترقيم'>لون الترقيم</label>
+                            </div>
+                        </fieldset>
 
-                        <button id='news' class="cr cr-bottom cr-left cr-sticky">تـحـد يـثـا ت</button>
+                        <fieldset>
+                            <legend>جدول</legend>
+                            <div class="form-item">
+                                <div class="form-item-left">
+                                    <input type="checkbox" id="switch_zoom"><label for="switch_zoom"></label>
+                                    <span>غير مفعل</span>
+                                </div>
+                                <div class="form-item-middle">:</div>
+                                <label class="form-item-right" data-tippy-content='تفعيل هذا الخيار يمكنك بتكبير المسائل فى نافذة جدول المسائل لرؤيتها بشكل اكبر'
+                                       >تكبير المسائل</label>
+                            </div>
+                        </fieldset>           
+
+                        <button id="news" class='forum about-btn'>
+                            <h5 data-tippy-content="هذه الجزء يتضمن نقاشات وإقتراحات حول إستخدام البرامج مع الطلاب وأيضاً التحديثات حول الإصدارات القادمة من البرنامج">نقاشات و أخبار</h5>
+                        </button>
                     </div>
                 </div>
             </div>
