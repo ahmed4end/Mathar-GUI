@@ -977,3 +977,7 @@ select {
 .forum:hover {
     color: rgba(var(--azure));
 }
+
+.selectable {
+    user-select: text;
+}

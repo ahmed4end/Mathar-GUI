@@ -9,10 +9,10 @@ const about_html = `
         <a onclick="eel.python_open_social('facebook')();" href="#">
             <img src='./assets/icons/fb.png'><span style='color:#3b5998'> Facebook</span>
         </a>
-        <a onclick="eel.python_open_social('whatsapp')()" href="#" style='color:green;'>
+        <a onclick="eel.python_open_social('whatsapp')()" href="#" style='color:#25D366;'>
             <img src='./assets/icons/wt.png'><span> Whatsapp</span>
         </a>
-        <a onclick="eel.python_open_social('youtube')()" href="#" style='color:red;'>
+        <a onclick="eel.python_open_social('youtube')()" href="#" style='color:#FF0000;'>
             <img src='./assets/icons/yt.png'><span> Youtube</span>
         </a>
     </div>
@@ -24,7 +24,7 @@ $('#about').on('click', function(){
     Swal.fire({
         title  : "<h1 class='azure'>Mathar 1.1.0</h1>",
         html   : about_html,
-        footer : "© Ahmed Shokry — Email:- mathar4end@gmail.com</span>",
+        footer : modal_footer,
         showConfirmButton: false,
     })
 });
