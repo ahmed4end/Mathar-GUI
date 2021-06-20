@@ -256,14 +256,14 @@ $('#news').on('click', function(){
         Swal.queue([{
             html: data,
             showConfirmButton: false,
-            footer : "<span class='azure'>© Ahmed Shokry<span>",
+            footer : "© Ahmed Shokry — Email:- mathar4end@gmail.com",
         }]);
     }).catch(()=> {
         Swal.queue([{
             icon: 'error',
             title: 'حدث خطأ ما',
             text: 'يرجى التأكد من الإتصال بالإنترنت لجلب آخر تحديث للأخبار',
-            footer : "<span class='azure'>© Ahmed Shokry<span>",
+            footer : "© Ahmed Shokry — Email:- mathar4end@gmail.com",
             showConfirmButton: false,
         }]);        
     });

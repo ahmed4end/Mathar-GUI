@@ -24,7 +24,7 @@ $('#about').on('click', function(){
     Swal.fire({
         title  : "<h1 class='azure'>Mathar 1.1.0</h1>",
         html   : about_html,
-        footer : "<span class='azure'>© Ahmed Shokry<span>",
+        footer : "© Ahmed Shokry — Email:- mathar4end@gmail.com</span>",
         showConfirmButton: false,
     })
 });
