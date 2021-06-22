@@ -1,5 +1,5 @@
 'use strict';
-'use luck';4
+'use luck';
 
 // disable dev buttons
 disable_dev_buttons()

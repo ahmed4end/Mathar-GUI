@@ -18,7 +18,15 @@
     --border-radius : .6rem;
 }
 
+@font-face {
+    font-family: 'icomoon';
+    src:url('fonts/icomoon.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
+    font-family: 'Cairo';
     box-sizing: border-box;
     padding:0;
     margin: 0;
@@ -79,7 +87,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body {
-    font-family: 'Cairo';
     background-color: #fcfefd;
     color: #183a56;
     overflow: hidden;
@@ -731,7 +738,7 @@ FIELDSET:hover legend {
 LEGEND{
     text-align: right;
     width: fit-content;
-    padding: 0 5px 0 5px;    
+    padding: 0 1rem;    
 }
 
 .form-item {
