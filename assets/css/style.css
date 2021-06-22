@@ -981,8 +981,9 @@ select {
     font-weight: 700;
 }
 
-.forum:hover {
+.forum:hover, .azure-hover:hover {
     color: rgba(var(--azure));
+    transition: color .3s ease;
 }
 
 .selectable {
