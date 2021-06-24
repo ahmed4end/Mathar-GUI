@@ -462,7 +462,7 @@ function js_failed_queue_js(queue){
     con = con + "</ul><small class='text-danger'>يرجى حذف بعض المسائل من جدول المختارات ليتناسب عدد الأسئلة مع حجم الورقة أو قم بتصغير حجم الخط من الإعدادات لتسع الورقة مسائل أكثر</small>";
     swal_modals = []; // clear swal modals
     // push swal modal
-    if (queue.length>0){swal_modals.push({title: 'تحذير', html: con, timer:40000})};
+    if (queue.length>0){swal_modals.push({title: 'تحذير', html: con, confirmButtonText:'حسناً', timer:40000})};
 };
 
 // expose func ro python for failed queue.
