@@ -999,17 +999,22 @@ select {
 }
 
 .table1_fcon .left {
-    width: 300px;
+    width: 200px;
 }
 
 .table1_fcon .right {
     background-color: none;
     height: 50px;
-    width: 300px;
+    width: 200px;
 }
 
+.radios-con {
+    border: 1px solid rgba(200, 200, 200, 0.5);
+    border-radius: var(--border-radius);
+    margin-left: .5rem;
+}
 .radio {
-    margin: 1rem;
+    margin: 0.5rem;
     display: inline-block;
     cursor: pointer;
 }

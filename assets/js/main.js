@@ -2,7 +2,7 @@
 'use luck';
 
 // disable dev buttons
-//disable_dev_buttons()
+disable_dev_buttons()
 
 // stop input fro submitting on enter.
 $(window).keydown(function(event){
@@ -14,7 +14,7 @@ $(window).keydown(function(event){
 
 //preloader config
 $(window).load(function() {
-    $(".preloader").delay(0).fadeOut("smooth");
+    $(".preloader").delay(1500).fadeOut("smooth");
 });
 
 /* init public powerfull funcs */
@@ -142,25 +142,38 @@ $(document).ready(function(){
         },
 
     });
-    
+
     // table 1 radio filter. 
     $('.table1_fcon .left').html(
         `
-        <div>
-            <label class="radio">
-                <input type="radio" name="r" value="1" checked>
-                <span>الكل</span>
-            </label>
-            <label class="radio">
-                <input type="radio" name="r" value="2">
-                <span>الإختيار من متعدد</span>
-            </label>
+        <div class='radios-con'>
+        <label class="radio">
+        <input id='filter_ALL' type="radio" name="r" value="1" checked>
+        <span data-tippy-content='إظهار كامل المسائل بدون فلترة'>ALL</span>
+        </label>
+        <label class="radio">
+        <input id='filter_MCQ' type="radio" name="r" value="2">
+        <span data-tippy-content='فلترة الجدول لمسائل الإختيار من متعدد'>MCQ</span>
+        </label>
         </div>
         `
     );
 
+    // table 1 radio filter action
+    $(document).on('change', '#filter_ALL', function() {
+        if(this.checked) {
+            table1.columns().search("").draw();
+        }
+    });
+    // table 1 radio filter action
+    $(document).on('change', '#filter_MCQ', function() {
+        if(this.checked) {
+            table1.columns(5).search('MCQ').draw();
+        }
+    });
+
     // tooltips config.
-    tippy.setDefaultProps({delay: [100, 50]});
+    tippy.setDefaultProps({delay: [250, 100]});
     tippy('[data-tippy-content]'); // [BUG]table 1 pages other than 1 does not work with tippy
     //////////////////
 
