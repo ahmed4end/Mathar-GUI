@@ -42,7 +42,7 @@ const table1_args = {
     "order": [],
     "bAutoWidth": false,
     "bInfo":true,
-    "dom": '<"top"><f><t><"#margin5px"><"clear"><"footerContainer"lp>',
+    "dom": '<"top"><"table1_fcon"<"left"><f><"right">><t><"#margin5px"><"clear"><"footerContainer"lp>',
     "rowReorder":false,
     ...tables_tanslation,
     "columnDefs": [{

@@ -2,7 +2,7 @@
 'use luck';
 
 // disable dev buttons
-disable_dev_buttons()
+//disable_dev_buttons()
 
 // stop input fro submitting on enter.
 $(window).keydown(function(event){
@@ -14,7 +14,7 @@ $(window).keydown(function(event){
 
 //preloader config
 $(window).load(function() {
-    $(".preloader").delay(1500).fadeOut("smooth");
+    $(".preloader").delay(0).fadeOut("smooth");
 });
 
 /* init public powerfull funcs */
@@ -142,6 +142,22 @@ $(document).ready(function(){
         },
 
     });
+    
+    // table 1 radio filter. 
+    $('.table1_fcon .left').html(
+        `
+        <div>
+            <label class="radio">
+                <input type="radio" name="r" value="1" checked>
+                <span>الكل</span>
+            </label>
+            <label class="radio">
+                <input type="radio" name="r" value="2">
+                <span>الإختيار من متعدد</span>
+            </label>
+        </div>
+        `
+    );
 
     // tooltips config.
     tippy.setDefaultProps({delay: [100, 50]});
