@@ -1073,3 +1073,13 @@ select {
 }
 
 /* table 1 filter container out */
+
+
+/* bootstrap table css */
+.table-striped>tr:nth-child(odd){
+   background-color: white;
+}
+.table tbody tr:hover td,
+.table tbody tr:hover th {
+  background-color: rgb(248,244,244);
+}
