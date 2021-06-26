@@ -149,29 +149,26 @@ $(document).ready(function(){
         <div class='radios-con'>
         <label class="radio">
         <input id='filter_ALL' type="radio" name="r" value="1" checked>
-        <span data-tippy-content='إظهار كامل المسائل بدون فلترة'>ALL</span>
+        <span data-tippy-content='إظهار كل المسائل بدون فلترة'>الكل</span>
         </label>
         <label class="radio">
         <input id='filter_MCQ' type="radio" name="r" value="2">
-        <span data-tippy-content='فلترة الجدول لمسائل الإختيار من متعدد'>MCQ</span>
+        <span data-tippy-content='إظهار الإختيارى من متعدد فقط'>MCQ</span>
         </label>
         </div>
         `
     );
 
     // table 1 radio filter action
-    $(document).on('change', '#filter_ALL', function() {
-        if(this.checked) {
+    $(document).on('change', 'input[type=radio]', function() {
+        if($(this).is('#filter_ALL') && this.checked) {
             table1.columns().search("").draw();
             Toast.fire({
                 icon: 'success',
                 title: "عرض كل المسائل"
             });
-        }
-    });
-    // table 1 radio filter action
-    $(document).on('change', '#filter_MCQ', function() {
-        if(this.checked) {
+        } 
+        if ($(this).is('#filter_MCQ') && this.checked) {
             table1.columns(5).search('MCQ').draw();
             Toast.fire({
                 icon: 'success',
@@ -179,13 +176,13 @@ $(document).ready(function(){
             });
         }
     });
+ 
 
     // tooltips config.
-    tippy.setDefaultProps({delay: [250, 100]});
+    tippy.setDefaultProps({delay: [300, 150]});
     tippy('[data-tippy-content]'); // [BUG]table 1 pages other than 1 does not work with tippy
     //////////////////
 
-    // pagination change event - force load all images in the page.
     //table1.on( 'page.dt', function () {  });
 
     //add placeholder to filter.
