@@ -163,12 +163,20 @@ $(document).ready(function(){
     $(document).on('change', '#filter_ALL', function() {
         if(this.checked) {
             table1.columns().search("").draw();
+            Toast.fire({
+                icon: 'success',
+                title: "عرض كل المسائل"
+            });
         }
     });
     // table 1 radio filter action
     $(document).on('change', '#filter_MCQ', function() {
         if(this.checked) {
             table1.columns(5).search('MCQ').draw();
+            Toast.fire({
+                icon: 'success',
+                title: "عرض مسائل الإختيارى من متعدد فقط"
+            });
         }
     });
 
