@@ -18,7 +18,7 @@ const about_html = `
     </div>
 </fieldset>
 `
-               
+
 // about mathar - modal
 $('#about').on('click', function(){
     Swal.fire({
