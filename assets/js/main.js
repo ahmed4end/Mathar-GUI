@@ -242,10 +242,9 @@ $( "#clearTable" ).click(function() {
         });              
     } else {
         Swal.fire({
-            title: "هل متأكد من هذه الخطوة ؟",
-            text: "أنت الأن على وشك القيام بتفريغ الجدول",
+            title: "! تفريغ الجدول",
             icon: "warning",
-            confirmButtonText: 'موافق',
+            confirmButtonText: 'تأكيد',
             showCancelButton: true,
             cancelButtonText: 'إلغاء'
         })
@@ -253,7 +252,7 @@ $( "#clearTable" ).click(function() {
             if (result.isConfirmed) {
                 table2.clear().draw();
                 Swal.fire({
-                    text:"! تم تفريغ الجدول بنجاح", 
+                    text:"تم تفريغ الجدول بنجاح", 
                     icon: "success",
                     showConfirmButton:false,
                     timer:2000
