@@ -80,8 +80,6 @@ function table_col3(arr) {
 
 $(document).ready(function(){
 
-
-
     // swal var.
     var swal_modals = []
     // swal toastr.

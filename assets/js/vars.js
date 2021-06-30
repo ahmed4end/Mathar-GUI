@@ -137,7 +137,7 @@ function save_settings(){
 
     // fire status bar for specific time.
     show_update_statuts()
-    
+
     // update python config.
     python_update_config_js(settings_config);
 }
@@ -297,3 +297,73 @@ function disable_dev_buttons(){
         }
     }
 }
+
+
+// License
+
+// bend it to python later. DEV
+var license_value = 0
+
+const license_dict = {
+    0: 'مجانى',
+    1: 'مدفوع',
+    2: 'مدفوع مميز'
+}
+
+function license_update() {
+    $('#license_status').text(license_dict[license_value]);
+}
+
+async function license_swal() {
+    const { value: password } = await Swal.fire({
+        title: 'أدخل السيريال الخاص بك',
+        input: 'text',
+        inputLabel: 'السيريال',
+        inputPlaceholder: 'رقم السيريال',
+        inputAttributes: {
+            maxlength: 20,
+            autocapitalize: 'off',
+            autocorrect: 'off'
+        }
+    })
+    
+    if (password) {
+        license_value = 1; // update license to paid.
+        license_update();
+        Swal.fire({
+            icon: 'success',
+            title: 'رقم السيريال صحيح',
+            html: 'تم ترقية البرنامج للنسخة المدفوعة بنجاح<br>يمكنك الأن إستخدام كل المسائل/المميزات بالبرنامج',
+            confirmButtonText:'حسناً'
+        })
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: 'عفواَ هذا السيريال خاطئ',
+            text: 'تواصل مع مطور البرنامج لشراء سيريال لتفعيل البرنامج',
+            confirmButtonText:'حسناً'
+        })
+    }
+
+}
+
+
+$(document).ready(function(){
+    license_update();
+
+    $(document).on('click', '#license',function(){
+        if (license_value==0){
+            license_swal();
+        }
+        if (license_value==1){
+            Swal.fire({
+                icon: 'info',
+                text:`لقد قمت بترقية البرنامج بالفعل`,
+                confirmButtonText:'حسناً'
+            });
+        }
+    })
+
+});
+
+

@@ -74,6 +74,7 @@ select:hover
 
 label {
     margin: 0px;
+    font-weight: normal;
 }
 
 p {
@@ -971,11 +972,20 @@ select {
 
 .forum {
     position: fixed;
+    border: none;
+    background: none;
     bottom: 1em;
-    left: 2em;
     font-weight: 700;
 }
 
+.left {
+    left: 2em;
+}
+
+.right {
+    right: 2rem;
+}
+    
 .forum:hover, .azure-hover:hover {
     color: rgba(var(--azure));
     transition: color .3s ease;
