@@ -320,6 +320,7 @@ async function license_swal() {
         input: 'text',
         inputLabel: 'السيريال',
         inputPlaceholder: 'رقم السيريال',
+        confirmButtonText: 'تأكيد',
         inputAttributes: {
             maxlength: 20,
             autocapitalize: 'off',
@@ -327,7 +328,7 @@ async function license_swal() {
         }
     })
     
-    if (password) {
+    if (password=="mathar") { // DEV - call python for validation
         license_value = 1; // update license to paid.
         license_update();
         Swal.fire({
@@ -357,7 +358,7 @@ $(document).ready(function(){
         }
         if (license_value==1){
             Swal.fire({
-                icon: 'info',
+                icon: 'success',
                 text:`لقد قمت بترقية البرنامج بالفعل`,
                 confirmButtonText:'حسناً'
             });
