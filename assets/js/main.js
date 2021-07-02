@@ -2,7 +2,7 @@
 'use luck';
 
 // disable dev buttons
-//disable_dev_buttons()
+disable_dev_buttons()
 
 // stop input fro submitting on enter.
 $(window).keydown(function(event){
@@ -14,7 +14,7 @@ $(window).keydown(function(event){
 
 //preloader config
 $(window).load(function() {
-    $(".preloader").delay(1500).fadeOut("smooth");
+    $(".preloader").delay(1000).fadeOut("smooth");
 });
 
 /* init public powerfull funcs */

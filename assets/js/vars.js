@@ -302,8 +302,8 @@ function disable_dev_buttons(){
 // License
 
 // bend it to python later. DEV
-var license_value = 0
-
+var license_value = 0 // license status.
+var attempts = 0 // var to count how many times user tries to enter serial num.
 const license_dict = {
     0: 'مجانى',
     1: 'مدفوع',
@@ -326,9 +326,11 @@ async function license_swal() {
             maxlength: 20,
             autocapitalize: 'off',
             autocorrect: 'off'
-        },
+        }
     })
     
+    attempts = attempts+1
+
     if (password=="mathar") { // DEV - call python for validation
         license_value = 1; // update license to paid.
         license_update();
@@ -339,20 +341,35 @@ async function license_swal() {
             confirmButtonText:'حسناً',
         })
     } else {
-        Swal.fire({
-            icon: 'error',
-            title: 'عفواَ هذا السيريال خاطئ',
-            text: 'تواصل مع مطور البرنامج لشراء سيريال لتفعيل البرنامج',
-            confirmButtonText:'حسناً',
-        })
+
+        if (attempts<5) {
+            Swal.fire({
+                icon: 'error',
+                title: 'عفواَ هذا السيريال خاطئ',
+                text: 'تواصل مع مطور البرنامج لشراء سيريال لتفعيل البرنامج',
+                confirmButtonText:'حاول مرة آخرى',
+                cancelButtonText: 'حسناً',
+                showCancelButton: true,
+            }).then(function(result){
+                if (result.value){
+                    license_swal()  
+                }
+            });
+        }else{
+            Swal.fire({
+                icon: 'warning',
+                title: 'لقد حاولت كثيراً رجاءاً تمهل',
+                text: 'رجاءاً قدر جهود صانع البرنامج وقم بشراء سيريال لتفعيل البرنامج بشكل قانونى فهذا يساهم فى إستمرار صناعة نسخ آخرى من البرنامج',
+                confirmButtonText:'حسناً',
+            })
+            attempts = 0
+        }
     }
 
 }
 
-
 $(document).ready(function(){
     license_update();
-
     $(document).on('click', '#license',function(){
         if (license_value==0){
             license_swal();
