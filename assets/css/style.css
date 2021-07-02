@@ -577,7 +577,6 @@ table.dataTable thead .sorting_desc {
     background: none;
     border: none;
     color: rgba(var(--secondary-color));
-    text-decoration: underline;
 }
 
 .tap3_not_yet button:hover {
