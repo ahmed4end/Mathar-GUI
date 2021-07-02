@@ -11,7 +11,7 @@
     --orange-color    : #fa0; /* not used yet */
     --primary-gradient   : linear-gradient(to bottom, rgba(35, 236, 167, 1) 0%, rgba(var(--primary-color), 1) 100%); 
     --secondary-gradient : linear-gradient(to bottom, rgba(34,  77, 112, 1) 0%, rgba(var(--secondary-color), 1) 100%); 
-    --white-gradient     : linear-gradient(to bottom, rgba(255,  255, 255, 1) 0%, rgba(225, 225, 225, 1) 100%); 
+    --white-gradient     : linear-gradient(to bottom, rgba(255,  255, 255, 1) 0%, rgba(230, 230, 230, 1) 100%); 
     --light-shadow  : 1px 1px 10px 0.1px rgba(0,0,0,0.2);
     --dark-shadow   : 5px 5px 20px 0.5px rgba(0,0,0,0.3);
     --border: 1px solid silver;
@@ -978,7 +978,8 @@ select {
     background: var(--white-gradient);
     bottom: 1em;
     font-weight: 700;
-    padding: 0 .5em;
+    padding: 0.1em .5em;
+    box-shadow: var(--light-shadow);
 }
 
 .left {
