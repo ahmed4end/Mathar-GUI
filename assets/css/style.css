@@ -970,6 +970,10 @@ select {
     color: rgba(var(--azure));
 }
 
+.orange {
+    color: var(--orange-color);
+}
+
 .forum {
     position: fixed;
     border: var(--border);

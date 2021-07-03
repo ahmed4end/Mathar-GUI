@@ -306,12 +306,16 @@ var license_value = 0 // license status.
 var attempts = 0 // var to count how many times user tries to enter serial num.
 const license_dict = {
     0: 'مجانى',
-    1: 'مدفوع',
-    2: 'مدفوع مميز'
+    1: '★ مدفوع',
+    2: '★★★ مدفوع مميز'
 }
 
-function license_update() {
-    $('#license_status').text(license_dict[license_value]);
+function license_update(level=0) {
+    license_value = level;
+    $('#license_status').text(license_dict[level]);
+    if (level>=1) {
+       $('#license_status').addClass('orange'); 
+    }
 }
 
 async function license_swal() {
@@ -332,8 +336,7 @@ async function license_swal() {
     attempts = attempts+1
 
     if (password=="mathar") { // DEV - call python for validation
-        license_value = 1; // update license to paid.
-        license_update();
+        license_update(1);
         Swal.fire({
             icon: 'success',
             title: 'رقم السيريال صحيح',
@@ -365,11 +368,10 @@ async function license_swal() {
             attempts = 0
         }
     }
-
 }
 
 $(document).ready(function(){
-    license_update();
+    license_update(license_value);
     $(document).on('click', '#license',function(){
         if (license_value==0){
             license_swal();
