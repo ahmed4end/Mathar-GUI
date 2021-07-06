@@ -301,8 +301,7 @@ function disable_dev_buttons(){
 
 // License
 
-// bend it to python later. DEV
-var license_value = 0 // license status.
+var license_value = 0
 var attempts = 0 // var to count how many times user tries to enter serial num.
 const license_dict = {
     0: 'مجانى',
@@ -314,12 +313,12 @@ function license_update(level=0) {
     license_value = level;
     $('#license_status').text(license_dict[level]);
     if (level>=1) {
-       $('#license_status').addClass('orange'); 
+        $('#license_status').addClass('orange'); 
     }
 }
 
 async function license_swal() {
-    const { value: password } = await Swal.fire({
+    const { value: serial } = await Swal.fire({
         title: 'ترقية البرنامج',
         text: "— لشراء سيريال تواصل مع مطور البرنامج —",
         input: 'text',
@@ -332,10 +331,17 @@ async function license_swal() {
             autocorrect: 'off'
         }
     })
-    
+
     attempts = attempts+1
 
-    if (password=="mathar") { // DEV - call python for validation
+    try {
+        var validation = await eel.python_validate_serial(serial)();
+    } catch (error) {
+        console.error(error);
+        var validation = 0
+        }
+
+    if (validation) { // DEV - call python for validation
         license_update(1);
         Swal.fire({
             icon: 'success',
@@ -343,7 +349,7 @@ async function license_swal() {
             html: 'تم ترقية البرنامج للنسخة المدفوعة بنجاح<br>يمكنك الأن إستخدام كل المسائل/المميزات بالبرنامج',
             confirmButtonText:'حسناً',
         })
-    } else {
+    } else if(!validation) {
 
         if (attempts<5) {
             Swal.fire({
@@ -353,6 +359,7 @@ async function license_swal() {
                 confirmButtonText:'حاول مرة آخرى',
                 cancelButtonText: 'حسناً',
                 showCancelButton: true,
+                footer: modal_footer,
             }).then(function(result){
                 if (result.value){
                     license_swal()  
@@ -363,15 +370,29 @@ async function license_swal() {
                 icon: 'warning',
                 title: 'لقد حاولت كثيراً رجاءاً تمهل',
                 text: 'رجاءاً قدر جهود صانع البرنامج وقم بشراء سيريال لتفعيل البرنامج بشكل قانونى فهذا يساهم فى إستمرار صناعة نسخ آخرى من البرنامج',
-                confirmButtonText:'حسناً',
+                showConfirmButton: false,
+                footer: modal_footer,
             })
             attempts = 0
         }
+    } else {
+        Swal.fire({
+            'icon':'error',
+            title: 'ERROR 404'
+        })
     }
 }
 
-$(document).ready(function(){
-    license_update(license_value);
+$(window).load(async function(){
+    // call python to get serial
+    try {
+        license_value = await eel.python_get_serial_status()() // get license status.
+    } catch {
+        license_value = 0;
+}
+
+        // refresh license status
+        license_update(license_value);
     $(document).on('click', '#license',function(){
         if (license_value==0){
             license_swal();
@@ -379,8 +400,9 @@ $(document).ready(function(){
         if (license_value==1){
             Swal.fire({
                 icon: 'success',
-                text:`— لقد قمت بترقية البرنامج بالفعل —`,
-                confirmButtonText:'حسناً',
+                html:`— لقد قمت بترقية البرنامج بالفعل —<br><small>شكراً لشرائك البرنامج, دعمك يساهم فى إستمرار صناعة نسخ أخرى</small>`,
+                footer: modal_footer,
+                showConfirmButton: false,
             });
         }
     })
