@@ -273,15 +273,14 @@ button:focus{
     bottom: 0.3rem;
 }
 
-
 .row-top {
-    margin-top: 0.3rem;
+    margin-top: 0.4rem;
 }
 
 /* table */
 .table2_con {
     position: relative;
-    top: 66px;
+    top: 90px;
     z-index: 3;
 }
 
@@ -435,12 +434,6 @@ table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
 .dataTables_wrapper .dataTables_filter {
     width:100%;
     text-align:center;
-    padding: 2px;
-}
-
-/* Table white Spcee */
-.dataTables_wrapper {
-    margin-top: 20px;
 }
 
 /* search box style */
@@ -458,7 +451,6 @@ table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
     display: flex;
     left: 50%;
     transform: translate(-50%);
-    margin-bottom: 20px;  
 }
 
 #table1_filter input {
@@ -585,11 +577,14 @@ table.dataTable thead .sorting_desc {
 }
 
 .tap3_instructions {
-    position: ab;
+    position: relative;
+    width: 85%;
     text-align: right;
     display: none;
     list-style-type: decimal;
-    margin:10px 0 0 0;
+    align-items: center;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 .tap3_instructions li {
@@ -1008,84 +1003,21 @@ select {
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
+    align-items: center;
+    vertical-align: center;
+    text-align: center;
+    margin: 20px 20px;
 }
 
 .table1_fcon .left {
-    width: 200px;
+    width: 150px;
 }
 
 .table1_fcon .right {
     background-color: none;
     height: 50px;
-    width: 200px;
+    width: 150px;
 }
-
-.radios-con {
-    border: 1px solid rgba(200, 200, 200, 0.5);
-    border-radius: var(--border-radius);
-    margin-left: .5rem;
-}
-.radio {
-    margin: 0.5rem;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.radio input {
-    display: none;
-}
-.radio input + span {
-    line-height: 22px;
-    height: 25px;
-    padding-left: 22px;
-    display: block;
-    position: relative;
-}
-.radio input + span:not(:empty) {
-    padding-left: 30px;
-    overflow:hidden;
-    text-overflow:ellipsis;
-
-}
-.radio input + span:before, .radio input + span:after {
-    content: "";
-    width: 22px;
-    height: 22px;
-    display: block;
-    border-radius: 50%;
-    left: 1;
-    top: 1;
-    position: absolute;
-}
-.radio input + span:before {
-    background: #D1D7E3;
-    transition: background 0.2s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2);
-}
-.radio input + span:after {
-    background: #fff;
-    transform: scale(0.78);
-    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.4);
-}
-.radio input:checked + span:before {
-    transform: scale(1.04);
-    background: #5D9BFB /*rgba(var(--primary-color))*/;
-}
-.radio input:checked + span:after {
-    transform: scale(0.4);
-    transition: transform 0.3s ease;
-}
-.radio:hover input + span:before {
-    transform: scale(0.92);
-}
-.radio:hover input + span:after {
-    transform: scale(0.74);
-}
-.radio:hover input:checked + span:after {
-    transform: scale(0.4);
-}
-
-/* table 1 filter container out */
-
 
 /* bootstrap table css */
 .table-striped>tr:nth-child(odd){

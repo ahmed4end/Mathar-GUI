@@ -2,7 +2,7 @@
 'use luck';
 
 // disable dev buttons
-disable_dev_buttons()
+//disable_dev_buttons()
 
 // stop input fro submitting on enter.
 $(window).keydown(function(event){
@@ -14,7 +14,7 @@ $(window).keydown(function(event){
 
 //preloader config
 $(window).load(function() {
-    $(".preloader").delay(1000).fadeOut("smooth");
+    $(".preloader").delay(0).fadeOut("smooth");
 });
 
 /* init public powerfull funcs */
@@ -141,40 +141,39 @@ $(document).ready(function(){
 
     });
 
-    // table 1 radio filter. 
     $('.table1_fcon .left').html(
         `
-        <div class='radios-con'>
-        <label class="radio">
-        <input id='filter_ALL' type="radio" name="r" value="1" checked>
-        <span data-tippy-content='إظهار كل المسائل بدون فلترة'>الكل</span>
-        </label>
-        <label class="radio">
-        <input id='filter_MCQ' type="radio" name="r" value="2">
-        <span data-tippy-content='إظهار الإختيارى من متعدد فقط'>MCQ</span>
-        </label>
-        </div>
+        <select id='slecet_filter'>
+        <option>ALL</option>
+        <option>MCQ</option>
+        <option>OP3</option>
+        <option>OP4</option>
+        </select>
         `
     );
 
-    // table 1 radio filter action
-    $(document).on('change', 'input[type=radio]', function() {
-        if($(this).is('#filter_ALL') && this.checked) {
+    $('.table1_fcon .left').hover(function(){
+        tippy(this, {
+            content: 'أختر الفلتر المناسب من هنا',
+        });
+    });
+
+    $('#slecet_filter').on('change', function() {
+        if (this.value=='ALL'){
             table1.columns().search("").draw();
             Toast.fire({
                 icon: 'success',
                 title: "عرض كل المسائل"
             });
-        } 
-        if ($(this).is('#filter_MCQ') && this.checked) {
-            table1.columns(5).search('MCQ').draw();
+        }else{
+            table1.columns(5).search(this.value).draw(); 
             Toast.fire({
                 icon: 'success',
-                title: "عرض مسائل الإختيارى من متعدد فقط"
+                title: `${this.value} عرض`
             });
         }
     });
- 
+
 
     // tooltips config.
     tippy.setDefaultProps({delay: [300, 150]});
