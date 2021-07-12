@@ -33,7 +33,7 @@ function sleep(ms) {
 //table funcs.
 
 function table_image_wrapper(image){
-    return `<img class="lazyload lzyld" data-sizes="auto" data-srcset='./images/${image}.png' alt='${image}'>`
+    return `<img class="lazyload lzyld" data-sizes="auto" data-srcset='./assets/icons/table/${image}.png' alt='${image}'>`
 };
 
 function vertical_wrapper(txt){
