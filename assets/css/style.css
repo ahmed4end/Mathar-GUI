@@ -569,11 +569,13 @@ table.dataTable thead .sorting_desc {
     background: none;
     border: none;
     color: rgba(var(--secondary-color));
+    opacity: 0.5;
 }
 
 .tap3_not_yet button:hover {
     color: rgba(var(--royal-blue));
-    transition:color .2s ease-in-out;
+    transition:all .2s ease-in-out;
+    opacity: 1;
 }
 
 .tap3_instructions {
@@ -724,9 +726,11 @@ FIELDSET:hover {
 FIELDSET:hover legend {
     color: rgba(var(--royal-blue));
     transition: all .3s ease-in-out;
+    
 }
 
 LEGEND{
+    margin: 0!important;
     text-align: right;
     width: fit-content;
     padding: 0 1rem;    
@@ -1026,4 +1030,8 @@ select {
 .table tbody tr:hover td,
 .table tbody tr:hover th {
   background-color: rgb(248,244,244);
+}
+
+.bold {
+    font-weight: bold;
 }
