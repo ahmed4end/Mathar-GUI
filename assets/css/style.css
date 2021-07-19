@@ -901,14 +901,12 @@ input[type="color"]::-webkit-color-swatch {
 /*-----------------------------------*/
 
 select {
-    height: 40px;
-    text-align: center;
-    text-align-last: center;
-    background-color: white;
     color: inherit;
+    background-color: white;
+    height: 40px;
+    text-align-last: center;
     display: block;
     width: 100%;
-    padding: 0px;
     border-radius: var(--border-radius);
     border: var(--border);
 }

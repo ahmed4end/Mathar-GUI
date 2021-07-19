@@ -144,10 +144,10 @@ $(document).ready(function(){
     $('.table1_fcon .left').html(
         `
         <select id='slecet_filter'>
-        <option>ALL</option>
-        <option>MCQ</option>
-        <option>OP3</option>
-        <option>OP4</option>
+        <option value='ALL'>ALL</option>
+        <option value='MCQ'>MCQ</option>
+        <option value='OP3'>OP3</option>
+        <option value='OP4'>OP4</option>
         </select>
         `
     );
