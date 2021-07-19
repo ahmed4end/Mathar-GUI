@@ -726,7 +726,7 @@ FIELDSET:hover {
 FIELDSET:hover legend {
     color: rgba(var(--royal-blue));
     transition: all .3s ease-in-out;
-    
+
 }
 
 LEGEND{
@@ -989,7 +989,7 @@ select {
 .right {
     right: 2rem;
 }
-    
+
 .forum:hover, .azure-hover:hover {
     color: rgba(var(--azure));
     transition: color .3s ease;
@@ -1023,13 +1023,33 @@ select {
 
 /* bootstrap table css */
 .table-striped>tr:nth-child(odd){
-   background-color: white;
+    background-color: white;
 }
 .table tbody tr:hover td,
 .table tbody tr:hover th {
-  background-color: rgb(248,244,244);
+    background-color: rgb(248,244,244);
 }
 
 .bold {
     font-weight: bold;
 }
+
+/* scrollbar */
+::-webkit-scrollbar-track
+{
+    border-radius: 10px;
+    background-color: rgb(220,220,220);
+}
+
+::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: rgb(220,220,220);
+}
+
+::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    background-color: darkgrey;
+}
+/* END - scrollbar */
