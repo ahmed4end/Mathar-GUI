@@ -140,14 +140,18 @@ $(document).ready(function(){
         },
 
     });
+    
+    // prepare filter options - using lessons var form dataset.js
+    var fiter_data = '';
+    for (var key in lessons) {
+        fiter_data = fiter_data +`<option value='${key}'>${lessons[key]}</option>`
+    }
 
     $('.table1_fcon .left').html(
         `
         <select id='slecet_filter'>
-        <option value='ALL'>ALL</option>
-        <option value='MCQ'>MCQ</option>
-        <option value='OP3'>OP3</option>
-        <option value='OP4'>OP4</option>
+            <option value='ALL'>الكل</option>
+            ${fiter_data}
         </select>
         `
     );
@@ -169,7 +173,7 @@ $(document).ready(function(){
             table1.columns(5).search(this.value).draw(); 
             Toast.fire({
                 icon: 'success',
-                title: `${this.value} عرض`
+                title: `عرض ${lessons[this.value]} فقط`
             });
         }
     });
