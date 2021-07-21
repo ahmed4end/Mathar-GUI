@@ -69,12 +69,14 @@ function table_col_last(data, type){
 function table_col3(arr) {
     // arr = [unit, lesson, page, prob, node]
     var res = []
-    if (arr[0]) {res.push(`و${arr[0]}`)};
-    if (arr[1]) {res.push(`د${arr[1]}`)};
-    if (arr[2]) {res.push(`ص${arr[2]}`)};
-    if (arr[3]) {res.push(`س${arr[3]}`)};
-    if (arr[4]) {res.push(`م${arr[4]}`)};
-    return res.join('<br>')
+    if (arr[0]) {res.push(`ص${arr[0]}`)};
+    if (arr[1]) {res.push(`س${arr[1]}`)};
+    if(res.length>0){
+        return res.join('<br>')
+    }else{
+        return '<span class="silver">—</span>'
+    }
+    
 }
 
 
@@ -105,15 +107,15 @@ $(document).ready(function(){
 
         data: dataSet,
         columns: [
-            { title: "i."},
-            { title: "id", render: table_id_parser},
+            { title: "i.", width: '1%'},
+            { title: "id", render: table_id_parser, width: '1%'},
             { title: "المسئلة", width:'55%', render: table_image_wrapper},
-            { title: icon_book, render: table_col3},
+            { title: icon_book, render: table_col3, width:'2%'},
             { 
                 title: "نوع",
-                render: function(data, type){return vertical_wrapper(data);}
+                render: function(data, type){return vertical_wrapper(data);},
+                width:'2%'
             },
-            { title: "وصف"},
             { title: "إعدادات", render: table_col_last, width:'20%'}
         ],
 
@@ -144,7 +146,7 @@ $(document).ready(function(){
     // prepare filter options - using lessons var form dataset.js
     var fiter_data = '';
     for (var key in lessons) {
-        fiter_data = fiter_data +`<option value='${key}'>${lessons[key]}</option>`
+        fiter_data = fiter_data +`<option value='${lessons[key]}'>${lessons[key]}</option>`
     }
 
     $('.table1_fcon .left').html(
@@ -170,10 +172,10 @@ $(document).ready(function(){
                 title: "عرض كل المسائل"
             });
         }else{
-            table1.columns(5).search(this.value).draw(); 
+            table1.columns(4).search(this.value).draw(); 
             Toast.fire({
                 icon: 'success',
-                title: `عرض ${lessons[this.value]} فقط`
+                title: `عرض ${this.value} فقط`
             });
         }
     });
@@ -213,12 +215,11 @@ $(document).ready(function(){
     var table2 = $('#table2').DataTable({
 
         columns: [
-            { title: "i." },
-            { title: "id" },
+            { title: "i.", width: '1%' },
+            { title: "id", width: '1%' },
             { title: "المسئلة", width:'55%'},
-            { title: icon_book},
-            { title: "نوع" },
-            { title: "وصف" },
+            { title: icon_book, width:'2%'},
+            { title: "نوع", width:'2%' },
             { title: "إعدادات", width:'20%' }
         ],
 

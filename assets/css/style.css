@@ -32,11 +32,11 @@
     padding:0;
     margin: 0;
 }
-
+/*
 * {
     user-select: none;
 }
-
+*/
 body, html {
     height: 100%;
 }
@@ -971,6 +971,10 @@ select {
     color: var(--orange-color);
 }
 
+.silver {
+    color: silver;
+}
+
 .forum {
     position: fixed;
     border: var(--border);
@@ -1057,8 +1061,8 @@ select {
 
 /* table imagees */
 .table_image {
-    -webkit-filter: drop-shadow(0 0 2px grey); /* webkit only */
-  filter: drop-shadow(0 0 2px grey);            /* FF~35 */
-  filter: drop-shadow(0 0 0 2px grey);            /* MDN */
+    -webkit-filter: drop-shadow(0 0 1px grey); /* webkit only */
+  filter: drop-shadow(0 0 1px grey);            /* FF~35 */
+  filter: drop-shadow(0 0 0 1px grey);            /* MDN */
 }
 /* END - table imagees */
