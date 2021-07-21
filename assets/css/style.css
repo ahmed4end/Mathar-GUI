@@ -1053,3 +1053,12 @@ select {
     background-color: darkgrey;
 }
 /* END - scrollbar */
+
+
+/* table imagees */
+.table_image {
+    -webkit-filter: drop-shadow(0 0 2px grey); /* webkit only */
+  filter: drop-shadow(0 0 2px grey);            /* FF~35 */
+  filter: drop-shadow(0 0 0 2px grey);            /* MDN */
+}
+/* END - table imagees */
