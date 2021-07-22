@@ -172,7 +172,7 @@ $(document).ready(function(){
                 title: "عرض كل المسائل"
             });
         }else{
-            table1.columns(4).search(this.value).draw(); 
+            table1.columns(4).search('^'+this.value+'$',true,false).draw(); 
             Toast.fire({
                 icon: 'success',
                 title: `عرض ${this.value} فقط`
