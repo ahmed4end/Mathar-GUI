@@ -47,8 +47,7 @@ input {
     border-radius: var(--border-radius);
     padding: 2px;
     text-align: center;
-    width: 12vw;
-    min-width: 100px;
+    width: 95%;
 }
 
 input::-webkit-input-placeholder  {

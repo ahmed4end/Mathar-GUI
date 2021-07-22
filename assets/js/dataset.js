@@ -12,7 +12,7 @@ var lessons = {
 }
 
 var dataSet = [
-	["","title","title",[],"عنوان","<form><input name='title' value='عنوان رئيسى' type='text'><label>:العنوان</label></form>"],
+	["","title","title",[],"عنوان","<form style='white-space:nowrap;'><input name='title' value='عنوان رئيسى' type='text' placeholder='عنوان رئيسى'><label style='display:none;'>:العنوان</label></form>"],
 	["", "h1_1", "h1_1", [37,1], lessons[1], ""],
 	["", "h1_2", "h1_2", [37,2], lessons[1], ""],
 	["", "h1_3", "h1_3", [37,3], lessons[1], ""],
