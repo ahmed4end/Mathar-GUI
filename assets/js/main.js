@@ -432,7 +432,7 @@ $( "#create" ).click(function() {
         if (paper_count>1){$('#paper_counter').fadeIn('slow')};
 
         // collect data from table 2             
-        var rowOptions = table2.column(6).nodes();
+        var rowOptions = table2.column(5).nodes();
 
         rowOptions = rowOptions.toArray().map(ele=>$('form', ele).first().data('dict'))
 
@@ -491,10 +491,10 @@ $('#switch_zoom').click(function(){
 eel.expose(js_failed_queue_js);
 function js_failed_queue_js(queue){
     var con = `
-<p class='text-danger'>قد قمت بإختيار عدد كبير من الأسئلة والورقة المكونة مساحتها لا تكفى فتم تجاهل</p>
-<ul style='overflow-y:scroll;height:30vh;' class='bg-light'>`;
-    con = con + queue.map((x) => `<li>${x}</li>`).join('');        
-    con = con + "</ul><small class='text-danger'>يرجى حذف بعض المسائل من جدول المختارات ليتناسب عدد الأسئلة مع حجم الورقة أو قم بتصغير حجم الخط من الإعدادات لتسع الورقة مسائل أكثر</small>";
+<p class='text-danger bold'>قد قمت بإختيار عدد كبير من الأسئلة والورقة المكونة مساحتها لا تكفى فتم تجاهل ${queue.length} أسئلة</p>
+<ul style='overflow-x:scroll;height:10vh;list-style-type: decimal;' class='bg-light'>`;
+    con = con + queue.map((x) => `<li style='display:inline;margin:0px 1px;'>${x} ،</li>`).join('');        
+    con = con + "</ul><small class='text-danger bold'>يرجى حذف بعض المسائل من جدول المختارات ليتناسب عدد الأسئلة مع حجم الورقة أو قم بتصغير 'حجم الخط' من الإعدادات او قم بإلغاء 'الخط الفاصل' لتسع الورقة مسائل أكثر</small>";
     swal_modals = []; // clear swal modals
     // push swal modal
     if (queue.length>0){swal_modals.push({title: 'تحذير', html: con, confirmButtonText:'حسناً', timer:40000})};
@@ -509,7 +509,7 @@ function js_increment_paper_counter(){
 // ptyohn - toast - paper count is more than 1.
 eel.expose(js_alert_paper_count);
 function js_alert_paper_count(){
-    setTimeout(() => { 
+setTimeout(() => { 
         Toast.fire({
             icon: 'info',
             title: 'تم عرض تكوين واحد، اضغط على فتح مكان الحفظ لرؤية البقية.'
