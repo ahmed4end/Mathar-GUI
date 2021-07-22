@@ -1,5 +1,5 @@
 const about_html = `
-<p>هذه الإصدار  يحتوى على بنك أسئلة كتاب المعاصر<br>الصف الثالث الثانوى فى <q>الجبر</q> الترم الأول 2021</p>
+<p>هذه الإصدار  يحتوى على بنك أسئلة كتاب المعاصر<br>الصف الثالث الثانوى فى <q><b>الجبر</b></q> الترم الأول 2021</p>
 <div class='line'></div>
 <fieldset>
 <legend>
@@ -17,6 +17,12 @@ const about_html = `
 </a>
 </div>
 </fieldset>
+<a id='about_toggle' href='#'>عرض المزيد</a>
+<div id='about_more' style='display:none;'>
+<div class='line'></div>
+<p>هذا البرنامج هو عمل فردى يتكون من خوارزميات لرسم المعادلات الرياضية بالنسق الحديث المستخدم فى الكتب المعاصرة للرياضيات</p>
+</div>
+
 `
 
 // about mathar - modal
@@ -26,7 +32,12 @@ $('#about').on('click', function(){
         html   : about_html,
         footer : modal_footer,
         showConfirmButton: false,
+        didOpen: () =>{
+            $('#about_toggle').on('click',function(){
+                $('#about_more').slideToggle('fast')
+                $("#about_toggle").text() ===  'عرض المزيد' ? $(this).text('عرض أقل'): $(this).text('عرض المزيد');
+            })
+            
+        }
     })
 });
-
-//$("#about_more_toggle").text() ===  'عرض المزيد' ? $(this).text('عرض أقل'): $(this).text('عرض المزيد');
