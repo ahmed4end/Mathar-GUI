@@ -626,7 +626,7 @@ table.dataTable thead .sorting_desc {
     margin: 0px;
     border-radius: 50%;
     border: 8px solid #fff;
-    border-color: rgba(var(--prim-color)) transparent rgba(var(--prim-color)) transparent;
+    border-color: var(--prim-color) transparent var(--prim-color) transparent;
     animation: lds-dual-ring 1s linear infinite;
 }
 @keyframes lds-dual-ring {
