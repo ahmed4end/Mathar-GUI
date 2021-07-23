@@ -4,19 +4,20 @@
 
 /* variables */
 :root {
-    --primary-color   :  23, 204, 142;
-    --secondary-color :  24,  58,  86;  
-    --royal-blue      :  63, 106, 244;
-    --azure           :  33, 150, 243;
+    --prim-color      : rgba(23, 204, 142);
+    --sec-color       : rgba(24,  58,  86);  
+    --royal-blue      : rgba(63, 106, 244);
+    --azure           : rgba(33, 150, 243);
     --orange-color    : #fa0; /* not used yet */
-    --primary-gradient   : linear-gradient(to bottom, rgba(35, 236, 167, 1) 0%, rgba(var(--primary-color), 1) 100%); 
-    --secondary-gradient : linear-gradient(to bottom, rgba(34,  77, 112, 1) 0%, rgba(var(--secondary-color), 1) 100%); 
-    --white-gradient     : linear-gradient(to bottom, rgba(255,  255, 255, 1) 0%, rgba(230, 230, 230, 1) 100%); 
-    --light-shadow  : 1px 1px 10px 0.1px rgba(0,0,0,0.2);
-    --dark-shadow   : 5px 5px 20px 0.5px rgba(0,0,0,0.3);
-    --border: 1px solid silver;
-    --border-hover: 1px solid #17CC8E;
-    --border-radius : .6rem;
+    --prim-grad       : linear-gradient(to bottom, rgba(35, 236, 167, 1) 0%, var(--prim-color) 100%); 
+    --sec-grad        : linear-gradient(to bottom, rgba(34,  77, 112, 1) 0%, var(--sec-color) 100%);     
+    --white-grad      : linear-gradient(to bottom, rgba(255,  255, 255, 1) 0%, rgba(230, 230, 230, 1) 100%); 
+    --light-shadow    : 1px 1px 10px 0.1px rgba(0,0,0,0.2);
+    --dark-shadow     : 5px 5px 20px 0.5px rgba(0,0,0,0.3);
+    --border          : 1px solid silver;
+    --border-radius   : 0.6rem;
+    --border-hover    : 1px solid #17CC8E;
+    
 }
 
 @font-face {
@@ -110,7 +111,7 @@ button:focus{
     position: fixed;
     display: flex;
     justify-content: center;
-    background: var(--secondary-gradient);
+    background: var(--sec-grad);
     box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.3);
     z-index: 1;
 
@@ -119,7 +120,7 @@ button:focus{
 .tabs ul {
     list-style-type: decimal;
     text-decoration: none;
-    background: var(--secondary-gradient);
+    background: var(--sec-grad);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -140,7 +141,7 @@ button:focus{
     position: relative;
     height: 100%;
     padding: 0px 25px;
-    background: var(--secondary-gradient);
+    background: var(--sec-grad);
     text-align: center;
     border-right: 1px solid rgba(0, 0, 0, 0.1);
     z-index: 2;
@@ -158,7 +159,7 @@ button:focus{
     width:100%;
     height:100%;
     color:white;
-    background: var(--primary-gradient);
+    background: var(--prim-grad);
     opacity: 0;
     transition: opacity 0.4s;
     z-index: -1;
@@ -178,7 +179,7 @@ button:focus{
 
 .tabs li:hover {
     transition: all .2s ease-in-out; 
-    color: rgba(var(--royal-blue));
+    color: var(--royal-blue);
 }
 
 .tabs li:after {
@@ -188,7 +189,7 @@ button:focus{
     height:3px;
     left:50%;
     bottom: 0;
-    background-color: rgba(var(--royal-blue));
+    background-color: var(--royal-blue);
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     z-index: 1;
 }
@@ -296,7 +297,7 @@ width: 100%;
     position: relative;
     color: white;
     margin: 10px;
-    background: var(--primary-gradient);
+    background: var(--prim-grad);
 }
 
 .bttn2 svg {
@@ -351,7 +352,7 @@ width: 100%;
     display: inline-block;
     font-weight: 700;
     position: relative;
-    background: var(--primary-gradient);
+    background: var(--prim-grad);
     color: #fff;
     font-size: 12px;
     overflow: hidden;
@@ -567,12 +568,12 @@ table.dataTable thead .sorting_desc {
 .tap3_not_yet button {
     background: none;
     border: none;
-    color: rgba(var(--secondary-color));
+    color: var(--sec-color);
     opacity: 0.5;
 }
 
 .tap3_not_yet button:hover {
-    color: rgba(var(--royal-blue));
+    color:var(--royal-blue);
     transition:all .2s ease-in-out;
     opacity: 1;
 }
@@ -625,7 +626,7 @@ table.dataTable thead .sorting_desc {
     margin: 0px;
     border-radius: 50%;
     border: 8px solid #fff;
-    border-color: rgba(var(--primary-color)) transparent rgba(var(--primary-color)) transparent;
+    border-color: rgba(var(--prim-color)) transparent rgba(var(--prim-color)) transparent;
     animation: lds-dual-ring 1s linear infinite;
 }
 @keyframes lds-dual-ring {
@@ -723,7 +724,7 @@ FIELDSET:hover {
 }
 
 FIELDSET:hover legend {
-    color: rgba(var(--royal-blue));
+    color: var(--royal-blue);
     transition: all .3s ease-in-out;
 
 }
@@ -744,7 +745,7 @@ LEGEND{
 }
 
 .form-item:hover .form-item-right {
-    color: rgba(var(--royal-blue));
+    color: var(--royal-blue);
     transition: color 0.3s ease;
 }
 
@@ -793,7 +794,7 @@ LEGEND{
 }
 
 .form-item-left input:checked + label {
-    background: var(--primary-gradient);
+    background: var(--prim-grad);
 
 }
 
@@ -959,11 +960,11 @@ select {
 }
 
 #settings_status h5 {
-    color: rgba(var(--royal-blue));
+    color: var(--royal-blue);
 }
 
 .azure {
-    color: rgba(var(--azure));
+    color: var(--azure);
 }
 
 .orange {
@@ -978,11 +979,15 @@ select {
     position: fixed;
     border: var(--border);
     border-radius: var(--border-radius);
-    background: var(--white-gradient);
+    background: var(--white-grad);
     bottom: 1em;
-    font-weight: 700;
+    font-weight: bold;
     padding: 0.1em .5em;
     box-shadow: var(--light-shadow);
+}
+
+.forum:hover {
+    border: var(--border-hover);
 }
 
 .left {
@@ -994,7 +999,7 @@ select {
 }
 
 .forum:hover, .azure-hover:hover {
-    color: rgba(var(--azure));
+    color: var(--azure);
     transition: color .3s ease;
 }
 
