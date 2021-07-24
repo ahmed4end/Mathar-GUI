@@ -1,5 +1,7 @@
-"use luck";
+"use strict";
 
+
+var license_value = 0
 // tooltips text
 var tooltip_dynamic = 'هذه المسئلة ديناميكة'
 var tooltip_static = 'هذه المسئلة إستاتيكية'
@@ -12,7 +14,7 @@ const icon_book = `<svg width="25" height="25" fill="currentColor" class="bi bi-
 
 const modal_footer = "<span title='creator of mathar'>© Ahmed Shokry</span> — ✉:&nbsp;<span class='selectable azure-hover bold' title='contact email: math4end@gmail.com'>math4end@gmail.com</span>";
 // tables vars
-tables_tanslation = {
+var tables_tanslation = {
     "language": {
         "sLengthMenu": "مدخلات _MENU_ أظهر",
         "sInfo": "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
@@ -32,6 +34,7 @@ tables_tanslation = {
         "emptyTable": 'لا توجد بيانات للعرض — قم بإضافة البعض من جدول المسائل'
     },
 }
+
 const table1_args = {
     "autoWidth":false,
     "lengthChange":true,
@@ -52,7 +55,18 @@ const table1_args = {
         "className": "dt-center", 
         "targets": "_all"
     }], 
+    "rowCallback": function(row, data, displayNum, displayIndex, dataIndex){
+        try{
+            if (!demos.includes(data[2]) && !license_value ){
+                $('.btn_1', row).removeClass('to_table2');
+                $('.btn_1', row).addClass('btn_1-pro');
 
+                $('.btn_1 span', row).text('★أختر')
+            };
+        }catch(err){
+            console.log(err)
+        }
+    },
     "createdRow": function(row, data, dataIndex){
         // tooltip - table 1 - icons on hover tooltip.
         $('.dynamic_lamp', row).hover(function(){
@@ -297,113 +311,5 @@ function disable_dev_buttons(){
         }
     }
 }
-
-
-// License
-
-var license_value = 0
-var attempts = 0 // var to count how many times user tries to enter serial num.
-const license_dict = {
-    0: 'مجانى',
-    1: '★ مدفوع',
-    2: '★★★ مدفوع مميز'
-}
-
-function license_update(level=0) {
-    license_value = level;
-    $('#license_status').text(license_dict[level]);
-    if (level>=1) {
-        $('#license_status').addClass('orange'); 
-    }
-}
-
-async function license_swal() {
-    const { value: serial } = await Swal.fire({
-        title: 'ترقية البرنامج',
-        text: "— لشراء سيريال تواصل مع مطور البرنامج —",
-        input: 'text',
-        inputLabel: 'السيريال',
-        inputPlaceholder: 'رقم السيريال',
-        confirmButtonText: 'تأكيد',
-        inputAttributes: {
-            maxlength: 20,
-            autocapitalize: 'off',
-            autocorrect: 'off'
-        }
-    })
-
-    try {
-        var validation = await eel.python_validate_serial(serial)();
-    } catch (error) {
-        console.error(error);
-        var validation = 0
-        }
-
-    if (validation) { 
-        license_update(1);
-        Swal.fire({
-            icon: 'success',
-            title: 'رقم السيريال صحيح',
-            html: 'تم ترقية البرنامج للنسخة المدفوعة بنجاح<br>يمكنك الأن إستخدام كل المسائل/المميزات بالبرنامج',
-            confirmButtonText:'حسناً',
-        })
-    } else if(!validation && serial) {
-
-        attempts = attempts+1
-        
-        if (attempts<5) {
-            Swal.fire({
-                icon: 'error',
-                title: 'عفواَ هذا السيريال خاطئ',
-                text: 'تواصل مع مطور البرنامج لشراء سيريال لتفعيل البرنامج',
-                confirmButtonText:'حاول مرة آخرى',
-                cancelButtonText: 'حسناً',
-                showCancelButton: true,
-                footer: modal_footer,
-            }).then(function(result){
-                if (result.value){
-                    license_swal()  
-                }
-            });
-        }else{
-            Swal.fire({
-                icon: 'warning',
-                title: 'لقد حاولت كثيراً رجاءاً تمهل',
-                text: 'رجاءاً قدر جهود صانع البرنامج وقم بشراء سيريال لتفعيل البرنامج بشكل قانونى فهذا يساهم فى إستمرار صناعة نسخ آخرى من البرنامج',
-                showConfirmButton: false,
-                footer: modal_footer,
-            })
-            attempts = 0
-        }
-    } else {
-        // exit serial val here.
-    }
-}
-
-$(window).load(async function(){
-    // call python to get serial
-    try {
-        license_value = await eel.python_get_serial_status()() // get license status.
-    } catch {
-        license_value = 0;
-}
-
-        // refresh license status
-        license_update(license_value);
-    $(document).on('click', '#license',function(){
-        if (license_value==0){
-            license_swal();
-        }
-        if (license_value==1){
-            Swal.fire({
-                icon: 'success',
-                html:`— لقد قمت بترقية البرنامج بالفعل —<br><small>شكراً لشرائك البرنامج, دعمك يساهم فى إستمرار صناعة نسخ أخرى</small>`,
-                footer: modal_footer,
-                showConfirmButton: false,
-            });
-        }
-    })
-
-});
 
 

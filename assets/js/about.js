@@ -20,7 +20,7 @@ const about_html = `
 <a id='about_toggle' href='#'>عرض المزيد</a>
 <div id='about_more' style='display:none;'>
 <div class='line'></div>
-<p>هذا البرنامج هو عمل فردى يتكون من خوارزميات لرسم المعادلات الرياضية بالنسق الحديث المستخدم فى الكتب المعاصرة للرياضيات</p>
+<p>هذا البرنامج يتكون من خوارزميات لرسم المعادلات الرياضية بالنسق الحديث المستخدم فى الكتب المعاصرة للرياضيات</p>
 </div>
 
 `
@@ -34,6 +34,7 @@ $('#about').on('click', function(){
         showConfirmButton: false,
         didOpen: () =>{
             $('#about_toggle').on('click',function(){
+                audio.play();
                 $('#about_more').slideToggle('fast')
                 $("#about_toggle").text() ===  'عرض المزيد' ? $(this).text('عرض أقل'): $(this).text('عرض المزيد');
             })

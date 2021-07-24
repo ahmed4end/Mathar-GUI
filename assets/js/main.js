@@ -18,8 +18,6 @@ $(window).load(function() {
 });
 
 /* init public powerfull funcs */
-var btn_select_row = "<form></form><button class='btn_1 icon-plus'><span>أختر</span></button>";
-
 
 function text(txt){ // [DEV] remove it - no need for it.
     return `<div id="textCell">${txt}</div>`;
@@ -31,7 +29,6 @@ function sleep(ms) {
 }
 
 //table funcs.
-
 function table_image_wrapper(image){
     return `<img class="lazyload table_image" data-sizes="auto" data-srcset='./assets/icons/table/${image}.png' alt='${image}'>`
 };
@@ -62,10 +59,6 @@ function table_id_parser(data, type ){
 <div style="display: inline-block;color:grey;" id="table1Id">${data[1]}</div>`
 }
 
-function table_col_last(data, type){
-    return data+btn_select_row
-}
-
 function table_col3(arr) {
     // arr = [unit, lesson, page, prob, node]
     var res = []
@@ -75,10 +68,14 @@ function table_col3(arr) {
         return res.join('<br>')
     }else{
         return '<span class="silver">—</span>'
-    }
-    
+    }   
 }
 
+function table_col_last(data, type){
+    return data+"<form></form><button class='to_table2 btn_1 icon-plus'><span>أختر</span></button>";
+}
+
+const audio = new Audio("assets/btn.wav"); 
 
 $(document).ready(function(){
 
@@ -100,12 +97,11 @@ $(document).ready(function(){
 
     // INIT vars 
     var increament_var = 1
-    const audio = new Audio("assets/btn.wav"); 
 
     //table 1
     var table1 = $('#table1').DataTable( {
 
-        data: dataSet,
+        data: dataset,
         columns: [
             { title: "i.", width: '1%'},
             { title: "id", render: table_id_parser, width: '1%'},
@@ -142,7 +138,7 @@ $(document).ready(function(){
         },
 
     });
-    
+
     // prepare filter options - using lessons var form dataset.js
     var fiter_data = '';
     for (var key in lessons) {
@@ -151,11 +147,11 @@ $(document).ready(function(){
 
     $('.table1_fcon .left').html(
         `
-        <select id='slecet_filter'>
-            <option value='ALL'>الكل</option>
-            ${fiter_data}
-        </select>
-        `
+<select id='slecet_filter'>
+<option value='ALL'>الكل</option>
+${fiter_data}
+</select>
+`
     );
 
     $('.table1_fcon .left').hover(function(){
@@ -196,11 +192,14 @@ $(document).ready(function(){
     const table1_images = $('.lazyload', table1_nodes);
 
     // column 0 - table 1  - draw index increament.
-    table1.on('order.dt search.dt', function () {
-        table1.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
-            cell.innerHTML = i+1;
-        });
-    }).draw();  
+    function enumerate_table1(){
+        table1.on('order.dt search.dt', function () {
+            table1.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                cell.innerHTML = i+1;
+            });
+        }).draw(); 
+    }
+    enumerate_table1()
 
     //btn click sound - table 1.
     table1.on('click', 'button', function() {
@@ -265,50 +264,193 @@ $( "#clearTable" ).click(function() {
     }
 });
 
-// move row from table 1 to table 2 
-table1.on('click', '.btn_1', function () {
+// License
 
-    var row = $(this).closest('tr').clone();
+var attempts = 0 // var to count how many times user tries to enter serial num.
+const license_dict = {
+    0: 'مجانى',
+    1: '★ مدفوع',
+    2: '★★★ مدفوع مميز'
+}
 
-    //get row id.
-    var rowId = row.find('#table1Id').html();
-    //get user input values from form.
-    var userInputValues = JSON.stringify({[rowId] : $('form', row).serializeJSON()})
-    //store user input values in form tag.
-    $('form', row).attr('data-dict', userInputValues);
-
-    //fire toast.
-    Toast.fire({
-        icon: 'info',
-        title: `لجدول المختارات ${rowId} تم إضافة`
+function unlock_table1(){ // replace table1 pro btns with to_table2 btns.
+    table1.rows().each(function(index){
+        var row = table1.row(index).data()
+        $('.btn_1', row).removeClass('btn_1-pro');
+        $('.btn_1', row).addClass('to_table2');
+        $('.btn_1 span', row).text('أختر')
+        table1.row(index).data(row).draw();
+        table1.column(5).cells().invalidate()
+        enumerate_table1()
     });
+}
 
-    //remove button of row.
-    var optionsT1 = row.find('td:last-child');
-    optionsT1.find('button').remove();
+function license_update(level=0) {
+    license_value = level;
+    $('#license_status').text(license_dict[level]);
+    if (level>=1) {
+        $('#license_status').addClass('orange'); 
+    }
+}
 
-    // convert inputs to <p> -> table 2.
-    $('input', optionsT1).each(function() {
-        $(this).replaceWith('<label id="'+this.id+'">'+this.value+'</label>');
+async function license_swal() {
+    const { value: serial } = await Swal.fire({
+        title: 'ترقية البرنامج',
+        text: "— لشراء سيريال تواصل مع مطور البرنامج —",
+        input: 'text',
+        inputLabel: 'السيريال',
+        inputPlaceholder: 'رقم السيريال',
+        confirmButtonText: 'تأكيد',
+        inputAttributes: {
+            maxlength: 20,
+            autocapitalize: 'off',
+            autocorrect: 'off'
+        }
+    })
+
+    try {
+        var validation = await eel.python_validate_serial(serial)();
+    } catch (error) {
+        console.error(error);
+        var validation = 0
+        }
+
+    if (validation) { 
+        license_update(1);
+        Swal.fire({
+            icon: 'success',
+            title: 'السيريال صحيح',
+            html: 'تم ترقية البرنامج للنسخة المدفوعة بنجاح<br>يمكنك الأن إستخدام كل المسائل/المميزات بالبرنامج',
+            confirmButtonText:'حسناً',
+        });
+        unlock_table1()
+
+    } else if(!validation && serial) {
+
+        attempts = attempts+1
+
+        if (attempts<5) {
+            Swal.fire({
+                icon: 'error',
+                title: 'عفواَ هذا السيريال خاطئ',
+                text: 'تواصل مع مطور البرنامج لشراء سيريال لتفعيل البرنامج',
+                confirmButtonText:'حاول مرة آخرى',
+                cancelButtonText: 'حسناً',
+                showCancelButton: true,
+                footer: modal_footer,
+            }).then(function(result){
+                if (result.value){
+                    license_swal()  
+                }
+            });
+        }else{
+            Swal.fire({
+                icon: 'warning',
+                title: 'لقد حاولت كثيراً رجاءاً تمهل',
+                text: 'رجاءاً قدر جهود صانع البرنامج وقم بشراء سيريال لتفعيل البرنامج بشكل قانونى فهذا يساهم فى إستمرار صناعة نسخ آخرى من البرنامج',
+                showConfirmButton: false,
+                footer: modal_footer,
+            })
+            attempts = 0
+        }
+    } else {
+        // exit serial val here.
+    }
+}
+
+async function init_license(){
+    // call python to get license status
+    try { 
+        license_value = await eel.python_get_serial_status()(); 
+    } catch {
+        license_value = 0;
+}
+
+        // refresh license status
+        license_update(license_value);
+
+    if (license_value==1){ // replace btns if license status == 1
+        unlock_table1()
+    }
+
+    $(document).on('click', '#license',function(){
+        if (license_value==0){
+            license_swal();
+        }
+        if (license_value==1){
+            Swal.fire({
+                icon: 'success',
+                html:`— لقد قمت بترقية البرنامج بالفعل —<br><small>شكراً لشرائك البرنامج, دعمك يساهم فى إستمرار صناعة نسخ أخرى</small>`,
+                footer: modal_footer,
+                showConfirmButton: false,
+            });
+        }
+    })
+
+    // pro btn event
+    table1.on('click', 'button', function () {
+        if ($(this).hasClass('btn_1-pro')){
+            Swal.fire({
+                title: '—ترقية البرنامج—',
+                text: 'يرجى شراء سيريال لتفعيل البرنامج للتمكن من أستخدام كافة المسائل ومميزات البرنامج',
+                confirmButtonText: 'إدخل السيريال',
+                cancelButtonText: 'حسناً',
+                showCancelButton: true,
+                footer: modal_footer,
+            }).then(function(res){
+                if(res.isConfirmed){
+                    license_swal()
+                }
+            })
+        }
+        if ($(this).hasClass('to_table2')){
+            var row = $(this).closest('tr').clone();
+
+            //get row id.
+            var rowId = row.find('#table1Id').html();
+            //get user input values from form.
+            var userInputValues = JSON.stringify({[rowId] : $('form', row).serializeJSON()})
+            //store user input values in form tag.
+            $('form', row).attr('data-dict', userInputValues);
+
+            //fire toast.
+            Toast.fire({
+                icon: 'info',
+                title: `لجدول المختارات ${rowId} تم إضافة`
+            });
+
+            //remove button of row.
+            var optionsT1 = row.find('td:last-child');
+            optionsT1.find('button').remove();
+
+            // convert inputs to <p> -> table 2.
+            $('input', optionsT1).each(function() {
+                $(this).replaceWith('<label id="'+this.id+'">'+this.value+'</label>');
+            });
+            optionsT1 = optionsT1.html();
+
+            //remove options cell before adding the row to table 2.
+            row.find('td:last-child').remove();
+            row.find('td:first-child').html(increament_var);
+            increament_var = increament_var + 1
+
+            //processing the row then adding it to table 2 .
+            row = row.append('<th>'+optionsT1+'<button class="r_b_s btn_1 icon-remove"><span>إزالة</span></button></th>');
+            row  = row.html();
+            table2.row.add($('<tr>'+row+'</tr>')).draw();
+
+            //button sound on click - table 2.
+            $(".r_b_s").on('click', function() { 
+                audio.play();
+            });
+        }
     });
-    optionsT1 = optionsT1.html();
+}
 
-    //remove options cell before adding the row to table 2.
-    row.find('td:last-child').remove();
-    row.find('td:first-child').html(increament_var);
-    increament_var = increament_var + 1
+// init License func
+init_license()
 
-    //processing the row then adding it to table 2 .
-    row = row.append('<th>'+optionsT1+'<button class="r_b_s btn_1 icon-remove"><span>إزالة</span></button></th>');
-    row  = row.html();
-    table2.row.add($('<tr>'+row+'</tr>')).draw();
-
-    //button sound on click - table 2.
-    $(".r_b_s").on('click', function() { 
-        audio.play();
-    });
-});
-
+// END - license
 
 // remove row - table 2
 $('#table2 tbody').on( 'click', '.btn_1', function () {
@@ -509,7 +651,7 @@ function js_increment_paper_counter(){
 // ptyohn - toast - paper count is more than 1.
 eel.expose(js_alert_paper_count);
 function js_alert_paper_count(){
-setTimeout(() => { 
+    setTimeout(() => { 
         Toast.fire({
             icon: 'info',
             title: 'تم عرض تكوين واحد، اضغط على فتح مكان الحفظ لرؤية البقية.'
@@ -532,9 +674,9 @@ $('.form-item-left input').click(function(){
 // toggle steps - event - tab3
 $('#tap3_toggle_steps').on('click', function(){
     if ($('.tap3_instructions').css('display')=='none'){
-        $('.tap3_instructions').animate({height:'toggle'});
+        $('.tap3_instructions').slideToggle();
     } else {
-        $('.tap3_instructions').animate({height:'toggle'});
+        $('.tap3_instructions').slideToggle();
     }
 });
 
@@ -555,4 +697,3 @@ $('input').submit(function(e) {
         alert($(this).val());
     }
 });
-

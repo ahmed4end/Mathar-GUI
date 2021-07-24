@@ -12,6 +12,7 @@
     --prim-grad       : linear-gradient(to bottom, rgba(35, 236, 167, 1) 0%, var(--prim-color) 100%); 
     --sec-grad        : linear-gradient(to bottom, rgba(34,  77, 112, 1) 0%, var(--sec-color) 100%);     
     --white-grad      : linear-gradient(to bottom, rgba(255,  255, 255, 1) 0%, rgba(230, 230, 230, 1) 100%); 
+    --gold-grad       : linear-gradient(to bottom, #FFFC21, #DBD94F);
     --light-shadow    : 1px 1px 10px 0.1px rgba(0,0,0,0.2);
     --dark-shadow     : 5px 5px 20px 0.5px rgba(0,0,0,0.3);
     --border          : 1px solid silver;
@@ -343,8 +344,6 @@ width: 100%;
     -webkit-font-smoothing: antialiased;
 }
 
-
-
 .btn_1 {
     border: none;
     cursor: pointer;
@@ -364,6 +363,10 @@ width: 100%;
     transition: all 0.3s;
     border-radius: .3rem;
     margin: 10px;
+}
+
+.btn_1-pro {
+    background: var(--gold-grad) !important;
 }
 
 .btn_1:active{
@@ -569,7 +572,7 @@ table.dataTable thead .sorting_desc {
     background: none;
     border: none;
     color: var(--sec-color);
-    opacity: 0.5;
+    opacity: 0.8;
 }
 
 .tap3_not_yet button:hover {
