@@ -182,7 +182,7 @@ $(document).ready(function(){
 
 
     // tooltips config.
-    tippy.setDefaultProps({delay: [500, 150]});
+    tippy.setDefaultProps({delay: [400, 150]});
     tippy('[data-tippy-content]'); // [BUG]table 1 pages other than 1 does not work with tippy
     //////////////////
 
