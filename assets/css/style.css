@@ -12,7 +12,7 @@
     --prim-grad       : linear-gradient(to bottom, rgba(35, 236, 167, 1) 0%, var(--prim-color) 100%); 
     --sec-grad        : linear-gradient(to bottom, rgba(34,  77, 112, 1) 0%, var(--sec-color) 100%);     
     --white-grad      : linear-gradient(to bottom, rgba(255,  255, 255, 1) 0%, rgba(230, 230, 230, 1) 100%); 
-    --gold-grad       : linear-gradient(to bottom, #FFFC21, #DBD94F);
+    --gold-grad       : linear-gradient(to bottom, #FFF600 0%, #F0E700 100%);
     --light-shadow    : 1px 1px 10px 0.1px rgba(0,0,0,0.2);
     --dark-shadow     : 5px 5px 20px 0.5px rgba(0,0,0,0.3);
     --border          : 1px solid silver;

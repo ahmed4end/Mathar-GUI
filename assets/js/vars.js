@@ -118,7 +118,7 @@ var color_probs  = 'black';
 var color_answer = 'green';
 var color_numing = '#4b5d67';
 var sep_line     = 1; //boolean
-var border_style = 1;
+var border_style = 0;
 var n_style      = "circle";
 
 async function python_update_config_js(config){ // call python to update config

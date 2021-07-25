@@ -290,6 +290,7 @@ function license_update(level=0) {
     $('#license_status').text(license_dict[level]);
     if (level>=1) {
         $('#license_status').addClass('orange'); 
+        unlock_table1()
     }
 }
 
@@ -369,10 +370,6 @@ async function init_license(){
         // refresh license status
         license_update(license_value);
 
-    if (license_value==1){ // replace btns if license status == 1
-        unlock_table1()
-    }
-
     $(document).on('click', '#license',function(){
         if (license_value==0){
             license_swal();
@@ -392,7 +389,11 @@ async function init_license(){
         if ($(this).hasClass('btn_1-pro')){
             Swal.fire({
                 title: '—ترقية البرنامج—',
-                text: 'يرجى شراء سيريال لتفعيل البرنامج للتمكن من أستخدام كافة المسائل ومميزات البرنامج',
+                text: '',
+                html: `
+                    <p>يرجى شراء سيريال لتفعيل البرنامج للتمكن من أستخدام كافة المسائل والمميزات</p>
+                    <small><q>المسائل ذات اللون الذهبى تحتاج لترقية البرنامج لإستخدامها</q></small>
+                    `,
                 confirmButtonText: 'إدخل السيريال',
                 cancelButtonText: 'حسناً',
                 showCancelButton: true,
