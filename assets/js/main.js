@@ -14,7 +14,7 @@ $(window).keydown(function(event){
 
 //preloader config
 $(window).load(function() {
-    $(".preloader").delay(500).fadeOut("smooth");
+    $(".preloader").delay(1000).fadeOut("smooth");
 });
 
 /* init public powerfull funcs */
