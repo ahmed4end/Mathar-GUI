@@ -2,7 +2,7 @@
 'use strict';
 
 // disable dev buttons
-disable_dev_buttons()
+//disable_dev_buttons()
 
 // stop input fro submitting on enter.
 $(window).keydown(function(event){
@@ -14,7 +14,7 @@ $(window).keydown(function(event){
 
 //preloader config
 $(window).load(function() {
-    $(".preloader").delay(1000).fadeOut("smooth");
+    $(".preloader").delay(0).fadeOut("smooth");
 });
 
 /* init public powerfull funcs */
@@ -270,19 +270,22 @@ var attempts = 0 // var to count how many times user tries to enter serial num.
 const license_dict = {
     0: 'مجانى',
     1: '★ مدفوع',
-    2: '★★★ مدفوع مميز'
 }
 
 function unlock_table1(){ // replace table1 pro btns with to_table2 btns.
-    table1.rows().each(function(index){
-        var row = table1.row(index).data()
-        $('.btn_1', row).removeClass('btn_1-pro');
-        $('.btn_1', row).addClass('to_table2');
-        $('.btn_1 span', row).text('أختر')
-        table1.row(index).data(row).draw();
-        table1.column(5).cells().invalidate()
-        enumerate_table1()
+    Swal.fire({
+        title: '<h1 class="azure">جارى ترقية البرنامج للنسخة المدفوعة</h1>',
+        text: 'شكراً لشرائك البرنامج, لقد ساهمت بإستمرار تطويره ',
+        timer: 2000,
+        didOpen: ()=>{
+            Swal.showLoading();
+            // update table 
+            table1.rows().remove().draw();
+            table1.rows.add(dataset).draw();
+        },
     });
+    // empty demos
+    demos = [];
 }
 
 function license_update(level=0) {
@@ -366,7 +369,6 @@ async function init_license(){
     } catch {
         license_value = 0;
 }
-
         // refresh license status
         license_update(license_value);
 
@@ -391,9 +393,9 @@ async function init_license(){
                 title: '—ترقية البرنامج—',
                 text: '',
                 html: `
-                    <p>يرجى شراء سيريال لتفعيل البرنامج للتمكن من أستخدام كافة المسائل والمميزات</p>
-                    <small><q>المسائل ذات اللون الذهبى تحتاج لترقية البرنامج لإستخدامها</q></small>
-                    `,
+<p>يرجى شراء سيريال لتفعيل البرنامج للتمكن من أستخدام كافة المسائل والمميزات</p>
+<small><q>المسائل ذات اللون الذهبى تحتاج لترقية البرنامج لإستخدامها</q></small>
+`,
                 confirmButtonText: 'إدخل السيريال',
                 cancelButtonText: 'حسناً',
                 showCancelButton: true,

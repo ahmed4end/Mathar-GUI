@@ -35,6 +35,8 @@ var tables_tanslation = {
     },
 }
 
+var demos = ['title'] // debug - make a copy in app.py in case of this one is hacked.
+
 const table1_args = {
     "autoWidth":false,
     "lengthChange":true,
@@ -55,16 +57,15 @@ const table1_args = {
         "className": "dt-center", 
         "targets": "_all"
     }], 
-    "rowCallback": function(row, data, displayNum, displayIndex, dataIndex){
+    "rowCallback": async function(row, data, displayNum, displayIndex, dataIndex){
         try{
             if (!demos.includes(data[2]) && !license_value ){
                 $('.btn_1', row).removeClass('to_table2');
                 $('.btn_1', row).addClass('btn_1-pro');
-
                 $('.btn_1 span', row).text('★أختر')
             };
         }catch(err){
-            console.log(err)
+            //alert(err)
         }
     },
     "createdRow": function(row, data, dataIndex){
