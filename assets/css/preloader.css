@@ -83,9 +83,9 @@
         transform: translate(24px, 0);
     }
 }
+
 .preloader-footer {
-    position: absolute;
-    bottom: 10;
-    right: 10;
-    margin:0;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
 }
