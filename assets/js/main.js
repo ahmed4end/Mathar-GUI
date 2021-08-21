@@ -14,7 +14,7 @@ $(window).keydown(function(event){
 
 //preloader config
 $(window).load(function() {
-    $(".preloader").delay(500).fadeOut("smooth");
+    $(".preloader").delay(0).fadeOut("smooth");
 });
 
 /* init public powerfull funcs */
@@ -351,7 +351,7 @@ async function license_swal() {
             Swal.fire({
                 icon: 'warning',
                 title: 'لقد حاولت كثيراً رجاءاً تمهل',
-                text: 'رجاءاً قدر جهود صانع البرنامج وقم بشراء سيريال لتفعيل البرنامج بشكل قانونى فهذا يساهم فى إستمرار صناعة نسخ آخرى من البرنامج',
+                text: 'رجاءاً قدر جهود صانع البرنامج وقم بشراء سيريال لتفعيل البرنامج بشكل قانونى للمساهمة فى إستمرار تطوير وصناعة نسخ آخرى من البرنامج',
                 showConfirmButton: false,
                 footer: modal_footer,
             })
