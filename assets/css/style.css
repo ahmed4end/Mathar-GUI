@@ -18,7 +18,8 @@
     --border          : 1px solid silver;
     --border-radius   : 0.6rem;
     --border-hover    : 1px solid #17CC8E;
-
+	
+	--tabs-height: 70px;
 }
 
 * {
@@ -99,7 +100,7 @@ button:focus{
 -----------------------------------------------------------------------*/
 .tabs {
     width: 100%;
-    height: 70px;
+    height: var(--tabs-height);
     position: fixed;
     display: flex;
     justify-content: center;
@@ -200,7 +201,7 @@ button:focus{
 .tabs-content {
     position: relative;
     z-index: 2;
-    top: 70px;
+    top: var(--tabs-height);
     background: white;
     height: 100vh;
 }
@@ -209,12 +210,12 @@ button:focus{
     overflow-y: auto;
     overflow-x: hidden;
     display: none;
-    height: calc(100% - 70px); /* this calc to make the scroll bar moves in proper way.*/
+    height: calc(100% - var(--tabs-height)); /* this calc to make the scroll bar moves in proper way.*/
 }
 
 /* make first tab only with less height -140px the other as default */
 .tabs-panel[data-index="0"] {
-    height: calc(100% - 140px);
+    height: calc(100% - 2*var(--tabs-height));
 }
 
 .tabs-panel[data-index="1"] {
@@ -496,7 +497,7 @@ table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
     padding: none; 
     padding-top: 5px;
     position: fixed;
-    height: 70px;
+    height: var(--tabs-height);
     background-color: white;
     width: 100%;
     bottom: 0;
@@ -525,9 +526,16 @@ table.dataTable thead .sorting_desc {
 -----------------------------------------------------------------------*/
 
 .tap3_viewer {
+	position: relative;
     border: var(--border);
-    overflow: hidden;
-    transform: all .3s ease-in-out;
+	height: 100%;
+	width: 100%;
+}
+
+.openseadragon-container {
+	top: var(--tabs-height);
+	height: 100% !important;
+	position: absolute !important;
 }
 
 /* zoom icons */ 
