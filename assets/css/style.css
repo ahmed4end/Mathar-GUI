@@ -534,19 +534,20 @@ table.dataTable thead .sorting_desc {
 
 .openseadragon-container {
 	top: var(--tabs-height);
-	height: 100% !important;
 	position: absolute !important;
 }
 
 /* zoom icons */ 
 .openseadragon-container img[alt="Zoom in"] {
     margin: 10px 7px 0 10px !important;
+	cursor: pointer;
 }
 
 .openseadragon-container img[alt="Zoom out"],
 .openseadragon-container img[alt="Go home"],
 .openseadragon-container img[alt="Toggle full page"] {
     margin: 10px 7px 0 0 !important;
+	cursor: pointer;
 }
 
 /* txt before result */ 
@@ -556,6 +557,7 @@ table.dataTable thead .sorting_desc {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+	z-index: 1;
 }
 
 .tap3_not_yet button {
