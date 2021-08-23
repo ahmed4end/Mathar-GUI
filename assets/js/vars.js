@@ -313,4 +313,9 @@ function disable_dev_buttons(){
     }
 }
 
+$('#watermark').on('click', function(){
+	Swal.fire({title: 'watermark'})
+	// DIV
+})
+
 
