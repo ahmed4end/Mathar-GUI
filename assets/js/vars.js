@@ -62,7 +62,7 @@ const table1_args = {
             if (!demos.includes(data[2]) && !license_value ){
                 $('.btn_1', row).removeClass('to_table2');
                 $('.btn_1', row).addClass('btn_1-pro');
-                $('.btn_1 span', row).text('★أختر')
+                $('.btn_1 span', row).text('أختر')
             };
         }catch(err){
             //alert(err)
@@ -121,6 +121,7 @@ var color_numing = '#4b5d67';
 var sep_line     = 1; //boolean
 var border_style = 0;
 var n_style      = "circle";
+var signature    = ""
 
 async function python_update_config_js(config){ // call python to update config
     await eel.python_update_config(config)
@@ -147,7 +148,8 @@ function save_settings(){
         'color_numing' : color_numing,   
         'sep_line'     : sep_line,
         'border_style' : border_style,
-        'n_style'      : n_style
+        'n_style'      : n_style,
+		'signature'    : signature,
     };
 
     // fire status bar for specific time.
@@ -171,6 +173,11 @@ $('#border_style').on('change', function(){
 
 $('#n_style').on('change', function(){
     n_style = this.value
+    save_settings()
+});
+
+$('#signature').on('change paste', function(){
+    signature = this.value
     save_settings()
 });
 
@@ -314,7 +321,7 @@ function disable_dev_buttons(){
 }
 
 $('#watermark').on('click', function(){
-	Swal.fire({title: 'watermark'})
+	//Swal.fire({title: 'watermark'})
 	// DIV
 })
 
