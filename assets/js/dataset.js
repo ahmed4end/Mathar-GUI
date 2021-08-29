@@ -12,7 +12,7 @@ var lessons = {
 }
 
 var dataset = [
-	["","s title","title",[],"عنوان","<form style=''><input name='title' value='عنوان رئيسى' type='text' placeholder='عنوان رئيسى'><label style='display:none;'>:العنوان</label></form>"],
+	["","s title","title",[],"عنوان","<form style=''><input name='title' value='عنوان رئيسى' type='text' placeholder='عنوان رئيسى' dir='auto'><label style='display:none;'>:العنوان</label></form>"],
 	["عدد طرق اختيار فريق من أشخاص من بين شخصاً يساوى", "h1_1", "h1_1", [37,1], lessons[1], ""],
 	["بكم طريقة يمكن لحسام أن يتناول وجبة ومشروباً من ثلاثة وجبات وشروبين", "h1_2", "h1_2", [37,2], lessons[1], ""],
 	["اشترك لاعباً من مبابقة للسباحة، كم طريقة يمكن بها ترتيب المركز الأول والثانى والثالث؟", "h1_3", "h1_3", [37,3], lessons[1], ""],
