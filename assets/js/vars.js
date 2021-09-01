@@ -120,7 +120,7 @@ var color_answer = 'green';
 var color_numing = '#4b5d67';
 var sep_line     = 1; //boolean
 var border_style = 0;
-var n_style      = "circle";
+var numeration_style      = "circle";
 var signature    = ""
 
 async function python_update_config_js(config){ // call python to update config
@@ -148,7 +148,7 @@ function save_settings(){
         'color_numing' : color_numing,   
         'sep_line'     : sep_line,
         'border_style' : border_style,
-        'n_style'      : n_style,
+        'numeration_style'      : numeration_style,
 		'signature'    : signature,
     };
 
@@ -171,8 +171,8 @@ $('#border_style').on('change', function(){
     save_settings()
 });
 
-$('#n_style').on('change', function(){
-    n_style = this.value
+$('#numeration_style').on('change', function(){
+    numeration_style = this.value
     save_settings()
 });
 
