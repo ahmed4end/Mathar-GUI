@@ -901,6 +901,7 @@ select {
 	color: inherit;
 	background-color: white;
 	height: 40px;
+	text-align: center;
 	text-align-last: center;
 	display: block;
 	width: 100%;
