@@ -15,90 +15,92 @@ const icon_book = `<svg width="25" height="25" fill="currentColor" class="bi bi-
 const modal_footer = "<span title='creator of mathar'>© Ahmed Shokry</span> — ✉:&nbsp;<span class='selectable azure-hover bold' title='contact email: math4end@gmail.com'>math4end@gmail.com</span>";
 // tables vars
 var tables_tanslation = {
-    "language": {
-        "sLengthMenu": "مدخلات _MENU_ أظهر",
-        "sInfo": "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
-        "sInfoEmpty": "يعرض 0 إلى 0 من أصل 0 سجل",
-        "sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
-        "sInfoPostFix": "",
-        "sSearch": "ابحث:",
-        "search": "_INPUT_"+`<div class='search-icon'>${icon_search}</div>`,
-        "sUrl": "",
-        "oPaginate": {
-            "sFirst": "الأول",
-            "sPrevious": "السابق",
-            "sNext": "التالي",
-            "sLast": "الأخير"
-        },
-        "zeroRecords": 'لم يتم العثور على سجلات مطابقة',
-        "emptyTable": 'لا توجد بيانات للعرض — قم بإضافة البعض من جدول المسائل'
-    },
+	"language": {
+		"sLengthMenu": "مدخلات _MENU_ أظهر",
+		"sInfo": "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
+		"sInfoEmpty": "يعرض 0 إلى 0 من أصل 0 سجل",
+		"sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
+		"sInfoPostFix": "",
+		"sSearch": "ابحث:",
+		"search": "_INPUT_" + `<div class='search-icon'>${icon_search}</div>`,
+		"sUrl": "",
+		"oPaginate": {
+			"sFirst": "الأول",
+			"sPrevious": "السابق",
+			"sNext": "التالي",
+			"sLast": "الأخير"
+		},
+		"zeroRecords": 'لم يتم العثور على سجلات مطابقة',
+		"emptyTable": 'لا توجد بيانات للعرض — قم بإضافة البعض من جدول المسائل'
+	},
 }
 
 var demos = ['title'] // debug - make a copy in app.py in case of this one is hacked.
 
 const table1_args = {
-    "autoWidth":false,
-    "lengthChange":true,
-    "paging":true,
-    "pageLength": 25,
-    "lengthMenu": [ 25, 50, 100, 200, 800 ],
-    "bPaginate":false,
-    "order": [],
-    "bAutoWidth": false,
-    "bInfo":true,
-    "dom": '<"top"><"table1_fcon"<"left"><f><"right">><t><"#margin5px"><"clear"><"footerContainer"lp>',
-    "rowReorder":false,
-    ...tables_tanslation,
-    "columnDefs": [{
-        "searchable": true,
-        "orderable": false,
-        "targets": 0,
-        "className": "dt-center", 
-        "targets": "_all"
-    }], 
-    "rowCallback": async function(row, data, displayNum, displayIndex, dataIndex){
-        try{
-            if (!demos.includes(data[2]) && !license_value ){
-                $('.btn_1', row).removeClass('to_table2');
-                $('.btn_1', row).addClass('btn_1-pro');
-                $('.btn_1 span', row).text('أختر')
-            };
-        }catch(err){
-            //alert(err)
-        }
-    },
-    "createdRow": function(row, data, dataIndex){
-        // tooltip - table 1 - icons on hover tooltip.
-        $('.dynamic_lamp', row).hover(function(){
-            tippy(`.dynamic_lamp`, {
-                content: tooltip_dynamic,
-            });
-        });
-        $('.static_lamp', row).hover(function(){
-            tippy(`.static_lamp`, {
-                content: tooltip_static,
-            });
-        });
+	"autoWidth": false,
+	"lengthChange": true,
+	"paging": true,
+	"pageLength": 25,
+	"lengthMenu": [25, 50, 100, 200, 800],
+	"bPaginate": false,
+	"order": [],
+	"bAutoWidth": false,
+	"bInfo": true,
+	"dom": '<"top"><"table1_fcon"<"left"><f><"right">><t><"#margin5px"><"clear"><"footerContainer"lp>',
+	"rowReorder": false,
+	...tables_tanslation,
+	"columnDefs": [{
+		"searchable": true,
+		"orderable": false,
+		"targets": 0,
+		"className": "dt-center",
+		"targets": "_all"
+    }],
+	"rowCallback": async function (row, data, displayNum, displayIndex, dataIndex) {
+		try {
+			if (!demos.includes(data[2]) && !license_value) {
+				$('.btn_1', row).removeClass('to_table2');
+				$('.btn_1', row).addClass('btn_1-pro');
+				$('.btn_1 span', row).text('أختر')
+			};
+		} catch (err) {
+			//alert(err)
+		}
+	},
+	"createdRow": function (row, data, dataIndex) {
+		// tooltip - table 1 - icons on hover tooltip.
+		$('.dynamic_lamp', row).hover(function () {
+			tippy(`.dynamic_lamp`, {
+				content: tooltip_dynamic,
+			});
+		});
+		$('.static_lamp', row).hover(function () {
+			tippy(`.static_lamp`, {
+				content: tooltip_static,
+			});
+		});
 
-    },
+	},
 }
 
 const table2_args = {
-    "rowReorder": {"selector": 'td:not(:last-child)'},
-    "lengthChange":false,
-    "bFilter": false,
-    "bLengthChange": false,
-    "bAutoWidth": false,
-    "bPaginate": false,
-    "bInfo":false,
-    ...tables_tanslation,
-    "columnDefs": [{
-        "searchable": true,
-        "orderable": false,
-        "targets": 0,
-        "className": "dt-center reorder", //row reorder - class 'reorder' changes cursor icon on hover.
-        "targets": "_all"
+	"rowReorder": {
+		"selector": 'td:not(:last-child)'
+	},
+	"lengthChange": false,
+	"bFilter": false,
+	"bLengthChange": false,
+	"bAutoWidth": false,
+	"bPaginate": false,
+	"bInfo": false,
+	...tables_tanslation,
+	"columnDefs": [{
+		"searchable": true,
+		"orderable": false,
+		"targets": 0,
+		"className": "dt-center reorder", //row reorder - class 'reorder' changes cursor icon on hover.
+		"targets": "_all"
     }],
 
 }
@@ -110,219 +112,218 @@ const table2_args = {
 //////////////////////
 
 // settings vars 
-var font_name    = 'Yakout';
-var font_size    = 70;
-var paper_count  = 1;
-var is_random    = 0;
-var color_title  = 'black';
-var color_probs  = 'black';
+var font_name = 'Yakout';
+var font_size = 70;
+var paper_count = 1;
+var is_random = 0;
+var color_title = 'black';
+var color_probs = 'black';
 var color_answer = 'green';
 var color_numing = '#4b5d67';
-var sep_line     = 1; //boolean
+var sep_line = 1; //boolean
 var border_style = 0;
-var numeration_style      = "circle";
-var signature    = ""
+var numeration_style = "circle";
+var signature = ""
 
-async function python_update_config_js(config){ // call python to update config
-    await eel.python_update_config(config)
+async function python_update_config_js(config) { // call python to update config
+	await eel.python_update_config(config)
 };
 
 // show update text on tab 4 settings when settings are changed by user.
-function show_update_statuts(){
-    $('#settings_status').fadeIn("slow");
-    setTimeout(function () {
-        $('#settings_status').fadeOut("slow");
-    }, 4000);
+function show_update_statuts() {
+	$('#settings_status').fadeIn("slow");
+	setTimeout(function () {
+		$('#settings_status').fadeOut("slow");
+	}, 4000);
 };
 
 // collect data and update config
-function save_settings(){
-    var settings_config = {
-        'font_name'    : font_name,
-        'font_size'    : font_size,
-        'paper_count'  : paper_count,
-        'is_random'    : is_random,
-        'color_title'  : color_title,
-        'color_probs'  : color_probs,
-        'color_answer' : color_answer,
-        'color_numing' : color_numing,   
-        'sep_line'     : sep_line,
-        'border_style' : border_style,
-        'numeration_style'      : numeration_style,
-		'signature'    : signature,
-    };
+function save_settings() {
+	var settings_config = {
+		'font_name': font_name,
+		'font_size': font_size,
+		'paper_count': paper_count,
+		'is_random': is_random,
+		'color_title': color_title,
+		'color_probs': color_probs,
+		'color_answer': color_answer,
+		'color_numing': color_numing,
+		'sep_line': sep_line,
+		'border_style': border_style,
+		'numeration_style': numeration_style,
+		'signature': signature,
+	};
 
-    // fire status bar for specific time.
-    show_update_statuts()
+	// fire status bar for specific time.
+	show_update_statuts()
 
-    // update python config.
-    python_update_config_js(settings_config);
+	// update python config.
+	python_update_config_js(settings_config);
 }
 
 // settings events
 
-$('#font_name').on('change', function(){
-    font_name = this.value
-    save_settings()
+$('#font_name').on('change', function () {
+	font_name = this.value
+	save_settings()
 });
 
-$('#border_style').on('change', function(){
-    border_style = this.value
-    save_settings()
+$('#border_style').on('change', function () {
+	border_style = this.value
+	save_settings()
 });
 
-$('#numeration_style').on('change', function(){
-    numeration_style = this.value
-    save_settings()
+$('#numeration_style').on('change', function () {
+	numeration_style = this.value
+	save_settings()
 });
 
-$('#signature').on('change paste', function(){
-    signature = this.value
-    save_settings()
+$('#signature').on('change paste', function () {
+	signature = this.value
+	save_settings()
 });
 
-$('#font_size').on('change paste', function(){
-    if (this.value>120){ // validate max value
-        $('#font_size').prop('value', '120');
-    };
-    if (this.value<40){ // validate min value
-        $('#font_size').prop('value', '40');
-    };
-    font_size = this.value;
+$('#font_size').on('change paste', function () {
+	if (this.value > 120) { // validate max value
+		$('#font_size').prop('value', '120');
+	};
+	if (this.value < 40) { // validate min value
+		$('#font_size').prop('value', '40');
+	};
+	font_size = this.value;
 
-    save_settings()
+	save_settings()
 });
 
-$('#paper_count').on('change', function(){
-    paper_count = this.value
-    if (this.value<1){ // validate min value
-        $('#paper_count').prop('value', '1');
-    };
-    paper_count = this.value
-    save_settings()
+$('#paper_count').on('change', function () {
+	paper_count = this.value
+	if (this.value < 1) { // validate min value
+		$('#paper_count').prop('value', '1');
+	};
+	paper_count = this.value
+	save_settings()
 });
 
-$('#sep_line').click(function(){
-    if ( $(this).is(':checked') ){
-        console.log('sep_line: on');
-        sep_line = 1;
-    }
-    else {
-        console.log('sep_line: off');
-        sep_line = 0;
-    }
+$('#sep_line').click(function () {
+	if ($(this).is(':checked')) {
+		console.log('sep_line: on');
+		sep_line = 1;
+	} else {
+		console.log('sep_line: off');
+		sep_line = 0;
+	}
 
-    save_settings()
+	save_settings()
 });
 
-$('#is_random').click(function(){
-    if ( $(this).is(':checked') ){
-        console.log('is_random: on');
-        is_random = 1;
-    }
-    else {
-        console.log('is_random: off');
-        is_random = 0;
-    }
+$('#is_random').click(function () {
+	if ($(this).is(':checked')) {
+		console.log('is_random: on');
+		is_random = 1;
+	} else {
+		console.log('is_random: off');
+		is_random = 0;
+	}
 
-    save_settings()
-});
-
-$('#color_title').on('change', function(){
-    color_title = this.value
-    save_settings()
-});
-$('#color_probs').on('change', function(){
-    color_probs = this.value
-    save_settings()
-});
-$('#color_answer').on('change', function(){
-    color_answer = this.value;
-    save_settings()
+	save_settings()
 });
 
-$('#color_numing').on('change', function(){
-    color_numing = this.value;
-    save_settings()
+$('#color_title').on('change', function () {
+	color_title = this.value
+	save_settings()
+});
+$('#color_probs').on('change', function () {
+	color_probs = this.value
+	save_settings()
+});
+$('#color_answer').on('change', function () {
+	color_answer = this.value;
+	save_settings()
+});
+
+$('#color_numing').on('change', function () {
+	color_numing = this.value;
+	save_settings()
 });
 
 // paper_count init.
-function read_paper_count(){
-    return $('#paper_count').val()
-}
-function read_paper_counter(){
-    return $('#paper_counter').text().split('/')
-};
-
-function update_paper_counter(count, total){
-    const new_val = count+'/'+total
-    $('#paper_counter').text(new_val);
-};
-
-function refresh_paper_count(){
-    update_paper_counter(0, paper_count);
+function read_paper_count() {
+	return $('#paper_count').val()
 }
 
-function increment_paper_counter(){
-    const curr_read = read_paper_counter();
-    update_paper_counter(parseInt(curr_read[0])+1, curr_read[1])
+function read_paper_counter() {
+	return $('#paper_counter').text().split('/')
+};
+
+function update_paper_counter(count, total) {
+	const new_val = count + '/' + total
+	$('#paper_counter').text(new_val);
+};
+
+function refresh_paper_count() {
+	update_paper_counter(0, paper_count);
+}
+
+function increment_paper_counter() {
+	const curr_read = read_paper_counter();
+	update_paper_counter(parseInt(curr_read[0]) + 1, curr_read[1])
 };
 // paper_count - end
 
 // tab 4 ribbon event.
 const news_link = 'https://raw.githubusercontent.com/ahmed4end/Mathar-GUI/master/news.html';
 
-$('#news').on('click', function(){
-    fetch(news_link)
-        .then(response => response.text())
-        .then(data => {
-        Swal.queue([{
-            html: data,
-            showConfirmButton: false,
-            footer : modal_footer,
+$('#news').on('click', function () {
+	fetch(news_link)
+		.then(response => response.text())
+		.then(data => {
+			Swal.queue([{
+				html: data,
+				showConfirmButton: false,
+				footer: modal_footer,
         }]);
-    }).catch(()=> {
-        Swal.queue([{
-            icon: 'error',
-            title: 'حدث خطأ ما',
-            text: 'يرجى التأكد من الإتصال بالإنترنت لجلب آخر تحديث للأخبار',
-            footer : modal_footer,
-            showConfirmButton: false,
-        }]);        
-    });
+		}).catch(() => {
+			Swal.queue([{
+				icon: 'error',
+				title: 'حدث خطأ ما',
+				text: 'يرجى التأكد من الإتصال بالإنترنت لجلب آخر تحديث للأخبار',
+				footer: modal_footer,
+				showConfirmButton: false,
+        }]);
+		});
 });
 
 // disable dev buttons
-function disable_dev_buttons(){
-    // Diable F5 Button
-    $(document).on("keydown", function(e){if ((e.which || e.keyCode) == 116) e.preventDefault()});
+function disable_dev_buttons() {
+	// Diable F5 Button
+	$(document).on("keydown", function (e) {
+		if ((e.which || e.keyCode) == 116) e.preventDefault()
+	});
 
-    // Disable Right click
-    document.addEventListener('contextmenu', event => event.preventDefault());
+	// Disable Right click
+	document.addEventListener('contextmenu', event => event.preventDefault());
 
-    // Disable some short keys
-    document.onkeydown = function(e) {
-        if(event.keyCode == 123) {
-            return false;
-        }
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-            return false;
-        }
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
-            return false;
-        }
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-            return false;
-        }
-        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
-            return false;
-        }
-    }
+	// Disable some short keys
+	document.onkeydown = function (e) {
+		if (event.keyCode == 123) {
+			return false;
+		}
+		if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+			return false;
+		}
+		if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+			return false;
+		}
+		if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+			return false;
+		}
+		if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+			return false;
+		}
+	}
 }
 
-$('#watermark').on('click', function(){
+$('#watermark').on('click', function () {
 	//Swal.fire({title: 'watermark'})
 	// DIV
 })
-
-

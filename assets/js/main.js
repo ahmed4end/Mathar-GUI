@@ -216,10 +216,6 @@ ${fiter_data}
 	//add placeholder to filter.
 	$('#table1_filter input').attr('placeholder', 'البحث');
 
-	//table pages
-	var table1_nodes = table1.rows().nodes();
-	const table1_images = $('.lazyload', table1_nodes);
-
 	// column 0 - table 1  - draw index increament.
 	function enumerate_table1() {
 		table1.on('order.dt search.dt', function () {
@@ -332,7 +328,7 @@ ${fiter_data}
 			didOpen: () => {
 				Swal.showLoading();
 				// update table 
-				table1.rows().remove().draw();
+				table1.clear().draw();
 				table1.rows.add(dataset).draw();
 			},
 		});
@@ -660,41 +656,6 @@ ${fiter_data}
 
 		}
 
-	});
-
-	const zoom = mediumZoom()
-	//table pages
-	const table2_images = $('.lazyload', table2.rows().nodes());
-
-	// tap 1 start zooming event.
-	$('#switch_zoom').click(function () {
-		if ($(this).is(':checked')) {
-			console.log('zoom: on');
-			// toast
-			Toast.fire({
-				icon: 'info',
-				title: 'الأن يمكنك تكبير المسائل فى الجدول بالضغط على صورة المسئلة',
-			});
-			// enable zoom on table 1
-			for (var i = 0; table1_images.length > i; i++) {
-				zoom.attach(table1_images[i])
-			}
-		} else {
-			console.log('zoom: off');
-			// toast
-			Toast.fire({
-				icon: 'info',
-				title: 'تم إلغاء تكبير المسائل فى الجدول',
-			});
-			// disable zoom on table 1
-			for (var i = 0; table1_images.length > i; i++) {
-				zoom.detach(table1_images[i])
-			}
-			// diable zoom on table 2
-			for (var i = 0; table2_images.length > i; i++) {
-				zoom.detach(table2_images[i])
-			}
-		}
 	});
 
 	// expose func ro python for failed queue.
