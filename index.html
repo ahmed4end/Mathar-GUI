@@ -55,7 +55,7 @@
 		</div>
 		<div class='preloader-title'>
 			<h1><b>Mather</b></h1>
-			<h5>— ( الصف الثالث الثانوى - جبر ) —</h5>
+			<h5>— ( الصف الثالث الإعدادى - جبر ) —</h5>
 			<p><q>The teacher's tool to innovate</q></p>
 		</div>
 		<div class="preloader-spinner">
@@ -176,20 +176,21 @@
 					<fieldset>
 						<legend>عام</legend>
 						<div class="form-item">
-							<div class="form-item-left" data-tippy-content="متاح لك إختيار خط من بين 12 خط">
+							<div class="form-item-left" data-tippy-content="متاح لك إختيار خط من بين 13 خط">
 								<select id='font_name'>
-									<option value="Arial">Arial</option>
-									<option value="Arzon">Arzon</option>
+									<option value="Yakout">Yakout</option>
+									<option  selected="selected" value="Osama">Osama</option>
+									<option value="Diwan">Diwan</option>
 									<option value="Amiri">Amiri</option>
-									<option selected="selected" value="Yakout">Yakout</option>
-									<option value="Akhbar">Akhbar</option>
+									<option value="Neo">Neo</option>
+									<option value="Noto">Noto</option>
+									<option value="Arial">Arial</option>
+									<option value="Traditional">Tradi</option>
 									<option value="Changa">Changa</option>
 									<option value="Kaff">Kaff</option>
-									<option value="Neo">Neo Sans</option>
-									<option value="Diwan">Diwan Muna</option>
-									<option value="Noto">Noto Naskh</option>
-									<option value="Traditional">Traditional</option>
-									<option value="Aktiv">Aktiv Grotesk</option>
+									<option value="Arzon">Arzon</option>
+									<option value="Aktiv">Aktiv</option>
+									<option value="Myriad">Myriad</option>
 								</select>
 							</div>
 							<div class="form-item-middle">:</div>
@@ -198,7 +199,7 @@
 						<div class='line'></div>
 						<div class="form-item">
 							<div class="form-item-left">
-								<input id='font_size' type="number" value="70" data-tippy-content="متاح إختيار حجم ما بين 40 إلى 120" required="">
+								<input id='font_size' type="number" value="90" data-tippy-content="متاح إختيار حجم ما بين 40 إلى 160" required="">
 							</div>
 							<div class="form-item-middle">:</div>
 							<label class="form-item-right" data-tippy-content='حجم الخط المستخدم فى كتابة المسائل'>حجم الخط</label>
@@ -242,15 +243,15 @@
 							<div class="form-item">
 								<div class="form-item-left">
 									<select id='border_style'>
-										<option selected="selected" value=0>إطار مستطيل</option>
-										<option value=1>إطار طوقى 1</option>
-										<option value=2>إطار طوقى 2</option>
-										<option value=3>إطار طوقى 3</option>
-										<option value=4>إطار مزخرف 1</option>
-										<option value=5>إطار مزخرف 2</option>
-										<option value=6>إطار مزخرف 3</option>
-										<option value=7>إطار مزخرف 4</option>
-										<option value=8>إطار مزخرف 5</option>
+										<option value=0>إطار</option>
+										<option selected="selected" value=1>إطار 1</option>
+										<option value=2>إطار 2</option>
+										<option value=3>إطار 3</option>
+										<option value=4>إطار 4</option>
+										<option value=5>إطار 5</option>
+										<option value=6>إطار 6</option>
+										<option value=7>إطار 7</option>
+										<option value=8>إطار 8</option>
 									</select>
 								</div>
 								<div class="form-item-middle">:</div>
@@ -259,11 +260,12 @@
 
 							<div class='line'></div>
 							<div class="form-item">
-								<div class="form-item-left" data-tippy-content='يظهر هذا التوقيه فى نهاية الورقة المكونة بالأسفل.'>
-									<input id='signature' type='text' value="" placeholder="التوقيع" dir="auto">
+								<div class="form-item-left">
+									<input type="checkbox" id="include_id" checked><label class='checkbox-label' for="include_id"></label>
+									<span>مفعل</span>
 								</div>
 								<div class="form-item-middle">:</div>
-								<label class="form-item-right" data-tippy-content='هذا النص يتم كتابته فى نهاية الورق المكون'>التوقيع</label>
+								<label class="form-item-right" data-tippy-content='كود مميز يكتب فى أعلى كل ورقة من الأسئلة وإجابتها لتمييزهما'>كود الورقة</label>
 							</div>
 							<div class='line'></div>
 							<div class="form-item">
@@ -295,13 +297,6 @@
 							<label class="form-item-right" data-tippy-content='لون المسائل'>لون الأسئلة</label>
 						</div>
 						<div class='line'></div>
-						<div class="form-item">
-							<div class="form-item-left">
-								<input id='color_answer' class='input_overlay' type="color" value="#00FF00">
-							</div>
-							<div class="form-item-middle">:</div>
-							<label class="form-item-right" data-tippy-content='لون الإجابات'>لون الإجابات</label>
-						</div>
 						<div class='line'></div>
 						<div class="form-item">
 							<div class="form-item-left">
@@ -314,11 +309,6 @@
 
 					<div class='forum left'>
 						<div class='flex-col'>
-							<button id="news" class='fourm-btn'>
-								<h6 data-tippy-content="آخر الأخبار والتحديثات عن البرنامج مُحدثة بشكل دورى">
-									نقاشات و أخبار
-								</h6>
-							</button>
 							<button id="license" class='fourm-btn'>
 								<h6>
 									حالة البرنامج: <span id='license_status'>None</span>

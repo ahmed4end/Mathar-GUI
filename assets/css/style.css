@@ -989,6 +989,7 @@ select {
 	border: var(--border);
 	border-radius: var(--border-radius);
 	background: var(--white-grad);
+	margin: 0.1rem 0;
 }
 
 .fourm-btn:hover {

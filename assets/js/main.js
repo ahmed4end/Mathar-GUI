@@ -61,22 +61,6 @@ function table_id_parser(data, type) {
 <div style="display: inline-block;color:grey;" id="table1Id">${data[1]}</div>`
 }
 
-function table_col3(arr) {
-	// arr = [unit, lesson, page, prob, node]
-	var res = []
-	if (arr[0]) {
-		res.push(`ص${arr[0]}`)
-	};
-	if (arr[1]) {
-		res.push(`س${arr[1]}`)
-	};
-	if (res.length > 0) {
-		return res.join('<br>')
-	} else {
-		return '<span class="silver">—</span>'
-	}
-}
-
 function table_col_last(data, type) {
 	return data + "<form></form><button class='to_table2 btn_1 icon-plus'><span>أختر</span></button>";
 }
@@ -124,11 +108,6 @@ $(document).ready(function () {
 				render: table_image_wrapper
 			},
 			{
-				title: icon_book,
-				render: table_col3,
-				width: '2%'
-			},
-			{
 				title: "نوع",
 				render: function (data, type) {
 					return vertical_wrapper(data);
@@ -174,11 +153,12 @@ $(document).ready(function () {
 
 	$('.table1_fcon .left').html(
 		`
-<select id='slecet_filter'>
-<option value='ALL'>الكل</option>
-${fiter_data}
-</select>
-`
+			<select id='slecet_filter'>
+			<option value='ALL'>الكل</option>
+			<option value='MCQ'>MCQ</option>
+			${fiter_data}
+			</select>
+		`	
 	);
 
 	$('.table1_fcon .left').hover(function () {
@@ -194,8 +174,14 @@ ${fiter_data}
 				icon: 'success',
 				title: "عرض كل المسائل"
 			});
+		} else if (this.value == 'MCQ'){
+			table1.columns(1).search(mcq_regex, true, false).draw();
+			Toast.fire({
+				icon: 'success',
+				title: `عرض أسئلة الإختيارى من متعدد فقط`
+			});
 		} else {
-			table1.columns(4).search('^' + this.value + '$', true, false).draw();
+			table1.columns(3).search('^' + this.value + '$', true, false).draw();
 			Toast.fire({
 				icon: 'success',
 				title: `عرض ${this.value} فقط`
@@ -210,8 +196,6 @@ ${fiter_data}
 	});
 	tippy('[data-tippy-content]'); // [BUG]table 1 pages other than 1 does not work with tippy
 	//////////////////
-
-	//table1.on( 'page.dt', function () {  });
 
 	//add placeholder to filter.
 	$('#table1_filter input').attr('placeholder', 'البحث');
@@ -253,10 +237,6 @@ ${fiter_data}
 			{
 				title: "المسئلة",
 				width: '55%'
-			},
-			{
-				title: icon_book,
-				width: '2%'
 			},
 			{
 				title: "نوع",
@@ -639,10 +619,10 @@ ${fiter_data}
 			};
 
 			// collect data from table 2             
-			var rowOptions = table2.column(5).nodes();
+			var rowOptions = table2.column(4).nodes();
 
 			rowOptions = rowOptions.toArray().map(ele => $('form', ele).first().data('dict'))
-
+			
 			//console.log(RowOptions)
 			callPython(rowOptions);
 			// clear modals queue.
