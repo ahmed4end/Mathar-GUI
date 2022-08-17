@@ -1,7 +1,7 @@
 "use strict";
 
 
-var license_value = 1
+var license_value = 0
 // tooltips text
 var tooltip_dynamic = 'هذه المسئلة ديناميكة'
 var tooltip_static = 'هذه المسئلة إستاتيكية'
@@ -36,7 +36,7 @@ var tables_tanslation = {
 	},
 }
 
-var demos = ['title'] // debug - make a copy in app.py in case of this one is hacked.
+var demos = ['title','dot_line','L1P7', 'L2P9', 'L6P2', 'L2P7', 'L3P7', 'L6P5', 'L3P6', 'L8P1', 'L4P2', 'L7P5', 'L3P1', 'L3P5', 'L9P7', 'L1P24', 'L5P10', 'L4P6', 'L1P5', 'L8P7', 'L9P8', 'L6P1', 'L1P12', 'L1P9', 'L7P8', 'L8P9', 'L6P3', 'L8P10', 'L3P10', 'L3P8', 'L6P4', 'L2P2', 'L2P3', 'L8P4', 'L8P5', 'L5P6', 'L7P1', 'L1P14', 'L5P3', 'L5P1', 'L8P2', 'L7P2', 'L1P23', 'L2P4', 'L7P10', 'L4P5', 'L4P10', 'L6P9', 'L1P3', 'L9P5', 'L7P7', 'L4P4', 'L9P3', 'L8P3', 'L9P9', 'L8P6', 'L5P2', 'L1P13', 'L5P7', 'L5P4', 'L6P7', 'L1P22', 'L7P3', 'L4P1', 'L2P10', 'L9P6', 'L3P2', 'L9P1', 'L1P6', 'L9P10', 'L6P6', 'L1P1', 'L7P6', 'L1P11', 'L7P9', 'L1P15', 'L9P4', 'L5P9', 'L5P5', 'L1P25', 'L1P10', 'L7P4', 'L1P21', 'L3P4', 'L2P5', 'L4P3', 'L4P7', 'L1P2', 'L6P8', 'L5P8', 'L4P8', 'L8P8', 'L2P6', 'L4P9', 'L2P1', 'L9P2', 'L1P4', 'L1P8', 'L3P9', 'L2P8', 'L6P10', 'L3P3'] // debug - make a copy in app.py in case of this one is hacked.
 
 const table1_args = {
 	"autoWidth": false,
@@ -60,7 +60,7 @@ const table1_args = {
     }],
 	"rowCallback": async function (row, data, displayNum, displayIndex, dataIndex) {
 		try {
-			if (false)  { // (!demos.includes(data[2]) && !license_value)
+			if (!demos.includes(data[2]) && !license_value) {
 				$('.btn_1', row).removeClass('to_table2');
 				$('.btn_1', row).addClass('btn_1-pro');
 				$('.btn_1 span', row).text('أختر')
