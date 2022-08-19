@@ -1,8 +1,8 @@
 'use luck';
 'use strict';
 
-// disable dev buttons
-//disable_dev_buttons()
+// disable dev buttons\
+disable_dev_buttons()
 
 // stop input fro submitting on enter.
 $(window).keydown(function (event) {
@@ -302,9 +302,9 @@ $(document).ready(function () {
 
 	function unlock_table1() { // replace table1 pro btns with to_table2 btns.
 		Swal.fire({
-			title: '<h1 class="azure">جارى ترقية البرنامج للنسخة المدفوعة</h1>',
+			title: '<h1 class="azure">النسخة المدفوعة</h1>',
 			text: 'شكراً لشرائك البرنامج, لقد ساهمت بإستمرار تطويره ',
-			timer: 2000,
+			timer: 1000,
 			didOpen: () => {
 				Swal.showLoading();
 				// update table 
