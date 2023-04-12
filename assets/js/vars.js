@@ -1,7 +1,7 @@
 "use strict";
 
 
-var license_value = 0
+var license_value = 1
 // tooltips text
 var tooltip_dynamic = 'هذه المسئلة ديناميكة'
 var tooltip_static = 'هذه المسئلة إستاتيكية'
